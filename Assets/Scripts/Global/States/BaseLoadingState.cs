@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using UnityEngine.SceneManagement;
 
-namespace Factura.Global.States
+namespace EndlessHeresy.Global.States
 {
     public abstract class BaseLoadingState : BaseGameState
     {

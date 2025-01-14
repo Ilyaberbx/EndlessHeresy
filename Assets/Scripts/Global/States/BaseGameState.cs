@@ -2,10 +2,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Better.Locators.Runtime;
 using Better.StateMachine.Runtime.States;
-using Factura.Global.Services;
-using Factura.Global.Services.StatesManagement;
+using EndlessHeresy.Global.Services.StatesManagement;
 
-namespace Factura.Global.States
+namespace EndlessHeresy.Global.States
 {
     public abstract class BaseGameState : BaseState
     {

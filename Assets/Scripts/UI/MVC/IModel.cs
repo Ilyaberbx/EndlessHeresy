@@ -1,4 +1,4 @@
-namespace Factura.UI.MVC
+namespace EndlessHeresy.UI.MVC
 {
     public interface IModel
     {

@@ -4,10 +4,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Better.Services.Runtime;
 using Cinemachine;
-using Factura.Gameplay.Extensions;
+using EndlessHeresy.Gameplay.Extensions;
 using UnityEngine;
 
-namespace Factura.Gameplay.Services.Camera
+namespace EndlessHeresy.Gameplay.Services.Camera
 {
     [Serializable]
     public sealed class CameraService : PocoService, ICameraProvider

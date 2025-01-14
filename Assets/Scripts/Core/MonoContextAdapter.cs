@@ -6,7 +6,7 @@ using Better.Commons.Runtime.Extensions;
 using Better.Contexts.Runtime.Installers;
 using UnityEngine;
 
-namespace Factura.Core
+namespace EndlessHeresy.Core
 {
     public class MonoContextAdapter : MonoBehaviour
     {

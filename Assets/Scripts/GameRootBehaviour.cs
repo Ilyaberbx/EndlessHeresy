@@ -1,10 +1,10 @@
 using Better.Commons.Runtime.Extensions;
 using Better.Locators.Runtime;
-using Factura.Global.Services.StatesManagement;
-using Factura.Global.States;
+using EndlessHeresy.Global.Services.StatesManagement;
+using EndlessHeresy.Global.States;
 using UnityEngine;
 
-namespace Factura
+namespace EndlessHeresy
 {
     public sealed class GameRootBehaviour : MonoBehaviour
     {

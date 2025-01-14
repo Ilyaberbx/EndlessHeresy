@@ -1,4 +1,4 @@
-namespace Factura.Gameplay.Services.Update
+namespace EndlessHeresy.Gameplay.Services.Update
 {
     public interface IGameUpdatable
     {

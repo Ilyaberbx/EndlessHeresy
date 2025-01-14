@@ -3,10 +3,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Better.Services.Runtime;
 using Better.StateMachine.Runtime;
-using Factura.Core;
-using Factura.Global.States;
+using EndlessHeresy.Core;
+using EndlessHeresy.Global.States;
 
-namespace Factura.Global.Services.StatesManagement
+namespace EndlessHeresy.Global.Services.StatesManagement
 {
     [Serializable]
     public sealed class GameStatesService : PocoService, IDisposable

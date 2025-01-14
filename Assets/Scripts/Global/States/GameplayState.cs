@@ -1,4 +1,4 @@
-namespace Factura.Global.States
+namespace EndlessHeresy.Global.States
 {
     public sealed class GameplayState : BaseLoadingState
     {

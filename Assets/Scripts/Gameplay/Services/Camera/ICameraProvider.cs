@@ -1,4 +1,4 @@
-namespace Factura.Gameplay.Services.Camera
+namespace EndlessHeresy.Gameplay.Services.Camera
 {
     public interface ICameraProvider
     {

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Better.Services.Runtime;
 using UnityEngine;
 
-namespace Factura.Global.Services.Input
+namespace EndlessHeresy.Global.Services.Input
 {
     [Serializable]
     public sealed class InputService : PocoService

@@ -2,7 +2,7 @@ using System;
 using Cinemachine;
 using UnityEngine;
 
-namespace Factura.Gameplay.Services.Camera
+namespace EndlessHeresy.Gameplay.Services.Camera
 {
     [Serializable]
     public sealed class BrainCameraData

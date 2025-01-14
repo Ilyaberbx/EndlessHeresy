@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Factura.Global.Services.AssetsManagement
+namespace EndlessHeresy.Global.Services.AssetsManagement
 {
     public interface IAssetsProvider
     {

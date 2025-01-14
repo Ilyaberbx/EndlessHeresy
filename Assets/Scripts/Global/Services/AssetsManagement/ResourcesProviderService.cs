@@ -5,7 +5,7 @@ using Better.Services.Runtime;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Factura.Global.Services.AssetsManagement
+namespace EndlessHeresy.Global.Services.AssetsManagement
 {
     [Serializable]
     public class ResourcesProviderService : PocoService, IAssetsProvider

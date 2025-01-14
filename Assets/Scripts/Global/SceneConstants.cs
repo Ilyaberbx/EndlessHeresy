@@ -1,4 +1,4 @@
-namespace Factura.Global
+namespace EndlessHeresy.Global
 {
     public static class SceneConstants
     {

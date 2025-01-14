@@ -6,7 +6,7 @@ using Better.Commons.Runtime.Extensions;
 using Better.Services.Runtime;
 using UnityEngine;
 
-namespace Factura.Gameplay.Services.Update
+namespace EndlessHeresy.Gameplay.Services.Update
 {
     public sealed class GameUpdateService : MonoService
     {

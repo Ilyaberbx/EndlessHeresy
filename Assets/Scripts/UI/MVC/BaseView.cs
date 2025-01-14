@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Factura.UI.MVC
+namespace EndlessHeresy.UI.MVC
 {
     [RequireComponent(typeof(CanvasGroup))]
     public abstract class BaseView : MonoBehaviour

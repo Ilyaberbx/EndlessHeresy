@@ -1,6 +1,6 @@
 using System;
 
-namespace Factura.UI.MVC
+namespace EndlessHeresy.UI.MVC
 {
     public abstract class BaseController : IDisposable
     {

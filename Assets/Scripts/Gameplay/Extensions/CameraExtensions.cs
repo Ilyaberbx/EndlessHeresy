@@ -1,8 +1,7 @@
 using Cinemachine;
-using Factura.Gameplay.Camera;
-using Factura.Gameplay.Services.Camera;
+using EndlessHeresy.Gameplay.Services.Camera;
 
-namespace Factura.Gameplay.Extensions
+namespace EndlessHeresy.Gameplay.Extensions
 {
     public static class CameraExtensions
     {
