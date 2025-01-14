@@ -30,12 +30,15 @@ namespace EndlessHeresy.Global.Services.Input
         {
             _isLocked = false;
         }
-        
+
         public Vector2 GetMovementInput()
         {
             float horizontal = UnityEngine.Input.GetAxisRaw("Horizontal");
             float vertical = UnityEngine.Input.GetAxisRaw("Vertical");
             return new Vector2(horizontal, vertical);
         }
+
+        public Vector2 GetMousePosition() => new(UnityEngine.Input.mousePosition.x, UnityEngine.Input.mousePosition.y);
+        public bool GetKeyDown(KeyCode key) => !_isLocked && UnityEngine.Input.GetKeyDown(key);
     }
 }

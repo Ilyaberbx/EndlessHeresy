@@ -18,5 +18,10 @@ namespace EndlessHeresy.Gameplay.Extensions
         {
             return new Vector3(source.x, source.y, source.z + value);
         }
+
+        public static Vector2 ToVector2(this Vector3 source)
+        {
+            return source;
+        }
     }
 }
