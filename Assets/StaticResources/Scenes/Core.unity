@@ -151,7 +151,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2030295151}
+  - {fileID: 2022316880}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &435702937
@@ -485,12 +487,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022316879}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2030295151}
+  m_Father: {fileID: 435702936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2022316881
 MonoBehaviour:
@@ -529,13 +531,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030295150}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2022316880}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 435702936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2030295152
 MonoBehaviour:
@@ -559,36 +560,22 @@ MonoBehaviour:
       type: {class: PocoServicesInstaller, ns: Better.Contexts.Runtime.Installers, asm: Better.Contexts.Runtime}
       data:
         _services:
-        - rid: 6450054194563121152
-        - rid: 6450054146183397385
-        - rid: 6450054194563121153
-        - rid: 6450054194563121154
-        - rid: 6450054194563121160
-        - rid: 6450054194563121161
+        - rid: 6450054396463284224
+        - rid: 6450054396463284225
+        - rid: 6450054396463284226
     - rid: 6450054146183397381
       type: {class: MonoServicesInstaller, ns: Better.Contexts.Runtime.Installers, asm: Better.Contexts.Runtime}
       data:
         _services:
         - {fileID: 2022316881}
-    - rid: 6450054146183397385
-      type: {class: PopupService, ns: Factura.UI.Services, asm: Assembly-CSharp}
-      data:
-        _backgroundGroup: {fileID: 806273929}
-        _root: {fileID: 1876198447}
-    - rid: 6450054194563121152
-      type: {class: GameStatesService, ns: Factura.Global.Services.StatesManagement, asm: Assembly-CSharp}
+    - rid: 6450054396463284224
+      type: {class: GameStatesService, ns: EndlessHeresy.Global.Services.StatesManagement, asm: Assembly-CSharp}
       data: 
-    - rid: 6450054194563121153
-      type: {class: InputService, ns: Factura.Global.Services.Input, asm: Assembly-CSharp}
+    - rid: 6450054396463284225
+      type: {class: InputService, ns: EndlessHeresy.Global.Services.Input, asm: Assembly-CSharp}
       data: 
-    - rid: 6450054194563121154
-      type: {class: ResourcesProviderService, ns: Factura.Global.Services.AssetsManagement, asm: Assembly-CSharp}
-      data: 
-    - rid: 6450054194563121160
-      type: {class: GameplayStaticDataService, ns: Factura.Global.Services.StaticData, asm: Assembly-CSharp}
-      data: 
-    - rid: 6450054194563121161
-      type: {class: UIStaticDataService, ns: Factura.Global.Services.StaticData, asm: Assembly-CSharp}
+    - rid: 6450054396463284226
+      type: {class: ResourcesProviderService, ns: EndlessHeresy.Global.Services.AssetsManagement, asm: Assembly-CSharp}
       data: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -597,4 +584,3 @@ SceneRoots:
   - {fileID: 435702936}
   - {fileID: 721045909}
   - {fileID: 519732469}
-  - {fileID: 2030295151}

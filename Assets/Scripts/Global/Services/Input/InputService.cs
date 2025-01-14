@@ -9,6 +9,8 @@ namespace EndlessHeresy.Global.Services.Input
     [Serializable]
     public sealed class InputService : PocoService
     {
+        private bool _isLocked;
+
         protected override Task OnInitializeAsync(CancellationToken cancellationToken)
         {
             return Task.CompletedTask;
@@ -19,14 +21,21 @@ namespace EndlessHeresy.Global.Services.Input
             return Task.CompletedTask;
         }
 
-        public bool IsMouse(int index)
+        public void Lock()
         {
-            return UnityEngine.Input.GetMouseButton(index);
+            _isLocked = true;
         }
 
-        public Vector3 GetMousePosition()
+        public void Unlock()
         {
-            return UnityEngine.Input.mousePosition;
+            _isLocked = false;
+        }
+        
+        public Vector2 GetMovementInput()
+        {
+            float horizontal = UnityEngine.Input.GetAxisRaw("Horizontal");
+            float vertical = UnityEngine.Input.GetAxisRaw("Vertical");
+            return new Vector2(horizontal, vertical);
         }
     }
 }

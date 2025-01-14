@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: ThirdPlan
+    uniqueID: 1413430333
+    locked: 0
+  - name: SecondPlan
+    uniqueID: 1991323567
+    locked: 0
+  - name: FirstPlan
+    uniqueID: 2436777197
+    locked: 0
