@@ -17,6 +17,7 @@ namespace EndlessHeresy.Gameplay.Abilities.Dash
             dash.SetCurve(_configuration.DashCurve);
             dash.SetSpeed(_configuration.DashSpeed);
             dash.SetLength(_configuration.DashLength);
+            dash.SetDamage(_configuration.DashDamage);
             dash.SetCastStarter(new ImmediateCaster());
             return dash;
         }

@@ -7,7 +7,7 @@ namespace EndlessHeresy.Core
 {
     public abstract class MonoActor : MonoBehaviour, IActor
     {
-        [SerializeField] private MonoComponent[] _monoComponents;
+        [SerializeField] protected MonoComponent[] MonoComponents;
 
         private IComponentsLocator _componentsLocator;
         private IEnumerable<IComponent> _components;
@@ -18,6 +18,17 @@ namespace EndlessHeresy.Core
         public GameObject GameObject => _gameObject;
         public Transform Transform => _transform;
         public bool ActiveSelf => GameObject.activeSelf;
+
+        private void Awake()
+        {
+            if (_componentsLocator != null)
+            {
+                return;
+            }
+
+            _componentsLocator = new ComponentsLocator();
+            InitializeMonoComponents();
+        }
 
         public async Task InitializeAsync(IComponentsLocator locator)
         {
@@ -45,8 +56,16 @@ namespace EndlessHeresy.Core
         public new bool TryGetComponent<TComponent>(out TComponent component) where TComponent : IComponent =>
             _componentsLocator.TryGetComponent(out component);
 
-        public bool TryAddComponent<TComponent>(TComponent component) where TComponent : IComponent =>
-            _componentsLocator.TryAddComponent(component);
+        public bool TryAddComponent<TComponent>(TComponent component) where TComponent : IComponent
+        {
+            if (_componentsLocator.TryAddComponent(component))
+            {
+                component.SetActor(this);
+                return true;
+            }
+
+            return false;
+        }
 
         public bool TryRemoveComponent<TComponent>(TComponent component) where TComponent : IComponent =>
             _componentsLocator.TryRemoveComponent(component);
@@ -105,7 +124,7 @@ namespace EndlessHeresy.Core
             _transform = transform;
             _gameObject = gameObject;
 
-            foreach (var monoComponent in _monoComponents)
+            foreach (var monoComponent in MonoComponents)
             {
                 TryAddComponent(monoComponent);
             }

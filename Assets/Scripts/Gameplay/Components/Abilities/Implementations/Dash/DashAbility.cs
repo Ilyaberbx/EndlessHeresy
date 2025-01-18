@@ -3,6 +3,7 @@ using DG.Tweening;
 using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Common;
 using EndlessHeresy.Gameplay.Extensions;
+using EndlessHeresy.Gameplay.Health;
 using EndlessHeresy.Gameplay.Movement;
 using EndlessHeresy.Gameplay.Tags;
 using UnityEngine;
@@ -13,73 +14,105 @@ namespace EndlessHeresy.Gameplay.Abilities.Dash
     {
         private float _speed;
         private float _length;
+        private float _damage;
         private AnimationCurve _curve;
-        private HeroMovementComponent _movementComponent;
+
         private Tweener _dashTween;
-        private ObstacleObserverComponent _obstacleObserverComponent;
+        private HeroMovementComponent _movementComponent;
+        private ObstacleTriggerObserver _obstacleTriggerObserver;
+        private EnemyTriggerObserver _enemyTriggerObserver;
 
         public void SetCurve(AnimationCurve curve) => _curve = curve;
         public void SetLength(float length) => _length = length;
         public void SetSpeed(float speed) => _speed = speed;
+        public void SetDamage(float damage) => _damage = damage;
 
         protected override async Task CastAsync(IActor owner)
         {
-            if (!owner.TryGetComponent(out _movementComponent))
+            if (!GetRequiredComponents(owner))
+                return;
+
+            if (!TryInitializeTween(owner))
+                return;
+
+            PrepareForDash();
+            await _dashTween.AsTask(CastCancellationToken);
+            CompleteDash();
+        }
+
+        private bool IsComponentsInitialized() => _movementComponent != null && _obstacleTriggerObserver != null;
+
+        private void ObstacleTriggerEntered(ObstacleTagComponent obstacleTagComponent)
+        {
+            if (_dashTween == null)
             {
                 return;
             }
 
-            if (!owner.TryGetComponent(out _obstacleObserverComponent))
+            _dashTween.Kill();
+            CompleteDash();
+        }
+
+        private bool GetRequiredComponents(IActor owner)
+        {
+            var componentsInitialized = IsComponentsInitialized();
+            if (componentsInitialized)
             {
-                return;
+                return true;
             }
 
+            return owner.TryGetComponent(out _movementComponent) &&
+                   owner.TryGetComponent(out _obstacleTriggerObserver) &&
+                   owner.TryGetComponent(out _enemyTriggerObserver);
+        }
+
+        private bool TryInitializeTween(IActor owner)
+        {
             var camera = Camera.main;
-
             if (camera == null)
             {
-                return;
+                _dashTween = null;
+                return false;
             }
 
             var mouseWorldPosition = camera.ScreenToWorldPoint(Input.mousePosition);
             var ownerTransform = owner.GameObject.transform;
-            var lookDirection = ownerTransform.position.DirectionTo(mouseWorldPosition).ToVector2();
-            var endValue = ownerTransform.position.ToVector2() + lookDirection * _length;
-
-            _dashTween = GetDashTween(owner.GameObject, ownerTransform, endValue);
-
-            PreCast();
-            await _dashTween.AsTask(CastCancellationToken);
-            _dashTween = null;
-            PostCast();
+            var direction = ownerTransform.position.DirectionTo(mouseWorldPosition).ToVector2();
+            var endPosition = ownerTransform.position.ToVector2() + direction * _length;
+            _dashTween = BuildDashTween(owner.GameObject, ownerTransform, endPosition);
+            return true;
         }
 
-        private void PreCast()
-        {
-            _movementComponent.Lock();
-            _obstacleObserverComponent.OnTriggerEnter += OnObstacleEntered;
-            SetStatus(AbilityStatus.InUse);
-        }
-
-        private void PostCast()
-        {
-            _obstacleObserverComponent.OnTriggerEnter -= OnObstacleEntered;
-            SetStatus(AbilityStatus.Ready);
-            _movementComponent.Unlock();
-        }
-
-        private Tweener GetDashTween(GameObject gameObject, Transform ownerTransform, Vector2 endValue)
-        {
-            return ownerTransform.DOMove(endValue, _speed)
+        private Tweener BuildDashTween(GameObject gameObject, Transform ownerTransform, Vector2 endValue) =>
+            ownerTransform.DOMove(endValue, _speed)
                 .SetEase(_curve)
                 .SetSpeedBased(true)
                 .SetId(gameObject);
+
+        private void PrepareForDash()
+        {
+            _movementComponent.Lock();
+            _obstacleTriggerObserver.OnTriggerEnter += ObstacleTriggerEntered;
+            _enemyTriggerObserver.OnTriggerEnter += OnEnemyTriggerEnter;
+            SetStatus(AbilityStatus.InUse);
         }
 
-        private void OnObstacleEntered(ObstacleTagComponent obstacleTagComponent)
+        private void OnEnemyTriggerEnter(EnemyTagComponent enemyTagComponent)
         {
-            _dashTween?.Kill();
-            PostCast();
+            var enemy = enemyTagComponent.Owner;
+            if (!enemy.TryGetComponent(out HealthComponent healthComponent))
+            {
+                return;
+            }
+
+            healthComponent.TakeDamage(_damage);
+        }
+
+        private void CompleteDash()
+        {
+            _movementComponent.Unlock();
+            _obstacleTriggerObserver.OnTriggerEnter -= ObstacleTriggerEntered;
+            SetStatus(AbilityStatus.Ready);
         }
     }
 }
