@@ -39,4 +39,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _dashSpeed: 35
-  _dashLength: 12
+  _dashLength: 1
