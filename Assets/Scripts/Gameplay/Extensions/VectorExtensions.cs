@@ -8,6 +8,5 @@ namespace EndlessHeresy.Gameplay.Extensions
         public static Vector3 AddY(this Vector3 source, float value) => new(source.x, source.y + value, source.z);
         public static Vector3 AddZ(this Vector3 source, float value) => new(source.x, source.y, source.z + value);
         public static Vector2 ToVector2(this Vector3 source) => source;
-        public static Vector3 DirectionTo(this Vector3 from, Vector3 to) => to - from;
     }
 }

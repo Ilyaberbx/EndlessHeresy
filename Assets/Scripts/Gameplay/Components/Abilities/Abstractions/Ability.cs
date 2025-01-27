@@ -12,6 +12,7 @@ namespace EndlessHeresy.Gameplay.Abilities
         private CancellationTokenSource _castCancellationSource;
         private ICastStarter _castStarter;
         private IActor _owner;
+        
         public KeyCode HotKey { get; private set; }
         public float Cooldown { get; private set; }
         public AbilityStatus Status { get; private set; }
@@ -50,6 +51,5 @@ namespace EndlessHeresy.Gameplay.Abilities
 
         protected abstract Task CastAsync(IActor owner);
         private void OnCastApplied() => CastAsync(_owner);
-        protected void CancelCast() => _castCancellationSource?.Cancel();
     }
 }

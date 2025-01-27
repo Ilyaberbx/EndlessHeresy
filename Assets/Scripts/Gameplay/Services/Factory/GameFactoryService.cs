@@ -6,6 +6,7 @@ using Better.Services.Runtime;
 using EndlessHeresy.Core;
 using EndlessHeresy.Core.Builder;
 using EndlessHeresy.Gameplay.Abilities;
+using EndlessHeresy.Gameplay.Actors;
 using EndlessHeresy.Gameplay.Actors.Hero;
 using EndlessHeresy.Gameplay.Movement;
 using EndlessHeresy.Gameplay.Services.StaticData;
@@ -42,7 +43,6 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             return heroBuilder
                 .ForPrefab(_heroConfiguration.Prefab)
                 .WithPosition(at)
-                .WithParent(null)
                 .WithComponent(abilityCast)
                 .WithComponent(abilitiesStorage)
                 .WithComponent(heroMovementComponent)

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Better.Commons.Runtime.Extensions;
 using DG.Tweening;
 using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Common;
@@ -17,10 +19,11 @@ namespace EndlessHeresy.Gameplay.Abilities.Dash
         private float _damage;
         private AnimationCurve _curve;
 
-        private Tweener _dashTween;
+        private readonly IList<HealthComponent> _attachedHealthComponents = new List<HealthComponent>();
         private HeroMovementComponent _movementComponent;
         private ObstacleTriggerObserver _obstacleTriggerObserver;
         private EnemyTriggerObserver _enemyTriggerObserver;
+        private Tweener _dashTween;
 
         public void SetCurve(AnimationCurve curve) => _curve = curve;
         public void SetLength(float length) => _length = length;
@@ -42,7 +45,7 @@ namespace EndlessHeresy.Gameplay.Abilities.Dash
 
         private bool IsComponentsInitialized() => _movementComponent != null && _obstacleTriggerObserver != null;
 
-        private void ObstacleTriggerEntered(ObstacleTagComponent obstacleTagComponent)
+        private void OnObstacleTriggerEntered(ObstacleTagComponent obstacleTagComponent)
         {
             if (_dashTween == null)
             {
@@ -75,12 +78,19 @@ namespace EndlessHeresy.Gameplay.Abilities.Dash
                 return false;
             }
 
-            var mouseWorldPosition = camera.ScreenToWorldPoint(Input.mousePosition);
             var ownerTransform = owner.GameObject.transform;
-            var direction = ownerTransform.position.DirectionTo(mouseWorldPosition).ToVector2();
-            var endPosition = ownerTransform.position.ToVector2() + direction * _length;
+            var endPosition = GetEndPosition(camera, ownerTransform);
             _dashTween = BuildDashTween(owner.GameObject, ownerTransform, endPosition);
             return true;
+        }
+
+        private Vector2 GetEndPosition(Camera camera, Transform ownerTransform)
+        {
+            var mouseWorldPosition = camera.ScreenToWorldPoint(Input.mousePosition);
+            var ownerPosition = ownerTransform.position.ToVector2();
+            var direction = ownerPosition.DirectionTo(mouseWorldPosition);
+            var endPosition = ownerPosition + direction * _length;
+            return endPosition;
         }
 
         private Tweener BuildDashTween(GameObject gameObject, Transform ownerTransform, Vector2 endValue) =>
@@ -92,12 +102,12 @@ namespace EndlessHeresy.Gameplay.Abilities.Dash
         private void PrepareForDash()
         {
             _movementComponent.Lock();
-            _obstacleTriggerObserver.OnTriggerEnter += ObstacleTriggerEntered;
-            _enemyTriggerObserver.OnTriggerEnter += OnEnemyTriggerEnter;
+            _obstacleTriggerObserver.OnTriggerEnter += OnObstacleTriggerEntered;
+            _enemyTriggerObserver.OnTriggerEnter += OnEnemyTriggerEntered;
             SetStatus(AbilityStatus.InUse);
         }
 
-        private void OnEnemyTriggerEnter(EnemyTagComponent enemyTagComponent)
+        private void OnEnemyTriggerEntered(EnemyTagComponent enemyTagComponent)
         {
             var enemy = enemyTagComponent.Owner;
             if (!enemy.TryGetComponent(out HealthComponent healthComponent))
@@ -105,13 +115,21 @@ namespace EndlessHeresy.Gameplay.Abilities.Dash
                 return;
             }
 
+            if (_attachedHealthComponents.Contains(healthComponent))
+            {
+                return;
+            }
+
             healthComponent.TakeDamage(_damage);
+            _attachedHealthComponents.Add(healthComponent);
         }
 
         private void CompleteDash()
         {
             _movementComponent.Unlock();
-            _obstacleTriggerObserver.OnTriggerEnter -= ObstacleTriggerEntered;
+            _attachedHealthComponents.Clear();
+            _obstacleTriggerObserver.OnTriggerEnter -= OnObstacleTriggerEntered;
+            _enemyTriggerObserver.OnTriggerEnter -= OnEnemyTriggerEntered;
             SetStatus(AbilityStatus.Ready);
         }
     }

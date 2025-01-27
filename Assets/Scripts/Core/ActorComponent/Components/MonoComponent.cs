@@ -7,8 +7,12 @@ namespace EndlessHeresy.Core
     public abstract class MonoComponent : MonoBehaviour, IComponent
     {
         public IActor Owner { get; private set; }
-        public Task InitializeAsync() => OnInitializeAsync(destroyCancellationToken);
-        public Task PostInitializeAsync() => OnPostInitializeAsync(destroyCancellationToken);
+
+        public async Task InitializeAsync()
+        {
+            await OnInitializeAsync(destroyCancellationToken);
+            await OnPostInitializeAsync(destroyCancellationToken);
+        }
 
         public void Dispose()
         {

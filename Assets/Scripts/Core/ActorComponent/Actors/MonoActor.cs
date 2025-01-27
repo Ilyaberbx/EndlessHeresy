@@ -42,7 +42,6 @@ namespace EndlessHeresy.Core
             }
 
             await OnInitializeAsync();
-            await OnPostInitializeAsync();
         }
 
         public void Dispose()
@@ -69,24 +68,6 @@ namespace EndlessHeresy.Core
 
         public bool TryRemoveComponent<TComponent>(TComponent component) where TComponent : IComponent =>
             _componentsLocator.TryRemoveComponent(component);
-
-        protected virtual async Task OnPostInitializeAsync()
-        {
-            _postInitializationTasks = new List<Task>();
-
-            foreach (var component in _components)
-            {
-                var postInitializationTask = component.InitializeAsync();
-                _postInitializationTasks.Add(postInitializationTask);
-            }
-
-            if (_postInitializationTasks.IsNullOrEmpty())
-            {
-                return;
-            }
-
-            await Task.WhenAll(_postInitializationTasks);
-        }
 
         protected virtual async Task OnInitializeAsync()
         {

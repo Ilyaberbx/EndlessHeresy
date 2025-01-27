@@ -39,4 +39,5 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _dashSpeed: 35
-  _dashLength: 1
+  _dashLength: 3
+  _dashDamage: 1
