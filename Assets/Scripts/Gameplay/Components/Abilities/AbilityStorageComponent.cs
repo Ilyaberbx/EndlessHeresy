@@ -31,7 +31,7 @@ namespace EndlessHeresy.Gameplay.Abilities
             {
                 var builder = configuration.GetBuilder();
                 var ability = builder.Build();
-                ability.Initialize(Owner);
+                await ability.InitializeAsync(Owner);
                 _abilities.Add(ability);
             }
         }

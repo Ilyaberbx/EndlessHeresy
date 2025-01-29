@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Common;
 using EndlessHeresy.Gameplay.Health;
-using EndlessHeresy.Gameplay.Movement.Rotate;
 using EndlessHeresy.Gameplay.Tags;
+using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Actors.CrescentKnife
 {
@@ -57,9 +57,15 @@ namespace EndlessHeresy.Gameplay.Actors.CrescentKnife
         }
 
 
-        public void Clear()
+        public void Show() => GameObject.SetActive(true);
+        public void SetParent(Transform parent) => GameObject.transform.SetParent(parent);
+
+        public void Hide()
         {
-            _attachedHealthComponents.Clear();
+            GameObject.SetActive(false);
+            Clear();
         }
+
+        private void Clear() => _attachedHealthComponents.Clear();
     }
 }

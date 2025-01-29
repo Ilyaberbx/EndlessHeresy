@@ -15,8 +15,11 @@ namespace EndlessHeresy.Gameplay.Abilities.CrescentStrike
         {
             var crescentStrikeAbility = new CrescentStrike();
             crescentStrikeAbility.SetCastStarter(new ImmediateCaster());
-            crescentStrikeAbility.Configure(_configuration.Damage, _configuration.KnifeOffset);
-            return crescentStrikeAbility;
+            crescentStrikeAbility.Configure(_configuration.Damage, 
+                _configuration.KnifeOffset, 
+                _configuration.Duration,
+                _configuration.Curve);
+            return crescentStrikeAbility; 
         }
     }
 }

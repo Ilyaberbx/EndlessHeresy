@@ -23,9 +23,10 @@ namespace EndlessHeresy.Gameplay.Abilities
             Cooldown = cooldown;
         }
 
-        public virtual void Initialize(IActor owner)
+        public virtual Task InitializeAsync(IActor owner)
         {
             Owner = owner;
+            return Task.CompletedTask;
         }
 
         public virtual void Dispose()

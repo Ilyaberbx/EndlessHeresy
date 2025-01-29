@@ -36,7 +36,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var abilitiesStorage = new AbilityStorageComponent();
             var heroMovementComponent = new HeroMovementComponent();
             var abilityCast = new AbilityCastComponent();
-            var rotateAroundComponent = new RotateAroundComponent(1f);
+            var rotateAroundComponent = new RotateAroundComponent();
 
             abilitiesStorage.Configure(configuration.Abilities);
             heroMovementComponent.Configure(configuration.MovementSpeed);

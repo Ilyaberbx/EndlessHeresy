@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using DG.Tweening;
 using EndlessHeresy.Core;
 using UnityEngine;
 
@@ -8,32 +7,30 @@ namespace EndlessHeresy.Gameplay.Movement.Rotate
     public sealed class RotateAroundComponent : PocoComponent
     {
         private float _targetAngle;
-        private readonly float _duration;
 
-        public RotateAroundComponent(float duration) => _duration = duration;
-
-        public AnimationCurve rotationCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
-
-        public async Task RotateAsync(Transform transform, float angle)
+        public async Task RotateAsync(Transform transform, float angle, float duration, AnimationCurve curve)
         {
             _targetAngle = angle;
-            var startAngle = transform.eulerAngles.z;
-            var elapsedTime = 0f;
-            var duration = _duration;
+            var totalRotation = 0f;
 
-            while (elapsedTime < duration)
+            while (totalRotation < _targetAngle)
             {
-                var progress = elapsedTime / duration;
-                var curveValue = rotationCurve.Evaluate(progress);
+                var step = duration * Time.deltaTime;
+                var curveValue = curve.Evaluate(step);
+                var stepAngle = Mathf.Rad2Deg * curveValue;
 
-                var currentAngle = Mathf.Lerp(startAngle, _targetAngle, curveValue);
-                transform.rotation = Quaternion.Euler(0, 0, currentAngle);
+                // Prevent overshooting
+                stepAngle = Mathf.Min(stepAngle, _targetAngle - totalRotation);
 
-                elapsedTime += Time.deltaTime;
+                transform.Rotate(Vector3.forward, stepAngle, Space.Self);
+                totalRotation += stepAngle;
+
                 await Task.Yield();
             }
 
-            transform.rotation = Quaternion.Euler(0, 0, _targetAngle);
+            // Align final rotation to ensure accuracy
+            var eulerAngles = transform.eulerAngles;
+            transform.rotation = Quaternion.Euler(eulerAngles.x, eulerAngles.y, _targetAngle);
         }
     }
 }

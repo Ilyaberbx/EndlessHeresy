@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Better.Locators.Runtime;
 using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Actors.CrescentKnife;
@@ -15,21 +14,32 @@ namespace EndlessHeresy.Gameplay.Abilities.CrescentStrike
     {
         private int _damage;
         private float _knifeOffset;
+        private float _duration;
+        private AnimationCurve _curve;
+
         private CrescentKnifeActor _crescentKnifeActor;
         private GameFactoryService _gameFactoryService;
+        private RotationAroundStorage _rotationStorage;
+        private RotateAroundComponent _rotateAround;
 
-        public void Configure(int damage, float knifeOffset)
+        public void Configure(int damage, float knifeOffset, float duration, AnimationCurve curve)
         {
             _damage = damage;
             _knifeOffset = knifeOffset;
+            _duration = duration;
+            _curve = curve;
         }
 
-        public override async void Initialize(IActor owner)
+        public override async Task InitializeAsync(IActor owner)
         {
-            base.Initialize(owner);
+            await base.InitializeAsync(owner);
 
             _gameFactoryService = ServiceLocator.Get<GameFactoryService>();
-            _crescentKnifeActor = await CreateCrescentKnifeAsync(owner);
+            _crescentKnifeActor = await CreateCrescentKnifeAsync();
+            _crescentKnifeActor.Hide();
+
+            owner.TryGetComponent(out _rotateAround);
+            owner.TryGetComponent(out _rotationStorage);
         }
 
         public override void Dispose()
@@ -41,33 +51,38 @@ namespace EndlessHeresy.Gameplay.Abilities.CrescentStrike
 
         protected override async Task CastAsync(IActor owner)
         {
-            if (_crescentKnifeActor == null)
+            if (!IsInitialized())
             {
                 return;
             }
 
-            owner.TryGetComponent(out RotateAroundComponent rotateAround);
-            owner.TryGetComponent(out RotationAroundStorage rotateAroundStorage);
 
-            _crescentKnifeActor.Clear();
-            var knifeTransform = _crescentKnifeActor.transform;
-            var around = rotateAroundStorage.Around;
-            knifeTransform.SetParent(around);
-            knifeTransform.localPosition = Vector2.zero + Vector2.up * 2f;
+            var previousParent = _crescentKnifeActor.GameObject.transform.parent;
+            var origin = _rotationStorage.Origin;
+
+            _crescentKnifeActor.SetParent(origin);
+            _crescentKnifeActor.Show();
             _crescentKnifeActor.OnHit += OnHitByKnife;
             SetStatus(AbilityStatus.InUse);
-            await rotateAround.RotateAsync(around, 360f);
+            await _rotateAround.RotateAsync(_rotationStorage.Origin, 360f, _duration, _curve);
             SetStatus(AbilityStatus.Ready);
             _crescentKnifeActor.OnHit -= OnHitByKnife;
+            _crescentKnifeActor.Hide();
+            _crescentKnifeActor.SetParent(previousParent);
         }
+
+        private bool IsInitialized() =>
+            _crescentKnifeActor != null &&
+            _rotationStorage != null &&
+            _rotateAround != null;
 
         private void OnHitByKnife(HealthComponent healthComponent) => healthComponent.TakeDamage(_damage);
 
-        private Task<CrescentKnifeActor> CreateCrescentKnifeAsync(IActor owner)
+        private Task<CrescentKnifeActor> CreateCrescentKnifeAsync()
         {
-            var ownerForwardDirection = owner.Transform.forward;
-            var at = ownerForwardDirection.AddY(_knifeOffset);
-            return _gameFactoryService.CreateCrescentKnifeAsync(at, owner.Transform);
+            var ownerPosition = Owner.Transform.position;
+            var at = ownerPosition.AddY(_knifeOffset);
+            return _gameFactoryService.CreateCrescentKnifeAsync(at, Owner.Transform);
         }
     }
 }
