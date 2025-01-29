@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Abilities.Dash
 {
-    public class DashAbility : Ability
+    public class Dash : Ability
     {
         private float _speed;
         private float _length;
@@ -25,10 +25,16 @@ namespace EndlessHeresy.Gameplay.Abilities.Dash
         private EnemyTriggerObserver _enemyTriggerObserver;
         private Tweener _dashTween;
 
-        public void SetCurve(AnimationCurve curve) => _curve = curve;
-        public void SetLength(float length) => _length = length;
-        public void SetSpeed(float speed) => _speed = speed;
-        public void SetDamage(float damage) => _damage = damage;
+        public void Configure(float speed,
+            float length,
+            float damage,
+            AnimationCurve curve)
+        {
+            _speed = speed;
+            _length = length;
+            _damage = damage;
+            _curve = curve;
+        }
 
         protected override async Task CastAsync(IActor owner)
         {

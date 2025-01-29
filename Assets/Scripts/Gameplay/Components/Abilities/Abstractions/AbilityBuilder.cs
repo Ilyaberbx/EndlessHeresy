@@ -22,8 +22,7 @@ namespace EndlessHeresy.Gameplay.Abilities
                 return null;
             }
 
-            _ability.SetHotkey(_configuration.HotKey);
-            _ability.SetCooldown(_configuration.Cooldown);
+            _ability.Configure(_configuration.HotKey, _configuration.Cooldown);
             _ability.SetStatus(AbilityStatus.Ready);
             return _ability;
         }

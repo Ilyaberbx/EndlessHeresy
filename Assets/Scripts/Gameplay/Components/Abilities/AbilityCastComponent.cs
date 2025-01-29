@@ -63,7 +63,7 @@ namespace EndlessHeresy.Gameplay.Abilities
                     continue;
                 }
 
-                ability.StartCast(Owner);
+                ability.StartCast();
             }
         }
     }

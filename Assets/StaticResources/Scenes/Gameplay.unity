@@ -842,6 +842,7 @@ MonoBehaviour:
       type: {class: GameplayStaticDataService, ns: EndlessHeresy.Gameplay.Services.StaticData, asm: Assembly-CSharp}
       data:
         _heroConfiguration: {fileID: 11400000, guid: 8e274c0042b2c924482558c32d7caf6b, type: 2}
+        _crescentStrikeConfiguration: {fileID: 11400000, guid: ee84c4f8bfe9af14eb951d7eaca94eb0, type: 2}
     - rid: 6450054470971949058
       type: {class: GameFactoryService, ns: EndlessHeresy.Gameplay.Services.Factory, asm: Assembly-CSharp}
       data: 

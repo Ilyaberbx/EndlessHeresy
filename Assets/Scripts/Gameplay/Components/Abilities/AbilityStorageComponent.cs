@@ -31,7 +31,18 @@ namespace EndlessHeresy.Gameplay.Abilities
             {
                 var builder = configuration.GetBuilder();
                 var ability = builder.Build();
+                ability.Initialize(Owner);
                 _abilities.Add(ability);
+            }
+        }
+
+        protected override void OnDispose()
+        {
+            base.OnDispose();
+
+            foreach (var ability in Abilities)
+            {
+                ability.Dispose();
             }
         }
     }
