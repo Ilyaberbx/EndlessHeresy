@@ -1,10 +1,9 @@
-﻿using EndlessHeresy.Core;
-using EndlessHeresy.Gameplay.Health;
+﻿using EndlessHeresy.Gameplay.Health;
 using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Actors.Enemies
 {
-    public sealed class PunchingDummyActor : MonoActor
+    public sealed class PunchingDummyActor : EnemyActor
     {
         private HealthComponent _healthComponent;
 

@@ -11,7 +11,7 @@ namespace EndlessHeresy.Core
 
         private IComponentsLocator _componentsLocator;
         private IEnumerable<IComponent> _components;
-        private List<Task> _postInitializationTasks;
+        private IList<Task> _postInitializationTasks;
         private Transform _transform;
         private GameObject _gameObject;
 
