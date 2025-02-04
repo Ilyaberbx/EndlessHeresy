@@ -7,7 +7,7 @@ namespace EndlessHeresy.Global.States
 {
     public sealed class GameplayState : BaseLoadingState
     {
-        private GameFactoryService _gameFactoryService;
+        private IGameFactoryService _gameFactoryService;
 
         protected override async Task OnSceneLoaded()
         {

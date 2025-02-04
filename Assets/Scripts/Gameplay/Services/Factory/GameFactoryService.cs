@@ -3,14 +3,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using Better.Locators.Runtime;
 using Better.Services.Runtime;
+using Better.StateMachine.Runtime;
 using EndlessHeresy.Core;
 using EndlessHeresy.Core.Builder;
+using EndlessHeresy.Core.States;
 using EndlessHeresy.Gameplay.Abilities;
-using EndlessHeresy.Gameplay.Actors;
-using EndlessHeresy.Gameplay.Actors.CrescentKnife;
 using EndlessHeresy.Gameplay.Actors.Hero;
+using EndlessHeresy.Gameplay.Common;
+using EndlessHeresy.Gameplay.Health;
 using EndlessHeresy.Gameplay.Movement;
-using EndlessHeresy.Gameplay.Movement.Rotate;
 using EndlessHeresy.Gameplay.Services.StaticData;
 using UnityEngine;
 
@@ -33,33 +34,25 @@ namespace EndlessHeresy.Gameplay.Services.Factory
         {
             var builder = GetBuilder<HeroActor>();
             var configuration = _gameplayStaticDataService.HeroConfiguration;
-            var abilitiesStorage = new AbilityStorageComponent();
-            var heroMovementComponent = new HeroMovementComponent();
-            var abilityCast = new AbilityCastComponent();
-            var rotateAroundComponent = new RotateAroundComponent();
+            var abilityStorageComponent = new AbilityStorageComponent();
+            var movementComponent = new MovementComponent();
+            var abilityCastComponent = new AbilityCastComponent();
+            var healthComponent = new HealthComponent();
+            var statesAggregator = new StatesAggregator<HeroActor>();
 
-            abilitiesStorage.Configure(configuration.Abilities);
-            heroMovementComponent.Configure(configuration.MovementSpeed);
+            healthComponent.Setup(configuration.Health);
+            statesAggregator.Setup(new StateMachine<BaseState<HeroActor>>());
+            abilityStorageComponent.Setup(configuration.Abilities);
+            movementComponent.SetSpeed(configuration.MovementSpeed);
 
             return builder
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
-                .WithComponent(abilityCast)
-                .WithComponent(abilitiesStorage)
-                .WithComponent(heroMovementComponent)
-                .WithComponent(rotateAroundComponent)
-                .Build();
-        }
-
-        public Task<CrescentKnifeActor> CreateCrescentKnifeAsync(Vector2 at, Transform parent)
-        {
-            var builder = GetBuilder<CrescentKnifeActor>();
-            var configuration = _gameplayStaticDataService.CrescentStrikeConfiguration;
-
-            return builder
-                .ForPrefab(configuration.CrescentKnifePrefab)
-                .WithPosition(at)
-                .WithParent(parent)
+                .WithComponent(abilityCastComponent)
+                .WithComponent(abilityStorageComponent)
+                .WithComponent(movementComponent)
+                .WithComponent(healthComponent)
+                .WithComponent(statesAggregator)
                 .Build();
         }
 

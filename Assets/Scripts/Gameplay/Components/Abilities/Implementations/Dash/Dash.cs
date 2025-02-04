@@ -20,7 +20,7 @@ namespace EndlessHeresy.Gameplay.Abilities.Dash
         private AnimationCurve _curve;
 
         private readonly IList<HealthComponent> _attachedHealthComponents = new List<HealthComponent>();
-        private HeroMovementComponent _movementComponent;
+        private MovementComponent _movementComponent;
         private ObstacleTriggerObserver _obstacleTriggerObserver;
         private EnemyTriggerObserver _enemyTriggerObserver;
         private Tweener _dashTween;

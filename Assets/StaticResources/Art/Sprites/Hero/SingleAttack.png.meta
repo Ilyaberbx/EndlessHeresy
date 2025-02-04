@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b99f28abe1f2e8c47841189891bdcbcd
+guid: dce862d1feb9a9746bb1d7a828374582
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -50,7 +50,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: 4
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,12 +110,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SingleHit_0
+      name: Mortimer Attack Right 1 hit-Sheet (3)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 179
+        width: 256
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -124,19 +124,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b72f62f6cc5ed0e4b8e77974c8b06917
-      internalID: 1812094368
+      spriteID: 40e9d06dc5bf7614b81efacdaf570101
+      internalID: -1491606883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SingleHit_1
+      name: Mortimer Attack Right 1 hit-Sheet (3)_1
       rect:
         serializedVersion: 2
-        x: 179
+        x: 256
         y: 0
-        width: 179
+        width: 256
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -145,19 +145,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebeeffed201bc4845b01a15feff5668e
-      internalID: -593922029
+      spriteID: 67a6120000320704cb69a835d5218617
+      internalID: -880376881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SingleHit_2
+      name: Mortimer Attack Right 1 hit-Sheet (3)_2
       rect:
         serializedVersion: 2
-        x: 358
+        x: 512
         y: 0
-        width: 179
+        width: 256
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -166,19 +166,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 348be67153ceb52419544c4d9a54de95
-      internalID: 1780811222
+      spriteID: c0af100b3c1528a47b035546e48de4e9
+      internalID: 1565801946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SingleHit_3
+      name: Mortimer Attack Right 1 hit-Sheet (3)_3
       rect:
         serializedVersion: 2
-        x: 537
+        x: 768
         y: 0
-        width: 179
+        width: 256
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -187,19 +187,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b46622f6d91e574e9fa6a1b29225c92
-      internalID: 1383075571
+      spriteID: 397f4c89465633f4889aa09bd0e4531d
+      internalID: -586469890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SingleHit_4
+      name: Mortimer Attack Right 1 hit-Sheet (3)_4
       rect:
         serializedVersion: 2
-        x: 716
+        x: 1024
         y: 0
-        width: 179
+        width: 256
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -208,19 +208,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8afe0e7e9e78ac84d973bf64825a41db
-      internalID: -125066216
+      spriteID: 7dcc08bc0108b4544b994c552c856d6a
+      internalID: 230493133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SingleHit_5
+      name: Mortimer Attack Right 1 hit-Sheet (3)_5
       rect:
         serializedVersion: 2
-        x: 895
+        x: 1280
         y: 0
-        width: 179
+        width: 256
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -229,19 +229,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: def059fbc079388419b055a03d1c13a8
-      internalID: -643836093
+      spriteID: 8dc1e1f51458abb4eb90467d0d97a3a5
+      internalID: 236977359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SingleHit_6
+      name: Mortimer Attack Right 1 hit-Sheet (3)_6
       rect:
         serializedVersion: 2
-        x: 1074
+        x: 1536
         y: 0
-        width: 179
+        width: 256
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -250,19 +250,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 907d6cbae7f5a1b45a0c169fccb398eb
-      internalID: -1806135058
+      spriteID: 51f8731be9a34664c917d8256912dbf2
+      internalID: 580961093
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SingleHit_7
+      name: Mortimer Attack Right 1 hit-Sheet (3)_7
       rect:
         serializedVersion: 2
-        x: 1253
+        x: 1792
         y: 0
-        width: 179
+        width: 256
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -271,19 +271,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04bd568a55b2b3341a1274c1f4f08651
-      internalID: -1605910209
+      spriteID: 7f73b78f4059c7346afcd17c5d507bfe
+      internalID: 2042970612
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SingleHit_8
+      name: Mortimer Attack Right 1 hit-Sheet (3)_8
       rect:
         serializedVersion: 2
-        x: 1432
+        x: 2048
         y: 0
-        width: 179
+        width: 256
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -292,19 +292,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09c12135f8fe45c48a45363b6c92fbe5
-      internalID: -825505159
+      spriteID: 9ccb95e8b9d194e4ab07b98f6f9f5483
+      internalID: -1827324150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SingleHit_9
+      name: Mortimer Attack Right 1 hit-Sheet (3)_9
       rect:
         serializedVersion: 2
-        x: 1611
+        x: 2304
         y: 0
-        width: 179
+        width: 256
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -313,19 +313,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a32de8480e5ea394fbcb6bdbfd0f5c50
-      internalID: 1743520782
+      spriteID: dc90c300f712def4087a87a8288afd60
+      internalID: -355766780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SingleHit_10
+      name: Mortimer Attack Right 1 hit-Sheet (3)_10
       rect:
         serializedVersion: 2
-        x: 1790
+        x: 2560
         y: 0
-        width: 179
+        width: 256
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -334,19 +334,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3957cd372a8e25149a27e28d5fcded8c
-      internalID: -1989521427
+      spriteID: 07a7f079b79d0ef42b2295aba3a38dac
+      internalID: 1942444515
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SingleHit_11
+      name: Mortimer Attack Right 1 hit-Sheet (3)_11
       rect:
         serializedVersion: 2
-        x: 1969
+        x: 2816
         y: 0
-        width: 179
+        width: 256
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -355,19 +355,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b00b01305b0c05841895c05d3b5429b6
-      internalID: 1033984356
+      spriteID: bd0114bef928d57479872440de7e3fff
+      internalID: 303291590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SingleHit_12
+      name: Mortimer Attack Right 1 hit-Sheet (3)_12
       rect:
         serializedVersion: 2
-        x: 2148
+        x: 3072
         y: 0
-        width: 179
+        width: 256
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -376,8 +376,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2dfd85bd5bb6d24d893d09e885f8e05
-      internalID: 1247092462
+      spriteID: 979331170cd759040aa0e8fdcc8879ae
+      internalID: -1040491455
       vertices: []
       indices: 
       edges: []
@@ -385,7 +385,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d0393d93903e34345b69529a070a1e2e
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -393,19 +393,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SingleHit_0: 1812094368
-      SingleHit_1: -593922029
-      SingleHit_10: -1989521427
-      SingleHit_11: 1033984356
-      SingleHit_12: 1247092462
-      SingleHit_2: 1780811222
-      SingleHit_3: 1383075571
-      SingleHit_4: -125066216
-      SingleHit_5: -643836093
-      SingleHit_6: -1806135058
-      SingleHit_7: -1605910209
-      SingleHit_8: -825505159
-      SingleHit_9: 1743520782
+      Mortimer Attack Right 1 hit-Sheet (3)_0: -1491606883
+      Mortimer Attack Right 1 hit-Sheet (3)_1: -880376881
+      Mortimer Attack Right 1 hit-Sheet (3)_10: 1942444515
+      Mortimer Attack Right 1 hit-Sheet (3)_11: 303291590
+      Mortimer Attack Right 1 hit-Sheet (3)_12: -1040491455
+      Mortimer Attack Right 1 hit-Sheet (3)_2: 1565801946
+      Mortimer Attack Right 1 hit-Sheet (3)_3: -586469890
+      Mortimer Attack Right 1 hit-Sheet (3)_4: 230493133
+      Mortimer Attack Right 1 hit-Sheet (3)_5: 236977359
+      Mortimer Attack Right 1 hit-Sheet (3)_6: 580961093
+      Mortimer Attack Right 1 hit-Sheet (3)_7: 2042970612
+      Mortimer Attack Right 1 hit-Sheet (3)_8: -1827324150
+      Mortimer Attack Right 1 hit-Sheet (3)_9: -355766780
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

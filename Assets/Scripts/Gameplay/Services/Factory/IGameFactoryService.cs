@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using EndlessHeresy.Gameplay.Actors.CrescentKnife;
 using EndlessHeresy.Gameplay.Actors.Hero;
 using UnityEngine;
 

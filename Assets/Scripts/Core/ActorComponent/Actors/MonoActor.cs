@@ -11,7 +11,6 @@ namespace EndlessHeresy.Core
 
         private IComponentsLocator _componentsLocator;
         private IEnumerable<IComponent> _components;
-        private IList<Task> _postInitializationTasks;
         private Transform _transform;
         private GameObject _gameObject;
 
@@ -71,20 +70,20 @@ namespace EndlessHeresy.Core
 
         protected virtual async Task OnInitializeAsync()
         {
-            _postInitializationTasks = new List<Task>();
+            var initializationTasks = new List<Task>();
 
             foreach (var component in _components)
             {
                 var initializationTask = component.InitializeAsync();
-                _postInitializationTasks.Add(initializationTask);
+                initializationTasks.Add(initializationTask);
             }
 
-            if (_postInitializationTasks.IsNullOrEmpty())
+            if (initializationTasks.IsNullOrEmpty())
             {
                 return;
             }
 
-            await Task.WhenAll(_postInitializationTasks);
+            await Task.WhenAll(initializationTasks);
         }
 
         protected virtual void OnDispose()

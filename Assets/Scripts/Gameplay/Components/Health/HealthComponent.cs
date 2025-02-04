@@ -4,14 +4,13 @@ using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Health
 {
-    public sealed class HealthComponent : MonoComponent
+    public sealed class HealthComponent : PocoComponent
     {
         public event Action OnHealthDepleted;
 
         private const float MinHealthPoints = 0;
-        [SerializeField] private float _currentHp;
-
-        private bool IsDead() => _currentHp <= 0;
+        public float CurrentHp { get; private set; }
+        public void Setup(float healthPoints) => CurrentHp = healthPoints;
 
         public void TakeDamage(float damage)
         {
@@ -20,12 +19,14 @@ namespace EndlessHeresy.Gameplay.Health
                 return;
             }
 
-            _currentHp = Mathf.Clamp(_currentHp - damage, MinHealthPoints, _currentHp);
+            CurrentHp = Mathf.Clamp(CurrentHp - damage, MinHealthPoints, CurrentHp);
 
             if (IsDead())
             {
                 OnHealthDepleted?.Invoke();
             }
         }
+
+        private bool IsDead() => CurrentHp <= 0;
     }
 }

@@ -13,7 +13,7 @@ namespace EndlessHeresy.Gameplay.Abilities
 
         public IReadOnlyList<Ability> Abilities => _abilities;
 
-        public void Configure(AbilityConfiguration[] abilityConfigurations) =>
+        public void Setup(AbilityConfiguration[] abilityConfigurations) =>
             _abilityConfigurations = abilityConfigurations;
 
         protected override async Task OnInitializeAsync(CancellationToken cancellationToken)

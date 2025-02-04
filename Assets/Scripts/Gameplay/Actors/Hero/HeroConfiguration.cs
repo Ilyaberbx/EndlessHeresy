@@ -9,8 +9,10 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
         [SerializeField] private HeroActor _prefab;
         [SerializeField] private AbilityConfiguration[] _abilities;
         [SerializeField] private float _movementSpeed;
+        [SerializeField] private int _health;
         public HeroActor Prefab => _prefab;
         public AbilityConfiguration[] Abilities => _abilities;
         public float MovementSpeed => _movementSpeed;
+        public int Health => _health;
     }
 }

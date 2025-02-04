@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3281667647228331239}
   - component: {fileID: 8366441692031472334}
+  - component: {fileID: 298133652569171196}
+  - component: {fileID: 6205564464007801626}
+  - component: {fileID: 6877681950020319554}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -26,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2849309294404116226}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,17 +76,64 @@ SpriteRenderer:
   m_SortingLayerID: -1858190099
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 876712564, guid: 605b71d365aa72445a9beaa3c8e415e9, type: 3}
+  m_Sprite: {fileID: -1491606883, guid: dce862d1feb9a9746bb1d7a828374582, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.36, y: 0.41}
+  m_Size: {x: 12.8, y: 2.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &298133652569171196
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2849309294404116226}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2e8564be83a33e4d9a928edc0a5912d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6205564464007801626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2849309294404116226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57668bb966941b6966291ed8d54d1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 298133652569171196}
+--- !u!114 &6877681950020319554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2849309294404116226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547c001ba5a645a3821b09a5ace2f518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 8366441692031472334}
 --- !u!1 &4214391116364405971
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,8 +267,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5083162270721424185}
   - component: {fileID: 5753913375855388206}
-  - component: {fileID: 8084107879541797484}
-  - component: {fileID: 8962571015094929023}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -255,36 +303,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MonoComponents:
-  - {fileID: 8084107879541797484}
+  - {fileID: 6205564464007801626}
+  - {fileID: 6205564464007801626}
   - {fileID: 6524635083684402892}
   - {fileID: 5387782236704160975}
-  - {fileID: 8962571015094929023}
---- !u!114 &8084107879541797484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5826162769024652586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e70b223c23c14eeea53937401e4c969b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentHp: 10
---- !u!114 &8962571015094929023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5826162769024652586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e24cc4069be41d1b33e71d0617f87e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Origin: {fileID: 615262169109468356}
 --- !u!1 &7566664921699071075
 GameObject:
   m_ObjectHideFlags: 0
