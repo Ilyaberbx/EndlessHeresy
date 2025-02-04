@@ -1,0 +1,13 @@
+﻿using UnityEngine;
+
+namespace EndlessHeresy.Gameplay.Services.Input
+{
+    public interface IInputService
+    {
+        void Lock();
+        void Unlock();
+        Vector2 GetMovementInput();
+        Vector2 GetMousePosition();
+        bool GetKeyDown(KeyCode key);
+    }
+}

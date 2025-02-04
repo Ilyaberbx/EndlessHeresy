@@ -8,7 +8,7 @@ namespace EndlessHeresy
 {
     public sealed class GameBootstrapper : MonoBehaviour
     {
-        private GameStatesService _gameStatesService;
+        private IGameStatesService _gameStatesService;
 
         private void Start()
         {

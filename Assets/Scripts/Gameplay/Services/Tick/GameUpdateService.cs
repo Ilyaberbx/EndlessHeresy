@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Services.Tick
 {
-    public sealed class GameUpdateService : MonoService
+    public sealed class GameUpdateService : MonoService, IGameUpdateService
     {
         public event Action<float> OnUpdate;
         public event Action<float> OnFixedUpdate;

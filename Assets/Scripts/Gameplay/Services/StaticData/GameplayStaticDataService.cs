@@ -8,7 +8,7 @@ using UnityEngine;
 namespace EndlessHeresy.Gameplay.Services.StaticData
 {
     [Serializable]
-    public sealed class GameplayStaticDataService : PocoService
+    public sealed class GameplayStaticDataService : PocoService, IGameplayStaticDataService
     {
         [SerializeField] private HeroConfiguration _heroConfiguration;
 

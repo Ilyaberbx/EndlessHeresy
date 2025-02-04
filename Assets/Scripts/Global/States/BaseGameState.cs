@@ -8,7 +8,7 @@ namespace EndlessHeresy.Global.States
 {
     public abstract class BaseGameState : BaseState
     {
-        protected GameStatesService GameStatesService { get; private set; }
+        protected IGameStatesService GameStatesService { get; private set; }
 
         public override Task EnterAsync(CancellationToken token)
         {

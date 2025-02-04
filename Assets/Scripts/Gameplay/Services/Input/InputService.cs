@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using Better.Services.Runtime;
 using UnityEngine;
 
-namespace EndlessHeresy.Global.Services.Input
+namespace EndlessHeresy.Gameplay.Services.Input
 {
     [Serializable]
-    public sealed class InputService : PocoService
+    public sealed class InputService : PocoService, IInputService
     {
         private bool _isLocked;
 

@@ -10,7 +10,7 @@ using EndlessHeresy.Global.States;
 namespace EndlessHeresy.Global.Services.StatesManagement
 {
     [Serializable]
-    public sealed class GameStatesService : PocoService, IDisposable
+    public sealed class GameStatesService : PocoService, IDisposable, IGameStatesService
     {
         private IStateMachine<BaseGameState> _stateMachine;
         private CancellationTokenSource _tokenSource;

@@ -4,16 +4,16 @@ using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using Better.Locators.Runtime;
 using EndlessHeresy.Core;
+using EndlessHeresy.Gameplay.Services.Input;
 using EndlessHeresy.Gameplay.Services.Tick;
-using EndlessHeresy.Global.Services.Input;
 
 namespace EndlessHeresy.Gameplay.Abilities
 {
     public sealed class AbilityCastComponent : PocoComponent
     {
         private AbilityStorageComponent _abilityStorage;
-        private InputService _inputService;
-        private GameUpdateService _gameUpdateService;
+        private IGameUpdateService _gameUpdateService;
+        private IInputService _inputService;
 
         private IReadOnlyList<Ability> Abilities => _abilityStorage.Abilities;
 

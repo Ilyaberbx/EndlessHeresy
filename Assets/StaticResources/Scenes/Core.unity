@@ -561,7 +561,7 @@ MonoBehaviour:
       data:
         _services:
         - rid: 6450054396463284224
-        - rid: 6450054396463284225
+        - rid: 9117324250810417152
         - rid: 6450054396463284226
     - rid: 6450054146183397381
       type: {class: MonoServicesInstaller, ns: Better.Contexts.Runtime.Installers, asm: Better.Contexts.Runtime}
@@ -571,11 +571,11 @@ MonoBehaviour:
     - rid: 6450054396463284224
       type: {class: GameStatesService, ns: EndlessHeresy.Global.Services.StatesManagement, asm: Assembly-CSharp}
       data: 
-    - rid: 6450054396463284225
-      type: {class: InputService, ns: EndlessHeresy.Global.Services.Input, asm: Assembly-CSharp}
-      data: 
     - rid: 6450054396463284226
       type: {class: ResourcesProviderService, ns: EndlessHeresy.Global.Services.AssetsManagement, asm: Assembly-CSharp}
+      data: 
+    - rid: 9117324250810417152
+      type: {class: InputService, ns: EndlessHeresy.Gameplay.Services.Input, asm: Assembly-CSharp}
       data: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -10,6 +10,7 @@ using EndlessHeresy.Core.States;
 using EndlessHeresy.Gameplay.Abilities;
 using EndlessHeresy.Gameplay.Actors.Hero;
 using EndlessHeresy.Gameplay.Common;
+using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Health;
 using EndlessHeresy.Gameplay.Movement;
 using EndlessHeresy.Gameplay.Services.StaticData;
@@ -20,7 +21,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
     [Serializable]
     public sealed class GameFactoryService : PocoService, IGameFactoryService
     {
-        private GameplayStaticDataService _gameplayStaticDataService;
+        private IGameplayStaticDataService _gameplayStaticDataService;
 
         protected override Task OnInitializeAsync(CancellationToken cancellationToken) => Task.CompletedTask;
 
@@ -39,6 +40,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var abilityCastComponent = new AbilityCastComponent();
             var healthComponent = new HealthComponent();
             var statesAggregator = new StatesAggregator<HeroActor>();
+            var facingComponent = new FacingComponent();
 
             healthComponent.Setup(configuration.Health);
             statesAggregator.Setup(new StateMachine<BaseState<HeroActor>>());
@@ -53,6 +55,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .WithComponent(movementComponent)
                 .WithComponent(healthComponent)
                 .WithComponent(statesAggregator)
+                .WithComponent(facingComponent)
                 .Build();
         }
 

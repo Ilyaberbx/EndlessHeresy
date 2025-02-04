@@ -7,7 +7,7 @@ using EndlessHeresy.Gameplay.Common;
 using EndlessHeresy.Gameplay.Conditions;
 using EndlessHeresy.Gameplay.Extensions;
 using EndlessHeresy.Gameplay.Health;
-using EndlessHeresy.Global.Services.Input;
+using EndlessHeresy.Gameplay.Services.Input;
 using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Actors.Hero
@@ -16,7 +16,7 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
     {
         private StatesAggregator<HeroActor> _statesAggregator;
         private HealthComponent _healthComponent;
-        private InputService _inputService;
+        private IInputService _inputService;
         public Vector2 GetMovementInput() => _inputService.GetMovementInput();
 
         protected override async Task OnInitializeAsync()
