@@ -24,7 +24,7 @@ namespace EndlessHeresy.Core
         protected virtual Task OnInitializeAsync(CancellationToken cancellationToken) => Task.CompletedTask;
         protected virtual Task OnPostInitializeAsync(CancellationToken cancellationToken) => Task.CompletedTask;
 
-        private void OnDispose()
+        protected virtual void OnDispose()
         {
         }
     }

@@ -9,6 +9,7 @@ using EndlessHeresy.Core.Builder;
 using EndlessHeresy.Core.States;
 using EndlessHeresy.Gameplay.Abilities;
 using EndlessHeresy.Gameplay.Actors.Hero;
+using EndlessHeresy.Gameplay.Attack;
 using EndlessHeresy.Gameplay.Common;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Health;
@@ -41,7 +42,9 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var healthComponent = new HealthComponent();
             var statesAggregator = new StatesAggregator<HeroActor>();
             var facingComponent = new FacingComponent();
+            var meleeAttackComponent = new MeleeAttackComponent();
 
+            meleeAttackComponent.Setup(configuration.MeleeAttack.Damage, configuration.MeleeAttack.Radius);
             healthComponent.Setup(configuration.Health);
             statesAggregator.Setup(new StateMachine<BaseState<HeroActor>>());
             abilityStorageComponent.Setup(configuration.Abilities);
@@ -56,6 +59,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .WithComponent(healthComponent)
                 .WithComponent(statesAggregator)
                 .WithComponent(facingComponent)
+                .WithComponent(meleeAttackComponent)
                 .Build();
         }
 

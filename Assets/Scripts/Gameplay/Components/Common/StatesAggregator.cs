@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Better.StateMachine.Runtime;
 using Better.StateMachine.Runtime.Modules;
 using Better.StateMachine.Runtime.Modules.Transitions;
+using EndlessHeresy.Commons;
 using EndlessHeresy.Core;
 using EndlessHeresy.Core.States;
 
@@ -22,6 +23,7 @@ namespace EndlessHeresy.Gameplay.Common
             _stateMachine = stateMachine;
             _stateMachine.AddModule(new CacheModule<BaseState<TContext>>());
             _stateMachine.AddModule(new AutoTransitionsModule<BaseState<TContext>>());
+            _stateMachine.AddModule(new LoggerModule<BaseState<TContext>>());
         }
 
         public void SetContext(TContext context) => _context = context;

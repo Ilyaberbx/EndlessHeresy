@@ -10,6 +10,7 @@ namespace EndlessHeresy.Gameplay.Facing
     {
         private SpriteRendererComponent _spriteRendererComponent;
         private SpriteRenderer SpriteRenderer => _spriteRendererComponent.SpriteRenderer;
+        public bool IsFacingRight => !SpriteRenderer.flipX;
 
         protected override async Task OnInitializeAsync(CancellationToken cancellationToken)
         {

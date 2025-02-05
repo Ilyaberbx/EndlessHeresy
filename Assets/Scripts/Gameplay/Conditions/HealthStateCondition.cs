@@ -4,18 +4,21 @@ using EndlessHeresy.Gameplay.Health;
 
 namespace EndlessHeresy.Gameplay.Conditions
 {
-    public class IsDeadCondition : Condition
+    public class HealthStateCondition : Condition
     {
         private readonly HealthComponent _healthComponent;
+        private readonly bool _state;
 
-        public IsDeadCondition(HealthComponent healthComponent)
+        public HealthStateCondition(HealthComponent healthComponent, bool state)
         {
             _healthComponent = healthComponent;
+            _state = state;
         }
 
         public override bool Invoke()
         {
-            return _healthComponent.CurrentHp <= 0;
+            var isAlive = _healthComponent.CurrentHp > 0;
+            return isAlive == _state;
         }
 
         protected override bool Validate(out Exception exception)

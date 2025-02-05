@@ -38,7 +38,8 @@ namespace EndlessHeresy.Gameplay.Services.Input
             return new Vector2(horizontal, vertical);
         }
 
-        public Vector2 GetMousePosition() => new(UnityEngine.Input.mousePosition.x, UnityEngine.Input.mousePosition.y);
+        public Vector2 GetMousePosition() => UnityEngine.Input.mousePosition;
         public bool GetKeyDown(KeyCode key) => !_isLocked && UnityEngine.Input.GetKeyDown(key);
+        public bool GetMouseButton(int button) => !_isLocked && UnityEngine.Input.GetMouseButton(button);
     }
 }

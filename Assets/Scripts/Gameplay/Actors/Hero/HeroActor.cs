@@ -1,8 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Better.Conditions.Runtime;
 using Better.Locators.Runtime;
 using EndlessHeresy.Core;
 using EndlessHeresy.Core.States;
 using EndlessHeresy.Gameplay.Actors.Hero.States;
+using EndlessHeresy.Gameplay.Animations;
 using EndlessHeresy.Gameplay.Common;
 using EndlessHeresy.Gameplay.Conditions;
 using EndlessHeresy.Gameplay.Extensions;
@@ -14,10 +17,11 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
 {
     public sealed class HeroActor : MonoActor, IContext
     {
+        private IInputService _inputService;
+
         private StatesAggregator<HeroActor> _statesAggregator;
         private HealthComponent _healthComponent;
-        private IInputService _inputService;
-        public Vector2 GetMovementInput() => _inputService.GetMovementInput();
+        private SingleAttackAnimation _singleAttackAnimation;
 
         protected override async Task OnInitializeAsync()
         {
@@ -25,30 +29,43 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
 
             TryCollectRequiredComponents();
             _inputService = ServiceLocator.Get<InputService>();
+
             _statesAggregator.SetContext(this);
             var deadState = _statesAggregator.GetState<DeadState>();
+            var locomotionState = _statesAggregator.GetState<LocomotionState>();
+            var attackState = _statesAggregator.GetState<SingleAttackState>();
             var transitions = _statesAggregator.Transitions;
+            var isAlive = new HealthStateCondition(_healthComponent, true);
 
-            transitions.Any(deadState, new IsDeadCondition(_healthComponent));
+            var attackConditions = new List<Condition>()
+            {
+                isAlive,
+                new PredicateCondition(IsAttackPressed)
+            };
+
+            var attackToLocomotionConditions = new List<Condition>()
+            {
+                isAlive,
+                new PredicateCondition(IsAttackFinished)
+            };
+
+            transitions.Any(deadState, new HealthStateCondition(_healthComponent, false));
+            transitions.Any(attackState, new AllComplexCondition(attackConditions));
+            transitions.AddTransition(attackState, locomotionState,
+                new AllComplexCondition(attackToLocomotionConditions));
+
             _statesAggregator.Start();
             await SetLocomotionState();
         }
 
-        private void Update()
-        {
-            //TODO: Test
+        public Vector2 GetMovementInput() => _inputService.GetMovementInput();
+        private bool IsAttackFinished() => _singleAttackAnimation.IsAttackFinished;
+        private bool IsAttackPressed() => _inputService.GetMouseButton(0);
 
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                _healthComponent.TakeDamage(1);
-            }
-        }
-
-        private bool TryCollectRequiredComponents()
-        {
-            return TryGetComponent(out _statesAggregator) &&
-                   TryGetComponent(out _healthComponent);
-        }
+        private bool TryCollectRequiredComponents() =>
+            TryGetComponent(out _statesAggregator) &&
+            TryGetComponent(out _healthComponent) &&
+            TryGetComponent(out _singleAttackAnimation);
 
         private async Task SetLocomotionState()
         {
