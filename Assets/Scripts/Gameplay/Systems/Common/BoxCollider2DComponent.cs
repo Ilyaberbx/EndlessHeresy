@@ -1,5 +1,4 @@
-﻿using EndlessHeresy.Core.MonoIntegration;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Common
 {

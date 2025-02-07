@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using EndlessHeresy.Core;
+using UnityEngine;
 
-namespace EndlessHeresy.Core.MonoIntegration
+namespace EndlessHeresy.Gameplay.Common
 {
     public abstract class ColliderComponent<TColliderComponent> : MonoComponent where TColliderComponent : Collider2D
     {
