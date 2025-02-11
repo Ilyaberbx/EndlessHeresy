@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11efcdc848cf5d643afdf69977b02a6b
+guid: aa70406fd7970c34f8d982aea9f587aa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Run_0
+      name: Mortimer Run Remake-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab6a16339cd3e1a4b9d20b4d2394ef0a
-      internalID: 269542694
+      spriteID: f8648ebe363a5ff4bb4235acfe64b7be
+      internalID: -316644688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_1
+      name: Mortimer Run Remake-Sheet_1
       rect:
         serializedVersion: 2
         x: 64
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47330d676197186499590fbe13092458
-      internalID: -789039610
+      spriteID: 27b3844b4aecae540b7eb5f26a5ff499
+      internalID: -939909304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_2
+      name: Mortimer Run Remake-Sheet_2
       rect:
         serializedVersion: 2
         x: 128
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b28b9527866997e4aa2085585165ca9d
-      internalID: 587965416
+      spriteID: 193551320d7608740adf137ef8f741dc
+      internalID: 1842792186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_3
+      name: Mortimer Run Remake-Sheet_3
       rect:
         serializedVersion: 2
         x: 192
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e907bd7ab302c8a4dbb2204dfce6fb2d
-      internalID: 1583559963
+      spriteID: 75e9969c07d3ae64fa2546c5ab449298
+      internalID: 1759994762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_4
+      name: Mortimer Run Remake-Sheet_4
       rect:
         serializedVersion: 2
         x: 256
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adfae112a7dfe084099d899ff2ab88ec
-      internalID: -933747497
+      spriteID: 82ba662d75ad73d40b2c077db49e90f9
+      internalID: -1117346484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_5
+      name: Mortimer Run Remake-Sheet_5
       rect:
         serializedVersion: 2
         x: 320
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d6d1ca100b137c408a5ac4e911a0021
-      internalID: 1543296163
+      spriteID: 3fc87ae6650a40344bf9a8ac18f1fbea
+      internalID: -508368284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_6
+      name: Mortimer Run Remake-Sheet_6
       rect:
         serializedVersion: 2
         x: 384
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5eea9852f880fb940b535cb2102bd84b
-      internalID: 467329839
+      spriteID: ea6038168d956ea46b9a1abf0921d638
+      internalID: -1094722416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_7
+      name: Mortimer Run Remake-Sheet_7
       rect:
         serializedVersion: 2
         x: 448
@@ -271,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ac2e8a00996d2e48a1dbaf3b45adcf7
-      internalID: -1423949379
+      spriteID: e49771242d2c40e4e9a39a184bfc4152
+      internalID: -605672074
       vertices: []
       indices: 
       edges: []
@@ -288,14 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Run_0: 269542694
-      Run_1: -789039610
-      Run_2: 587965416
-      Run_3: 1583559963
-      Run_4: -933747497
-      Run_5: 1543296163
-      Run_6: 467329839
-      Run_7: -1423949379
+      Mortimer Run Remake-Sheet_0: -316644688
+      Mortimer Run Remake-Sheet_1: -939909304
+      Mortimer Run Remake-Sheet_2: 1842792186
+      Mortimer Run Remake-Sheet_3: 1759994762
+      Mortimer Run Remake-Sheet_4: -1117346484
+      Mortimer Run Remake-Sheet_5: -508368284
+      Mortimer Run Remake-Sheet_6: -1094722416
+      Mortimer Run Remake-Sheet_7: -605672074
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
