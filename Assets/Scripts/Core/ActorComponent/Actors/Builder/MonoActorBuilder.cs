@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using Better.Commons.Runtime.Utility;
 using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 using Object = UnityEngine.Object;
 
 namespace EndlessHeresy.Core.Builder
@@ -10,12 +12,14 @@ namespace EndlessHeresy.Core.Builder
     {
         private const string NoPrefabProvidedMessage = "No prefab provided";
 
+        private readonly IObjectResolver _container;
+        private readonly IComponentsLocator _forComponents;
+
         private Vector2 _at;
-        private Component _prefab;
+        private TActor _prefab;
         private Transform _parent;
         private TActor _actor;
         private Quaternion _rotation;
-        private readonly IComponentsLocator _forComponents;
 
         private TActor Actor
         {
@@ -31,12 +35,13 @@ namespace EndlessHeresy.Core.Builder
             }
         }
 
-        public MonoActorBuilder(IComponentsLocator forComponents)
+        public MonoActorBuilder(IComponentsLocator forComponents, IObjectResolver container)
         {
             _forComponents = forComponents;
+            _container = container;
         }
 
-        public MonoActorBuilder<TActor> ForPrefab(Component prefab)
+        public MonoActorBuilder<TActor> ForPrefab(TActor prefab)
         {
             _prefab = prefab;
             return this;
@@ -62,6 +67,7 @@ namespace EndlessHeresy.Core.Builder
 
         public MonoActorBuilder<TActor> WithComponent<TComponent>(TComponent component) where TComponent : IComponent
         {
+            _container.Inject(component);
             _forComponents.TryAddComponent(component);
             return this;
         }
@@ -79,7 +85,9 @@ namespace EndlessHeresy.Core.Builder
                 DebugUtility.LogException<NullReferenceException>(NoPrefabProvidedMessage);
             }
 
-            return Object.Instantiate(_prefab, _at, _rotation, _parent);
+            var actor = Object.Instantiate(_prefab, _at, _rotation, _parent);
+            _container.InjectGameObject(actor.gameObject);
+            return actor;
         }
     }
 }

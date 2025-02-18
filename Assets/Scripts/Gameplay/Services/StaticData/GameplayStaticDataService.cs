@@ -1,21 +1,23 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Better.Services.Runtime;
+﻿using System.Threading.Tasks;
 using EndlessHeresy.Gameplay.Actors.Hero;
-using UnityEngine;
+using EndlessHeresy.Global.Services.AssetsManagement;
 
 namespace EndlessHeresy.Gameplay.Services.StaticData
 {
-    [Serializable]
-    public sealed class GameplayStaticDataService : PocoService, IGameplayStaticDataService
+    public sealed class GameplayStaticDataService : IGameplayStaticDataService
     {
-        [SerializeField] private HeroConfiguration _heroConfiguration;
-
+        private readonly IAssetsService _assetsService;
+        private HeroConfiguration _heroConfiguration;
         public HeroConfiguration HeroConfiguration => _heroConfiguration;
 
-        protected override Task OnInitializeAsync(CancellationToken cancellationToken) => Task.CompletedTask;
+        public GameplayStaticDataService(IAssetsService assetsService)
+        {
+            _assetsService = assetsService;
+        }
 
-        protected override Task OnPostInitializeAsync(CancellationToken cancellationToken) => Task.CompletedTask;
+        public async Task LoadHeroConfigurationAsync()
+        {
+            _heroConfiguration = await _assetsService.Load<HeroConfiguration>(GameplayStaticDataKeys.Hero);
+        }
     }
 }

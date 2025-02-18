@@ -131,7 +131,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 435702936}
-  - component: {fileID: 435702937}
   m_Layer: 0
   m_Name: Root
   m_TagString: Untagged
@@ -153,21 +152,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2030295151}
-  - {fileID: 2022316880}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &435702937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435702935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a65da60b7194d668f0915159553e082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519732465
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,50 +448,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2022316879
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2022316880}
-  - component: {fileID: 2022316881}
-  m_Layer: 0
-  m_Name: Services
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2022316880
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022316879}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 435702936}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2022316881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022316879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a1c23004bfc46dfaf93296a7869ed88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2030295150
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,36 +489,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2030295150}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0addc0a301c89c049ba7b29c96695784, type: 3}
+  m_Script: {fileID: 11500000, guid: ca33be6dac01dff4f8d167f79d837f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _installers:
-  - rid: 6450054146183397379
-  - rid: 6450054146183397381
-  references:
-    version: 2
-    RefIds:
-    - rid: 6450054146183397379
-      type: {class: PocoServicesInstaller, ns: Better.Contexts.Runtime.Installers, asm: Better.Contexts.Runtime}
-      data:
-        _services:
-        - rid: 6450054396463284224
-        - rid: 9117324250810417152
-        - rid: 6450054396463284226
-    - rid: 6450054146183397381
-      type: {class: MonoServicesInstaller, ns: Better.Contexts.Runtime.Installers, asm: Better.Contexts.Runtime}
-      data:
-        _services:
-        - {fileID: 2022316881}
-    - rid: 6450054396463284224
-      type: {class: GameStatesService, ns: EndlessHeresy.Global.Services.StatesManagement, asm: Assembly-CSharp}
-      data: 
-    - rid: 6450054396463284226
-      type: {class: ResourcesProviderService, ns: EndlessHeresy.Global.Services.AssetsManagement, asm: Assembly-CSharp}
-      data: 
-    - rid: 9117324250810417152
-      type: {class: InputService, ns: EndlessHeresy.Gameplay.Services.Input, asm: Assembly-CSharp}
-      data: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

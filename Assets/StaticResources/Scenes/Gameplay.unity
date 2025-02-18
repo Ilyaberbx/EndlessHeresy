@@ -767,27 +767,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1982629067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c02394e1494454b6bf9b15e13c5850, type: 3}
+  m_Script: {fileID: 11500000, guid: c276cfd2340544f196bc81e4b58c8b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _installers:
-  - rid: 6450054470971949056
-  references:
-    version: 2
-    RefIds:
-    - rid: 6450054470971949056
-      type: {class: PocoServicesInstaller, ns: Better.Contexts.Runtime.Installers, asm: Better.Contexts.Runtime}
-      data:
-        _services:
-        - rid: 6450054470971949057
-        - rid: 6450054470971949058
-    - rid: 6450054470971949057
-      type: {class: GameplayStaticDataService, ns: EndlessHeresy.Gameplay.Services.StaticData, asm: Assembly-CSharp}
-      data:
-        _heroConfiguration: {fileID: 11400000, guid: 8e274c0042b2c924482558c32d7caf6b, type: 2}
-    - rid: 6450054470971949058
-      type: {class: GameFactoryService, ns: EndlessHeresy.Gameplay.Services.Factory, asm: Assembly-CSharp}
-      data: 
+  parentReference:
+    TypeName: EndlessHeresy.Global.GlobalLifetimeScope
+  autoRun: 1
+  autoInjectGameObjects: []
 --- !u!1 &2087155037
 GameObject:
   m_ObjectHideFlags: 0

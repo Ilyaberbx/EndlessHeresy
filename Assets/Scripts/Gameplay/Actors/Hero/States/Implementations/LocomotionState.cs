@@ -1,15 +1,16 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Better.Locators.Runtime;
 using EndlessHeresy.Gameplay.Common;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Movement;
+using EndlessHeresy.Gameplay.Services.Input;
 using EndlessHeresy.Gameplay.Services.Tick;
 using UnityEngine;
+using VContainer;
 
 namespace EndlessHeresy.Gameplay.Actors.Hero.States
 {
-    public sealed class LocomotionState : HeroState
+    public sealed class LocomotionState : BaseHeroState
     {
         private static readonly int IsMoving = Animator.StringToHash("IsMoving");
 
@@ -19,6 +20,15 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
         private Animator _animator;
 
         private IGameUpdateService _gameUpdateService;
+        private IInputService _inputService;
+
+        [Inject]
+        public void Construct(IGameUpdateService gameUpdateService,
+            IInputService inputService)
+        {
+            _gameUpdateService = gameUpdateService;
+            _inputService = inputService;
+        }
 
         protected override void OnContextSet(HeroActor context)
         {
@@ -27,12 +37,13 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
             _movementComponent = context.GetComponent<MovementComponent>();
             _facingComponent = context.GetComponent<FacingComponent>();
             _animatorComponent = context.GetComponent<AnimatorComponent>();
-            _gameUpdateService = ServiceLocator.Get<GameUpdateService>();
+            _animator = _animatorComponent.Animator;
         }
 
         public override Task EnterAsync(CancellationToken token)
         {
-            _animator = _animatorComponent.Animator;
+            //TODO: Remove log
+            Debug.Log("Entering Locomotion State");
             _movementComponent.Unlock();
             _gameUpdateService.OnUpdate += OnUpdate;
             return Task.CompletedTask;
@@ -47,7 +58,7 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
 
         private void OnUpdate(float deltaTime)
         {
-            var input = Context.GetMovementInput();
+            var input = _inputService.GetMovementInput();
             var isMoving = input != Vector2.zero;
             UpdateAnimatorState(isMoving);
 

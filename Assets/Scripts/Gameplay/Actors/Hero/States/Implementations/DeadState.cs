@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Actors.Hero.States
 {
-    public sealed class DeadState : HeroState
+    public sealed class DeadState : BaseHeroState
     {
         private static readonly int IsDead = Animator.StringToHash("IsDead");
         private MovementComponent _movementComponent;

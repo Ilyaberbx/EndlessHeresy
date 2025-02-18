@@ -30,17 +30,6 @@
       },
       "url": "https://package.openupm.com"
     },
-    "com.tdw.better.contexts": {
-      "version": "0.0.4",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.tdw.better.internal.core": "0.0.2",
-        "com.tdw.better.commons": "0.0.57",
-        "com.tdw.better.attributes": "0.0.2"
-      },
-      "url": "https://package.openupm.com"
-    },
     "com.tdw.better.internal.core": {
       "version": "0.0.2",
       "depth": 1,
@@ -55,15 +44,6 @@
       "dependencies": {
         "com.tdw.better.internal.core": "0.0.2",
         "com.tdw.better.commons": "0.0.57"
-      },
-      "url": "https://package.openupm.com"
-    },
-    "com.tdw.better.services": {
-      "version": "0.1.4",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.tdw.better.internal.core": "0.0.2"
       },
       "url": "https://package.openupm.com"
     },

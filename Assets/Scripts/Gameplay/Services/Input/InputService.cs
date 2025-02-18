@@ -1,25 +1,10 @@
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Better.Services.Runtime;
 using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Services.Input
 {
-    [Serializable]
-    public sealed class InputService : PocoService, IInputService
+    public sealed class InputService : IInputService
     {
         private bool _isLocked;
-
-        protected override Task OnInitializeAsync(CancellationToken cancellationToken)
-        {
-            return Task.CompletedTask;
-        }
-
-        protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
-        {
-            return Task.CompletedTask;
-        }
 
         public void Lock()
         {

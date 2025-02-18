@@ -311,7 +311,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3742811650053028703}
-  - component: {fileID: 1525308253614943256}
   m_Layer: 0
   m_Name: AttackPoints
   m_TagString: Untagged
@@ -336,20 +335,6 @@ Transform:
   - {fileID: 4844845224131549841}
   m_Father: {fileID: 4618155225961082434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1525308253614943256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4660200824312977466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4142bd1b9bef48b992cf5b9304f0a76d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _leftAttackPoint: {fileID: 7070355012607677460}
-  _rightAttackPoint: {fileID: 4844845224131549841}
 --- !u!1 &5826162769024652586
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +386,6 @@ MonoBehaviour:
   - {fileID: 966448139379735472}
   - {fileID: 6524635083684402892}
   - {fileID: 5387782236704160975}
-  - {fileID: 1525308253614943256}
 --- !u!1 &8583714690861674785
 GameObject:
   m_ObjectHideFlags: 0
