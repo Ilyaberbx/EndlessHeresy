@@ -7,12 +7,14 @@ namespace EndlessHeresy.Core
     {
         private readonly CancellationTokenSource _disposeCanceller = new();
         protected IActor Owner { get; private set; }
+        protected CancellationToken DisposalToken => _disposeCanceller.Token;
 
         public virtual async Task InitializeAsync()
         {
             await OnInitializeAsync(_disposeCanceller.Token);
             await OnPostInitializeAsync(_disposeCanceller.Token);
         }
+
         public virtual void Dispose()
         {
             OnDispose();

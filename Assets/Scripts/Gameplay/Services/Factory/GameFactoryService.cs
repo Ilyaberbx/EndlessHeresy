@@ -7,9 +7,7 @@ using Better.StateMachine.Runtime;
 using EndlessHeresy.Core;
 using EndlessHeresy.Core.Builder;
 using EndlessHeresy.Core.States;
-using EndlessHeresy.Gameplay.Abilities;
 using EndlessHeresy.Gameplay.Actors.Hero;
-using EndlessHeresy.Gameplay.Attack;
 using EndlessHeresy.Gameplay.Common;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Health;
@@ -36,30 +34,22 @@ namespace EndlessHeresy.Gameplay.Services.Factory
         {
             var builder = GetBuilder<HeroActor>();
             var configuration = _gameplayStaticDataService.HeroConfiguration;
-            var abilityStorageComponent = new AbilityStorageComponent();
             var movementComponent = new MovementComponent();
-            var abilityCastComponent = new AbilityCastComponent();
             var healthComponent = new HealthComponent();
             var statesAggregator = new StatesAggregator<HeroActor>();
             var facingComponent = new FacingComponent();
-            var meleeAttackComponent = new MeleeAttackComponent();
-
-            meleeAttackComponent.Setup(configuration.MeleeAttack.Damage, configuration.MeleeAttack.Radius);
+            
             healthComponent.Setup(configuration.Health);
             statesAggregator.Setup(new StateMachine<BaseState<HeroActor>>());
-            abilityStorageComponent.Setup(configuration.Abilities);
             movementComponent.SetSpeed(configuration.MovementSpeed);
 
             return builder
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
-                .WithComponent(abilityCastComponent)
-                .WithComponent(abilityStorageComponent)
                 .WithComponent(movementComponent)
                 .WithComponent(healthComponent)
                 .WithComponent(statesAggregator)
                 .WithComponent(facingComponent)
-                .WithComponent(meleeAttackComponent)
                 .Build();
         }
 

@@ -68,6 +68,9 @@ namespace EndlessHeresy.Core
         public bool TryRemoveComponent<TComponent>(TComponent component) where TComponent : IComponent =>
             _componentsLocator.TryRemoveComponent(component);
 
+        public new TComponent GetComponent<TComponent>() where TComponent : IComponent =>
+            _componentsLocator.GetComponent<TComponent>();
+
         protected virtual async Task OnInitializeAsync()
         {
             var initializationTasks = new List<Task>();

@@ -29,7 +29,8 @@ namespace EndlessHeresy.Core
             return false;
         }
 
-        public bool TryAddComponent<TComponent>(TComponent component) where TComponent : IComponent => TryAdd(component.GetType(), component);
+        public bool TryAddComponent<TComponent>(TComponent component) where TComponent : IComponent =>
+            TryAdd(component.GetType(), component);
 
         public bool TryRemoveComponent<TComponent>(TComponent component) where TComponent : IComponent
         {
@@ -41,5 +42,8 @@ namespace EndlessHeresy.Core
 
             return false;
         }
+
+        public TComponent GetComponent<TComponent>() where TComponent : IComponent =>
+            TryGetComponent<TComponent>(out var component) ? component : default;
     }
 }

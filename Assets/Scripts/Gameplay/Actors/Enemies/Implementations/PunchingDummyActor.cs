@@ -9,7 +9,7 @@ namespace EndlessHeresy.Gameplay.Actors.Enemies
 
         private void Start()
         {
-            TryGetComponent(out _healthComponent);
+            _healthComponent = GetComponent<HealthComponent>();
             _healthComponent.OnHealthDepleted += OnHealthDepleted;
         }
 

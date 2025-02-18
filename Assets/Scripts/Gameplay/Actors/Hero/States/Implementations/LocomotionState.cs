@@ -24,7 +24,9 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
         {
             base.OnContextSet(context);
 
-            TryCollectRequiredComponents();
+            _movementComponent = context.GetComponent<MovementComponent>();
+            _facingComponent = context.GetComponent<FacingComponent>();
+            _animatorComponent = context.GetComponent<AnimatorComponent>();
             _gameUpdateService = ServiceLocator.Get<GameUpdateService>();
         }
 
@@ -70,10 +72,5 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
         }
 
         private void UpdateAnimatorState(bool isMoving) => _animator.SetBool(IsMoving, isMoving);
-
-        private bool TryCollectRequiredComponents() =>
-            Context.TryGetComponent(out _movementComponent) &&
-            Context.TryGetComponent(out _animatorComponent) &&
-            Context.TryGetComponent(out _facingComponent);
     }
 }
