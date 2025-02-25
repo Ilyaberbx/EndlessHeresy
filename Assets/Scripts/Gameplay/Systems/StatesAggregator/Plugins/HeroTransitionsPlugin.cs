@@ -1,4 +1,5 @@
-﻿using Better.StateMachine.Runtime.Modules.Transitions;
+﻿using Better.Commons.Runtime.Extensions;
+using Better.StateMachine.Runtime.Modules.Transitions;
 using EndlessHeresy.Core.States;
 using EndlessHeresy.Core.StatesAggregator.Plugins;
 using EndlessHeresy.Extensions;
@@ -21,8 +22,14 @@ namespace EndlessHeresy.Gameplay.StatesAggregator.Plugins
             var deadState = StatesFactory.CreateState<DeadState>();
             var locomotionState = StatesFactory.CreateState<LocomotionState>();
 
+            deadState.SetContext(Context);
+            locomotionState.SetContext(Context);
+
             transitionsModule.Any(locomotionState, anyToLocomotionCondition);
             transitionsModule.Any(deadState, anyToDeadCondition);
+
+            StateMachine.Run();
+            StateMachine.ChangeStateAsync(locomotionState).Forget();
         }
     }
 }

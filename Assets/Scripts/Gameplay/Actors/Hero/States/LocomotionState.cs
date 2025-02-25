@@ -43,8 +43,6 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
 
         public override Task EnterAsync(CancellationToken token)
         {
-            //TODO: Remove log
-            Debug.Log("Entering Locomotion State");
             _movementComponent.Unlock();
             _gameUpdateService.OnUpdate += OnUpdate;
             return Task.CompletedTask;

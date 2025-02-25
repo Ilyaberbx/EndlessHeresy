@@ -1,5 +1,6 @@
 ﻿using System;
 using Better.Commons.Runtime.Utility;
+using Better.StateMachine.Runtime;
 using EndlessHeresy.Core.States;
 using EndlessHeresy.Core.States.Factory;
 using VContainer;
@@ -10,9 +11,8 @@ namespace EndlessHeresy.Core.StatesAggregator.Plugins
     {
         private IStatesAggregator<TContext> _statesAggregator;
         protected TContext Context => _statesAggregator.Context;
-
+        protected IStateMachine<BaseState<TContext>> StateMachine => _statesAggregator.StateMachine;
         protected IStatesFactory<BaseState<TContext>> StatesFactory;
-
         private IObjectResolver _container;
 
         [Inject]
