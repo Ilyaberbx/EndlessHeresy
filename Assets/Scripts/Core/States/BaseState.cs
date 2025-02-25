@@ -2,7 +2,7 @@
 
 namespace EndlessHeresy.Core.States
 {
-    public abstract class BaseState<TContext> : BaseState where TContext : IContext
+    public abstract class BaseState<TContext> : BaseState where TContext : IStateMachineContext
     {
         protected TContext Context { get; private set; }
 

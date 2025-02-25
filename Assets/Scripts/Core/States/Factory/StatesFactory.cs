@@ -2,13 +2,13 @@
 
 namespace EndlessHeresy.Core.States.Factory
 {
-    public sealed class StatesFactory<TDerivedState> : IStatesFactory<TDerivedState> where TDerivedState : new()
+    public sealed class StatesFactory<TDerivedState> : IStatesFactory<TDerivedState>
     {
         private readonly IObjectResolver _container;
 
         public StatesFactory(IObjectResolver container) => _container = container;
 
-        public TState GetState<TState>() where TState : TDerivedState, new()
+        public TState CreateState<TState>() where TState : TDerivedState, new()
         {
             var state = new TState();
             _container.Inject(state);

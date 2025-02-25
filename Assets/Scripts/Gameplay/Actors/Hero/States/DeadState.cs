@@ -1,12 +1,13 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using EndlessHeresy.Core.States;
 using EndlessHeresy.Gameplay.Common;
 using EndlessHeresy.Gameplay.Movement;
 using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Actors.Hero.States
 {
-    public sealed class DeadState : BaseHeroState
+    public sealed class DeadState : BaseState<HeroActor>
     {
         private static readonly int IsDead = Animator.StringToHash("IsDead");
         private MovementComponent _movementComponent;

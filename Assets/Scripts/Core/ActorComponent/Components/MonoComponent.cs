@@ -23,7 +23,6 @@ namespace EndlessHeresy.Core
         public void SetActor(IActor actor) => Owner = actor;
         protected virtual Task OnInitializeAsync(CancellationToken cancellationToken) => Task.CompletedTask;
         protected virtual Task OnPostInitializeAsync(CancellationToken cancellationToken) => Task.CompletedTask;
-
         protected virtual void OnDispose()
         {
         }

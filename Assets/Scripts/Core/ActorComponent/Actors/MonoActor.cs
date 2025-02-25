@@ -18,7 +18,6 @@ namespace EndlessHeresy.Core
         public Transform Transform => _transform;
         public bool ActiveSelf => GameObject.activeSelf;
         
-
         public async Task InitializeAsync(IComponentsLocator locator)
         {
             _componentsLocator = locator;

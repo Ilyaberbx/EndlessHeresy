@@ -10,7 +10,7 @@ namespace EndlessHeresy.Gameplay.Health
 
         private const float MinHealthPoints = 0;
         public float CurrentHp { get; private set; }
-        public void Setup(float healthPoints) => CurrentHp = healthPoints;
+        public void SetHealth(float healthPoints) => CurrentHp = healthPoints;
 
         public void TakeDamage(float damage)
         {

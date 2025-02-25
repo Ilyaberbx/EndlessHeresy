@@ -1,7 +1,7 @@
 ﻿namespace EndlessHeresy.Core.States.Factory
 {
-    public interface IStatesFactory<in TDerivedState> where TDerivedState : new()
+    public interface IStatesFactory<in TDerivedState>
     {
-        public TState GetState<TState>() where TState : TDerivedState, new();
+        public TState CreateState<TState>() where TState : TDerivedState, new();
     }
 }

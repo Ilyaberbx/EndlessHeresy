@@ -6,7 +6,7 @@ namespace EndlessHeresy.Extensions
 {
     public static class TransitionsExtensions
     {
-        public static void Any<TState>(this AutoTransitionsModule<TState> module, TState to, Condition condition) where TState : BaseState
+        public static void Any<TState>(this TransitionsModule<TState> module, TState to, Condition condition) where TState : BaseState
         {
             module.AddTransition(to, condition);
         }

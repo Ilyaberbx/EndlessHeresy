@@ -11,11 +11,10 @@ namespace EndlessHeresy.Gameplay.Facing
         private SpriteRendererComponent _spriteRendererComponent;
         private SpriteRenderer SpriteRenderer => _spriteRendererComponent.SpriteRenderer;
 
-        protected override async Task OnInitializeAsync(CancellationToken cancellationToken)
+        protected override Task OnInitializeAsync(CancellationToken cancellationToken)
         {
-            await base.OnInitializeAsync(cancellationToken);
-
             _spriteRendererComponent = Owner.GetComponent<SpriteRendererComponent>();
+            return Task.CompletedTask;
         }
 
         public void Face(bool faceRight) => SpriteRenderer.flipX = !faceRight;

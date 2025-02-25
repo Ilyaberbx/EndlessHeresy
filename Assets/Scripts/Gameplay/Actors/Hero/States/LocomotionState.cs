@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using EndlessHeresy.Core.States;
 using EndlessHeresy.Gameplay.Common;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Movement;
@@ -10,7 +11,7 @@ using VContainer;
 
 namespace EndlessHeresy.Gameplay.Actors.Hero.States
 {
-    public sealed class LocomotionState : BaseHeroState
+    public sealed class LocomotionState : BaseState<HeroActor>
     {
         private static readonly int IsMoving = Animator.StringToHash("IsMoving");
 

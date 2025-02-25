@@ -1,14 +1,16 @@
 ﻿using System.Threading.Tasks;
-using Better.StateMachine.Runtime;
 using EndlessHeresy.Core;
 using EndlessHeresy.Core.Builder;
 using EndlessHeresy.Core.States;
+using EndlessHeresy.Core.StatesAggregator;
+using EndlessHeresy.Core.StatesAggregator.Plugins;
 using EndlessHeresy.Gameplay.Actors.Hero;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Health;
 using EndlessHeresy.Gameplay.Movement;
 using EndlessHeresy.Gameplay.Services.StaticData;
-using EndlessHeresy.Gameplay.States;
+using EndlessHeresy.Gameplay.StatesAggregator;
+using EndlessHeresy.Gameplay.StatesAggregator.Plugins;
 using UnityEngine;
 using VContainer;
 
@@ -27,32 +29,43 @@ namespace EndlessHeresy.Gameplay.Services.Factory
 
         public Task<HeroActor> CreateHeroAsync(Vector2 at)
         {
-            var builder = GetBuilder<HeroActor>();
             var configuration = _gameplayStaticDataService.HeroConfiguration;
             var movementComponent = new MovementComponent();
             var healthComponent = new HealthComponent();
-            var statesAggregator = new StatesAggregator<HeroActor>();
             var facingComponent = new FacingComponent();
+            var statesAggregatorComponent = new StatesAggregatorComponent<HeroActor>();
 
-            healthComponent.Setup(configuration.Health);
-            statesAggregator.Setup(new StateMachine<BaseState<HeroActor>>());
+            var statesAggregator = GetStatesAggregatorBuilder<HeroActor>()
+                .WithPlugin<HeroTransitionsPlugin>()
+                .WithPlugin<LoggerPlugin<HeroActor>>()
+                .Build();
+
+            statesAggregatorComponent.SetSource(statesAggregator);
+            healthComponent.SetHealth(configuration.Health);
             movementComponent.SetSpeed(configuration.MovementSpeed);
 
-            return builder
+            return GetActorBuilder<HeroActor>()
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
                 .WithComponent(movementComponent)
                 .WithComponent(healthComponent)
-                .WithComponent(statesAggregator)
                 .WithComponent(facingComponent)
+                .WithComponent(statesAggregatorComponent)
                 .Build();
         }
 
-        private MonoActorBuilder<TActor> GetBuilder<TActor>() where TActor : MonoActor
+        private MonoActorBuilder<TActor> GetActorBuilder<TActor>() where TActor : MonoActor
         {
             var componentsLocator = new ComponentsLocator();
             var builder = new MonoActorBuilder<TActor>(componentsLocator, _container);
             return builder;
+        }
+
+        private StatesAggregatorBuilder<TContext> GetStatesAggregatorBuilder<TContext>()
+            where TContext : class, IStateMachineContext
+        {
+            var statesAggregatorBuilder = new StatesAggregatorBuilder<TContext>(_container);
+            return statesAggregatorBuilder;
         }
     }
 }
