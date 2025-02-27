@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 28c0d670a503155479ed47d66adeda37
+guid: 0b5bd6cc3aa0b904b9c34625e6e1daef
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 16384
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_0
+      name: Death_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b741e046b24f4ed40af8383fc98f518c
-      internalID: -184841400
+      spriteID: d60a402bd8bc661449ba4656f936b7d1
+      internalID: 677378367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_1
+      name: Death_1
       rect:
         serializedVersion: 2
         x: 256
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2963dcc9e7af4b4b9c0ecb9cdcf1be2
-      internalID: 368849689
+      spriteID: 19fda76c38a3ff442bd833b9232296ba
+      internalID: -1685954346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_2
+      name: Death_2
       rect:
         serializedVersion: 2
         x: 512
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11723f3fd225a924fbab67d237b26f92
-      internalID: -380286416
+      spriteID: 5a29e9021ce23064d88032687272ec88
+      internalID: 235839214
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_3
+      name: Death_3
       rect:
         serializedVersion: 2
         x: 768
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96e1b68007d0c2f4fbd58067e27d9e3f
-      internalID: 1263730152
+      spriteID: 4184d2f48c4916e40820b50ad4566a89
+      internalID: -1047103647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_4
+      name: Death_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbb04d65062b030409d6f4ecae5b59bc
-      internalID: -1028371055
+      spriteID: 4ed95aa81161dc04383e4512a0e26548
+      internalID: 1697894352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_5
+      name: Death_5
       rect:
         serializedVersion: 2
         x: 1280
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04d501d97d4b6254e950da32c17e4ccf
-      internalID: 120177837
+      spriteID: 3d3706ae8c2f8ee4ea7f29d9c2fb0fe3
+      internalID: 1423391125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_6
+      name: Death_6
       rect:
         serializedVersion: 2
         x: 1536
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48141d9f23ae77e459a13a4ab50d8583
-      internalID: -94353084
+      spriteID: 1dd9a2a43e3912b48b2c15975884516c
+      internalID: 470991427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_7
+      name: Death_7
       rect:
         serializedVersion: 2
         x: 1792
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c191f79e4ff67449863853af8dfab10
-      internalID: -223821341
+      spriteID: fe4228aceeef29a449ceea9a0a4ec19a
+      internalID: 1639394297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_8
+      name: Death_8
       rect:
         serializedVersion: 2
         x: 2048
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 439c15a166a2f78479f6e701f0038318
-      internalID: -993564826
+      spriteID: 563a4dcc830cb5c40a3dfaf0ec9bf0b7
+      internalID: -1618040849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_9
+      name: Death_9
       rect:
         serializedVersion: 2
         x: 2304
@@ -313,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35eb577ce33b2084ca3a2bdefdceddec
-      internalID: -660524454
+      spriteID: cbce0ef5ccb4f224aa2028750d2bb1c4
+      internalID: 1627060530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_10
+      name: Death_10
       rect:
         serializedVersion: 2
         x: 2560
@@ -334,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5600e31ce63b48947ac38b0641734820
-      internalID: 45482304
+      spriteID: 8904db045d6f8af4091255efa75edf48
+      internalID: -79941313
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_11
+      name: Death_11
       rect:
         serializedVersion: 2
         x: 2816
@@ -355,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 774a0e963f76f3c4a9c8ea2285293373
-      internalID: 762427586
+      spriteID: 4d1d77919b8920a48a669cc4032e1267
+      internalID: 156440845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_12
+      name: Death_12
       rect:
         serializedVersion: 2
         x: 3072
@@ -376,14 +376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 812e3593ebf4cf44bb7879322ff01551
-      internalID: 398697091
+      spriteID: b3998d31615ace34d9c37d26450f1118
+      internalID: -56347908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_13
+      name: Death_13
       rect:
         serializedVersion: 2
         x: 3328
@@ -397,14 +397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f540f5f648ab5b5418c0b4c533783f51
-      internalID: 710216657
+      spriteID: 12f78c0c298441940b6a08617bc84cc5
+      internalID: 535990160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_14
+      name: Death_14
       rect:
         serializedVersion: 2
         x: 3584
@@ -418,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16e4065843d8f63419d1e8911c22b057
-      internalID: 655181125
+      spriteID: 88cf47c0664788d448b2ae51e9c0d04d
+      internalID: 816654740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_15
+      name: Death_15
       rect:
         serializedVersion: 2
         x: 3840
@@ -439,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04fa926184f774f4f832ef85931e735d
-      internalID: -674107134
+      spriteID: 01a4b8e18f22e3747aa89f3b6e960701
+      internalID: -2002660731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_16
+      name: Death_16
       rect:
         serializedVersion: 2
         x: 4096
@@ -460,14 +460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af101669597fd834db8467e829239e85
-      internalID: 1392432284
+      spriteID: d05922a4696acb145a76c61eae06581f
+      internalID: -103378828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_17
+      name: Death_17
       rect:
         serializedVersion: 2
         x: 4352
@@ -481,14 +481,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ab8af7e86c0fef4197e901f99c30e73
-      internalID: -355770319
+      spriteID: 5bd65d461eeb15f4d9fcd7cc66ac845a
+      internalID: -755609393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_18
+      name: Death_18
       rect:
         serializedVersion: 2
         x: 4608
@@ -502,14 +502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef889af37ff09d2499d22c58a97003cd
-      internalID: 1710915438
+      spriteID: d71d141215d67794d9b521f6c8306e77
+      internalID: -1135985411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_19
+      name: Death_19
       rect:
         serializedVersion: 2
         x: 4864
@@ -523,14 +523,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 144dcfb6c2e7bb84ba90b6c737f3660a
-      internalID: -821609219
+      spriteID: 309a483c3ffd59041a76ed77bb419725
+      internalID: 1859222170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_20
+      name: Death_20
       rect:
         serializedVersion: 2
         x: 5120
@@ -544,14 +544,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6318926a229d9c4e8f7b380627ff51c
-      internalID: -307727556
+      spriteID: 0acac8f70ff552b4e9796ac629c86379
+      internalID: 1314819876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_21
+      name: Death_21
       rect:
         serializedVersion: 2
         x: 5376
@@ -565,14 +565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8426f7fb11a48ba4195b75c01daa2a2c
-      internalID: 1001056565
+      spriteID: c445662536f971546b636f5f2610b41c
+      internalID: -248221917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_22
+      name: Death_22
       rect:
         serializedVersion: 2
         x: 5632
@@ -586,14 +586,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee16ffe9a00b5c54cb995a6c1662ba02
-      internalID: 1314561265
+      spriteID: 600dab869a241cc468e7e529cb21d92a
+      internalID: -1880426843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_23
+      name: Death_23
       rect:
         serializedVersion: 2
         x: 5888
@@ -607,14 +607,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8b234fce984dc545a1f72cd75f72a50
-      internalID: -126709041
+      spriteID: 0f32e025166f5fe48a3aa299de4f9ede
+      internalID: -532305956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_24
+      name: Death_24
       rect:
         serializedVersion: 2
         x: 6144
@@ -628,14 +628,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6336d0a578337847bb10f0600113c41
-      internalID: -265692820
+      spriteID: 980d1059ef739ab4789fa2070aed8081
+      internalID: -1621341752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_25
+      name: Death_25
       rect:
         serializedVersion: 2
         x: 6400
@@ -649,14 +649,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4ea3756e61ca934b8e72f259c2ec5f9
-      internalID: 1467094745
+      spriteID: e8902f6841237a844bcec68a04a2b38b
+      internalID: -1698977034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_26
+      name: Death_26
       rect:
         serializedVersion: 2
         x: 6656
@@ -670,14 +670,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ad096a1a80460341a4f48a590341990
-      internalID: -889057051
+      spriteID: 981eedc35470eeb40a38b6538a41934e
+      internalID: 1533474104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_27
+      name: Death_27
       rect:
         serializedVersion: 2
         x: 6912
@@ -691,14 +691,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac98401458086354696864b136c97104
-      internalID: -969135030
+      spriteID: e5e55f03275e46d409676816922e4f76
+      internalID: -627908595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_28
+      name: Death_28
       rect:
         serializedVersion: 2
         x: 7168
@@ -712,14 +712,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5609f859c7efa243945c30cca7a1bbf
-      internalID: 490846661
+      spriteID: 3e0f6ae4c6de4724abf984efd5926e21
+      internalID: 702044556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_29
+      name: Death_29
       rect:
         serializedVersion: 2
         x: 7424
@@ -733,14 +733,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bf247dcd917a3647acc95f4db089f03
-      internalID: 1582388199
+      spriteID: 9856851ccf0180f43bd7e6458aaaee9d
+      internalID: -1219808858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_30
+      name: Death_30
       rect:
         serializedVersion: 2
         x: 7680
@@ -754,14 +754,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e5a9eeb81e886240bcb0625e6da66b7
-      internalID: -249900334
+      spriteID: 01440b37c80b12843b2c75f9836086cd
+      internalID: 1781181995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_31
+      name: Death_31
       rect:
         serializedVersion: 2
         x: 7936
@@ -775,14 +775,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74d424701b284de4a9694ab7436be85e
-      internalID: 686357228
+      spriteID: f83a61ca31b93b34fb022e9a9bb2d4ff
+      internalID: -302009766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_32
+      name: Death_32
       rect:
         serializedVersion: 2
         x: 8192
@@ -796,14 +796,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efb7a6199cd78f446a82482d02b0bea6
-      internalID: 255132449
+      spriteID: ed653917b89386c49ab5cb3dc846b782
+      internalID: 1234364108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_33
+      name: Death_33
       rect:
         serializedVersion: 2
         x: 8448
@@ -817,14 +817,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbc73a3083780414cb91fa1ad32d2fa8
-      internalID: -1219821398
+      spriteID: 7f1ca9d5819e64c4ca1efe3c3b704915
+      internalID: 1607065900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_34
+      name: Death_34
       rect:
         serializedVersion: 2
         x: 8704
@@ -838,14 +838,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e30b02a9102098a4696e6e8e77d6ab0a
-      internalID: 1425965822
+      spriteID: d0c33736931a3d24a9334bcb6179d13a
+      internalID: -9435180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_35
+      name: Death_35
       rect:
         serializedVersion: 2
         x: 8960
@@ -859,14 +859,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d120916d0aa0ac42a21b1714e733386
-      internalID: -822449073
+      spriteID: f26b1a8bad81d0645bc1695efd342f7c
+      internalID: 1592188751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_36
+      name: Death_36
       rect:
         serializedVersion: 2
         x: 9216
@@ -880,14 +880,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb00a8f47fa96df4581cad237d58dafd
-      internalID: -1683963158
+      spriteID: c46512ed1b7b3594ca7eb0f9b031185e
+      internalID: 271745770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_37
+      name: Death_37
       rect:
         serializedVersion: 2
         x: 9472
@@ -901,14 +901,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6c9e14cdc3098d48bf96b9a56fb57be
-      internalID: 395915422
+      spriteID: 3df9fa439ea72bd4d92acf7214f24d3c
+      internalID: -1036498210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_38
+      name: Death_38
       rect:
         serializedVersion: 2
         x: 9728
@@ -922,14 +922,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d1e0b6593784b24b921ef2a0bbf86b3
-      internalID: 776230762
+      spriteID: e0f79e18603bae64bafa6654d91e7e6f
+      internalID: 1758350466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_39
+      name: Death_39
       rect:
         serializedVersion: 2
         x: 9984
@@ -943,14 +943,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e22b21aa328ff6948ac670140b22e77e
-      internalID: 1290312757
+      spriteID: b756585b739c37e4d936dc6a83cefe41
+      internalID: 1400815689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mortimer Death-Sheet_40
+      name: Death_40
       rect:
         serializedVersion: 2
         x: 10240
@@ -964,8 +964,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: faa237eed86785a4dab995ec1bb6d998
-      internalID: -69687474
+      spriteID: c930d107a847b064c9708172a9dad60a
+      internalID: 392306832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death_41
+      rect:
+        serializedVersion: 2
+        x: 10496
+        y: 0
+        width: 256
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b93624a3f624e9841901fb92f20ed4f8
+      internalID: -973362238
       vertices: []
       indices: 
       edges: []
@@ -973,7 +994,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b49234f25029dac4a98d6dad516579a9
+    spriteID: bf0dc9693c7aa8a42adac1c5bd38be95
     internalID: 0
     vertices: []
     indices: 
@@ -981,47 +1002,48 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mortimer Death-Sheet_0: -184841400
-      Mortimer Death-Sheet_1: 368849689
-      Mortimer Death-Sheet_10: 45482304
-      Mortimer Death-Sheet_11: 762427586
-      Mortimer Death-Sheet_12: 398697091
-      Mortimer Death-Sheet_13: 710216657
-      Mortimer Death-Sheet_14: 655181125
-      Mortimer Death-Sheet_15: -674107134
-      Mortimer Death-Sheet_16: 1392432284
-      Mortimer Death-Sheet_17: -355770319
-      Mortimer Death-Sheet_18: 1710915438
-      Mortimer Death-Sheet_19: -821609219
-      Mortimer Death-Sheet_2: -380286416
-      Mortimer Death-Sheet_20: -307727556
-      Mortimer Death-Sheet_21: 1001056565
-      Mortimer Death-Sheet_22: 1314561265
-      Mortimer Death-Sheet_23: -126709041
-      Mortimer Death-Sheet_24: -265692820
-      Mortimer Death-Sheet_25: 1467094745
-      Mortimer Death-Sheet_26: -889057051
-      Mortimer Death-Sheet_27: -969135030
-      Mortimer Death-Sheet_28: 490846661
-      Mortimer Death-Sheet_29: 1582388199
-      Mortimer Death-Sheet_3: 1263730152
-      Mortimer Death-Sheet_30: -249900334
-      Mortimer Death-Sheet_31: 686357228
-      Mortimer Death-Sheet_32: 255132449
-      Mortimer Death-Sheet_33: -1219821398
-      Mortimer Death-Sheet_34: 1425965822
-      Mortimer Death-Sheet_35: -822449073
-      Mortimer Death-Sheet_36: -1683963158
-      Mortimer Death-Sheet_37: 395915422
-      Mortimer Death-Sheet_38: 776230762
-      Mortimer Death-Sheet_39: 1290312757
-      Mortimer Death-Sheet_4: -1028371055
-      Mortimer Death-Sheet_40: -69687474
-      Mortimer Death-Sheet_5: 120177837
-      Mortimer Death-Sheet_6: -94353084
-      Mortimer Death-Sheet_7: -223821341
-      Mortimer Death-Sheet_8: -993564826
-      Mortimer Death-Sheet_9: -660524454
+      Death_0: 677378367
+      Death_1: -1685954346
+      Death_10: -79941313
+      Death_11: 156440845
+      Death_12: -56347908
+      Death_13: 535990160
+      Death_14: 816654740
+      Death_15: -2002660731
+      Death_16: -103378828
+      Death_17: -755609393
+      Death_18: -1135985411
+      Death_19: 1859222170
+      Death_2: 235839214
+      Death_20: 1314819876
+      Death_21: -248221917
+      Death_22: -1880426843
+      Death_23: -532305956
+      Death_24: -1621341752
+      Death_25: -1698977034
+      Death_26: 1533474104
+      Death_27: -627908595
+      Death_28: 702044556
+      Death_29: -1219808858
+      Death_3: -1047103647
+      Death_30: 1781181995
+      Death_31: -302009766
+      Death_32: 1234364108
+      Death_33: 1607065900
+      Death_34: -9435180
+      Death_35: 1592188751
+      Death_36: 271745770
+      Death_37: -1036498210
+      Death_38: 1758350466
+      Death_39: 1400815689
+      Death_4: 1697894352
+      Death_40: 392306832
+      Death_41: -973362238
+      Death_5: 1423391125
+      Death_6: 470991427
+      Death_7: 1639394297
+      Death_8: -1618040849
+      Death_9: 1627060530
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
