@@ -17,3 +17,4 @@ MonoBehaviour:
   _health: 10
   _abilityConfigurations:
   - {fileID: 11400000, guid: e2a5fca02d62dea49a059aad6ff4e7c0, type: 2}
+  - {fileID: 11400000, guid: 6b2c9c6a9456f7b4288c7c730a318263, type: 2}
