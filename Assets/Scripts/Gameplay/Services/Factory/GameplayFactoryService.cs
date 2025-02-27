@@ -4,6 +4,7 @@ using EndlessHeresy.Core.Builder;
 using EndlessHeresy.Core.States;
 using EndlessHeresy.Core.StatesAggregator;
 using EndlessHeresy.Core.StatesAggregator.Plugins;
+using EndlessHeresy.Gameplay.Abilities;
 using EndlessHeresy.Gameplay.Actors.Hero;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Health;
@@ -34,6 +35,8 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var healthComponent = new HealthComponent();
             var facingComponent = new FacingComponent();
             var statesAggregatorComponent = new StatesAggregatorComponent<HeroActor>();
+            var abilitiesCastComponent = new AbilitiesCastComponent();
+            var abilitiesStorageComponent = new AbilitiesStorageComponent();
 
             var statesAggregator = GetStatesAggregatorBuilder<HeroActor>()
                 .WithPlugin<HeroTransitionsPlugin>()
@@ -43,6 +46,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             statesAggregatorComponent.SetSource(statesAggregator);
             healthComponent.SetHealth(configuration.Health);
             movementComponent.SetSpeed(configuration.MovementSpeed);
+            abilitiesStorageComponent.SetAbilities(configuration.AbilityConfigurations);
 
             return GetActorBuilder<HeroActor>()
                 .ForPrefab(configuration.Prefab)
@@ -51,6 +55,8 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .WithComponent(healthComponent)
                 .WithComponent(facingComponent)
                 .WithComponent(statesAggregatorComponent)
+                .WithComponent(abilitiesCastComponent)
+                .WithComponent(abilitiesStorageComponent)
                 .Build();
         }
 

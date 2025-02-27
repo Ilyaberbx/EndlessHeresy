@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace EndlessHeresy.Core
@@ -10,5 +11,6 @@ namespace EndlessHeresy.Core
         GameObject GameObject { get; }
         Transform Transform { get; }
         bool ActiveSelf { get; }
+        CancellationToken DestroyCancellationToken { get; }
     }
 }

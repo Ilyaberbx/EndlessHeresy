@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using EndlessHeresy.Gameplay.Abilities;
+using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Actors.Hero
 {
@@ -8,8 +9,11 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
         [SerializeField] private HeroActor _prefab;
         [SerializeField] private float _movementSpeed;
         [SerializeField] private int _health;
+        [SerializeField] private AbilityConfiguration[] _abilityConfigurations;
+        
         public HeroActor Prefab => _prefab;
         public float MovementSpeed => _movementSpeed;
         public int Health => _health;
+        public AbilityConfiguration[] AbilityConfigurations => _abilityConfigurations;
     }
 }

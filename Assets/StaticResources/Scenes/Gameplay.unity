@@ -774,6 +774,7 @@ MonoBehaviour:
     TypeName: EndlessHeresy.Global.GlobalLifetimeScope
   autoRun: 1
   autoInjectGameObjects: []
+  _camera: {fileID: 1573129787}
 --- !u!1 &2087155037
 GameObject:
   m_ObjectHideFlags: 0

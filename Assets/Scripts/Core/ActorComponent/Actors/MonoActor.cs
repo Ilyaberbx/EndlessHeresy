@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using UnityEngine;
@@ -17,7 +18,8 @@ namespace EndlessHeresy.Core
         public GameObject GameObject => _gameObject;
         public Transform Transform => _transform;
         public bool ActiveSelf => GameObject.activeSelf;
-        
+        public CancellationToken DestroyCancellationToken => destroyCancellationToken;
+
         public async Task InitializeAsync(IComponentsLocator locator)
         {
             _componentsLocator = locator;

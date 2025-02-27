@@ -26,5 +26,6 @@ namespace EndlessHeresy.Gameplay.Services.Input
         public Vector2 GetMousePosition() => UnityEngine.Input.mousePosition;
         public bool GetKeyDown(KeyCode key) => !_isLocked && UnityEngine.Input.GetKeyDown(key);
         public bool GetMouseButton(int button) => !_isLocked && UnityEngine.Input.GetMouseButton(button);
+        public bool GetKey(KeyCode key) => !_isLocked && UnityEngine.Input.GetKey(key);
     }
 }
