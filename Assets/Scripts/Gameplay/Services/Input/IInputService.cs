@@ -10,6 +10,7 @@ namespace EndlessHeresy.Gameplay.Services.Input
         Vector2 GetMousePosition();
         bool GetKeyDown(KeyCode key);
         bool GetMouseButton(int button);
+        bool GetMouseButtonDown(int button);
         bool GetKey(KeyCode key);
     }
 }

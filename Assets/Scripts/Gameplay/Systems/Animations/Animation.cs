@@ -5,9 +5,12 @@ namespace EndlessHeresy.Gameplay.Animations
 {
     public abstract class Animation : MonoComponent
     {
-        [SerializeField] private Animator _animator;
+        protected Animator Animator { get; private set; }
 
-        protected Animator Animator => _animator;
+        public void SetAnimator(Animator animator)
+        {
+            Animator = animator;
+        }
 
         public abstract void Play();
     }

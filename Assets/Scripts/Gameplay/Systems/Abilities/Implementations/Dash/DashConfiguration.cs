@@ -4,7 +4,7 @@ using VContainer;
 namespace EndlessHeresy.Gameplay.Abilities
 {
     [CreateAssetMenu(menuName = "Configs/Gameplay/Abilities/Dash", fileName = "DashAbilityConfiguration", order = 0)]
-    public sealed class DashAbilityConfiguration : AbilityConfiguration
+    public sealed class DashConfiguration : AbilityConfiguration
     {
         [SerializeField] private KeyCode _keyCode;
         [SerializeField] private int _speed;
@@ -16,6 +16,6 @@ namespace EndlessHeresy.Gameplay.Abilities
         public AnimationCurve Curve => _curve;
         public KeyCode KeyCode => _keyCode;
 
-        public override AbilityBuilder GetBuilder(IObjectResolver container) => new DashAbilityBuilder(container, this);
+        public override AbilityBuilder GetBuilder(IObjectResolver container) => new DashBuilder(container, this);
     }
 }

@@ -17,7 +17,6 @@ namespace EndlessHeresy.Gameplay.Abilities
     {
         private ICameraService _cameraService;
 
-        private MovementComponent _movementComponent;
         private AnimationCurve _curve;
         private float _length;
         private int _speed;
@@ -29,7 +28,6 @@ namespace EndlessHeresy.Gameplay.Abilities
         public override void Initialize(IActor owner)
         {
             base.Initialize(owner);
-            _movementComponent = Owner.GetComponent<MovementComponent>();
             _facingComponent = Owner.GetComponent<FacingComponent>();
         }
 
@@ -57,16 +55,11 @@ namespace EndlessHeresy.Gameplay.Abilities
 
         private void PreDash(Vector2 lookDirection)
         {
-            _movementComponent.Lock();
             _facingComponent.Face(lookDirection.x > 0);
             SetState(AbilityState.InUse);
         }
 
-        private void PostDash()
-        {
-            _movementComponent.Unlock();
-            SetState(AbilityState.Ready);
-        }
+        private void PostDash() => SetState(AbilityState.Ready);
 
         private Tweener GetDashTween(GameObject gameObject, Transform ownerTransform, Vector2 endValue) =>
             ownerTransform.DOMove(endValue, _speed)

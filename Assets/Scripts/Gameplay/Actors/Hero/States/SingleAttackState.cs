@@ -2,11 +2,12 @@
 using System.Threading.Tasks;
 using EndlessHeresy.Core.States;
 using EndlessHeresy.Gameplay.Abilities;
+using EndlessHeresy.Gameplay.Abilities.SingleAttack;
 using EndlessHeresy.Gameplay.Movement;
 
 namespace EndlessHeresy.Gameplay.Actors.Hero.States
 {
-    public sealed class DashState : BaseState<HeroActor>
+    public sealed class SingleAttackState : BaseState<HeroActor>
     {
         private AbilitiesCastComponent _abilitiesCastComponent;
         private MovementComponent _movementComponent;
@@ -21,7 +22,7 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
 
         public override Task EnterAsync(CancellationToken token)
         {
-            if (_abilitiesCastComponent.TryCast<DashAbility>())
+            if (_abilitiesCastComponent.TryCast<SingleAttackAbility>())
             {
                 _movementComponent.Lock();
             }

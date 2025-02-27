@@ -33,7 +33,7 @@ namespace EndlessHeresy.Gameplay.Conditions
 
             var abilityIsReadyCondition = new AbilityStateCondition(AbilityState.Ready, ability);
             var abilityCastCondition = ability.Condition;
-            return abilityIsReadyCondition.SafeInvoke() && abilityCastCondition.SafeInvoke();
+            return abilityCastCondition.SafeInvoke() && abilityIsReadyCondition.SafeInvoke();
         }
 
         protected override bool Validate(out Exception exception)

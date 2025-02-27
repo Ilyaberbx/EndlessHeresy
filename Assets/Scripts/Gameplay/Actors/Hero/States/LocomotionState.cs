@@ -16,7 +16,7 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
         private static readonly int IsMoving = Animator.StringToHash("IsMoving");
 
         private MovementComponent _movementComponent;
-        private AnimatorComponent _animatorComponent;
+        private AnimationsStorageComponent _animationsStorageComponent;
         private FacingComponent _facingComponent;
         private Animator _animator;
 
@@ -37,8 +37,8 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
 
             _movementComponent = context.GetComponent<MovementComponent>();
             _facingComponent = context.GetComponent<FacingComponent>();
-            _animatorComponent = context.GetComponent<AnimatorComponent>();
-            _animator = _animatorComponent.Animator;
+            _animationsStorageComponent = context.GetComponent<AnimationsStorageComponent>();
+            _animator = _animationsStorageComponent.Animator;
         }
 
         public override Task EnterAsync(CancellationToken token)

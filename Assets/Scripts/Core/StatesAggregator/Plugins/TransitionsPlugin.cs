@@ -8,6 +8,7 @@ namespace EndlessHeresy.Core.StatesAggregator.Plugins
         where TContext : IStateMachineContext
     {
         private AutoTransitionsModule<BaseState<TContext>> _transitionsModule;
+        private const float TickTimeStep = 0.01f;
 
         protected sealed override void InstallInternally(IStatesAggregator<TContext> statesAggregator)
         {
@@ -23,7 +24,7 @@ namespace EndlessHeresy.Core.StatesAggregator.Plugins
                 return;
             }
 
-            _transitionsModule = new AutoTransitionsModule<BaseState<TContext>>();
+            _transitionsModule = new AutoTransitionsModule<BaseState<TContext>>(TickTimeStep);
             stateMachine.AddModule(_transitionsModule);
             statesAggregator.OnContextChanged += OnContextChanged;
         }
@@ -31,7 +32,6 @@ namespace EndlessHeresy.Core.StatesAggregator.Plugins
         protected override void UninstallInternally(IStatesAggregator<TContext> statesAggregator)
         {
             base.UninstallInternally(statesAggregator);
-
             statesAggregator.OnContextChanged -= OnContextChanged;
         }
 

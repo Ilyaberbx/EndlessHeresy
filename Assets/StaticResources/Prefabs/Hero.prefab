@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 298133652569171196}
+  _animations:
+  - {fileID: 966448139379735472}
 --- !u!114 &6877681950020319554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93274cc08e664d3997c830e9ecf8b461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 298133652569171196}
 --- !u!1 &4214391116364405971
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3742811650053028703}
+  - component: {fileID: 1765330148740601296}
   m_Layer: 0
   m_Name: AttackPoints
   m_TagString: Untagged
@@ -335,6 +337,20 @@ Transform:
   - {fileID: 4844845224131549841}
   m_Father: {fileID: 4618155225961082434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1765330148740601296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660200824312977466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2b2db7cccd4fbcb9f19729436a6ad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leftAttackPoint: {fileID: 7070355012607677460}
+  _rightAttackPoint: {fileID: 4844845224131549841}
 --- !u!1 &5826162769024652586
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,9 +399,10 @@ MonoBehaviour:
   MonoComponents:
   - {fileID: 6205564464007801626}
   - {fileID: 6877681950020319554}
-  - {fileID: 966448139379735472}
   - {fileID: 6524635083684402892}
   - {fileID: 5387782236704160975}
+  - {fileID: 5387782236704160975}
+  - {fileID: 1765330148740601296}
 --- !u!1 &8583714690861674785
 GameObject:
   m_ObjectHideFlags: 0

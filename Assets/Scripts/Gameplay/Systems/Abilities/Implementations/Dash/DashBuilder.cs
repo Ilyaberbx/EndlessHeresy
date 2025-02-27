@@ -3,12 +3,12 @@ using VContainer;
 
 namespace EndlessHeresy.Gameplay.Abilities
 {
-    public sealed class DashAbilityBuilder : AbilityBuilder
+    public sealed class DashBuilder : AbilityBuilder
     {
         private readonly IObjectResolver _container;
-        private readonly DashAbilityConfiguration _configuration;
+        private readonly DashConfiguration _configuration;
 
-        public DashAbilityBuilder(IObjectResolver container, DashAbilityConfiguration configuration)
+        public DashBuilder(IObjectResolver container, DashConfiguration configuration)
         {
             _container = container;
             _configuration = configuration;
