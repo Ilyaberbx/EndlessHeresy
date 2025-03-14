@@ -5,6 +5,7 @@ using EndlessHeresy.Core.States;
 using EndlessHeresy.Core.StatesAggregator;
 using EndlessHeresy.Core.StatesAggregator.Plugins;
 using EndlessHeresy.Gameplay.Abilities;
+using EndlessHeresy.Gameplay.Actors.Enemies;
 using EndlessHeresy.Gameplay.Actors.Hero;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Health;
@@ -57,6 +58,18 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .WithComponent(statesAggregatorComponent)
                 .WithComponent(abilitiesCastComponent)
                 .WithComponent(abilitiesStorageComponent)
+                .Build();
+        }
+
+        public Task<PunchingDummyActor> CreateDummyAsync(Vector2 at)
+        {
+            var configuration = _gameplayStaticDataService.PunchingDummyConfiguration;
+            var healthComponent = new HealthComponent();
+            
+            return GetActorBuilder<PunchingDummyActor>()
+                .ForPrefab(configuration.Prefab)
+                .WithPosition(at)
+                .WithComponent(healthComponent)
                 .Build();
         }
 

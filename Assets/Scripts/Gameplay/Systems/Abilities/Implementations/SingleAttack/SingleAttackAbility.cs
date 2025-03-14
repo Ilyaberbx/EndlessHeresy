@@ -8,6 +8,7 @@ using EndlessHeresy.Gameplay.Common;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Health;
 using EndlessHeresy.Helpers;
+using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
 {
@@ -18,10 +19,12 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
         private HealthComponent _selfHealthComponent;
         private MeleeAttackStorage _meleeAttackStorage;
         private FacingComponent _facingComponent;
-        
+        private DrawGizmosStorageComponent _drawGizmosStorage;
+
         private float _radius;
         private int _damage;
-        private bool _isAttackFinished;
+        private bool _isAttackFinished = true;
+        private Vector2 _attackPosition;
 
         public override void Initialize(IActor owner)
         {
@@ -31,7 +34,10 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
             _selfHealthComponent = Owner.GetComponent<HealthComponent>();
             _meleeAttackStorage = Owner.GetComponent<MeleeAttackStorage>();
             _facingComponent = Owner.GetComponent<FacingComponent>();
+            _drawGizmosStorage = Owner.GetComponent<DrawGizmosStorageComponent>();
             _animationsStorage.TryGetAnimation(out _singleAttackAnimation);
+
+            _drawGizmosStorage.OnDrawGizmosTriggered += OnDrawGizmosTriggered;
         }
 
         public override void Dispose()
@@ -39,9 +45,11 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
             base.Dispose();
 
             _singleAttackAnimation.OnAttackTriggered -= OnAttackTriggered;
+            _drawGizmosStorage.OnDrawGizmosTriggered -= OnDrawGizmosTriggered;
         }
 
         public void SetRadius(float radius) => _radius = radius;
+
         public void SetDamage(int damage) => _damage = damage;
 
         public override async Task UseAsync(CancellationToken token)
@@ -89,9 +97,9 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
         private void OnAttackTriggered()
         {
             var facingRight = _facingComponent.FacingRight;
-            var attackPosition = _meleeAttackStorage.GetPosition(facingRight);
+            _attackPosition = _meleeAttackStorage.GetPosition(facingRight);
             var hasAttacked =
-                PhysicsHelper.TryOverlapSphere(attackPosition, _radius, out HealthComponent[] healthComponents);
+                PhysicsHelper.TryOverlapSphere(_attackPosition, _radius, out HealthComponent[] healthComponents);
 
             if (!hasAttacked)
             {
@@ -107,6 +115,18 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
 
                 healthComponent.TakeDamage(_damage);
             }
+        }
+
+        private void OnDrawGizmosTriggered()
+        {
+            if (_isAttackFinished)
+            {
+                return;
+            }
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(_attackPosition, _radius);
+            Gizmos.color = Color.white;
         }
     }
 }

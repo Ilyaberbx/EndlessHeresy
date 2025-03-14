@@ -16,7 +16,7 @@ namespace EndlessHeresy.Gameplay.Conditions
         [Inject]
         public void Construct(IInputService inputService) => _inputService = inputService;
 
-        public override bool Invoke() => _inputService.GetKey(_keyCode);
+        public override bool Invoke() => _inputService.GetKeyDown(_keyCode);
 
         protected override bool Validate(out Exception exception)
         {

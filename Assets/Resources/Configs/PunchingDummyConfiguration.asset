@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed4e3175bb04121aee85b8e50e81598, type: 3}
-  m_Name: SingleAttackConfiguration
+  m_Script: {fileID: 11500000, guid: ecd737b4299741079a769de318409a98, type: 3}
+  m_Name: PunchingDummyConfiguration
   m_EditorClassIdentifier: 
-  _radius: 5
-  _damage: 5
-  _mouseIndex: 0
+  _prefab: {fileID: 3388299202898542199, guid: 463f84a98422b4f4586fc643fc1dca7d, type: 3}
