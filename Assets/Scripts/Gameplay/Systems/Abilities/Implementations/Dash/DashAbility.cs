@@ -4,16 +4,15 @@ using Better.Commons.Runtime.Extensions;
 using DG.Tweening;
 using EndlessHeresy.Core;
 using EndlessHeresy.Extensions;
-using EndlessHeresy.Gameplay.Abilities.State;
+using EndlessHeresy.Gameplay.Abilities.Enums;
 using EndlessHeresy.Gameplay.Facing;
-using EndlessHeresy.Gameplay.Movement;
 using EndlessHeresy.Gameplay.Services.Camera;
 using UnityEngine;
 using VContainer;
 
 namespace EndlessHeresy.Gameplay.Abilities
 {
-    public sealed class DashAbility : Ability
+    public sealed class DashAbility : AbilityWithCooldown
     {
         private ICameraService _cameraService;
 
@@ -59,7 +58,7 @@ namespace EndlessHeresy.Gameplay.Abilities
             SetState(AbilityState.InUse);
         }
 
-        private void PostDash() => SetState(AbilityState.Ready);
+        private void PostDash() => SetState(AbilityState.Cooldown);
 
         private Tweener GetDashTween(GameObject gameObject, Transform ownerTransform, Vector2 endValue) =>
             ownerTransform.DOMove(endValue, _speed)

@@ -3,36 +3,58 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EndlessHeresy.Core;
+using EndlessHeresy.UI.Huds;
+using EndlessHeresy.UI.Services.Huds;
 using VContainer;
 
 namespace EndlessHeresy.Gameplay.Abilities
 {
     public sealed class AbilitiesStorageComponent : PocoComponent
     {
-        private IObjectResolver _container;
-        private readonly List<Ability> _abilities = new();
         private AbilityConfiguration[] _abilityConfiguration;
+        private readonly List<Ability> _abilities = new();
+
+        private IObjectResolver _resolver;
+        private IHudsService _hudsService;
 
         public List<Ability> Abilities => _abilities;
 
         [Inject]
-        public void Construct(IObjectResolver container) => _container = container;
+        public void Construct(IObjectResolver resolver, IHudsService hudsService)
+        {
+            _resolver = resolver;
+            _hudsService = hudsService;
+        }
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
             foreach (var abilityConfiguration in _abilityConfiguration)
             {
-                var builder = abilityConfiguration.GetBuilder(_container);
+                var builder = abilityConfiguration.GetBuilder(_resolver);
                 var ability = builder.Build();
                 ability.Initialize(Owner);
                 _abilities.Add(ability);
             }
 
-            return Task.CompletedTask;
+            return ShowHud();
         }
 
-        public void SetAbilities(AbilityConfiguration[] abilityConfigurations) =>
+        protected override void OnDispose()
+        {
+            base.OnDispose();
+
+            foreach (var ability in _abilities)
+            {
+                ability.Dispose();
+            }
+
+            _abilities.Clear();
+        }
+
+        public void SetAbilities(AbilityConfiguration[] abilityConfigurations)
+        {
             _abilityConfiguration = abilityConfigurations;
+        }
 
         public bool TryGetAbility<TAbility>(out TAbility ability) where TAbility : Ability
         {
@@ -54,14 +76,11 @@ namespace EndlessHeresy.Gameplay.Abilities
             return false;
         }
 
-        protected override void OnDispose()
+        private Task ShowHud()
         {
-            base.OnDispose();
-
-            foreach (var ability in _abilities)
-            {
-                ability.Dispose();
-            }
+            var model = new AbilitiesHudModel();
+            model.SetAbilities(_abilities);
+            return _hudsService.ShowAsync<AbilitiesHudController, AbilitiesHudModel>(model, ShowType.Additive);
         }
     }
 }

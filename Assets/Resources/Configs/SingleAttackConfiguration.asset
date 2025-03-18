@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed4e3175bb04121aee85b8e50e81598, type: 3}
   m_Name: SingleAttackConfiguration
   m_EditorClassIdentifier: 
-  _radius: 5
+  _radius: 2
   _damage: 5
   _mouseIndex: 0

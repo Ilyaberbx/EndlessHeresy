@@ -1,7 +1,7 @@
 ﻿using System;
 using Better.Conditions.Runtime;
 using EndlessHeresy.Gameplay.Abilities;
-using EndlessHeresy.Gameplay.Abilities.State;
+using EndlessHeresy.Gameplay.Abilities.Enums;
 
 namespace EndlessHeresy.Gameplay.Conditions
 {

@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using EndlessHeresy.Core;
-using EndlessHeresy.Gameplay.Abilities.State;
+using EndlessHeresy.Gameplay.Abilities.Enums;
 using EndlessHeresy.Gameplay.Animations;
 using EndlessHeresy.Gameplay.Attack;
 using EndlessHeresy.Gameplay.Common;
@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
 {
-    public sealed class SingleAttackAbility : Ability
+    public sealed class SingleAttackAbility : AbilityWithCooldown
     {
         private AnimationsStorageComponent _animationsStorage;
         private SingleAttackAnimation _singleAttackAnimation;
@@ -73,7 +73,7 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
             _isAttackFinished = false;
             _singleAttackAnimation.OnAttackTriggered -= OnAttackTriggered;
             _singleAttackAnimation.OnAttackFinished -= OnAttackFinished;
-            SetState(AbilityState.Ready);
+            SetState(AbilityState.Cooldown);
         }
 
         private async Task WaitForAttackTriggered(CancellationToken token)

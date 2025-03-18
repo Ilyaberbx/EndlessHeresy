@@ -8,6 +8,7 @@ namespace EndlessHeresy.Gameplay.Abilities
     {
         [SerializeField] private KeyCode _keyCode;
         [SerializeField] private int _speed;
+        [SerializeField] private int _cooldown;
         [SerializeField] private float _length;
         [SerializeField] private AnimationCurve _curve;
 
@@ -15,6 +16,8 @@ namespace EndlessHeresy.Gameplay.Abilities
         public float Length => _length;
         public AnimationCurve Curve => _curve;
         public KeyCode KeyCode => _keyCode;
+
+        public int Cooldown => _cooldown;
 
         public override AbilityBuilder GetBuilder(IObjectResolver container) => new DashBuilder(container, this);
     }

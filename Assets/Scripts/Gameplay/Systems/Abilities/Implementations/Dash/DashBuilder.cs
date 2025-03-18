@@ -20,6 +20,7 @@ namespace EndlessHeresy.Gameplay.Abilities
             dashAbility.SetCurve(_configuration.Curve);
             dashAbility.SetLength(_configuration.Length);
             dashAbility.SetSpeed(_configuration.Speed);
+            dashAbility.SetCooldown(_configuration.Cooldown);
             var isDashKeyDown = new IsKeyPressed(_configuration.KeyCode);
             _container.Inject(isDashKeyDown);
             dashAbility.SetCondition(isDashKeyDown);

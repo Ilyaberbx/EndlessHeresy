@@ -8,7 +8,7 @@ namespace EndlessHeresy.Core.StatesAggregator.Plugins
         where TContext : IStateMachineContext
     {
         private AutoTransitionsModule<BaseState<TContext>> _transitionsModule;
-        private const float TickTimeStep = 0.01f;
+        private const float TickTimeStep = 0.002f;
 
         protected sealed override void InstallInternally(IStatesAggregator<TContext> statesAggregator)
         {

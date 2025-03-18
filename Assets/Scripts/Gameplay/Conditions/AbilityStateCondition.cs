@@ -1,7 +1,7 @@
 ﻿using System;
 using Better.Conditions.Runtime;
 using EndlessHeresy.Gameplay.Abilities;
-using EndlessHeresy.Gameplay.Abilities.State;
+using EndlessHeresy.Gameplay.Abilities.Enums;
 
 namespace EndlessHeresy.Gameplay.Conditions
 {
@@ -16,7 +16,7 @@ namespace EndlessHeresy.Gameplay.Conditions
             _ability = ability;
         }
 
-        public override bool Invoke() => _ability.State == _state;
+        public override bool Invoke() => _ability.State.Value == _state;
 
         protected override bool Validate(out Exception exception)
         {

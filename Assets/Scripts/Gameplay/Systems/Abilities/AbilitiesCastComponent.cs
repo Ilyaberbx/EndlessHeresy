@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Core;
-using EndlessHeresy.Gameplay.Abilities.State;
+using EndlessHeresy.Gameplay.Abilities.Enums;
 
 namespace EndlessHeresy.Gameplay.Abilities
 {
@@ -37,7 +37,7 @@ namespace EndlessHeresy.Gameplay.Abilities
 
             var ability = Abilities.FirstOrDefault(temp => temp.GetType() == typeof(TAbility));
 
-            if (ability?.State is not AbilityState.Ready)
+            if (ability?.State.Value is not AbilityState.Ready)
             {
                 return false;
             }

@@ -2,6 +2,9 @@ using EndlessHeresy.Gameplay.Services.Tick;
 using EndlessHeresy.Global.Services.AssetsManagement;
 using EndlessHeresy.Global.Services.StatesManagement;
 using EndlessHeresy.Global.States.Factory;
+using EndlessHeresy.UI.Services;
+using EndlessHeresy.UI.Services.Huds;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -9,6 +12,8 @@ namespace EndlessHeresy.Global
 {
     public sealed class GlobalLifetimeScope : LifetimeScope
     {
+        [SerializeField] private Transform _hudsRoot;
+
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterEntryPoint<GlobalEntryPoint>();
@@ -16,6 +21,7 @@ namespace EndlessHeresy.Global
             builder.Register<GameStatesService>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<GameUpdateService>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<IAssetsService, ResourcesService>(Lifetime.Singleton);
+            builder.Register<IHudsService, HudsService>(Lifetime.Singleton).WithParameter(_hudsRoot);
         }
     }
 }
