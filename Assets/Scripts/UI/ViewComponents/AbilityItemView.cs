@@ -1,16 +1,15 @@
-﻿using Better.Commons.Runtime.Components.UI;
+﻿using System.Globalization;
+using Better.Commons.Runtime.Components.UI;
 using EndlessHeresy.Gameplay.Abilities.Enums;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace EndlessHeresy.UI.ViewComponents
 {
     public sealed class AbilityItemView : UIMonoBehaviour
     {
-        private const string CooldownFormat = "Cooldown: {0}";
-
+        private const string CooldownFormat = "F2";
         [SerializeField] private Image _iconImage;
         [SerializeField] private TextMeshProUGUI _cooldownText;
         [SerializeField] private Image _cooldownTimerImage;
@@ -26,7 +25,7 @@ namespace EndlessHeresy.UI.ViewComponents
             var rawProgress = cooldown / maxCooldown;
             var progress = Mathf.Clamp(rawProgress, 0f, maxCooldown);
             _cooldownTimerImage.fillAmount = progress;
-            _cooldownText.text = string.Format(CooldownFormat, progress);
+            _cooldownText.text = cooldown.ToString(CooldownFormat, CultureInfo.InvariantCulture);
         }
 
         public void SetState(AbilityState state)

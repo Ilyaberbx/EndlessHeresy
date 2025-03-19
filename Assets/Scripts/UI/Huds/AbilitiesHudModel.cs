@@ -16,9 +16,6 @@ namespace EndlessHeresy.UI.Huds
             return Abilities.Value.Where(temp => temp.State.Value == state);
         }
 
-        public void SetAbilities(IEnumerable<Ability> abilities)
-        {
-            
-        }
+        public void SetAbilities(IEnumerable<Ability> abilities) => Abilities.Value = abilities;
     }
 }

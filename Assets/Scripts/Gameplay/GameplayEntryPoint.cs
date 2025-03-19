@@ -1,12 +1,12 @@
-﻿using System;
-using Better.Commons.Runtime.Utility;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using EndlessHeresy.Gameplay.Services.Factory;
 using UnityEngine;
 using VContainer.Unity;
 
 namespace EndlessHeresy.Gameplay
 {
-    public sealed class GameplayEntryPoint : IStartable
+    public sealed class GameplayEntryPoint : IAsyncStartable
     {
         private readonly IGameplayFactoryService _gameplayFactoryService;
 
@@ -15,17 +15,10 @@ namespace EndlessHeresy.Gameplay
             _gameplayFactoryService = gameplayFactoryService;
         }
 
-        public async void Start()
+        public async Task StartAsync(CancellationToken cancellation = default)
         {
-            try
-            {
-                await _gameplayFactoryService.CreateHeroAsync(Vector2.zero);
-                await _gameplayFactoryService.CreateDummyAsync(Vector2.zero);
-            }
-            catch (Exception e)
-            {
-                DebugUtility.LogException(e);
-            }
+            await _gameplayFactoryService.CreateHeroAsync(Vector2.zero);
+            await _gameplayFactoryService.CreateDummyAsync(Vector2.zero);
         }
     }
 }

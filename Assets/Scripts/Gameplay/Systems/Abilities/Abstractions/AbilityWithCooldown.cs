@@ -32,6 +32,7 @@ namespace EndlessHeresy.Gameplay.Abilities
         {
             if (state == AbilityState.Cooldown)
             {
+                CurrentCooldownValue = MaxCooldown;
                 UpdateService.OnUpdate += OnUpdate;
                 return;
             }

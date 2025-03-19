@@ -7,7 +7,8 @@ namespace EndlessHeresy.Global.Services.Sprites
 {
     public sealed class SpritesService : ISpritesService
     {
-        private const string Abilities = "Abilities";
+        private const string Abilities = "Abilities/";
+        private const string Sprites = "Sprites/";
 
         private readonly IAssetsService _assetsService;
 
@@ -15,7 +16,7 @@ namespace EndlessHeresy.Global.Services.Sprites
 
         public Task<Sprite> GetAbilitySpriteAsync(AbilityType type)
         {
-            return _assetsService.Load<Sprite>(Abilities + "/" + type.ToString());
+            return _assetsService.Load<Sprite>(Sprites + Abilities + type);
         }
     }
 }

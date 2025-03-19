@@ -20,6 +20,7 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
             singleAttackAbility.SetDamage(_configuration.Damage);
             singleAttackAbility.SetRadius(_configuration.Radius);
             singleAttackAbility.SetCooldown(_configuration.Cooldown);
+            singleAttackAbility.SetType(_configuration.Type);
             var isKeyPressed = new IsMousePressed(_configuration.MouseIndex);
             singleAttackAbility.SetCondition(isKeyPressed);
             _container.Inject(isKeyPressed);

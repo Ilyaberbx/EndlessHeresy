@@ -53,22 +53,27 @@ namespace EndlessHeresy.UI.Huds
 
         private void UpdateItemsCooldownText()
         {
-            var abilitiesInCooldown = Model.GetAbilitiesByState(AbilityState.Cooldown).ToArray();
+            var abilities = Model.Abilities.Value.ToArray();
 
             for (var i = 0; i < View.ItemViews.Count(); i++)
             {
                 var itemView = View.ItemViews.ElementAt(i);
 
-                if (abilitiesInCooldown.Length <= i)
+                if (abilities.Count() <= i)
                 {
-                    itemView.SetActive(false);
                     continue;
                 }
 
-                var ability = abilitiesInCooldown.ElementAtOrDefault(i);
+                var ability = abilities.ElementAtOrDefault(i);
+
                 if (ability is not AbilityWithCooldown abilityWithCooldown)
                 {
-                    return;
+                    continue;
+                }
+
+                if (abilityWithCooldown.State.Value != AbilityState.Cooldown)
+                {
+                    continue;
                 }
 
                 itemView.SetCooldown(abilityWithCooldown.CurrentCooldownValue, abilityWithCooldown.MaxCooldown);
@@ -77,6 +82,8 @@ namespace EndlessHeresy.UI.Huds
 
         private void OnAbilitiesChanged(IEnumerable<Ability> abilities)
         {
+            UpdateItemViewsAsync().Forget();
+
             foreach (var ability in abilities)
             {
                 ability.State.Subscribe(OnAbilityStateChanged);

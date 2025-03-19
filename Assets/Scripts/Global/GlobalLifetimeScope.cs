@@ -1,5 +1,6 @@
 using EndlessHeresy.Gameplay.Services.Tick;
 using EndlessHeresy.Global.Services.AssetsManagement;
+using EndlessHeresy.Global.Services.Sprites;
 using EndlessHeresy.Global.Services.StatesManagement;
 using EndlessHeresy.Global.States.Factory;
 using EndlessHeresy.UI.Services;
@@ -22,6 +23,7 @@ namespace EndlessHeresy.Global
             builder.Register<GameUpdateService>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<IAssetsService, ResourcesService>(Lifetime.Singleton);
             builder.Register<IHudsService, HudsService>(Lifetime.Singleton).WithParameter(_hudsRoot);
+            builder.Register<ISpritesService, SpritesService>(Lifetime.Singleton);
         }
     }
 }
