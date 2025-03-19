@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using EndlessHeresy.Core;
+using EndlessHeresy.Extensions;
 using EndlessHeresy.Gameplay.Abilities.Enums;
 using EndlessHeresy.Gameplay.Animations;
 using EndlessHeresy.Gameplay.Attack;
@@ -23,54 +24,42 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
 
         private float _radius;
         private int _damage;
-        private bool _isAttackFinished = true;
+        private int _force;
+        private bool _isAttackFinished;
         private Vector2 _attackPosition;
 
         public override void Initialize(IActor owner)
         {
             base.Initialize(owner);
-
             _animationsStorage = Owner.GetComponent<AnimationsStorageComponent>();
             _selfHealthComponent = Owner.GetComponent<HealthComponent>();
             _meleeAttackStorage = Owner.GetComponent<MeleeAttackStorage>();
             _facingComponent = Owner.GetComponent<FacingComponent>();
             _drawGizmosStorage = Owner.GetComponent<DrawGizmosStorageComponent>();
             _animationsStorage.TryGetAnimation(out _singleAttackAnimation);
-
             _drawGizmosStorage.OnDrawGizmosTriggered += OnDrawGizmosTriggered;
+            _isAttackFinished = true;
         }
 
         public override void Dispose()
         {
             base.Dispose();
-
             _singleAttackAnimation.OnAttackTriggered -= OnAttackTriggered;
             _drawGizmosStorage.OnDrawGizmosTriggered -= OnDrawGizmosTriggered;
         }
 
         public void SetRadius(float radius) => _radius = radius;
-
         public void SetDamage(int damage) => _damage = damage;
+        public void SetForce(int force) => _force = force;
 
         public override async Task UseAsync(CancellationToken token)
-        {
-            PreAttack();
-            await WaitForAttackTriggered(token);
-            PostAttack();
-        }
-
-        private void PreAttack()
         {
             _isAttackFinished = false;
             SetState(AbilityState.InUse);
             _singleAttackAnimation.OnAttackTriggered += OnAttackTriggered;
             _singleAttackAnimation.OnAttackFinished += OnAttackFinished;
             _singleAttackAnimation.Play();
-        }
-
-        private void PostAttack()
-        {
-            _isAttackFinished = false;
+            await WaitForAttackTriggered(token);
             _singleAttackAnimation.OnAttackTriggered -= OnAttackTriggered;
             _singleAttackAnimation.OnAttackFinished -= OnAttackFinished;
             SetState(AbilityState.Cooldown);
@@ -80,50 +69,42 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
         {
             while (!_isAttackFinished)
             {
-                if (token.IsCancellationRequested)
-                {
-                    return;
-                }
-
+                if (token.IsCancellationRequested) return;
                 await Task.Yield();
             }
         }
 
-        private void OnAttackFinished()
-        {
-            _isAttackFinished = true;
-        }
+        private void OnAttackFinished() => _isAttackFinished = true;
 
         private void OnAttackTriggered()
         {
-            var facingRight = _facingComponent.FacingRight;
-            _attackPosition = _meleeAttackStorage.GetPosition(facingRight);
-            var hasAttacked =
-                PhysicsHelper.TryOverlapSphere(_attackPosition, _radius, out HealthComponent[] healthComponents);
+            _attackPosition = _meleeAttackStorage.GetPosition(_facingComponent.FacingRight);
 
-            if (!hasAttacked)
-            {
+            if (!PhysicsHelper.TryOverlapCircleAll(_attackPosition, _radius, out HealthComponent[] healthComponents))
                 return;
-            }
 
             foreach (var healthComponent in healthComponents)
             {
-                if (healthComponent == _selfHealthComponent)
-                {
-                    return;
-                }
-
+                if (healthComponent == _selfHealthComponent) continue;
                 healthComponent.TakeDamage(_damage);
+                TryApplyPhysicalForce(healthComponent);
             }
+        }
+
+        private bool TryApplyPhysicalForce(HealthComponent healthComponent)
+        {
+            if (healthComponent.IsDead()) return false;
+            var hasRigidbody = healthComponent.Owner.TryGetComponent(out RigidbodyStorageComponent rigidbodyStorage);
+            
+            if (!hasRigidbody) return false;
+            var forceDirection = (healthComponent.Owner.Transform.position.ToVector2() - _attackPosition) * _force;
+            rigidbodyStorage.Rigidbody.velocity = forceDirection;
+            return true;
         }
 
         private void OnDrawGizmosTriggered()
         {
-            if (_isAttackFinished)
-            {
-                return;
-            }
-
+            if (_isAttackFinished) return;
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(_attackPosition, _radius);
             Gizmos.color = Color.white;

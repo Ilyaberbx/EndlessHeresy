@@ -27,6 +27,6 @@ namespace EndlessHeresy.Gameplay.Health
             }
         }
 
-        private bool IsDead() => CurrentHp <= 0;
+        public bool IsDead() => CurrentHp <= 0;
     }
 }

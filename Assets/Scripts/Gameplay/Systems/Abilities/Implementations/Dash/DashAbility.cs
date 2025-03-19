@@ -5,6 +5,7 @@ using DG.Tweening;
 using EndlessHeresy.Core;
 using EndlessHeresy.Extensions;
 using EndlessHeresy.Gameplay.Abilities.Enums;
+using EndlessHeresy.Gameplay.Common;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Services.Camera;
 using UnityEngine;
@@ -16,10 +17,14 @@ namespace EndlessHeresy.Gameplay.Abilities
     {
         private ICameraService _cameraService;
 
+        private FacingComponent _facingComponent;
+        private RigidbodyStorageComponent _rigidbodyStorage;
+
         private AnimationCurve _curve;
         private float _length;
         private int _speed;
-        private FacingComponent _facingComponent;
+
+        private Rigidbody2D Rigidbody => _rigidbodyStorage.Rigidbody;
 
         [Inject]
         public void Construct(ICameraService cameraService) => _cameraService = cameraService;
@@ -28,6 +33,7 @@ namespace EndlessHeresy.Gameplay.Abilities
         {
             base.Initialize(owner);
             _facingComponent = Owner.GetComponent<FacingComponent>();
+            _rigidbodyStorage = Owner.GetComponent<RigidbodyStorageComponent>();
         }
 
         public override async Task UseAsync(CancellationToken token)

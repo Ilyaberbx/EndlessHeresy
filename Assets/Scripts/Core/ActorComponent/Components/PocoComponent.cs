@@ -6,7 +6,7 @@ namespace EndlessHeresy.Core
     public abstract class PocoComponent : IComponent
     {
         private readonly CancellationTokenSource _disposeCanceller = new();
-        protected IActor Owner { get; private set; }
+        public IActor Owner { get; private set; }
         protected CancellationToken DisposalToken => _disposeCanceller.Token;
 
         public virtual async Task InitializeAsync()

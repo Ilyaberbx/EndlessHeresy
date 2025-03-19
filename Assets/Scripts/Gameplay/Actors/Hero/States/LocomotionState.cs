@@ -22,6 +22,7 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
 
         private IGameUpdateService _gameUpdateService;
         private IInputService _inputService;
+        private Vector2 _input;
 
         [Inject]
         public void Construct(IGameUpdateService gameUpdateService,
@@ -45,6 +46,7 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
         {
             _movementComponent.Unlock();
             _gameUpdateService.OnUpdate += OnUpdate;
+            _gameUpdateService.OnFixedUpdate += OnFixedUpdate;
             return Task.CompletedTask;
         }
 
@@ -52,13 +54,16 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
         {
             _movementComponent.Lock();
             _gameUpdateService.OnUpdate -= OnUpdate;
+            _gameUpdateService.OnFixedUpdate -= OnFixedUpdate;
             return Task.CompletedTask;
         }
 
+        private void OnFixedUpdate(float deltaTime) => _movementComponent.Move(_input, deltaTime);
+
         private void OnUpdate(float deltaTime)
         {
-            var input = _inputService.GetMovementInput();
-            var isMoving = input != Vector2.zero;
+            _input = _inputService.GetMovementInput();
+            var isMoving = _input != Vector2.zero;
             UpdateAnimatorState(isMoving);
 
             if (!isMoving)
@@ -66,8 +71,7 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
                 return;
             }
 
-            UpdateFacingDirection(input);
-            _movementComponent.Move(input, deltaTime);
+            UpdateFacingDirection(_input);
         }
 
         private void UpdateFacingDirection(Vector2 input)

@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using EndlessHeresy.Extensions;
 using EndlessHeresy.Gameplay.Services.Factory;
 using UnityEngine;
 using VContainer.Unity;
@@ -19,6 +20,8 @@ namespace EndlessHeresy.Gameplay
         {
             await _gameplayFactoryService.CreateHeroAsync(Vector2.zero);
             await _gameplayFactoryService.CreateDummyAsync(Vector2.zero);
+            await _gameplayFactoryService.CreateDummyAsync(Vector2.zero.AddX(-2));
+            await _gameplayFactoryService.CreateDummyAsync(Vector2.zero.AddX(2));
         }
     }
 }

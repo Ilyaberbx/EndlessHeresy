@@ -9,6 +9,7 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
     {
         [SerializeField] private float _radius;
         [SerializeField] private int _damage;
+        [SerializeField] private int _force;
         [SerializeField] private int _mouseIndex;
         [SerializeField] private int _cooldown;
 
@@ -16,6 +17,7 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
         public int Damage => _damage;
         public int MouseIndex => _mouseIndex;
         public int Cooldown => _cooldown;
+        public int Force => _force;
 
         public override AbilityBuilder GetBuilder(IObjectResolver container)
         {

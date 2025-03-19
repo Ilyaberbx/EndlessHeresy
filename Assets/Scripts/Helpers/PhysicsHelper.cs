@@ -7,18 +7,18 @@ namespace EndlessHeresy.Helpers
 {
     public static class PhysicsHelper
     {
-        public static bool TryOverlapSphere<TComponent>(Vector2 at, float radius, out TComponent[] components)
+        public static bool TryOverlapCircleAll<TComponent>(Vector2 at, float radius, out TComponent[] components)
             where TComponent : IComponent
         {
-            Collider[] colliders = { };
-            Physics.OverlapSphereNonAlloc(at, radius, colliders);
-            var results = new List<TComponent>();
+            var colliders = Physics2D.OverlapCircleAll(at, radius);
 
             if (colliders.IsNullOrEmpty())
             {
                 components = null;
                 return false;
             }
+
+            var results = new List<TComponent>();
 
             foreach (var collider in colliders)
             {

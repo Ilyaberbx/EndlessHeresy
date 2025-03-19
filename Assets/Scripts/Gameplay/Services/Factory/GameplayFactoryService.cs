@@ -65,7 +65,9 @@ namespace EndlessHeresy.Gameplay.Services.Factory
         {
             var configuration = _gameplayStaticDataService.PunchingDummyConfiguration;
             var healthComponent = new HealthComponent();
-            
+
+            healthComponent.SetHealth(10);
+
             return GetActorBuilder<PunchingDummyActor>()
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
