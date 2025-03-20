@@ -21,6 +21,8 @@ namespace EndlessHeresy.Gameplay.Abilities
             dashAbility.SetCooldown(_configuration.Cooldown);
             dashAbility.SetType(_configuration.Type);
             dashAbility.SetCollisionForce(_configuration.CollisionForce);
+            dashAbility.SetTrailData(_configuration.TrailData);
+            dashAbility.SetTrailsRatio(_configuration.TrailsRatio);
             var isDashKeyDown = new IsKeyPressed(_configuration.KeyCode);
             _container.Inject(isDashKeyDown);
             dashAbility.SetCondition(isDashKeyDown);

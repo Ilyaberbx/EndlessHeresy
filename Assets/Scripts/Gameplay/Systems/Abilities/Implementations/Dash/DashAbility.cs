@@ -5,6 +5,8 @@ using EndlessHeresy.Core;
 using EndlessHeresy.Extensions;
 using EndlessHeresy.Gameplay.Abilities.Enums;
 using EndlessHeresy.Gameplay.Common;
+using EndlessHeresy.Gameplay.Data.Components;
+using EndlessHeresy.Gameplay.Effects;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Services.Camera;
 using EndlessHeresy.Gameplay.Services.Tick;
@@ -25,9 +27,12 @@ namespace EndlessHeresy.Gameplay.Abilities
         private RigidbodyStorageComponent _rigidbodyStorage;
         private TaskCompletionSource<bool> _forceCompletionSource;
         private EnemyTriggerObserver _enemyTriggerObserver;
+        private TrailsComponent _trailsComponent;
 
         private int _force;
         private int _collisionForce;
+        private TrailData _trailData;
+        private float _trailsRatio;
 
         private Rigidbody2D Rigidbody => _rigidbodyStorage.Rigidbody;
 
@@ -44,6 +49,7 @@ namespace EndlessHeresy.Gameplay.Abilities
             _facingComponent = Owner.GetComponent<FacingComponent>();
             _rigidbodyStorage = Owner.GetComponent<RigidbodyStorageComponent>();
             _enemyTriggerObserver = Owner.GetComponent<EnemyTriggerObserver>();
+            _trailsComponent = Owner.GetComponent<TrailsComponent>();
         }
 
         public override void Dispose()
@@ -58,12 +64,17 @@ namespace EndlessHeresy.Gameplay.Abilities
             var ownerToMouseDirection = GetOwnerToMouseDirection();
             _forceCompletionSource = new TaskCompletionSource<bool>();
             PreDash(ownerToMouseDirection);
-            await ExecuteAsync(ownerToMouseDirection);
+            var spawnTrailsCts = CancellationTokenSource.CreateLinkedTokenSource(token);
+            ShowTrailsLoopAsync(spawnTrailsCts.Token).Forget();
+            await ExecuteDashAsync(ownerToMouseDirection);
+            spawnTrailsCts.Cancel();
             PostDash();
         }
 
         public void SetForce(int force) => _force = force;
         public void SetCollisionForce(int force) => _collisionForce = force;
+        public void SetTrailData(TrailData trailData) => _trailData = trailData;
+        public void SetTrailsRatio(float trailsRatio) => _trailsRatio = trailsRatio;
 
         private Vector2 GetOwnerToMouseDirection()
         {
@@ -72,23 +83,13 @@ namespace EndlessHeresy.Gameplay.Abilities
             return Owner.Transform.position.DirectionTo(mouseWorldPosition).ToVector2();
         }
 
-        private Task<bool> ExecuteAsync(Vector2 ownerToMouseDirection)
+        private Task<bool> ExecuteDashAsync(Vector2 ownerToMouseDirection)
         {
             var forceDirection = ownerToMouseDirection.normalized;
             var processedForce = forceDirection * _force;
             Rigidbody.AddForce(processedForce, ForceMode2D.Impulse);
             _gameUpdateService.OnUpdate += OnDashUpdate;
             return _forceCompletionSource.Task;
-        }
-
-        private void OnDashUpdate(float deltaTime)
-        {
-            var dashStopped = Rigidbody.velocity.magnitude <= StopDashThreshold;
-
-            if (dashStopped)
-            {
-                _forceCompletionSource.TrySetResult(true);
-            }
         }
 
         private void PreDash(Vector2 ownerToMouseDirection)
@@ -103,6 +104,27 @@ namespace EndlessHeresy.Gameplay.Abilities
             _gameUpdateService.OnUpdate -= OnDashUpdate;
             _enemyTriggerObserver.OnTriggerEnter -= OnEnemyTriggerEnter;
             SetState(AbilityState.Cooldown);
+        }
+
+        private async Task ShowTrailsLoopAsync(CancellationToken cancellationToken)
+        {
+            var delay = (int)(_trailsRatio * 1000);
+
+            while (true)
+            {
+                await Task.Yield();
+
+                if (cancellationToken.IsCancellationRequested)
+                {
+                    return;
+                }
+
+                var delayTask = Task.Delay(delay, cancellationToken);
+                var timeOutTask = Task.Delay(Timeout.Infinite, cancellationToken);
+                await Task.WhenAny(delayTask, timeOutTask);
+                var showTrailTask = _trailsComponent.ShowTrailsAsync(_trailData);
+                showTrailTask.Forget();
+            }
         }
 
         private void OnEnemyTriggerEnter(EnemyTagComponent enemyTag)
@@ -122,6 +144,16 @@ namespace EndlessHeresy.Gameplay.Abilities
             var rigidbody = rigidbodyStorage.Rigidbody;
             var processedForce = ownerToEnemyDirection * _collisionForce;
             rigidbody.AddForce(processedForce, ForceMode2D.Impulse);
+        }
+
+        private void OnDashUpdate(float deltaTime)
+        {
+            var dashStopped = Rigidbody.velocity.magnitude <= StopDashThreshold;
+
+            if (dashStopped)
+            {
+                _forceCompletionSource.TrySetResult(true);
+            }
         }
     }
 }

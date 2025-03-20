@@ -7,6 +7,7 @@ using EndlessHeresy.Core.StatesAggregator.Plugins;
 using EndlessHeresy.Gameplay.Abilities;
 using EndlessHeresy.Gameplay.Actors.Enemies;
 using EndlessHeresy.Gameplay.Actors.Hero;
+using EndlessHeresy.Gameplay.Effects;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Health;
 using EndlessHeresy.Gameplay.Movement;
@@ -38,6 +39,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var statesAggregatorComponent = new StatesAggregatorComponent<HeroActor>();
             var abilitiesCastComponent = new AbilitiesCastComponent();
             var abilitiesStorageComponent = new AbilitiesStorageComponent();
+            var trailsComponent = new TrailsComponent();
 
             var statesAggregator = GetStatesAggregatorBuilder<HeroActor>()
                 .WithPlugin<HeroTransitionsPlugin>()
@@ -55,6 +57,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .WithComponent(movementComponent)
                 .WithComponent(healthComponent)
                 .WithComponent(facingComponent)
+                .WithComponent(trailsComponent)
                 .WithComponent(statesAggregatorComponent)
                 .WithComponent(abilitiesCastComponent)
                 .WithComponent(abilitiesStorageComponent)

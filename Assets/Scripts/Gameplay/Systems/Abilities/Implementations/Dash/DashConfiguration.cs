@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using EndlessHeresy.Gameplay.Data.Components;
+using UnityEngine;
 using VContainer;
 
 namespace EndlessHeresy.Gameplay.Abilities
@@ -10,11 +11,15 @@ namespace EndlessHeresy.Gameplay.Abilities
         [SerializeField] private int _cooldown;
         [SerializeField] private int _force;
         [SerializeField] private int _collisionForce;
-        
+        [SerializeField] private TrailData _trailData;
+        [SerializeField] private float _trailsRatio;
+
         public KeyCode KeyCode => _keyCode;
         public int Cooldown => _cooldown;
         public int Force => _force;
         public int CollisionForce => _collisionForce;
+        public TrailData TrailData => _trailData;
+        public float TrailsRatio => _trailsRatio;
 
         public override AbilityFactory GetFactory(IObjectResolver container) => new DashFactory(container, this);
     }
