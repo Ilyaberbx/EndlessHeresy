@@ -3,7 +3,7 @@ using EndlessHeresy.Core;
 
 namespace EndlessHeresy.Gameplay.Common
 {
-    public sealed class DrawGizmosStorageComponent : MonoComponent
+    public sealed class DrawGizmosObserver : MonoComponent
     {
         public event Action OnDrawGizmosTriggered;
 
