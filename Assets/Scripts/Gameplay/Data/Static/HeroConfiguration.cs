@@ -1,7 +1,8 @@
 ﻿using EndlessHeresy.Gameplay.Abilities;
+using EndlessHeresy.Gameplay.Actors.Hero;
 using UnityEngine;
 
-namespace EndlessHeresy.Gameplay.Actors.Hero
+namespace EndlessHeresy.Gameplay.Data.Static
 {
     [CreateAssetMenu(menuName = "Configs/Actors/Hero", fileName = "HeroConfiguration", order = 0)]
     public sealed class HeroConfiguration : ScriptableObject

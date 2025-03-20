@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using EndlessHeresy.Gameplay.Data.Components;
+using UnityEngine;
 using VContainer;
 
 namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
@@ -7,21 +8,17 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
         order = 0)]
     public sealed class SingleAttackConfiguration : AbilityConfiguration
     {
-        [SerializeField] private float _radius;
-        [SerializeField] private int _damage;
-        [SerializeField] private int _force;
         [SerializeField] private int _mouseIndex;
         [SerializeField] private int _cooldown;
+        [SerializeField] private AttackData _attackData;
 
-        public float Radius => _radius;
-        public int Damage => _damage;
         public int MouseIndex => _mouseIndex;
         public int Cooldown => _cooldown;
-        public int Force => _force;
+        public AttackData AttackData => _attackData;
 
-        public override AbilityBuilder GetBuilder(IObjectResolver container)
+        public override AbilityFactory GetFactory(IObjectResolver container)
         {
-            return new SingleAttackBuilder(container, this);
+            return new SingleAttackFactory(container, this);
         }
     }
 }

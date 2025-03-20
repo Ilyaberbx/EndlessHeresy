@@ -5,6 +5,7 @@ using EndlessHeresy.Core.States;
 using EndlessHeresy.Core.StatesAggregator.Plugins;
 using EndlessHeresy.Extensions;
 using EndlessHeresy.Gameplay.Abilities;
+using EndlessHeresy.Gameplay.Abilities.DoubleAttack;
 using EndlessHeresy.Gameplay.Abilities.SingleAttack;
 using EndlessHeresy.Gameplay.Actors.Hero;
 using EndlessHeresy.Gameplay.Actors.Hero.States;
@@ -29,6 +30,11 @@ namespace EndlessHeresy.Gameplay.StatesAggregator.Plugins
                 isAliveCondition,
                 new AbilityCastCondition<SingleAttackAbility>(abilitiesCastComponent, abilitiesStorageComponent)
             });
+            var anyToDoubleAttack = new AllComplexCondition(new Condition[]
+            {
+                isAliveCondition,
+                new AbilityCastCondition<DoubleAttackAbility>(abilitiesCastComponent, abilitiesStorageComponent)
+            });
             var anyToDash = new AllComplexCondition(new Condition[]
             {
                 isAliveCondition,
@@ -44,16 +50,19 @@ namespace EndlessHeresy.Gameplay.StatesAggregator.Plugins
             var locomotionState = StatesFactory.CreateState<LocomotionState>();
             var dashState = StatesFactory.CreateState<DashState>();
             var singleAttackState = StatesFactory.CreateState<SingleAttackState>();
+            var doubleAttackState = StatesFactory.CreateState<DoubleAttackState>();
 
             deadState.SetContext(Context);
             locomotionState.SetContext(Context);
             dashState.SetContext(Context);
             singleAttackState.SetContext(Context);
+            doubleAttackState.SetContext(Context);
 
             transitionsModule.Any(locomotionState, anyToLocomotion);
             transitionsModule.Any(deadState, anyToDead);
             transitionsModule.Any(dashState, anyToDash);
             transitionsModule.Any(singleAttackState, anyToSingleAttack);
+            transitionsModule.Any(doubleAttackState, anyToDoubleAttack);
 
             StateMachine.Run();
             StateMachine.ChangeStateAsync(locomotionState).Forget();

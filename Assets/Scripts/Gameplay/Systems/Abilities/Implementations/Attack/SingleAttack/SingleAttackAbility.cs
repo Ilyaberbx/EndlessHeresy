@@ -1,0 +1,86 @@
+﻿using System.Threading;
+using System.Threading.Tasks;
+using EndlessHeresy.Core;
+using EndlessHeresy.Gameplay.Abilities.Enums;
+using EndlessHeresy.Gameplay.Animations;
+using EndlessHeresy.Gameplay.Common;
+using EndlessHeresy.Gameplay.Data.Components;
+
+namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
+{
+    public sealed class SingleAttackAbility : MeleeAttackAbility
+    {
+        private AttackData _attackData;
+        private SingleAttackAnimation _singleAttackAnimation;
+        private bool _isAttackFinished;
+
+        public override void Initialize(IActor owner)
+        {
+            base.Initialize(owner);
+            var animationsStorage = Owner.GetComponent<AnimationsStorageComponent>();
+
+            if (animationsStorage.TryGetAnimation(out _singleAttackAnimation))
+            {
+                SubscribeAnimationEvents();
+            }
+
+            _isAttackFinished = true;
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            UnsubscribeAnimationEvents();
+        }
+
+        public void SetAttackData(AttackData attackData) => _attackData = attackData;
+
+        public override async Task UseAsync(CancellationToken token)
+        {
+            StartAttack();
+            await WaitForAttackAsync(token);
+            SetState(AbilityState.Cooldown);
+        }
+
+        private void SubscribeAnimationEvents()
+        {
+            _singleAttackAnimation.OnAttackTriggered += OnAttackTriggered;
+            _singleAttackAnimation.OnAttackFinished += OnAttackFinished;
+        }
+
+        private void UnsubscribeAnimationEvents()
+        {
+            if (_singleAttackAnimation == null)
+            {
+                return;
+            }
+
+            _singleAttackAnimation.OnAttackTriggered -= OnAttackTriggered;
+            _singleAttackAnimation.OnAttackFinished -= OnAttackFinished;
+        }
+
+        private void StartAttack()
+        {
+            SetState(AbilityState.InUse);
+            _singleAttackAnimation.Play();
+            _isAttackFinished = false;
+        }
+
+        private async Task WaitForAttackAsync(CancellationToken token)
+        {
+            while (!_isAttackFinished)
+            {
+                if (token.IsCancellationRequested) return;
+                await Task.Yield();
+            }
+        }
+
+        private void OnAttackTriggered()
+        {
+            ProcessOwnerFacingForce(_attackData.DragForce);
+            ProcessAttack(_attackData);
+        }
+
+        private void OnAttackFinished() => _isAttackFinished = true;
+    }
+}

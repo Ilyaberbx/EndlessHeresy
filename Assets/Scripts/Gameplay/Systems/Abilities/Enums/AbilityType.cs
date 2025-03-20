@@ -4,5 +4,6 @@
     {
         SingleAttack,
         Dash,
+        DoubleAttack
     }
 }

@@ -1,5 +1,4 @@
-﻿using EndlessHeresy.Gameplay.Actors.Enemies;
-using EndlessHeresy.Gameplay.Actors.Hero;
+﻿using EndlessHeresy.Gameplay.Data.Static;
 
 namespace EndlessHeresy.Gameplay.Services.StaticData
 {

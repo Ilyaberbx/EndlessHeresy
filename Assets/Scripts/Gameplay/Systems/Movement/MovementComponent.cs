@@ -26,7 +26,6 @@ namespace EndlessHeresy.Gameplay.Movement
         public void SetSpeed(float movementSpeed) => _movementSpeed = movementSpeed;
         public void Lock() => _isLocked = true;
         public void Unlock() => _isLocked = false;
-
         public void Move(Vector2 input, float deltaTime)
         {
             if (_isLocked)

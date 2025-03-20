@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed4e3175bb04121aee85b8e50e81598, type: 3}
-  m_Name: SingleAttackConfiguration
+  m_Script: {fileID: 11500000, guid: 2105df0ec2e74605832254e7bcab8f5d, type: 3}
+  m_Name: DashAbilityConfiguration
   m_EditorClassIdentifier: 
-  _type: 0
-  _radius: 2
-  _damage: 1
-  _force: 10
-  _mouseIndex: 0
-  _cooldown: 0
+  _type: 1
+  _keyCode: 32
+  _cooldown: 2
+  _force: 100
+  _collisionForce: 60

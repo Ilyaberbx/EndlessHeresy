@@ -18,6 +18,6 @@ namespace EndlessHeresy.Gameplay.Facing
         }
 
         public void Face(bool faceRight) => SpriteRenderer.flipX = !faceRight;
-        public bool FacingRight => !SpriteRenderer.flipX;
+        public bool IsFacingRight => !SpriteRenderer.flipX;
     }
 }

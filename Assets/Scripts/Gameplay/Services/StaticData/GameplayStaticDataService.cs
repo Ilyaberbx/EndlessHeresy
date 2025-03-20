@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using EndlessHeresy.Gameplay.Actors.Enemies;
 using EndlessHeresy.Gameplay.Actors.Hero;
+using EndlessHeresy.Gameplay.Data.Static;
 using EndlessHeresy.Global.Services.AssetsManagement;
 using VContainer.Unity;
 using DebugUtility = Better.Commons.Runtime.Utility.DebugUtility;

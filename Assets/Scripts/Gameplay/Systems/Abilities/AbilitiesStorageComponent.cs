@@ -30,8 +30,8 @@ namespace EndlessHeresy.Gameplay.Abilities
         {
             foreach (var abilityConfiguration in _abilityConfiguration)
             {
-                var builder = abilityConfiguration.GetBuilder(_resolver);
-                var ability = builder.Build();
+                var factory = abilityConfiguration.GetFactory(_resolver);
+                var ability = factory.Create();
                 ability.Initialize(Owner);
                 _abilities.Add(ability);
             }

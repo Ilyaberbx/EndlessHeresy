@@ -3,25 +3,23 @@ using VContainer;
 
 namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
 {
-    public sealed class SingleAttackBuilder : AbilityBuilder
+    public sealed class SingleAttackFactory : AbilityFactory
     {
         private readonly IObjectResolver _container;
         private readonly SingleAttackConfiguration _configuration;
 
-        public SingleAttackBuilder(IObjectResolver container, SingleAttackConfiguration configuration)
+        public SingleAttackFactory(IObjectResolver container, SingleAttackConfiguration configuration)
         {
             _container = container;
             _configuration = configuration;
         }
 
-        public override Ability Build()
+        public override Ability Create()
         {
             var singleAttackAbility = new SingleAttackAbility();
-            singleAttackAbility.SetDamage(_configuration.Damage);
-            singleAttackAbility.SetRadius(_configuration.Radius);
             singleAttackAbility.SetCooldown(_configuration.Cooldown);
             singleAttackAbility.SetType(_configuration.Type);
-            singleAttackAbility.SetForce(_configuration.Force);
+            singleAttackAbility.SetAttackData(_configuration.AttackData);
             var isKeyPressed = new IsMousePressed(_configuration.MouseIndex);
             singleAttackAbility.SetCondition(isKeyPressed);
             _container.Inject(isKeyPressed);

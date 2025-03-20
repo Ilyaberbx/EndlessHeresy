@@ -10,6 +10,6 @@ namespace EndlessHeresy.Gameplay.Abilities
 
         public AbilityType Type => _type;
 
-        public abstract AbilityBuilder GetBuilder(IObjectResolver container);
+        public abstract AbilityFactory GetFactory(IObjectResolver container);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EndlessHeresy.Helpers
 {
-    public static class PhysicsHelper
+    public static class GamePhysics
     {
         public static bool TryOverlapCircleAll<TComponent>(Vector2 at, float radius, out TComponent[] components)
             where TComponent : IComponent

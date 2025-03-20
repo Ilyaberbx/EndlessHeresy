@@ -7,18 +7,15 @@ namespace EndlessHeresy.Gameplay.Abilities
     public sealed class DashConfiguration : AbilityConfiguration
     {
         [SerializeField] private KeyCode _keyCode;
-        [SerializeField] private int _speed;
         [SerializeField] private int _cooldown;
-        [SerializeField] private float _length;
-        [SerializeField] private AnimationCurve _curve;
-
-        public int Speed => _speed;
-        public float Length => _length;
-        public AnimationCurve Curve => _curve;
+        [SerializeField] private int _force;
+        [SerializeField] private int _collisionForce;
+        
         public KeyCode KeyCode => _keyCode;
-
         public int Cooldown => _cooldown;
+        public int Force => _force;
+        public int CollisionForce => _collisionForce;
 
-        public override AbilityBuilder GetBuilder(IObjectResolver container) => new DashBuilder(container, this);
+        public override AbilityFactory GetFactory(IObjectResolver container) => new DashFactory(container, this);
     }
 }
