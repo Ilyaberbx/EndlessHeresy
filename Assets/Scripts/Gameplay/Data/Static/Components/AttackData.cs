@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace EndlessHeresy.Gameplay.Data.Components
+namespace EndlessHeresy.Gameplay.Data.Static.Components
 {
     [Serializable]
     public sealed class AttackData
@@ -14,7 +14,6 @@ namespace EndlessHeresy.Gameplay.Data.Components
         public int Damage => _damage;
         public float Force => _force;
         public float Radius => _radius;
-
         public float DragForce => _dragForce;
     }
 }

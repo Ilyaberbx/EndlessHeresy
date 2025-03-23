@@ -5,7 +5,8 @@ using EndlessHeresy.Core;
 using EndlessHeresy.Extensions;
 using EndlessHeresy.Gameplay.Abilities.Enums;
 using EndlessHeresy.Gameplay.Common;
-using EndlessHeresy.Gameplay.Data.Components;
+using EndlessHeresy.Gameplay.Data.Operational;
+using EndlessHeresy.Gameplay.Data.Static.Components;
 using EndlessHeresy.Gameplay.Effects;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Services.Camera;
@@ -27,12 +28,13 @@ namespace EndlessHeresy.Gameplay.Abilities
         private RigidbodyStorageComponent _rigidbodyStorage;
         private TaskCompletionSource<bool> _forceCompletionSource;
         private EnemyTriggerObserver _enemyTriggerObserver;
-        private TrailsComponent _trailsComponent;
+        private TrailsSpawnerComponent _trailsSpawnerComponent;
+        private SpriteRendererComponent _spriteRendererComponent;
 
         private int _force;
         private int _collisionForce;
-        private TrailData _trailData;
         private float _trailsRatio;
+        private TrailData _trailData;
 
         private Rigidbody2D Rigidbody => _rigidbodyStorage.Rigidbody;
 
@@ -49,7 +51,8 @@ namespace EndlessHeresy.Gameplay.Abilities
             _facingComponent = Owner.GetComponent<FacingComponent>();
             _rigidbodyStorage = Owner.GetComponent<RigidbodyStorageComponent>();
             _enemyTriggerObserver = Owner.GetComponent<EnemyTriggerObserver>();
-            _trailsComponent = Owner.GetComponent<TrailsComponent>();
+            _trailsSpawnerComponent = Owner.GetComponent<TrailsSpawnerComponent>();
+            _spriteRendererComponent = Owner.GetComponent<SpriteRendererComponent>();
         }
 
         public override void Dispose()
@@ -62,12 +65,12 @@ namespace EndlessHeresy.Gameplay.Abilities
         public override async Task UseAsync(CancellationToken token)
         {
             var ownerToMouseDirection = GetOwnerToMouseDirection();
-            _forceCompletionSource = new TaskCompletionSource<bool>();
+            _forceCompletionSource = new TaskCompletionSource<bool>(token);
             PreDash(ownerToMouseDirection);
-            var spawnTrailsCts = CancellationTokenSource.CreateLinkedTokenSource(token);
-            ShowTrailsLoopAsync(spawnTrailsCts.Token).Forget();
+            var showTrailsCts = CancellationTokenSource.CreateLinkedTokenSource(token);
+            ShowTrailsLoopAsync(showTrailsCts.Token).Forget();
             await ExecuteDashAsync(ownerToMouseDirection);
-            spawnTrailsCts.Cancel();
+            showTrailsCts.Cancel();
             PostDash();
         }
 
@@ -94,13 +97,15 @@ namespace EndlessHeresy.Gameplay.Abilities
 
         private void PreDash(Vector2 ownerToMouseDirection)
         {
-            _facingComponent.Face(ownerToMouseDirection.x > 0);
+            _facingComponent.Face(GetType(), ownerToMouseDirection.x > 0);
+            _facingComponent.Lock(GetType());
             _enemyTriggerObserver.OnTriggerEnter += OnEnemyTriggerEnter;
             SetState(AbilityState.InUse);
         }
 
         private void PostDash()
         {
+            _facingComponent.Unlock(GetType());
             _gameUpdateService.OnUpdate -= OnDashUpdate;
             _enemyTriggerObserver.OnTriggerEnter -= OnEnemyTriggerEnter;
             SetState(AbilityState.Cooldown);
@@ -122,8 +127,9 @@ namespace EndlessHeresy.Gameplay.Abilities
                 var delayTask = Task.Delay(delay, cancellationToken);
                 var timeOutTask = Task.Delay(Timeout.Infinite, cancellationToken);
                 await Task.WhenAny(delayTask, timeOutTask);
-                var showTrailTask = _trailsComponent.ShowTrailsAsync(_trailData);
-                showTrailTask.Forget();
+                var spawnTrailsDto = CollectSpawnDto();
+                var spawnTrailTask = _trailsSpawnerComponent.SpawnTrailsAsync(spawnTrailsDto);
+                spawnTrailTask.Forget();
             }
         }
 
@@ -154,6 +160,15 @@ namespace EndlessHeresy.Gameplay.Abilities
             {
                 _forceCompletionSource.TrySetResult(true);
             }
+        }
+
+        private SpawnTrailDto CollectSpawnDto()
+        {
+            return new SpawnTrailDto(_trailData.LifeTime,
+                _trailData.Color,
+                Owner.Transform.position,
+                _spriteRendererComponent.SpriteRenderer.sprite,
+                _trailData.Name);
         }
     }
 }

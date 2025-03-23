@@ -1,8 +1,11 @@
-﻿using EndlessHeresy.Gameplay.Data.Components;
+﻿using EndlessHeresy.Gameplay.Abilities;
+using EndlessHeresy.Gameplay.Abilities.SingleAttack;
+using EndlessHeresy.Gameplay.Data.Operational;
+using EndlessHeresy.Gameplay.Data.Static.Components;
 using UnityEngine;
 using VContainer;
 
-namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
+namespace EndlessHeresy.Gameplay.Data.Static.Abilities
 {
     [CreateAssetMenu(menuName = "Configs/Gameplay/Abilities/SingleAttack", fileName = "SingleAttackConfiguration",
         order = 0)]
@@ -15,7 +18,6 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
         public int MouseIndex => _mouseIndex;
         public int Cooldown => _cooldown;
         public AttackData AttackData => _attackData;
-
         public override AbilityFactory GetFactory(IObjectResolver container)
         {
             return new SingleAttackFactory(container, this);

@@ -16,16 +16,16 @@ namespace EndlessHeresy.Gameplay.Movement
 
         private Rigidbody2D Rigidbody => _rigidbodyStorage.Rigidbody;
 
-        protected override async Task OnPostInitializeAsync(CancellationToken cancellationToken)
+        protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
-            await base.OnPostInitializeAsync(cancellationToken);
-
             _rigidbodyStorage = Owner.GetComponent<RigidbodyStorageComponent>();
+            return Task.CompletedTask;
         }
 
         public void SetSpeed(float movementSpeed) => _movementSpeed = movementSpeed;
         public void Lock() => _isLocked = true;
         public void Unlock() => _isLocked = false;
+
         public void Move(Vector2 input, float deltaTime)
         {
             if (_isLocked)

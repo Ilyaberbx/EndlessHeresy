@@ -4,7 +4,7 @@ using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Abilities.Enums;
 using EndlessHeresy.Gameplay.Animations;
 using EndlessHeresy.Gameplay.Common;
-using EndlessHeresy.Gameplay.Data.Components;
+using EndlessHeresy.Gameplay.Data.Static.Components;
 
 namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
 {
@@ -37,8 +37,15 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
 
         public override async Task UseAsync(CancellationToken token)
         {
+            await base.UseAsync(token);
             StartAttack();
             await WaitForAttackAsync(token);
+            FinishAttacks();
+        }
+
+        private void FinishAttacks()
+        {
+            FacingComponent.Unlock(GetType());
             SetState(AbilityState.Cooldown);
         }
 
@@ -62,6 +69,7 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
         private void StartAttack()
         {
             SetState(AbilityState.InUse);
+            FacingComponent.Lock(GetType());
             _singleAttackAnimation.Play();
             _isAttackFinished = false;
         }
@@ -78,7 +86,8 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
         private void OnAttackTriggered()
         {
             ProcessOwnerFacingForce(_attackData.DragForce);
-            ProcessAttack(_attackData);
+            var processAttackDto = CollectProcessAttackDto(_attackData);
+            ProcessAttack(processAttackDto);
         }
 
         private void OnAttackFinished() => _isAttackFinished = true;

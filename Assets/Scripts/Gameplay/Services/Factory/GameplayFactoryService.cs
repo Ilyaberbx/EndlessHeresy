@@ -36,10 +36,11 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var movementComponent = new MovementComponent();
             var healthComponent = new HealthComponent();
             var facingComponent = new FacingComponent();
+            var mouseFacingComponent = new MouseFacingComponent();
             var statesAggregatorComponent = new StatesAggregatorComponent<HeroActor>();
             var abilitiesCastComponent = new AbilitiesCastComponent();
             var abilitiesStorageComponent = new AbilitiesStorageComponent();
-            var trailsComponent = new TrailsComponent();
+            var trailsComponent = new TrailsSpawnerComponent();
 
             var statesAggregator = GetStatesAggregatorBuilder<HeroActor>()
                 .WithPlugin<HeroTransitionsPlugin>()
@@ -49,6 +50,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             statesAggregatorComponent.SetSource(statesAggregator);
             healthComponent.SetHealth(configuration.Health);
             movementComponent.SetSpeed(configuration.MovementSpeed);
+            trailsComponent.SetSize(configuration.TrailsPoolData.DefaultCapacity, configuration.TrailsPoolData.MaxSize);
             abilitiesStorageComponent.SetAbilities(configuration.AbilityConfigurations);
 
             return GetActorBuilder<HeroActor>()
@@ -61,6 +63,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .WithComponent(statesAggregatorComponent)
                 .WithComponent(abilitiesCastComponent)
                 .WithComponent(abilitiesStorageComponent)
+                .WithComponent(mouseFacingComponent)
                 .Build();
         }
 
@@ -68,6 +71,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
         {
             var configuration = _gameplayStaticDataService.PunchingDummyConfiguration;
             var healthComponent = new HealthComponent();
+            var healthChangeMessages = new HealthChangeMessages();
 
             healthComponent.SetHealth(10);
 
@@ -75,6 +79,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
                 .WithComponent(healthComponent)
+                .WithComponent(healthChangeMessages)
                 .Build();
         }
 

@@ -1,8 +1,9 @@
-﻿using EndlessHeresy.Gameplay.Data.Components;
+﻿using EndlessHeresy.Gameplay.Abilities;
+using EndlessHeresy.Gameplay.Data.Static.Components;
 using UnityEngine;
 using VContainer;
 
-namespace EndlessHeresy.Gameplay.Abilities
+namespace EndlessHeresy.Gameplay.Data.Static.Abilities
 {
     [CreateAssetMenu(menuName = "Configs/Gameplay/Abilities/Dash", fileName = "DashAbilityConfiguration", order = 0)]
     public sealed class DashConfiguration : AbilityConfiguration
@@ -20,7 +21,6 @@ namespace EndlessHeresy.Gameplay.Abilities
         public int CollisionForce => _collisionForce;
         public TrailData TrailData => _trailData;
         public float TrailsRatio => _trailsRatio;
-
         public override AbilityFactory GetFactory(IObjectResolver container) => new DashFactory(container, this);
     }
 }

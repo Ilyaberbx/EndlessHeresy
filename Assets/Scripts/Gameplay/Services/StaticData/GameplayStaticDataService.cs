@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using EndlessHeresy.Gameplay.Actors.Enemies;
-using EndlessHeresy.Gameplay.Actors.Hero;
+using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Data.Static;
 using EndlessHeresy.Global.Services.AssetsManagement;
 using VContainer.Unity;
@@ -14,8 +13,15 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
         private readonly IAssetsService _assetsService;
         private HeroConfiguration _heroConfiguration;
         private PunchingDummyConfiguration _punchingDummyConfiguration;
+        private FloatingMessagesConfiguration _floatingMessagesConfiguration;
         public HeroConfiguration HeroConfiguration => _heroConfiguration;
         public PunchingDummyConfiguration PunchingDummyConfiguration => _punchingDummyConfiguration;
+        public FloatingMessagesConfiguration FloatingMessagesConfiguration => _floatingMessagesConfiguration;
+
+        public ItemConfiguration GetItemConfiguration(ItemType itemType)
+        {
+            throw new NotImplementedException();
+        }
 
         public GameplayStaticDataService(IAssetsService assetsService)
         {
@@ -28,6 +34,7 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
             {
                 await LoadHeroConfigurationAsync();
                 await LoadDummyConfigurationAsync();
+                await LoadMessagesConfigurationAsync();
             }
             catch (Exception e)
             {
@@ -35,9 +42,16 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
             }
         }
 
+        private async Task LoadMessagesConfigurationAsync()
+        {
+            _floatingMessagesConfiguration =
+                await _assetsService.Load<FloatingMessagesConfiguration>(GameplayStaticDataKeys.FloatingMessages);
+        }
+
         private async Task LoadDummyConfigurationAsync()
         {
-            _punchingDummyConfiguration = await _assetsService.Load<PunchingDummyConfiguration>(GameplayStaticDataKeys.PunchingDummy);
+            _punchingDummyConfiguration =
+                await _assetsService.Load<PunchingDummyConfiguration>(GameplayStaticDataKeys.PunchingDummy);
         }
 
         private async Task LoadHeroConfigurationAsync()

@@ -20,4 +20,5 @@ MonoBehaviour:
   _trailData:
     _color: {r: 1, g: 0.018286316, b: 0, a: 1}
     _lifeTime: 0.5
+    _name: DashTrail
   _trailsRatio: 0.03

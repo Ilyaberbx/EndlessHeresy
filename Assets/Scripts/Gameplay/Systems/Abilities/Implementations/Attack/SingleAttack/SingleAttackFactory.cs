@@ -1,4 +1,5 @@
 ﻿using EndlessHeresy.Gameplay.Conditions;
+using EndlessHeresy.Gameplay.Data.Static.Abilities;
 using VContainer;
 
 namespace EndlessHeresy.Gameplay.Abilities.SingleAttack

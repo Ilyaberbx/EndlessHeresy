@@ -7,6 +7,7 @@ namespace EndlessHeresy.Gameplay.Health
     public sealed class HealthComponent : PocoComponent
     {
         public event Action OnHealthDepleted;
+        public event Action<float> OnTakeDamage;
 
         private const float MinHealthPoints = 0;
         public float CurrentHp { get; private set; }
@@ -20,6 +21,7 @@ namespace EndlessHeresy.Gameplay.Health
             }
 
             CurrentHp = Mathf.Clamp(CurrentHp - damage, MinHealthPoints, CurrentHp);
+            OnTakeDamage?.Invoke(damage);
 
             if (IsDead())
             {

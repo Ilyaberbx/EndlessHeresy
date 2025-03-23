@@ -1,4 +1,5 @@
 ﻿using EndlessHeresy.Gameplay.Conditions;
+using EndlessHeresy.Gameplay.Data.Static.Abilities;
 using VContainer;
 
 namespace EndlessHeresy.Gameplay.Abilities.DoubleAttack
@@ -20,8 +21,8 @@ namespace EndlessHeresy.Gameplay.Abilities.DoubleAttack
             var isKeyPressed = new IsMousePressed(_configuration.MouseIndex);
             doubleAttackAbility.SetCondition(isKeyPressed);
             doubleAttackAbility.SetCooldown(_configuration.Cooldown);
-            doubleAttackAbility.SetFirstAttackData(_configuration.FirstAttackData);
-            doubleAttackAbility.SetSecondAttackData(_configuration.SecondAttackData);
+            doubleAttackAbility.SetFirstAttackData(_configuration.FirstAttackDto);
+            doubleAttackAbility.SetSecondAttackData(_configuration.SecondAttackDto);
             doubleAttackAbility.SetType(_configuration.Type);
             _container.Inject(isKeyPressed);
             _container.Inject(doubleAttackAbility);

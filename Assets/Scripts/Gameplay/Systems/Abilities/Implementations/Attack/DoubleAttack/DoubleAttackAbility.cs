@@ -4,7 +4,7 @@ using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Abilities.Enums;
 using EndlessHeresy.Gameplay.Animations;
 using EndlessHeresy.Gameplay.Common;
-using EndlessHeresy.Gameplay.Data.Components;
+using EndlessHeresy.Gameplay.Data.Static.Components;
 
 namespace EndlessHeresy.Gameplay.Abilities.DoubleAttack
 {
@@ -41,9 +41,10 @@ namespace EndlessHeresy.Gameplay.Abilities.DoubleAttack
 
         public override async Task UseAsync(CancellationToken token)
         {
+            await base.UseAsync(token);
             StartAttacks();
             await WaitForAttacksAsync(token);
-            SetState(AbilityState.Cooldown);
+            FinishAttacks();
         }
 
         private void SubscribeAnimationEvents()
@@ -72,8 +73,15 @@ namespace EndlessHeresy.Gameplay.Abilities.DoubleAttack
         private void StartAttacks()
         {
             SetState(AbilityState.InUse);
+            FacingComponent.Lock(GetType());
             _doubleAttackAnimation.Play();
             _isAttacksFinished = false;
+        }
+
+        private void FinishAttacks()
+        {
+            FacingComponent.Unlock(GetType());
+            SetState(AbilityState.Cooldown);
         }
 
         private async Task WaitForAttacksAsync(CancellationToken token)
@@ -87,8 +95,19 @@ namespace EndlessHeresy.Gameplay.Abilities.DoubleAttack
 
         private void OnSecondDragTriggered() => ProcessOwnerFacingForce(_secondAttackData.DragForce);
         private void OnFirstDragTriggered() => ProcessOwnerFacingForce(_firstAttackData.DragForce);
-        private void OnFirstHitTriggered() => ProcessAttack(_firstAttackData);
-        private void OnSecondHitTriggered() => ProcessAttack(_secondAttackData);
+
+        private void OnFirstHitTriggered()
+        {
+            var processAttackDto = CollectProcessAttackDto(_firstAttackData);
+            ProcessAttack(processAttackDto);
+        }
+
+        private void OnSecondHitTriggered()
+        {
+            var processAttackDto = CollectProcessAttackDto(_secondAttackData);
+            ProcessAttack(processAttackDto);
+        }
+
         private void OnAttacksFinishTriggered() => _isAttacksFinished = true;
     }
 }

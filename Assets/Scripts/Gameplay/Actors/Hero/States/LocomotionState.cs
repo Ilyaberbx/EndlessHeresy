@@ -45,6 +45,7 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
         public override Task EnterAsync(CancellationToken token)
         {
             _movementComponent.Unlock();
+            _facingComponent.Lock(GetType());
             _gameUpdateService.OnUpdate += OnUpdate;
             _gameUpdateService.OnFixedUpdate += OnFixedUpdate;
             return Task.CompletedTask;
@@ -53,6 +54,7 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
         public override Task ExitAsync(CancellationToken token)
         {
             _movementComponent.Lock();
+            _facingComponent.Unlock(GetType());
             _gameUpdateService.OnUpdate -= OnUpdate;
             _gameUpdateService.OnFixedUpdate -= OnFixedUpdate;
             return Task.CompletedTask;
@@ -82,7 +84,7 @@ namespace EndlessHeresy.Gameplay.Actors.Hero.States
             }
 
             var isFacingRight = input.x > 0;
-            _facingComponent.Face(isFacingRight);
+            _facingComponent.Face(GetType(), isFacingRight);
         }
 
         private void UpdateAnimatorState(bool isMoving) => _animator.SetBool(IsMoving, isMoving);
