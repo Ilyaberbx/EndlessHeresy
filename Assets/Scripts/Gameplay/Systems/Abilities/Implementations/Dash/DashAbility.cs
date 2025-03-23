@@ -24,12 +24,12 @@ namespace EndlessHeresy.Gameplay.Abilities
         private ICameraService _cameraService;
         private IGameUpdateService _gameUpdateService;
 
-        private FacingComponent _facingComponent;
         private RigidbodyStorageComponent _rigidbodyStorage;
         private TaskCompletionSource<bool> _forceCompletionSource;
         private EnemyTriggerObserver _enemyTriggerObserver;
         private TrailsSpawnerComponent _trailsSpawnerComponent;
         private SpriteRendererComponent _spriteRendererComponent;
+        private MouseFacingComponent _mouseFacingComponent;
 
         private int _force;
         private int _collisionForce;
@@ -37,6 +37,7 @@ namespace EndlessHeresy.Gameplay.Abilities
         private TrailData _trailData;
 
         private Rigidbody2D Rigidbody => _rigidbodyStorage.Rigidbody;
+        private FacingComponent FacingComponent => _mouseFacingComponent.FacingComponent;
 
         [Inject]
         public void Construct(ICameraService cameraService, IGameUpdateService gameUpdateService)
@@ -48,11 +49,11 @@ namespace EndlessHeresy.Gameplay.Abilities
         public override void Initialize(IActor owner)
         {
             base.Initialize(owner);
-            _facingComponent = Owner.GetComponent<FacingComponent>();
             _rigidbodyStorage = Owner.GetComponent<RigidbodyStorageComponent>();
             _enemyTriggerObserver = Owner.GetComponent<EnemyTriggerObserver>();
             _trailsSpawnerComponent = Owner.GetComponent<TrailsSpawnerComponent>();
             _spriteRendererComponent = Owner.GetComponent<SpriteRendererComponent>();
+            _mouseFacingComponent = Owner.GetComponent<MouseFacingComponent>();
         }
 
         public override void Dispose()
@@ -66,7 +67,7 @@ namespace EndlessHeresy.Gameplay.Abilities
         {
             var ownerToMouseDirection = GetOwnerToMouseDirection();
             _forceCompletionSource = new TaskCompletionSource<bool>(token);
-            PreDash(ownerToMouseDirection);
+            PreDash();
             var showTrailsCts = CancellationTokenSource.CreateLinkedTokenSource(token);
             ShowTrailsLoopAsync(showTrailsCts.Token).Forget();
             await ExecuteDashAsync(ownerToMouseDirection);
@@ -95,17 +96,17 @@ namespace EndlessHeresy.Gameplay.Abilities
             return _forceCompletionSource.Task;
         }
 
-        private void PreDash(Vector2 ownerToMouseDirection)
+        private void PreDash()
         {
-            _facingComponent.Face(GetType(), ownerToMouseDirection.x > 0);
-            _facingComponent.Lock(GetType());
+            _mouseFacingComponent.UpdateFacing();
+            FacingComponent.Lock(GetType());
             _enemyTriggerObserver.OnTriggerEnter += OnEnemyTriggerEnter;
             SetState(AbilityState.InUse);
         }
 
         private void PostDash()
         {
-            _facingComponent.Unlock(GetType());
+            FacingComponent.Unlock(GetType());
             _gameUpdateService.OnUpdate -= OnDashUpdate;
             _enemyTriggerObserver.OnTriggerEnter -= OnEnemyTriggerEnter;
             SetState(AbilityState.Cooldown);
