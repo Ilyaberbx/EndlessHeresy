@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 5753913375855388206}
   - component: {fileID: 6587667895815951998}
   - component: {fileID: 2487715610569911782}
+  - component: {fileID: 7680172000249185094}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Untagged
@@ -437,6 +438,7 @@ MonoBehaviour:
   - {fileID: 175828229710946049}
   - {fileID: 6457321260001268527}
   - {fileID: 8366825270529523780}
+  - {fileID: 7680172000249185094}
 --- !u!50 &6587667895815951998
 Rigidbody2D:
   serializedVersion: 4
@@ -499,6 +501,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &7680172000249185094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5826162769024652586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203d3a67328e4fd18e9a3a434f8c10da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8088969377836918738
 GameObject:
   m_ObjectHideFlags: 0

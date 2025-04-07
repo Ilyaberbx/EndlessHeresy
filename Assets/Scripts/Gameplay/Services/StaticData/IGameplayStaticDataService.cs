@@ -1,5 +1,6 @@
 ﻿using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Data.Static;
+using EndlessHeresy.Gameplay.Data.Static.Items;
 
 namespace EndlessHeresy.Gameplay.Services.StaticData
 {

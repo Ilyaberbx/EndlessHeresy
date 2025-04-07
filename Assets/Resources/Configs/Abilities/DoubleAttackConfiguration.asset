@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe27c5bfa984329a73913fbd1b1edd1, type: 3}
   m_Name: DoubleAttackConfiguration
   m_EditorClassIdentifier: 
+  _icon: {fileID: 21300000, guid: 18ea464f3b6ba534cbcb1e511fa96f52, type: 3}
   _type: 2
   _mouseIndex: 1
   _firstAttackDto:

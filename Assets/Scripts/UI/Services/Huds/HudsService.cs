@@ -31,7 +31,8 @@ namespace EndlessHeresy.UI.Services.Huds
         {
             var controllerName = typeof(TController).Name;
             var viewKey = controllerName.Replace(ControllerPostfix, string.Empty);
-            var viewPrefab = await _assetsService.Load<BaseView>(string.Format(ViewPathFormat, viewKey));
+            var address = string.Format(ViewPathFormat, viewKey);
+            var viewPrefab = await _assetsService.Load<BaseView>(address);
 
             if (viewPrefab == null)
             {

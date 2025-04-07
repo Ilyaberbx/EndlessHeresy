@@ -1,26 +1,36 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using EndlessHeresy.Core;
-using UnityEngine;
+using EndlessHeresy.Gameplay.Stats;
+using EndlessHeresy.Gameplay.Stats.Implementations;
 
 namespace EndlessHeresy.Gameplay.Health
 {
     public sealed class HealthComponent : PocoComponent
     {
+        private IStatsReadonly _statsComponent;
+        private HealthStat _healthStat;
         public event Action OnHealthDepleted;
         public event Action<float> OnTakeDamage;
+        public int CurrentHp => _healthStat.GetValue();
 
-        private const float MinHealthPoints = 0;
-        public float CurrentHp { get; private set; }
-        public void SetHealth(float healthPoints) => CurrentHp = healthPoints;
+        protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
+        {
+            _statsComponent = Owner.GetComponent<StatsComponent>();
+            _statsComponent.TryGet(out _healthStat);
+            return base.OnPostInitializeAsync(cancellationToken);
+        }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(int damage)
         {
             if (IsDead())
             {
                 return;
             }
 
-            CurrentHp = Mathf.Clamp(CurrentHp - damage, MinHealthPoints, CurrentHp);
+            var currentValue = _healthStat.GetValue();
+            _healthStat.SetValue(currentValue - damage);
             OnTakeDamage?.Invoke(damage);
 
             if (IsDead())
@@ -29,6 +39,17 @@ namespace EndlessHeresy.Gameplay.Health
             }
         }
 
-        public bool IsDead() => CurrentHp <= 0;
+        public void Heal(int healAmount)
+        {
+            if (IsDead())
+            {
+                return;
+            }
+
+            var currentValue = _healthStat.GetValue();
+            _healthStat.SetValue(currentValue + healAmount);
+        }
+
+        public bool IsDead() => _healthStat.GetValue() <= 0;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace EndlessHeresy.Gameplay.Common
 {
     [RequireComponent(typeof(Collider2D))]
-    public abstract class TriggerObserverComponent<TComponent> : MonoComponent where TComponent : MonoComponent
+    public abstract class TriggerObserverComponent<TComponent> : MonoComponent where TComponent : IComponent
     {
         public event Action<TComponent> OnTriggerEnter;
         public event Action<TComponent> OnTriggerExit;
@@ -13,7 +13,12 @@ namespace EndlessHeresy.Gameplay.Common
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out TComponent component))
+            if (!other.TryGetComponent(out IActor actor))
+            {
+                return;
+            }
+
+            if (actor.TryGetComponent(out TComponent component))
             {
                 OnTriggerEnter?.Invoke(component);
             }
@@ -21,7 +26,12 @@ namespace EndlessHeresy.Gameplay.Common
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.TryGetComponent(out TComponent component))
+            if (!other.TryGetComponent(out IActor actor))
+            {
+                return;
+            }
+
+            if (actor.TryGetComponent(out TComponent component))
             {
                 OnTriggerExit?.Invoke(component);
             }
@@ -29,7 +39,12 @@ namespace EndlessHeresy.Gameplay.Common
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            if (other.TryGetComponent(out TComponent component))
+            if (!other.TryGetComponent(out IActor actor))
+            {
+                return;
+            }
+
+            if (actor.TryGetComponent(out TComponent component))
             {
                 OnTriggerStay?.Invoke(component);
             }

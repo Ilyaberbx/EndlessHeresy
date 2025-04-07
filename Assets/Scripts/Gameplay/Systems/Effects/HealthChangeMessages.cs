@@ -41,8 +41,8 @@ namespace EndlessHeresy.Gameplay.Effects
         {
             var at = Owner.Transform.position;
             var message = string.Format(TakeDamageFormat, damage);
-            var messageData = new ShowFloatingMessageDto(at, message, Duration, Color.red, Vector2.up);
-            _floatingMessagesService.ShowAsync(messageData).Forget();
+            var showMessageDto = new ShowFloatingMessageDto(at, message, Duration, Color.red, Vector2.up);
+            _floatingMessagesService.ShowAsync(showMessageDto).Forget();
         }
     }
 }

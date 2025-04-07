@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Data.Static;
+using EndlessHeresy.Gameplay.Data.Static.Items;
 using EndlessHeresy.Global.Services.AssetsManagement;
 using VContainer.Unity;
 using DebugUtility = Better.Commons.Runtime.Utility.DebugUtility;
@@ -14,32 +17,34 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
         private HeroConfiguration _heroConfiguration;
         private PunchingDummyConfiguration _punchingDummyConfiguration;
         private FloatingMessagesConfiguration _floatingMessagesConfiguration;
+        private ItemConfiguration[] _itemsConfigurations;
         public HeroConfiguration HeroConfiguration => _heroConfiguration;
         public PunchingDummyConfiguration PunchingDummyConfiguration => _punchingDummyConfiguration;
         public FloatingMessagesConfiguration FloatingMessagesConfiguration => _floatingMessagesConfiguration;
-
-        public ItemConfiguration GetItemConfiguration(ItemType itemType)
-        {
-            throw new NotImplementedException();
-        }
 
         public GameplayStaticDataService(IAssetsService assetsService)
         {
             _assetsService = assetsService;
         }
 
-        public async void Initialize()
+        public void Initialize()
         {
-            try
-            {
-                await LoadHeroConfigurationAsync();
-                await LoadDummyConfigurationAsync();
-                await LoadMessagesConfigurationAsync();
-            }
-            catch (Exception e)
-            {
-                DebugUtility.LogException(e);
-            }
+            var initializationTask = Task.WhenAll(LoadHeroConfigurationAsync(),
+                LoadDummyConfigurationAsync(),
+                LoadMessagesConfigurationAsync(),
+                LoadItemsConfigurationAsync());
+
+            initializationTask.Forget();
+        }
+
+        public ItemConfiguration GetItemConfiguration(ItemType itemType)
+        {
+            return _itemsConfigurations.FirstOrDefault(temp => temp.Type == itemType);
+        }
+
+        private async Task LoadItemsConfigurationAsync()
+        {
+            _itemsConfigurations = await _assetsService.LoadAll<ItemConfiguration>(GameplayStaticDataKeys.Items);
         }
 
         private async Task LoadMessagesConfigurationAsync()

@@ -9,5 +9,6 @@
         public const string Hero = Configs + Actors + "HeroConfiguration";
         public const string PunchingDummy = Configs + Actors + "PunchingDummyConfiguration";
         public const string FloatingMessages = Configs + Effects + "FloatingMessagesConfiguration";
+        public const string Items = Configs + "Items";
     }
 }

@@ -1,19 +1,27 @@
 ﻿using System.Threading.Tasks;
+using DG.Tweening;
 using EndlessHeresy.Core;
 using EndlessHeresy.Core.Builder;
 using EndlessHeresy.Core.States;
 using EndlessHeresy.Core.StatesAggregator;
 using EndlessHeresy.Core.StatesAggregator.Plugins;
 using EndlessHeresy.Gameplay.Abilities;
+using EndlessHeresy.Gameplay.Actors;
 using EndlessHeresy.Gameplay.Actors.Enemies;
 using EndlessHeresy.Gameplay.Actors.Hero;
+using EndlessHeresy.Gameplay.Data.Identifiers;
+using EndlessHeresy.Gameplay.Data.Static.Components.Stats;
+using EndlessHeresy.Gameplay.Data.Static.Items;
 using EndlessHeresy.Gameplay.Effects;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Health;
+using EndlessHeresy.Gameplay.Inventory;
 using EndlessHeresy.Gameplay.Movement;
 using EndlessHeresy.Gameplay.Services.StaticData;
 using EndlessHeresy.Gameplay.StatesAggregator;
 using EndlessHeresy.Gameplay.StatesAggregator.Plugins;
+using EndlessHeresy.Gameplay.Stats;
+using EndlessHeresy.Gameplay.Stats.Implementations;
 using UnityEngine;
 using VContainer;
 
@@ -41,17 +49,20 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var abilitiesCastComponent = new AbilitiesCastComponent();
             var abilitiesStorageComponent = new AbilitiesStorageComponent();
             var trailsComponent = new TrailsSpawnerComponent();
+            var inventoryComponent = new InventoryComponent();
+            var statsComponent = new StatsComponent();
 
             var statesAggregator = GetStatesAggregatorBuilder<HeroActor>()
                 .WithPlugin<HeroTransitionsPlugin>()
                 .WithPlugin<LoggerPlugin<HeroActor>>()
                 .Build();
 
+            statsComponent.SetStats(configuration.StatsData);
             statesAggregatorComponent.SetSource(statesAggregator);
-            healthComponent.SetHealth(configuration.Health);
             movementComponent.SetSpeed(configuration.MovementSpeed);
             trailsComponent.SetSize(configuration.TrailsPoolData.DefaultCapacity, configuration.TrailsPoolData.MaxSize);
             abilitiesStorageComponent.SetAbilities(configuration.AbilityConfigurations);
+            inventoryComponent.SetMaxSize(configuration.MaxInventorySize);
 
             return GetActorBuilder<HeroActor>()
                 .ForPrefab(configuration.Prefab)
@@ -63,7 +74,9 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .WithComponent(statesAggregatorComponent)
                 .WithComponent(abilitiesCastComponent)
                 .WithComponent(abilitiesStorageComponent)
+                .WithComponent(inventoryComponent)
                 .WithComponent(mouseFacingComponent)
+                .WithComponent(statsComponent)
                 .Build();
         }
 
@@ -72,15 +85,40 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var configuration = _gameplayStaticDataService.PunchingDummyConfiguration;
             var healthComponent = new HealthComponent();
             var healthChangeMessages = new HealthChangeMessages();
+            var statsComponent = new StatsComponent();
 
-            healthComponent.SetHealth(10);
+            statsComponent.SetStats(configuration.StatsData);
 
             return GetActorBuilder<PunchingDummyActor>()
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
+                .WithComponent(statsComponent)
                 .WithComponent(healthComponent)
                 .WithComponent(healthChangeMessages)
                 .Build();
+        }
+
+        public Task<ItemPickUpActor> CreateItemPickUpAsync(ItemType itemType)
+        {
+            var derivedConfiguration = _gameplayStaticDataService.GetItemConfiguration(itemType);
+
+            if (derivedConfiguration is not PickableItemConfiguration itemConfiguration)
+            {
+                return Task.FromResult<ItemPickUpActor>(null);
+            }
+
+            var prefab = itemConfiguration.PickUpPrefab;
+
+            return GetActorBuilder<ItemPickUpActor>()
+                .ForPrefab(prefab)
+                .WithPosition(Vector2.one)
+                .Build();
+        }
+
+        public void Dispose(IActor actor)
+        {
+            DOTween.Kill(actor);
+            actor.Dispose();
         }
 
         private MonoActorBuilder<TActor> GetActorBuilder<TActor>() where TActor : MonoActor

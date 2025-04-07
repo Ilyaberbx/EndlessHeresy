@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Extensions;
+using EndlessHeresy.Gameplay.Actors;
 using EndlessHeresy.Gameplay.Actors.Hero;
+using EndlessHeresy.Gameplay.Data.Identifiers;
+using EndlessHeresy.Gameplay.Inventory;
 using EndlessHeresy.Gameplay.Services.Camera;
 using EndlessHeresy.Gameplay.Services.Factory;
 using UnityEngine;
@@ -28,6 +32,7 @@ namespace EndlessHeresy.Gameplay
                 await CreatDummiesAsync();
                 var hero = await CreateHero();
                 _cameraService.SetTarget(hero.transform);
+                CreateTestItemPickUp().Forget();
             }
             catch (Exception e)
             {
@@ -36,9 +41,14 @@ namespace EndlessHeresy.Gameplay
             }
         }
 
-        private async Task<HeroActor> CreateHero()
+        private Task<ItemPickUpActor> CreateTestItemPickUp()
         {
-            return await _gameplayFactoryService.CreateHeroAsync(Vector2.zero);
+            return _gameplayFactoryService.CreateItemPickUpAsync(ItemType.Test);
+        }
+
+        private Task<HeroActor> CreateHero()
+        {
+            return _gameplayFactoryService.CreateHeroAsync(Vector2.zero);
         }
 
         private async Task CreatDummiesAsync()

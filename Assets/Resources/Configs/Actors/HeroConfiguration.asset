@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32fe745d1674901ba94af5a5a63fe38, type: 3}
   m_Name: HeroConfiguration
   m_EditorClassIdentifier: 
+  _statsData:
+  - rid: 7383304316839264257
+  - rid: 7383304316839264258
   _prefab: {fileID: 5753913375855388206, guid: 8e2cf937bc869244caf19c5c4dae8fdc, type: 3}
   _movementSpeed: 8000
   _health: 10
+  _maxInventorySize: 50
   _abilityConfigurations:
   - {fileID: 11400000, guid: e2a5fca02d62dea49a059aad6ff4e7c0, type: 2}
   - {fileID: 11400000, guid: 6b2c9c6a9456f7b4288c7c730a318263, type: 2}
@@ -22,3 +26,24 @@ MonoBehaviour:
   _trailsPoolData:
     _defaultCapacity: 5
     _maxSize: 10000
+  references:
+    version: 2
+    RefIds:
+    - rid: 7383304316839264257
+      type: {class: HealthStatData, ns: EndlessHeresy.Gameplay.Data.Static.Components.Stats, asm: Assembly-CSharp}
+      data:
+        _identifier:
+          _fullQualifiedName: EndlessHeresy.Gameplay.Stats.Implementations.HealthStat,
+            Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        _defaultValue: 5
+        _minValue: 0
+        _maxValue: 100
+    - rid: 7383304316839264258
+      type: {class: LuckStatData, ns: EndlessHeresy.Gameplay.Data.Static.Components.Stats, asm: Assembly-CSharp}
+      data:
+        _identifier:
+          _fullQualifiedName: EndlessHeresy.Gameplay.Stats.Implementations.LuckStat,
+            Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        _defaultValue: 0.5
+        _minValue: 0
+        _maxValue: 1
