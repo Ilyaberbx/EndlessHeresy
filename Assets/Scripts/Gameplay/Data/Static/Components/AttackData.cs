@@ -4,7 +4,7 @@ using UnityEngine;
 namespace EndlessHeresy.Gameplay.Data.Static.Components
 {
     [Serializable]
-    public sealed class AttackData
+    public struct AttackData
     {
         [SerializeField] private int _damage;
         [SerializeField] private float _force;

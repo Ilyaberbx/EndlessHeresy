@@ -4,7 +4,7 @@ using UnityEngine;
 namespace EndlessHeresy.Gameplay.Data.Static.Components
 {
     [Serializable]
-    public sealed class PoolData
+    public struct PoolData
     {
         [SerializeField] private int _defaultCapacity;
         [SerializeField] private int _maxSize;

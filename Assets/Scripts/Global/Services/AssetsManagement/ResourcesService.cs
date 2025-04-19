@@ -6,8 +6,6 @@ namespace EndlessHeresy.Global.Services.AssetsManagement
 {
     public sealed class ResourcesService : IAssetsService
     {
-        private const string ResourcesFolder = "Resources/";
-
         public Task<TAsset[]> LoadAll<TAsset>(string address) where TAsset : Object
         {
             var assets = Resources.LoadAll<TAsset>(address);

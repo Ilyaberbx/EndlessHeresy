@@ -6,7 +6,6 @@ using EndlessHeresy.Extensions;
 using EndlessHeresy.Gameplay.Actors;
 using EndlessHeresy.Gameplay.Actors.Hero;
 using EndlessHeresy.Gameplay.Data.Identifiers;
-using EndlessHeresy.Gameplay.Inventory;
 using EndlessHeresy.Gameplay.Services.Camera;
 using EndlessHeresy.Gameplay.Services.Factory;
 using UnityEngine;

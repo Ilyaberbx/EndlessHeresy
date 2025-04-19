@@ -17,20 +17,10 @@ MonoBehaviour:
   _name: jopaaa
   _description: 'jopaaa 2 0 '
   _stackable: 0
-  _storeActionsConfiguration:
-  - rid: 199134369041350660
-  _contextActionsConfiguration:
-  - rid: 7383304297761996800
+  _storeActionsConfiguration: []
+  _contextActionsConfiguration: []
   _removeActionsConfiguration: []
   _pickUpPrefab: {fileID: 2679043990094932824, guid: b6c61de98e1a52f469886e27aebf446c, type: 3}
   references:
     version: 2
-    RefIds:
-    - rid: 199134369041350660
-      type: {class: HealItemActionData, ns: EndlessHeresy.Gameplay.Data.Static.Items.Actions, asm: Assembly-CSharp}
-      data:
-        _healAmount: 1164
-    - rid: 7383304297761996800
-      type: {class: RemoveItemData, ns: EndlessHeresy.Gameplay.Data.Static.Items.Actions, asm: Assembly-CSharp}
-      data:
-        _type: 0
+    RefIds: []

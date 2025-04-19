@@ -10,7 +10,6 @@ using EndlessHeresy.Gameplay.Actors;
 using EndlessHeresy.Gameplay.Actors.Enemies;
 using EndlessHeresy.Gameplay.Actors.Hero;
 using EndlessHeresy.Gameplay.Data.Identifiers;
-using EndlessHeresy.Gameplay.Data.Static.Components.Stats;
 using EndlessHeresy.Gameplay.Data.Static.Items;
 using EndlessHeresy.Gameplay.Effects;
 using EndlessHeresy.Gameplay.Facing;
@@ -21,7 +20,6 @@ using EndlessHeresy.Gameplay.Services.StaticData;
 using EndlessHeresy.Gameplay.StatesAggregator;
 using EndlessHeresy.Gameplay.StatesAggregator.Plugins;
 using EndlessHeresy.Gameplay.Stats;
-using EndlessHeresy.Gameplay.Stats.Implementations;
 using UnityEngine;
 using VContainer;
 
@@ -57,7 +55,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .WithPlugin<LoggerPlugin<HeroActor>>()
                 .Build();
 
-            statsComponent.SetStats(configuration.StatsData);
+            statsComponent.SetStats(configuration.DefaultStats);
             statesAggregatorComponent.SetSource(statesAggregator);
             movementComponent.SetSpeed(configuration.MovementSpeed);
             trailsComponent.SetSize(configuration.TrailsPoolData.DefaultCapacity, configuration.TrailsPoolData.MaxSize);

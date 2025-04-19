@@ -4,7 +4,7 @@ using UnityEngine;
 namespace EndlessHeresy.Gameplay.Data.Static.Components
 {
     [Serializable]
-    public sealed class TrailData
+    public struct TrailData
     {
         [SerializeField] private Color _color;
         [SerializeField] private float _lifeTime;

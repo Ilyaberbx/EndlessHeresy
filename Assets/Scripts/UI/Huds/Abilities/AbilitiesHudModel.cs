@@ -9,13 +9,17 @@ namespace EndlessHeresy.UI.Huds.Abilities
 {
     public sealed class AbilitiesHudModel : IModel
     {
-        public ReactiveProperty<IEnumerable<Ability>> Abilities { get; } = new();
+        public ReactiveProperty<IEnumerable<Ability>> Abilities { get; }
+
+        public AbilitiesHudModel(IEnumerable<Ability> abilities)
+        {
+            Abilities = new ReactiveProperty<IEnumerable<Ability>>(abilities);
+        }
 
         public IEnumerable<Ability> GetAbilitiesByState(AbilityState state)
         {
             return Abilities.Value.Where(temp => temp.State.Value == state);
         }
-
-        public void SetAbilities(IEnumerable<Ability> abilities) => Abilities.Value = abilities;
+        
     }
 }

@@ -15,15 +15,13 @@ namespace EndlessHeresy.Gameplay.Abilities
         private readonly List<Ability> _abilities = new();
 
         private IObjectResolver _resolver;
-        private IHudsService _hudsService;
 
         public List<Ability> Abilities => _abilities;
 
         [Inject]
-        public void Construct(IObjectResolver resolver, IHudsService hudsService)
+        public void Construct(IObjectResolver resolver)
         {
             _resolver = resolver;
-            _hudsService = hudsService;
         }
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
@@ -36,7 +34,7 @@ namespace EndlessHeresy.Gameplay.Abilities
                 _abilities.Add(ability);
             }
 
-            return ShowHud();
+            return Task.CompletedTask;
         }
 
         protected override void OnDispose()
@@ -74,13 +72,6 @@ namespace EndlessHeresy.Gameplay.Abilities
 
             ability = null;
             return false;
-        }
-
-        private Task ShowHud()
-        {
-            var model = new AbilitiesHudModel();
-            model.SetAbilities(_abilities);
-            return _hudsService.ShowAsync<AbilitiesHudController, AbilitiesHudModel>(model, ShowType.Additive);
         }
     }
 }

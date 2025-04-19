@@ -1,7 +1,11 @@
-﻿namespace EndlessHeresy.Gameplay.Stats
+﻿using Better.Commons.Runtime.DataStructures.Properties;
+using EndlessHeresy.Gameplay.Data.Identifiers;
+
+namespace EndlessHeresy.Gameplay.Stats
 {
     public interface IStatsReadonly
     {
-        bool TryGet<TStat>(out TStat stat) where TStat : BaseStat;
+        public ReactiveProperty<int> GetOrAdd(StatType identifier);
+        ReactiveProperty<int>[] GetAll();
     }
 }
