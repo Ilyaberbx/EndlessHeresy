@@ -1,16 +1,20 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Better.Commons.Runtime.DataStructures.Properties;
 using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Common;
+using EndlessHeresy.Gameplay.Data.Identifiers;
+using EndlessHeresy.Gameplay.Stats;
 using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Movement
 {
     public sealed class MovementComponent : PocoComponent
     {
+        private IStatsReadonly _statsComponent;
         private RigidbodyStorageComponent _rigidbodyStorage;
 
-        private float _movementSpeed;
+        private ReactiveProperty<int> _moveSpeedStat;
         private Transform _transform;
         private bool _isLocked;
 
@@ -19,10 +23,11 @@ namespace EndlessHeresy.Gameplay.Movement
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
             _rigidbodyStorage = Owner.GetComponent<RigidbodyStorageComponent>();
+            _statsComponent = Owner.GetComponent<StatsComponent>();
+            _moveSpeedStat = _statsComponent.GetOrAdd(StatType.MoveSpeed);
             return Task.CompletedTask;
         }
 
-        public void SetSpeed(float movementSpeed) => _movementSpeed = movementSpeed;
         public void Lock() => _isLocked = true;
         public void Unlock() => _isLocked = false;
 
@@ -48,7 +53,7 @@ namespace EndlessHeresy.Gameplay.Movement
         private Vector2 CalculateRawMovement(Vector2 input)
         {
             input.Normalize();
-            return input * _movementSpeed;
+            return input * _moveSpeedStat.Value;
         }
     }
 }

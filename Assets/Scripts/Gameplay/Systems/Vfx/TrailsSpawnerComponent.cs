@@ -8,7 +8,7 @@ using EndlessHeresy.Gameplay.Facing;
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace EndlessHeresy.Gameplay.Effects
+namespace EndlessHeresy.Gameplay.Vfx
 {
     public sealed class TrailsSpawnerComponent : PocoComponent
     {

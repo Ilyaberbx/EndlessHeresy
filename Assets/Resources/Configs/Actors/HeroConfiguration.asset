@@ -21,8 +21,9 @@ MonoBehaviour:
     _identifier: 2
   - _value: 150
     _identifier: 3
+  - _value: 8000
+    _identifier: 4
   _prefab: {fileID: 5753913375855388206, guid: 8e2cf937bc869244caf19c5c4dae8fdc, type: 3}
-  _movementSpeed: 8000
   _maxInventorySize: 50
   _abilityConfigurations:
   - {fileID: 11400000, guid: e2a5fca02d62dea49a059aad6ff4e7c0, type: 2}

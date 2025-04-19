@@ -8,7 +8,7 @@ using EndlessHeresy.UI.Services.FloatingMessages;
 using UnityEngine;
 using VContainer;
 
-namespace EndlessHeresy.Gameplay.Effects
+namespace EndlessHeresy.Gameplay.Vfx
 {
     public sealed class HealthChangeMessages : PocoComponent
     {

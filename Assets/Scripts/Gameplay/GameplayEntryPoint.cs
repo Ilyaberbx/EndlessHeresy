@@ -8,6 +8,8 @@ using EndlessHeresy.Gameplay.Actors.Hero;
 using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Services.Camera;
 using EndlessHeresy.Gameplay.Services.Factory;
+using EndlessHeresy.Gameplay.StatusEffects;
+using EndlessHeresy.Gameplay.StatusEffects.Implementations;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -30,6 +32,8 @@ namespace EndlessHeresy.Gameplay
             {
                 await CreatDummiesAsync();
                 var hero = await CreateHero();
+                hero.GetComponent<StatusEffectsComponent>()
+                    .Add(new TemporaryStatusEffect(new DecelerationStatusEffect(0.5f), 5));
                 _cameraService.SetTarget(hero.transform);
                 CreateTestItemPickUp().Forget();
             }

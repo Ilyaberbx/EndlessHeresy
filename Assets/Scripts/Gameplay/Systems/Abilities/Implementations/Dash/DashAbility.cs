@@ -7,11 +7,11 @@ using EndlessHeresy.Gameplay.Abilities.Enums;
 using EndlessHeresy.Gameplay.Common;
 using EndlessHeresy.Gameplay.Data.Operational;
 using EndlessHeresy.Gameplay.Data.Static.Components;
-using EndlessHeresy.Gameplay.Effects;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Services.Camera;
 using EndlessHeresy.Gameplay.Services.Tick;
 using EndlessHeresy.Gameplay.Tags;
+using EndlessHeresy.Gameplay.Vfx;
 using UnityEngine;
 using VContainer;
 

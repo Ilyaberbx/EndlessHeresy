@@ -11,7 +11,6 @@ using EndlessHeresy.Gameplay.Actors.Enemies;
 using EndlessHeresy.Gameplay.Actors.Hero;
 using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Data.Static.Items;
-using EndlessHeresy.Gameplay.Effects;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Health;
 using EndlessHeresy.Gameplay.Inventory;
@@ -20,6 +19,8 @@ using EndlessHeresy.Gameplay.Services.StaticData;
 using EndlessHeresy.Gameplay.StatesAggregator;
 using EndlessHeresy.Gameplay.StatesAggregator.Plugins;
 using EndlessHeresy.Gameplay.Stats;
+using EndlessHeresy.Gameplay.StatusEffects;
+using EndlessHeresy.Gameplay.Vfx;
 using UnityEngine;
 using VContainer;
 
@@ -49,6 +50,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var trailsComponent = new TrailsSpawnerComponent();
             var inventoryComponent = new InventoryComponent();
             var statsComponent = new StatsComponent();
+            var statusEffectsComponent = new StatusEffectsComponent();
 
             var statesAggregator = GetStatesAggregatorBuilder<HeroActor>()
                 .WithPlugin<HeroTransitionsPlugin>()
@@ -57,7 +59,6 @@ namespace EndlessHeresy.Gameplay.Services.Factory
 
             statsComponent.SetStats(configuration.DefaultStats);
             statesAggregatorComponent.SetSource(statesAggregator);
-            movementComponent.SetSpeed(configuration.MovementSpeed);
             trailsComponent.SetSize(configuration.TrailsPoolData.DefaultCapacity, configuration.TrailsPoolData.MaxSize);
             abilitiesStorageComponent.SetAbilities(configuration.AbilityConfigurations);
             inventoryComponent.SetMaxSize(configuration.MaxInventorySize);
@@ -75,6 +76,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .WithComponent(inventoryComponent)
                 .WithComponent(mouseFacingComponent)
                 .WithComponent(statsComponent)
+                .WithComponent(statusEffectsComponent)
                 .Build();
         }
 

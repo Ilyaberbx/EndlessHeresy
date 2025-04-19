@@ -11,13 +11,11 @@ namespace EndlessHeresy.Gameplay.Data.Static
     {
         [SerializeField] private AddStatData[] _defaultStats;
         [SerializeField] private HeroActor _prefab;
-        [SerializeField] private float _movementSpeed;
         [SerializeField, Range(0, 50)] private int _maxInventorySize;
         [SerializeField] private AbilityConfiguration[] _abilityConfigurations;
         [SerializeField] private PoolData _trailsPoolData;
 
         public HeroActor Prefab => _prefab;
-        public float MovementSpeed => _movementSpeed;
         public AbilityConfiguration[] AbilityConfigurations => _abilityConfigurations;
         public PoolData TrailsPoolData => _trailsPoolData;
         public int MaxInventorySize => _maxInventorySize;

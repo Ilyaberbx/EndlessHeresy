@@ -1,4 +1,5 @@
-﻿namespace EndlessHeresy.Gameplay.Data.Identifiers
+﻿
+namespace EndlessHeresy.Gameplay.Data.Identifiers
 {
     public enum StatType
     {
@@ -6,5 +7,6 @@
         Mana,
         MaxHealth,
         MaxMana,
+        MoveSpeed
     }
 }
