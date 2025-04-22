@@ -1,6 +1,7 @@
 ﻿using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Data.Static;
 using EndlessHeresy.Gameplay.Data.Static.Items;
+using EndlessHeresy.Gameplay.Data.Static.StatusEffects;
 
 namespace EndlessHeresy.Gameplay.Services.StaticData
 {
@@ -9,6 +10,7 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
         HeroConfiguration HeroConfiguration { get; }
         PunchingDummyConfiguration PunchingDummyConfiguration { get; }
         FloatingMessagesConfiguration FloatingMessagesConfiguration { get; }
-        ItemConfiguration GetItemConfiguration(ItemType itemType);
+        ItemConfiguration GetItemConfiguration(ItemType identifier);
+        StatusEffectConfiguration GetStatusEffectConfiguration(StatusEffectType identifier);
     }
 }

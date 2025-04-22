@@ -1,5 +1,4 @@
-﻿using EndlessHeresy.Core;
-using EndlessHeresy.Gameplay.Data.Identifiers;
+﻿using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Stats;
 
 namespace EndlessHeresy.Gameplay.StatusEffects.Implementations

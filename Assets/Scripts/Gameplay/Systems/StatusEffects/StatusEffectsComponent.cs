@@ -7,6 +7,7 @@ using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Services.Tick;
 using EndlessHeresy.Gameplay.Stats;
 using VContainer;
+using VContainer.Unity;
 
 namespace EndlessHeresy.Gameplay.StatusEffects
 {
@@ -38,15 +39,40 @@ namespace EndlessHeresy.Gameplay.StatusEffects
         protected override void OnDispose()
         {
             base.OnDispose();
+
+            foreach (var activeEffect in _activeEffects)
+            {
+                if (activeEffect is IDisposable disposable)
+                {
+                    disposable.Dispose();
+                }
+            }
+
             _gameUpdatesService.OnUpdate -= OnUpdate;
+        }
+
+        private void OnUpdate(float deltaTime)
+        {
+            foreach (var activeEffect in _activeEffects.ToArray())
+            {
+                if (activeEffect is IUpdatableStatusEffect updatableStatusEffect)
+                {
+                    updatableStatusEffect.Update(Owner);
+                }
+            }
         }
 
         public void Add(IStatusEffect effect)
         {
             var hasEffect = _activeEffects.Contains(effect);
 
-            if (hasEffect)
+            if (hasEffect || effect == null)
                 return;
+
+            if (effect is IInitializable initializable)
+            {
+                initializable.Initialize();
+            }
 
             _activeEffects.Add(effect);
             effect.Apply(_stats);
@@ -62,17 +88,6 @@ namespace EndlessHeresy.Gameplay.StatusEffects
 
             effect.Remove(_stats);
             OnStatusEffectRemoved?.Invoke(effect);
-        }
-
-        private void OnUpdate(float deltaTime)
-        {
-            foreach (var activeEffect in _activeEffects.ToArray())
-            {
-                if (activeEffect is IUpdatableStatusEffect updatableStatusEffect)
-                {
-                    updatableStatusEffect.Update(Owner);
-                }
-            }
         }
     }
 }

@@ -1,13 +1,12 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Data.Static;
 using EndlessHeresy.Gameplay.Data.Static.Items;
+using EndlessHeresy.Gameplay.Data.Static.StatusEffects;
 using EndlessHeresy.Global.Services.AssetsManagement;
 using VContainer.Unity;
-using DebugUtility = Better.Commons.Runtime.Utility.DebugUtility;
 
 namespace EndlessHeresy.Gameplay.Services.StaticData
 {
@@ -18,6 +17,7 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
         private PunchingDummyConfiguration _punchingDummyConfiguration;
         private FloatingMessagesConfiguration _floatingMessagesConfiguration;
         private ItemConfiguration[] _itemsConfigurations;
+        private StatusEffectConfiguration[] _statusEffectsConfiguration;
         public HeroConfiguration HeroConfiguration => _heroConfiguration;
         public PunchingDummyConfiguration PunchingDummyConfiguration => _punchingDummyConfiguration;
         public FloatingMessagesConfiguration FloatingMessagesConfiguration => _floatingMessagesConfiguration;
@@ -32,14 +32,20 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
             var initializationTask = Task.WhenAll(LoadHeroConfigurationAsync(),
                 LoadDummyConfigurationAsync(),
                 LoadMessagesConfigurationAsync(),
-                LoadItemsConfigurationAsync());
+                LoadItemsConfigurationAsync(),
+                LoadStatusEffectConfigurations());
 
             initializationTask.Forget();
         }
 
-        public ItemConfiguration GetItemConfiguration(ItemType itemType)
+        public ItemConfiguration GetItemConfiguration(ItemType identifier)
         {
-            return _itemsConfigurations.FirstOrDefault(temp => temp.Type == itemType);
+            return _itemsConfigurations.FirstOrDefault(temp => temp.Identifier == identifier);
+        }
+
+        public StatusEffectConfiguration GetStatusEffectConfiguration(StatusEffectType identifier)
+        {
+            return _statusEffectsConfiguration.FirstOrDefault(temp => temp.Identifier == identifier);
         }
 
         private async Task LoadItemsConfigurationAsync()
@@ -62,6 +68,12 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
         private async Task LoadHeroConfigurationAsync()
         {
             _heroConfiguration = await _assetsService.Load<HeroConfiguration>(GameplayStaticDataKeys.Hero);
+        }
+
+        public async Task LoadStatusEffectConfigurations()
+        {
+            _statusEffectsConfiguration =
+                await _assetsService.LoadAll<StatusEffectConfiguration>(GameplayStaticDataKeys.Items);
         }
     }
 }

@@ -22,5 +22,7 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
                 owner.GetComponent<StatusEffectsComponent>().Remove(this);
             }
         }
+
+        public void Reset() => _elapsedTime = 0;
     }
 }

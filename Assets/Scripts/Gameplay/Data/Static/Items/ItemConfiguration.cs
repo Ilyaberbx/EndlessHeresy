@@ -3,13 +3,14 @@ using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Data.Static.Items.Actions;
 using EndlessHeresy.Gameplay.Inventory.Actions;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace EndlessHeresy.Gameplay.Data.Static.Items
 {
     [CreateAssetMenu(menuName = "Configs/Gameplay/Items/Simple Item", fileName = "ItemConfiguration", order = 0)]
     public class ItemConfiguration : ScriptableObject
     {
-        [SerializeField] private ItemType _type;
+        [SerializeField] private ItemType _identifier;
         [SerializeField] private Sprite _icon;
         [SerializeField] private string _name;
         [SerializeField] private string _description;
@@ -24,7 +25,7 @@ namespace EndlessHeresy.Gameplay.Data.Static.Items
         [SerializeReference, Select(typeof(ItemActionData))]
         private ItemActionData[] _removeActionsConfiguration;
 
-        public ItemType Type => _type;
+        public ItemType Identifier => _identifier;
         public Sprite Icon => _icon;
         public string Name => _name;
         public string Description => _description;
