@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Better.Commons.Runtime.DataStructures.Properties;
+using Better.Locators.Runtime;
+using EndlessHeresy.Gameplay.Data.Identifiers;
 
 namespace EndlessHeresy.Gameplay.StatusEffects
 {
     public interface IStatusEffects : IStatusEffectsReadOnly
     {
-        void Add(IStatusEffect effects);
+        void Add(StatusEffectType identifiers);
+        void Remove(StatusEffectType identifiers);
     }
 
     public interface IStatusEffectsReadOnly
     {
-        public Action<IStatusEffect> OnStatusEffectAdded { get; set; }
-        public Action<IStatusEffect> OnStatusEffectRemoved { get; set; }
-        void Remove(IStatusEffect effect);
+        public ReadOnlyReactiveProperty<Locator<StatusEffectType, IStatusEffect>> ActiveStatusEffects { get; }
     }
 }

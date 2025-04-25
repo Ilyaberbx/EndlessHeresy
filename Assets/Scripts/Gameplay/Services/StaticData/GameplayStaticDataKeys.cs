@@ -4,11 +4,12 @@
     {
         private const string Configs = "Configs/";
         private const string Actors = "Actors/";
-        private const string Effects = "Effects/";
+        private const string Vfx = "Vfx/";
 
         public const string Hero = Configs + Actors + "HeroConfiguration";
         public const string PunchingDummy = Configs + Actors + "PunchingDummyConfiguration";
-        public const string FloatingMessages = Configs + Effects + "FloatingMessagesConfiguration";
+        public const string FloatingMessages = Configs + Vfx + "FloatingMessagesConfiguration";
         public const string Items = Configs + "Items";
+        public const string StatusEffects = Configs + "StatusEffects";
     }
 }

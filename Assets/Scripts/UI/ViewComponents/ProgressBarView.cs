@@ -16,5 +16,7 @@ namespace EndlessHeresy.UI.ViewComponents
             progress = Mathf.Clamp(progress, MinValue, MaxValue);
             _progressImage.fillAmount = progress;
         }
+
+        public void SetActive(bool active) => _progressImage.gameObject.SetActive(active);
     }
 }

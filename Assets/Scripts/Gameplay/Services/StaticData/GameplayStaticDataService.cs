@@ -73,7 +73,7 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
         public async Task LoadStatusEffectConfigurations()
         {
             _statusEffectsConfiguration =
-                await _assetsService.LoadAll<StatusEffectConfiguration>(GameplayStaticDataKeys.Items);
+                await _assetsService.LoadAll<StatusEffectConfiguration>(GameplayStaticDataKeys.StatusEffects);
         }
     }
 }

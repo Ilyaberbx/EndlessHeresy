@@ -4,7 +4,7 @@ using EndlessHeresy.Gameplay.Stats;
 
 namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
 {
-    public sealed class StackableStatusEffect : IStatusEffect, IStackNotifier
+    public sealed class StackableStatusEffect : BaseStatusEffect, IStackNotifier
     {
         public event Action<int> OnStackAdded;
 
@@ -18,12 +18,12 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
             _activeStacks = new List<IStatusEffect>();
         }
 
-        public void Apply(StatsComponent stats)
+        public override void Apply(StatsComponent stats)
         {
             AddStack(stats);
         }
 
-        public void Remove(StatsComponent stats)
+        public override void Remove(StatsComponent stats)
         {
             foreach (var effect in _activeStacks)
             {

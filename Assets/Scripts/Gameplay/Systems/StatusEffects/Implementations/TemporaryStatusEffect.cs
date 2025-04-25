@@ -5,6 +5,7 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
 {
     public sealed class TemporaryStatusEffect : StatusEffectDecorator, IUpdatableStatusEffect
     {
+        private const float MaxProgress = 1;
         private readonly float _duration;
         private float _elapsedTime;
 
@@ -13,13 +14,21 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
             _duration = duration;
         }
 
+        public float GetProgress()
+        {
+            return MaxProgress - _elapsedTime / _duration;
+        }
+
         public void Update(IActor owner)
         {
             _elapsedTime += Time.deltaTime;
 
             if (_elapsedTime >= _duration)
             {
-                owner.GetComponent<StatusEffectsComponent>().Remove(this);
+                if (Root.TryGet<IdentifiedStatusEffect>(out var identifiedStatusEffect))
+                {
+                    owner.GetComponent<StatusEffectsComponent>().Remove(identifiedStatusEffect.Identifier);
+                }
             }
         }
 

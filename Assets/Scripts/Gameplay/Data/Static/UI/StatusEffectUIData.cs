@@ -10,7 +10,6 @@ namespace EndlessHeresy.Gameplay.Data.Static.UI
         [SerializeField] private string _displayName;
 
         public Sprite Icon => _icon;
-
         public string DisplayName => _displayName;
     }
 }

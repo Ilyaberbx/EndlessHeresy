@@ -1,6 +1,5 @@
 ﻿using EndlessHeresy.Gameplay.StatusEffects;
 using EndlessHeresy.Gameplay.StatusEffects.Implementations;
-using EndlessHeresy.Gameplay.Utilities;
 using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Data.Static.StatusEffects
@@ -9,22 +8,29 @@ namespace EndlessHeresy.Gameplay.Data.Static.StatusEffects
         fileName = "DecelerationStatusEffectConfiguration", order = 0)]
     public sealed class DecelerationStatusEffectConfiguration : StatusEffectConfiguration
     {
-        [SerializeField, Range(0f, 1f)] private float _decelerationRate;
-        [SerializeField] private int _duration;
-        [SerializeField] private bool _type;
-        [SerializeField] private bool _isStackable;
-        [SerializeField] private float _progressionValue;
+        private const float MinDecelerationRate = 0f;
+        private const float MaxDecelerationRate = 1f;
+        
+        [SerializeField, Range(MinDecelerationRate, 1f)] private float _decelerationRate;
+        [SerializeField, Range(1f, 100f)] private float _progressionFactor;
 
         public override IStatusEffect GetStatusEffect()
         {
             var stackable = new StackableStatusEffect(GetEffectsProgression);
-            var temporary = new TemporaryStatusEffect(stackable, _duration);
-            return new StackDurationSynchronizer(stackable, temporary);
+            var temporary = new TemporaryStatusEffect(stackable, Duration);
+            var stackDurationSync = new StackDurationSynchronizer(stackable, temporary);
+            var root = new IdentifiedStatusEffect(Identifier, stackDurationSync);
+            stackable.SetRoot(root);
+            temporary.SetRoot(root);
+            stackDurationSync.SetRoot(root);
+            return root;
         }
 
         private IStatusEffect GetEffectsProgression(int stack)
         {
-            return new DecelerationStatusEffect(stack * _progressionValue);
+            var rate = _decelerationRate * stack * _progressionFactor;
+            rate = Mathf.Clamp(rate, MinDecelerationRate, MaxDecelerationRate);
+            return new DecelerationStatusEffect(rate);
         }
     }
 }
