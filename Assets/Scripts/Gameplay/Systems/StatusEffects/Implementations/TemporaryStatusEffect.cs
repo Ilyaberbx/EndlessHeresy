@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
 {
-    public sealed class TemporaryStatusEffect : StatusEffectDecorator, IUpdatableStatusEffect
+    public sealed class TemporaryStatusEffect : StatusEffectDecorator
     {
         private const float MaxProgress = 1;
         private readonly float _duration;
@@ -19,16 +19,20 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
             return MaxProgress - _elapsedTime / _duration;
         }
 
-        public void Update(IActor owner)
+        public override void Update(IActor owner)
         {
+            base.Update(owner);
+
             _elapsedTime += Time.deltaTime;
 
-            if (_elapsedTime >= _duration)
+            if (_elapsedTime < _duration)
             {
-                if (Root.TryGet<IdentifiedStatusEffect>(out var identifiedStatusEffect))
-                {
-                    owner.GetComponent<StatusEffectsComponent>().Remove(identifiedStatusEffect.Identifier);
-                }
+                return;
+            }
+
+            if (Root.TryGet<IdentifiedStatusEffect>(out var identifiedStatusEffect))
+            {
+                owner.GetComponent<StatusEffectsComponent>().Remove(identifiedStatusEffect.Identifier);
             }
         }
 

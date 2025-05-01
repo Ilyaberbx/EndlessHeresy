@@ -10,14 +10,16 @@ namespace EndlessHeresy.Gameplay.Data.Static.StatusEffects
     {
         private const float MinDecelerationRate = 0f;
         private const float MaxDecelerationRate = 1f;
-        
+
         [SerializeField, Range(MinDecelerationRate, 1f)] private float _decelerationRate;
         [SerializeField, Range(1f, 100f)] private float _progressionFactor;
+        [SerializeField] private float _duration;
+
 
         public override IStatusEffect GetStatusEffect()
         {
             var stackable = new StackableStatusEffect(GetEffectsProgression);
-            var temporary = new TemporaryStatusEffect(stackable, Duration);
+            var temporary = new TemporaryStatusEffect(stackable, _duration);
             var stackDurationSync = new StackDurationSynchronizer(stackable, temporary);
             var root = new IdentifiedStatusEffect(Identifier, stackDurationSync);
             stackable.SetRoot(root);

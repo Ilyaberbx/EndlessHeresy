@@ -3,5 +3,8 @@
     public enum StatusEffectType
     {
         Deceleration,
+        Acceleration,
+        SwornDeathCard,
+        Burning
     }
 }

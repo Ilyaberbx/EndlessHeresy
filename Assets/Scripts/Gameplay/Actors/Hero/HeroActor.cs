@@ -1,11 +1,10 @@
 ﻿using System.Threading.Tasks;
-using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Core;
 using EndlessHeresy.Core.States;
 using EndlessHeresy.Gameplay.Abilities;
 using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Health;
-using EndlessHeresy.Gameplay.Services.StaticData;
+using EndlessHeresy.Gameplay.Services.Factory;
 using EndlessHeresy.Gameplay.Stats;
 using EndlessHeresy.Gameplay.StatusEffects;
 using EndlessHeresy.UI.Huds.Abilities;
@@ -20,7 +19,6 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
     public sealed class HeroActor : MonoActor, IStateMachineContext
     {
         private IHudsService _hudsService;
-        private IGameplayStaticDataService _gameplayStaticDataService;
 
         private HealthComponent _healthComponent;
         private AbilitiesStorageComponent _abilitiesStorage;
@@ -28,10 +26,9 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
         private StatusEffectsComponent _statusEffectsStorage;
 
         [Inject]
-        public void Construct(IHudsService hudsService, IGameplayStaticDataService gameplayStaticDataService)
+        public void Construct(IHudsService hudsService, IGameplayFactoryService gameplayFactoryService)
         {
             _hudsService = hudsService;
-            _gameplayStaticDataService = gameplayStaticDataService;
         }
 
         protected override async Task OnInitializeAsync()
@@ -46,10 +43,6 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
             await Task.WhenAll(ShowAbilitiesHudAsync(), ShowStatsHudAsync(), ShowStatusEffectsHudAsync());
         }
 
-        private void AddDecelerationStatusEffect()
-        {
-            _statusEffectsStorage.Add(StatusEffectType.Deceleration);
-        }
 
         private void Update()
         {
@@ -60,7 +53,17 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
 
             if (Input.GetKeyDown(KeyCode.B))
             {
-                AddDecelerationStatusEffect();
+                _statusEffectsStorage.Add(StatusEffectType.Deceleration);
+            }
+
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                _statusEffectsStorage.Add(StatusEffectType.Acceleration);
+            }
+
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                _statusEffectsStorage.Add(StatusEffectType.Burning);
             }
         }
 

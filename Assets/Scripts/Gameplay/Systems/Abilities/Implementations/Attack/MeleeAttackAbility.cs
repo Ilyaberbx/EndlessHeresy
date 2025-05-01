@@ -5,10 +5,12 @@ using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Abilities.Enums;
 using EndlessHeresy.Gameplay.Attack;
 using EndlessHeresy.Gameplay.Common;
+using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Data.Operational;
 using EndlessHeresy.Gameplay.Data.Static.Components;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Health;
+using EndlessHeresy.Gameplay.StatusEffects;
 using EndlessHeresy.Helpers;
 using UnityEngine;
 
@@ -66,9 +68,17 @@ namespace EndlessHeresy.Gameplay.Abilities
 
                 healthComponent.TakeDamage(dto.Damage);
 
+
                 if (healthComponent.IsDead())
                 {
                     continue;
+                }
+
+                var owner = healthComponent.Owner;
+
+                if (owner.TryGetComponent<StatusEffectsComponent>(out var statusEffectsComponent))
+                {
+                    statusEffectsComponent.Add(StatusEffectType.Burning);
                 }
 
                 ProcessForceAt(at, healthComponent.Owner, dto.Force);

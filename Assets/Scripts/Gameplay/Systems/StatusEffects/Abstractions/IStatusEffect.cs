@@ -7,5 +7,6 @@ namespace EndlessHeresy.Gameplay.StatusEffects
         void Apply(StatsComponent stats);
         void Remove(StatsComponent stats);
         bool TryGet<TStatusEffect>(out TStatusEffect statusEffect) where TStatusEffect : class, IStatusEffect;
+        bool Has<TStatusEffect>() where TStatusEffect : class, IStatusEffect;
     }
 }

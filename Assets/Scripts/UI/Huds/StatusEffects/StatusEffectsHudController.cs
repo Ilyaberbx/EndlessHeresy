@@ -64,7 +64,10 @@ namespace EndlessHeresy.UI.Huds.StatusEffects
 
                 var statusEffect = statusEffects[i];
 
-                UpdateProgressItem(statusEffect, itemView);
+                if (statusEffect.TryGet<TemporaryStatusEffect>(out var temporaryStatusEffect))
+                {
+                    UpdateProgressItem(temporaryStatusEffect, itemView);
+                }
             }
         }
 
@@ -82,6 +85,7 @@ namespace EndlessHeresy.UI.Huds.StatusEffects
 
                 var statusEffect = statusEffects[i];
                 UpdateStatusEffect(statusEffect, itemView);
+                itemView.SetActive(true);
             }
         }
 
@@ -92,37 +96,31 @@ namespace EndlessHeresy.UI.Huds.StatusEffects
                 return;
             }
 
-            view.SetStackable(configuration.IsStackable);
-            view.SetTemporary(configuration.IsTemporary);
+            if (statusEffect.Has<TemporaryStatusEffect>())
+            {
+                view.SetTemporary(true);
+            }
+
             view.SetIcon(configuration.UIData.Icon);
 
-            if (configuration.IsStackable)
+            if (statusEffect.TryGet<StackableStatusEffect>(out var stackableStatusEffect))
             {
-                UpdateStackItem(statusEffect, view);
+                view.SetStackable(true);
+                UpdateStackItem(stackableStatusEffect, view);
             }
 
             view.SetActive(true);
         }
 
-        private void UpdateStackItem(IStatusEffect statusEffect, StatusEffectItemView view)
+        private void UpdateStackItem(StackableStatusEffect statusEffect, StatusEffectItemView view)
         {
-            if (!statusEffect.TryGet<StackableStatusEffect>(out var stackableStatusEffect))
-            {
-                return;
-            }
-
-            var stackCount = stackableStatusEffect.StackCount;
+            var stackCount = statusEffect.StackCount;
             view.SetStackCount(stackCount);
         }
 
-        private void UpdateProgressItem(IStatusEffect statusEffect, StatusEffectItemView view)
+        private void UpdateProgressItem(TemporaryStatusEffect statusEffect, StatusEffectItemView view)
         {
-            if (!statusEffect.TryGet<TemporaryStatusEffect>(out var temporaryStatusEffect))
-            {
-                return;
-            }
-
-            var progress = temporaryStatusEffect.GetProgress();
+            var progress = statusEffect.GetProgress();
             view.SetProgress(progress);
         }
 

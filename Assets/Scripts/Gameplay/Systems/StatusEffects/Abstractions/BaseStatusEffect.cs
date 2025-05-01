@@ -20,6 +20,11 @@ namespace EndlessHeresy.Gameplay.StatusEffects
             return false;
         }
 
+        public virtual bool Has<TStatusEffect>() where TStatusEffect : class, IStatusEffect
+        {
+            return this is TStatusEffect;
+        }
+
         public void SetRoot(IStatusEffect root) => Root = root;
         protected IStatusEffect Root { get; private set; }
     }

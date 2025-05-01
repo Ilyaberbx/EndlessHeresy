@@ -31,12 +31,11 @@ namespace EndlessHeresy.Gameplay.Actors
             _gameplayFactoryService = gameplayFactoryService;
         }
 
-        protected override async Task OnInitializeAsync()
+        protected override  Task OnInitializeAsync()
         {
-            await base.OnInitializeAsync();
-
             _heroObserver = GetComponent<HeroTriggerObserver>();
             _heroObserver.OnTriggerEnter += OnTriggerEntered;
+            return Task.CompletedTask;
         }
 
         protected override void OnDispose()

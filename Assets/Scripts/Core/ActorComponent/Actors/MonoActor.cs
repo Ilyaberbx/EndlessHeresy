@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
@@ -23,15 +24,27 @@ namespace EndlessHeresy.Core
         public async Task InitializeAsync(IComponentsLocator locator)
         {
             _componentsLocator = locator;
-            InitializeMonoComponents();
+            CollectMonoComponents();
+            await InitializeComponents();
+            await OnInitializeAsync();
+        }
+
+        private Task InitializeComponents()
+        {
             _components = _componentsLocator.GetAllComponents();
 
-            foreach (var component in _components)
+            var components = _components as IComponent[] ?? _components.ToArray();
+
+            foreach (var component in components)
             {
                 component.SetActor(this);
             }
 
-            await OnInitializeAsync();
+            var initializationTasks = components
+                .Select(component => component.InitializeAsync())
+                .ToList();
+
+            return initializationTasks.IsNullOrEmpty() ? Task.CompletedTask : Task.WhenAll(initializationTasks);
         }
 
         public void Dispose()
@@ -64,20 +77,6 @@ namespace EndlessHeresy.Core
 
         protected virtual async Task OnInitializeAsync()
         {
-            var initializationTasks = new List<Task>();
-
-            foreach (var component in _components)
-            {
-                var initializationTask = component.InitializeAsync();
-                initializationTasks.Add(initializationTask);
-            }
-
-            if (initializationTasks.IsNullOrEmpty())
-            {
-                return;
-            }
-
-            await Task.WhenAll(initializationTasks);
         }
 
         protected virtual void OnDispose()
@@ -93,7 +92,7 @@ namespace EndlessHeresy.Core
             }
         }
 
-        private void InitializeMonoComponents()
+        private void CollectMonoComponents()
         {
             _transform = transform;
             _gameObject = gameObject;

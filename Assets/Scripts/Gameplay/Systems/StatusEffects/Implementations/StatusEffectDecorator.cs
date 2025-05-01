@@ -1,10 +1,11 @@
-﻿using EndlessHeresy.Gameplay.Stats;
+﻿using EndlessHeresy.Core;
+using EndlessHeresy.Gameplay.Stats;
 
 namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
 {
-    public abstract class StatusEffectDecorator : BaseStatusEffect, IStatusEffect
+    public abstract class StatusEffectDecorator : BaseStatusEffect, IUpdatableStatusEffect
     {
-        protected IStatusEffect Core { get; }
+        private IStatusEffect Core { get; }
 
         protected StatusEffectDecorator(IStatusEffect core)
         {
@@ -37,6 +38,19 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
                     return statusEffectDecorator.TryGet(out statusEffect);
                 default:
                     return false;
+            }
+        }
+
+        public override bool Has<TStatusEffect>()
+        {
+            return base.Has<TStatusEffect>() || Core.Has<TStatusEffect>();
+        }
+
+        public virtual void Update(IActor owner)
+        {
+            if (Core is IUpdatableStatusEffect updatable)
+            {
+                updatable.Update(owner);
             }
         }
     }

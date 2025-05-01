@@ -51,6 +51,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var inventoryComponent = new InventoryComponent();
             var statsComponent = new StatsComponent();
             var statusEffectsComponent = new StatusEffectsComponent();
+            var healthChangeMessages = new HealthChangeMessages();
 
             var statesAggregator = GetStatesAggregatorBuilder<HeroActor>()
                 .WithPlugin<HeroTransitionsPlugin>()
@@ -77,6 +78,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .WithComponent(mouseFacingComponent)
                 .WithComponent(statsComponent)
                 .WithComponent(statusEffectsComponent)
+                .WithComponent(healthChangeMessages)
                 .Build();
         }
 
@@ -86,6 +88,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var healthComponent = new HealthComponent();
             var healthChangeMessages = new HealthChangeMessages();
             var statsComponent = new StatsComponent();
+            var statusEffectsComponent = new StatusEffectsComponent();
 
             statsComponent.SetStats(configuration.StatsData);
 
@@ -93,6 +96,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
                 .WithComponent(statsComponent)
+                .WithComponent(statusEffectsComponent)
                 .WithComponent(healthComponent)
                 .WithComponent(healthChangeMessages)
                 .Build();

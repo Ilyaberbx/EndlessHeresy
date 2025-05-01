@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Stats;
 
 namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
 {
-    public sealed class StackableStatusEffect : BaseStatusEffect, IStackNotifier
+    public sealed class StackableStatusEffect : BaseStatusEffect, IStackNotifier, IUpdatableStatusEffect
     {
         public event Action<int> OnStackAdded;
 
@@ -25,12 +26,28 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
 
         public override void Remove(StatsComponent stats)
         {
+            _activeStacks.Clear();
+
             foreach (var effect in _activeStacks)
             {
                 effect.Remove(stats);
             }
+        }
 
-            _activeStacks.Clear();
+        public void Update(IActor owner)
+        {
+            if (_activeStacks.Count == 0)
+            {
+                return;
+            }
+
+            foreach (var active in _activeStacks.ToArray())
+            {
+                if (active is IUpdatableStatusEffect updatable)
+                {
+                    updatable.Update(owner);
+                }
+            }
         }
 
         private void AddStack(StatsComponent stats)

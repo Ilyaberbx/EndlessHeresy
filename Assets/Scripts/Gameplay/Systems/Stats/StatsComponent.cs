@@ -27,7 +27,7 @@ namespace EndlessHeresy.Gameplay.Stats
                 return stat;
             }
 
-            stat = new ReactiveProperty<int>(0);
+            stat = new ReactiveProperty<int>();
             var property = new ReactiveProperty<int>(stat.Value);
             _stats.Add(identifier, property);
             return property;

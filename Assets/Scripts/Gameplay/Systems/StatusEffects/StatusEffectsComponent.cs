@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Better.Commons.Runtime.DataStructures.Properties;
 using Better.Locators.Runtime;
@@ -81,8 +82,8 @@ namespace EndlessHeresy.Gameplay.StatusEffects
             if (!_activeEffectsProperty.Value.TryGet(identifier, out var exisingStatusEffect))
             {
                 var newStatusEffect = data.GetStatusEffect();
-                _activeEffectsProperty.Value.Add(identifier, newStatusEffect);
                 newStatusEffect.Apply(_stats);
+                _activeEffectsProperty.Value.Add(identifier, newStatusEffect);
                 _activeEffectsProperty.SetDirty();
                 return;
             }
