@@ -26,8 +26,8 @@ namespace EndlessHeresy.Gameplay.Health
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
             _statsComponent = Owner.GetComponent<StatsComponent>();
-            _healthStat = _statsComponent.GetOrAdd(StatType.Health);
-            _maxHealthStat = _statsComponent.GetOrAdd(StatType.MaxHealth);
+            _healthStat = _statsComponent.Get(StatType.CurrentHealth);
+            _maxHealthStat = _statsComponent.Get(StatType.MaxHealth);
             return Task.CompletedTask;
         }
 

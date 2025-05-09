@@ -3,7 +3,6 @@ using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Data.Static.Items.Actions;
 using EndlessHeresy.Gameplay.Inventory.Actions;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace EndlessHeresy.Gameplay.Data.Static.Items
 {
@@ -26,10 +25,6 @@ namespace EndlessHeresy.Gameplay.Data.Static.Items
         private ItemActionData[] _removeActionsConfiguration;
 
         public ItemType Identifier => _identifier;
-        public Sprite Icon => _icon;
-        public string Name => _name;
-        public string Description => _description;
-        public bool Stackable => _stackable;
 
         public ItemAction GetOnStoreAction()
         {

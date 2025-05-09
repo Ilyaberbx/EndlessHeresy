@@ -63,6 +63,8 @@
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cscripts_005Cgameplay_005Csystems_005Cinventory_005Cactions_005Cimplementations/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cscripts_005Cgameplay_005Csystems_005Citems_005Cactions_005Cabstractions/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cscripts_005Cgameplay_005Csystems_005Citems_005Cactions_005Cimplementations/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cscripts_005Cgameplay_005Csystems_005Cstats_005Cmodifiers_005Cabstractions/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cscripts_005Cgameplay_005Csystems_005Cstats_005Cmodifiers_005Cimplementations/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cscripts_005Cgameplay_005Csystems_005Cstatuseffects_005Cabstractions/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cscripts_005Cgameplay_005Cvehicle_005Cmodules_005Ccreation/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cscripts_005Cgameplay_005Cvehicle_005Cmodules_005Cimplementations/@EntryIndexedValue">True</s:Boolean>

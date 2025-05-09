@@ -1,12 +1,24 @@
-﻿
-namespace EndlessHeresy.Gameplay.Data.Identifiers
+﻿namespace EndlessHeresy.Gameplay.Data.Identifiers
 {
     public enum StatType
     {
-        Health,
-        Mana,
+        CurrentHealth,
+        CurrentMana,
         MaxHealth,
         MaxMana,
-        MoveSpeed
+        MoveSpeed,
+        PhysicalAffinity,
+        WitchcraftAffinity,
+        ExorcismAffinity,
+        MalaiseAffinity,
+        CursedAffinity,
+        Evasion,
+        HealthRegeneration,
+        DamageDodgeChance,
+        DebuffsDodgeChance,
+        CooldownMultiplier,
+        DebuffsDurationMultiplier,
+        CriticalMultiplier,
+        CriticalChance,
     }
 }

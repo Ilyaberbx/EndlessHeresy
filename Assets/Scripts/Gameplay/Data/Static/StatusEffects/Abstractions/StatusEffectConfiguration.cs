@@ -8,6 +8,7 @@ namespace EndlessHeresy.Gameplay.Data.Static.StatusEffects
 {
     public abstract class StatusEffectConfiguration : ScriptableObject
     {
+        [SerializeField] private StatusEffectClassType _classIdentifier;
         [SerializeField] private StatusEffectType _identifier;
         [SerializeField] private StatusEffectUIData _uiData;
 
@@ -17,6 +18,7 @@ namespace EndlessHeresy.Gameplay.Data.Static.StatusEffects
         public virtual void ConfigureBuilder(StatusEffectsBuilder builder)
         {
             builder.WithComponent(new IdentifiedStatusEffectComponent(Identifier));
+            builder.WithComponent(new ClassStatusEffectComponent(_classIdentifier));
         }
     }
 }

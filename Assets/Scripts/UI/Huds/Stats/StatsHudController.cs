@@ -15,10 +15,10 @@ namespace EndlessHeresy.UI.Huds.Stats
         {
             base.Show(model, view);
 
-            _maxHealthStat = Model.Stats.GetOrAdd(StatType.MaxHealth);
-            _maxManaStat = Model.Stats.GetOrAdd(StatType.MaxMana);
-            _healthStat = Model.Stats.GetOrAdd(StatType.Health);
-            _manaStat = Model.Stats.GetOrAdd(StatType.Mana);
+            _maxHealthStat = Model.Stats.Get(StatType.MaxHealth);
+            _maxManaStat = Model.Stats.Get(StatType.MaxMana);
+            _healthStat = Model.Stats.Get(StatType.CurrentHealth);
+            _manaStat = Model.Stats.Get(StatType.CurrentMana);
 
             _healthStat.SubscribeWithInvoke(OnHealthStatChanged);
             _manaStat.SubscribeWithInvoke(OnManaStatChanged);

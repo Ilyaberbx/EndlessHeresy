@@ -106,7 +106,7 @@ namespace EndlessHeresy.Gameplay.Abilities
                 .AddY(offSet.y)
                 .ToVector2();
 
-            return new ProcessAttackQuery(data.Damage,
+            return new ProcessAttackQuery(data.DamageData.Value,
                 data.Force,
                 data.OverlapData,
                 at + processedOffSet);

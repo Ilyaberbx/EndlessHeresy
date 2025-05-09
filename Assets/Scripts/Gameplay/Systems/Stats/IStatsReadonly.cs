@@ -5,7 +5,7 @@ namespace EndlessHeresy.Gameplay.Stats
 {
     public interface IStatsReadonly
     {
-        public ReactiveProperty<int> GetOrAdd(StatType identifier);
+        public ReactiveProperty<int> Get(StatType identifier);
         ReactiveProperty<int>[] GetAll();
     }
 }

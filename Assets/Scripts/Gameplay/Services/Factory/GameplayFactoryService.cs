@@ -9,6 +9,7 @@ using EndlessHeresy.Gameplay.Abilities;
 using EndlessHeresy.Gameplay.Actors;
 using EndlessHeresy.Gameplay.Actors.Enemies;
 using EndlessHeresy.Gameplay.Actors.Hero;
+using EndlessHeresy.Gameplay.Attributes;
 using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Data.Static.Items;
 using EndlessHeresy.Gameplay.Facing;
@@ -19,6 +20,7 @@ using EndlessHeresy.Gameplay.Services.StaticData;
 using EndlessHeresy.Gameplay.StatesAggregator;
 using EndlessHeresy.Gameplay.StatesAggregator.Plugins;
 using EndlessHeresy.Gameplay.Stats;
+using EndlessHeresy.Gameplay.Stats.Modifiers;
 using EndlessHeresy.Gameplay.StatusEffects;
 using EndlessHeresy.Gameplay.Vfx;
 using UnityEngine;
@@ -53,6 +55,8 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var statsComponent = new StatsComponent();
             var statusEffectsComponent = new StatusEffectsComponent();
             var healthChangeMessages = new HealthChangeMessages();
+            var attributesComponent = new AttributesComponent();
+            var statModifiersComponent = new StatModifiersComponent();
 
             var statesAggregator = GetStatesAggregatorBuilder<HeroActor>()
                 .WithPlugin<HeroTransitionsPlugin>()
@@ -71,6 +75,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .WithComponent(movementComponent)
                 .WithComponent(healthComponent)
                 .WithComponent(facingComponent)
+                .WithComponent(attributesComponent)
                 .WithComponent(trailsComponent)
                 .WithComponent(statesAggregatorComponent)
                 .WithComponent(abilitiesCastComponent)
@@ -81,6 +86,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .WithComponent(statusEffectsComponent)
                 .WithComponent(inputMovementComponent)
                 .WithComponent(healthChangeMessages)
+                .WithComponent(statModifiersComponent)
                 .Build();
         }
 

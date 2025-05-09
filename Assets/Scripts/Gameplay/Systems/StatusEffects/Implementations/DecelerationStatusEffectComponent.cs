@@ -15,7 +15,7 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
 
         public void Apply(StatsComponent stats)
         {
-            var moveSpeedStat = stats.GetOrAdd(StatType.MoveSpeed);
+            var moveSpeedStat = stats.Get(StatType.MoveSpeed);
             var currentMoveSpeed = moveSpeedStat.Value;
             var newMoveSpeed = currentMoveSpeed * _decelerationRate;
             moveSpeedStat.Value = (int)newMoveSpeed;
@@ -23,7 +23,7 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
 
         public void Remove(StatsComponent stats)
         {
-            var moveSpeedStat = stats.GetOrAdd(StatType.MoveSpeed);
+            var moveSpeedStat = stats.Get(StatType.MoveSpeed);
             var currentMoveSpeed = moveSpeedStat.Value;
             var newMoveSpeed = currentMoveSpeed / _decelerationRate;
             moveSpeedStat.Value = (int)newMoveSpeed;

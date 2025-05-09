@@ -9,7 +9,6 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Builder
     {
         private readonly List<IStatusEffectComponent> _forComponents = new();
 
-
         public void WithComponent(IStatusEffectComponent component)
         {
             if (_forComponents.Contains(component))

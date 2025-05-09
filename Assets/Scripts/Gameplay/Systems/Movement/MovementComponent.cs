@@ -24,7 +24,7 @@ namespace EndlessHeresy.Gameplay.Movement
         {
             _rigidbodyStorage = Owner.GetComponent<RigidbodyStorageComponent>();
             _statsComponent = Owner.GetComponent<StatsComponent>();
-            _moveSpeedStat = _statsComponent.GetOrAdd(StatType.MoveSpeed);
+            _moveSpeedStat = _statsComponent.Get(StatType.MoveSpeed);
             return Task.CompletedTask;
         }
 

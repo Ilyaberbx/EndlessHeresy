@@ -20,17 +20,15 @@ namespace EndlessHeresy.Gameplay.Stats
             }
         }
 
-        public ReactiveProperty<int> GetOrAdd(StatType identifier)
+        public ReactiveProperty<int> Get(StatType identifier)
         {
             if (_stats.TryGet(identifier, out var stat))
             {
                 return stat;
             }
 
-            stat = new ReactiveProperty<int>();
-            var property = new ReactiveProperty<int>(stat.Value);
-            _stats.Add(identifier, property);
-            return property;
+            _stats.Add(identifier, stat);
+            return stat;
         }
 
         public ReactiveProperty<int>[] GetAll() => _stats.GetElements();
