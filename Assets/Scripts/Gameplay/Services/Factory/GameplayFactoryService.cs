@@ -41,6 +41,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
         {
             var configuration = _gameplayStaticDataService.HeroConfiguration;
             var movementComponent = new MovementComponent();
+            var inputMovementComponent = new InputMovementComponent();
             var healthComponent = new HealthComponent();
             var facingComponent = new FacingComponent();
             var mouseFacingComponent = new MouseFacingComponent();
@@ -78,6 +79,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .WithComponent(mouseFacingComponent)
                 .WithComponent(statsComponent)
                 .WithComponent(statusEffectsComponent)
+                .WithComponent(inputMovementComponent)
                 .WithComponent(healthChangeMessages)
                 .Build();
         }

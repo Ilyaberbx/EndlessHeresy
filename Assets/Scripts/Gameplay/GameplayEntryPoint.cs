@@ -55,10 +55,18 @@ namespace EndlessHeresy.Gameplay
 
         private async Task CreatDummiesAsync()
         {
-            await _gameplayFactoryService.CreateDummyAsync(Vector2.zero.AddX(-2));
-            await _gameplayFactoryService.CreateDummyAsync(Vector2.zero.AddX(-4));
-            await _gameplayFactoryService.CreateDummyAsync(Vector2.zero.AddY(-2));
-            await _gameplayFactoryService.CreateDummyAsync(Vector2.zero.AddY(2));
+            await _gameplayFactoryService.CreateDummyAsync(Vector2.zero);
+
+            for (var i = 0; i < 25; i++)
+            {
+                var isEven = i % 2 == 0;
+                var multiplier = isEven ? 1f : -1f;
+                var posOffset = i * multiplier * 2;
+                await _gameplayFactoryService.CreateDummyAsync(Vector2
+                    .zero
+                    .AddX(posOffset)
+                    .AddY(posOffset));
+            }
         }
     }
 }

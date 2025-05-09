@@ -1,9 +1,9 @@
 ﻿using Cinemachine;
 using EndlessHeresy.Gameplay.Services.Camera;
 using EndlessHeresy.Gameplay.Services.Factory;
+using EndlessHeresy.Gameplay.Services.FloatingMessages;
+using EndlessHeresy.Gameplay.Services.FloatingMessages.Factory;
 using EndlessHeresy.Gameplay.Services.Input;
-using EndlessHeresy.UI.Services.FloatingMessages;
-using EndlessHeresy.UI.Services.FloatingMessages.Factory;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;

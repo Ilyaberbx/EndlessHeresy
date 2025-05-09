@@ -43,7 +43,7 @@ namespace EndlessHeresy.UI.Huds.StatusEffects
             _gameUpdateService.OnUpdate -= OnUpdate;
         }
 
-        private void UpdateAllStatusEffectItems(Locator<StatusEffectType, IStatusEffect> effectsLocator)
+        private void UpdateAllStatusEffectItems(Locator<StatusEffectType, IStatusEffectRoot> effectsLocator)
         {
             UpdateAllStatusEffects(effectsLocator.GetElements());
         }
@@ -64,14 +64,15 @@ namespace EndlessHeresy.UI.Huds.StatusEffects
 
                 var statusEffect = statusEffects[i];
 
-                if (statusEffect.TryGet<TemporaryStatusEffect>(out var temporaryStatusEffect))
+                if (statusEffect.TryGet<TemporaryStatusEffectComponent>(out var temporaryStatusEffect))
                 {
                     UpdateProgressItem(temporaryStatusEffect, itemView);
+                    return;
                 }
             }
         }
 
-        private void UpdateAllStatusEffects(IList<IStatusEffect> statusEffects)
+        private void UpdateAllStatusEffects(IList<IStatusEffectRoot> statusEffects)
         {
             for (var i = 0; i < View.ItemViews.Length; i++)
             {
@@ -85,48 +86,45 @@ namespace EndlessHeresy.UI.Huds.StatusEffects
 
                 var statusEffect = statusEffects[i];
                 UpdateStatusEffect(statusEffect, itemView);
-                itemView.SetActive(true);
             }
         }
 
-        private void UpdateStatusEffect(IStatusEffect statusEffect, StatusEffectItemView view)
+        private void UpdateStatusEffect(IStatusEffectRoot statusEffect, StatusEffectItemView view)
         {
             if (!TryGetConfiguration(statusEffect, out var configuration))
             {
+                view.SetActive(false);
                 return;
             }
 
-            if (statusEffect.Has<TemporaryStatusEffect>())
-            {
-                view.SetTemporary(true);
-            }
 
+            view.SetTemporary(statusEffect.Has<TemporaryStatusEffectComponent>());
+            view.SetStackable(statusEffect.TryGet<StackableStatusEffectComponent>(out var stackableStatusEffect));
             view.SetIcon(configuration.UIData.Icon);
 
-            if (statusEffect.TryGet<StackableStatusEffect>(out var stackableStatusEffect))
+            if (stackableStatusEffect != null)
             {
-                view.SetStackable(true);
                 UpdateStackItem(stackableStatusEffect, view);
             }
 
             view.SetActive(true);
         }
 
-        private void UpdateStackItem(StackableStatusEffect statusEffect, StatusEffectItemView view)
+        private void UpdateStackItem(StackableStatusEffectComponent statusEffectComponent, StatusEffectItemView view)
         {
-            var stackCount = statusEffect.StackCount;
+            var stackCount = statusEffectComponent.StackCount;
             view.SetStackCount(stackCount);
         }
 
-        private void UpdateProgressItem(TemporaryStatusEffect statusEffect, StatusEffectItemView view)
+        private void UpdateProgressItem(TemporaryStatusEffectComponent statusEffectComponent, StatusEffectItemView view)
         {
-            var progress = statusEffect.GetProgress();
+            var progress = statusEffectComponent.GetProgress();
             view.SetProgress(progress);
         }
 
-        private bool TryGetConfiguration(IStatusEffect statusEffect, out StatusEffectConfiguration configuration)
+        private bool TryGetConfiguration(IStatusEffectRoot statusEffect, out StatusEffectConfiguration configuration)
         {
-            if (statusEffect is not IdentifiedStatusEffect identified)
+            if (!statusEffect.TryGet<IdentifiedStatusEffectComponent>(out var identified))
             {
                 configuration = null;
                 return false;

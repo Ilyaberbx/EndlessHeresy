@@ -15,7 +15,7 @@ namespace EndlessHeresy.UI.Huds.StatusEffects
             StatusEffectsReadOnly = statusEffectsReadOnly;
         }
 
-        public IEnumerable<IStatusEffect> GetActiveStatusEffects() =>
+        public IEnumerable<IStatusEffectRoot> GetActiveStatusEffects() =>
             StatusEffectsReadOnly
                 .ActiveStatusEffects
                 .Value

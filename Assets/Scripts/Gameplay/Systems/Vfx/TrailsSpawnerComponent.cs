@@ -46,16 +46,16 @@ namespace EndlessHeresy.Gameplay.Vfx
             _maxSize = maxSize;
         }
 
-        public async Task SpawnTrailsAsync(SpawnTrailDto dto)
+        public async Task SpawnTrailsAsync(SpawnTrailQuery query)
         {
             var trailRenderer = _trailPool.Get();
-            trailRenderer.color = dto.Color;
-            trailRenderer.transform.position = dto.At;
-            trailRenderer.sprite = dto.Sprite;
-            trailRenderer.name = dto.Name;
+            trailRenderer.color = query.Color;
+            trailRenderer.transform.position = query.At;
+            trailRenderer.sprite = query.Sprite;
+            trailRenderer.name = query.Name;
 
             var fadeTask = trailRenderer
-                .DOFade(0, dto.LifeTime)
+                .DOFade(0, query.LifeTime)
                 .AsTask(DisposalToken);
 
             await fadeTask;

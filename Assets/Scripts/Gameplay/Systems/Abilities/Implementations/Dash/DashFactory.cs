@@ -17,18 +17,18 @@ namespace EndlessHeresy.Gameplay.Abilities
 
         public override Ability Create()
         {
-            var dashAbility = new DashAbility();
-            dashAbility.SetForce(_configuration.Force);
-            dashAbility.SetCooldown(_configuration.Cooldown);
-            dashAbility.SetType(_configuration.Type);
-            dashAbility.SetCollisionForce(_configuration.CollisionForce);
-            dashAbility.SetTrailData(_configuration.TrailData);
-            dashAbility.SetTrailsRatio(_configuration.TrailsRatio);
+            var ability = new DashAbility();
+            ability.SetForce(_configuration.Force);
+            ability.SetCooldown(_configuration.Cooldown);
+            ability.SetType(_configuration.Type);
+            ability.SetCollisionForce(_configuration.CollisionForce);
+            ability.SetTrailData(_configuration.TrailData);
+            ability.SetTrailsRatio(_configuration.TrailsRatio);
             var isDashKeyDown = new IsKeyPressed(_configuration.KeyCode);
             _container.Inject(isDashKeyDown);
-            dashAbility.SetCondition(isDashKeyDown);
-            _container.Inject(dashAbility);
-            return dashAbility;
+            ability.SetCondition(isDashKeyDown);
+            _container.Inject(ability);
+            return ability;
         }
     }
 }

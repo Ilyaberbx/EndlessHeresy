@@ -51,16 +51,6 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
                 _healthComponent.TakeDamage(10);
             }
 
-            if (Input.GetKeyDown(KeyCode.B))
-            {
-                _statusEffectsStorage.Add(StatusEffectType.Deceleration);
-            }
-
-            if (Input.GetKeyDown(KeyCode.N))
-            {
-                _statusEffectsStorage.Add(StatusEffectType.Acceleration);
-            }
-
             if (Input.GetKeyDown(KeyCode.M))
             {
                 _statusEffectsStorage.Add(StatusEffectType.Burning);

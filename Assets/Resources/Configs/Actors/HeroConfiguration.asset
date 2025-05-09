@@ -29,6 +29,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e2a5fca02d62dea49a059aad6ff4e7c0, type: 2}
   - {fileID: 11400000, guid: 6b2c9c6a9456f7b4288c7c730a318263, type: 2}
   - {fileID: 11400000, guid: 1b49f80776c5c8446bb2d2be9e704acd, type: 2}
+  - {fileID: 11400000, guid: cb82d15584949c14db2ef15727377c46, type: 2}
   _trailsPoolData:
     _defaultCapacity: 5
     _maxSize: 10000

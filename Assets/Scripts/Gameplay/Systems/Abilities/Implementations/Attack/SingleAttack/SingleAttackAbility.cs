@@ -86,7 +86,7 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
         private void OnAttackTriggered()
         {
             ProcessOwnerFacingForce(_attackData.DragForce);
-            var processAttackDto = CollectProcessAttackDto(_attackData);
+            var processAttackDto = CollectProcessAttackQuery(_attackData, Owner.Transform.position);
             ProcessAttack(processAttackDto);
         }
 

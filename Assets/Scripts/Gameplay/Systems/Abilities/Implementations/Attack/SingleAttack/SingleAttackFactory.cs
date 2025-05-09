@@ -17,15 +17,15 @@ namespace EndlessHeresy.Gameplay.Abilities.SingleAttack
 
         public override Ability Create()
         {
-            var singleAttackAbility = new SingleAttackAbility();
-            singleAttackAbility.SetCooldown(_configuration.Cooldown);
-            singleAttackAbility.SetType(_configuration.Type);
-            singleAttackAbility.SetAttackData(_configuration.AttackData);
+            var ability = new SingleAttackAbility();
+            ability.SetCooldown(_configuration.Cooldown);
+            ability.SetType(_configuration.Type);
+            ability.SetAttackData(_configuration.AttackData);
             var isKeyPressed = new IsMousePressed(_configuration.MouseIndex);
-            singleAttackAbility.SetCondition(isKeyPressed);
+            ability.SetCondition(isKeyPressed);
             _container.Inject(isKeyPressed);
-            _container.Inject(singleAttackAbility);
-            return singleAttackAbility;
+            _container.Inject(ability);
+            return ability;
         }
     }
 }

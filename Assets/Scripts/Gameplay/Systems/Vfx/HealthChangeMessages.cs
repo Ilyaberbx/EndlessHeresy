@@ -4,7 +4,7 @@ using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Data.Operational;
 using EndlessHeresy.Gameplay.Health;
-using EndlessHeresy.UI.Services.FloatingMessages;
+using EndlessHeresy.Gameplay.Services.FloatingMessages;
 using UnityEngine;
 using VContainer;
 
@@ -41,7 +41,7 @@ namespace EndlessHeresy.Gameplay.Vfx
         {
             var at = Owner.Transform.position;
             var message = string.Format(TakeDamageFormat, damage);
-            var showMessageDto = new ShowFloatingMessageDto(at, message, Duration, Color.red, Vector2.up);
+            var showMessageDto = new ShowFloatingMessageQuery(at, message, Duration, Color.red, Vector2.up);
             _floatingMessagesService.ShowAsync(showMessageDto).Forget();
         }
     }

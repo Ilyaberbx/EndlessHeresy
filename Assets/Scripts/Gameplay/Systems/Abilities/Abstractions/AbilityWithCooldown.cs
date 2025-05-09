@@ -8,7 +8,7 @@ namespace EndlessHeresy.Gameplay.Abilities
 {
     public abstract class AbilityWithCooldown : Ability
     {
-        private IGameUpdateService UpdateService { get; set; }
+        protected IGameUpdateService UpdateService { get; private set; }
         public float CurrentCooldownValue { get; private set; }
         public float MaxCooldown { get; private set; }
 
@@ -25,7 +25,7 @@ namespace EndlessHeresy.Gameplay.Abilities
         {
             base.Dispose();
             State.Unsubscribe(OnStateChanged);
-            UpdateService.OnUpdate -= OnUpdate;
+            UpdateService.OnUpdate -= OnCooldownUpdate;
         }
 
         private void OnStateChanged(AbilityState state)
@@ -33,14 +33,14 @@ namespace EndlessHeresy.Gameplay.Abilities
             if (state == AbilityState.Cooldown)
             {
                 CurrentCooldownValue = MaxCooldown;
-                UpdateService.OnUpdate += OnUpdate;
+                UpdateService.OnUpdate += OnCooldownUpdate;
                 return;
             }
 
-            UpdateService.OnUpdate -= OnUpdate;
+            UpdateService.OnUpdate -= OnCooldownUpdate;
         }
 
-        private void OnUpdate(float deltaTime)
+        private void OnCooldownUpdate(float deltaTime)
         {
             TickCooldown(deltaTime);
         }

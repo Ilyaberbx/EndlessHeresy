@@ -1,6 +1,7 @@
 ﻿using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Data.Static.UI;
-using EndlessHeresy.Gameplay.StatusEffects;
+using EndlessHeresy.Gameplay.StatusEffects.Builder;
+using EndlessHeresy.Gameplay.StatusEffects.Implementations;
 using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Data.Static.StatusEffects
@@ -12,6 +13,10 @@ namespace EndlessHeresy.Gameplay.Data.Static.StatusEffects
 
         public StatusEffectType Identifier => _identifier;
         public StatusEffectUIData UIData => _uiData;
-        public abstract IStatusEffect GetStatusEffect();
+
+        public virtual void ConfigureBuilder(StatusEffectsBuilder builder)
+        {
+            builder.WithComponent(new IdentifiedStatusEffectComponent(Identifier));
+        }
     }
 }

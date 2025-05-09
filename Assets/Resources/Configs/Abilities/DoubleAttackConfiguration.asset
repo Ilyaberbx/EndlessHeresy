@@ -18,11 +18,21 @@ MonoBehaviour:
   _firstAttackDto:
     _damage: 1
     _force: 20
-    _radius: 2.5
     _dragForce: 30
+    _overlapData:
+      center: {x: 0, y: 0}
+      size: {x: 2.5, y: 2}
+      direction: 1
+      angle: 0
+    _offSet: {x: 1, y: 0}
   _secondAttackDto:
     _damage: 3
     _force: 50
-    _radius: 3
     _dragForce: 40
+    _overlapData:
+      center: {x: 0, y: 0}
+      size: {x: 2.5, y: 2}
+      direction: 1
+      angle: 0
+    _offSet: {x: 1, y: 0}
   _cooldown: 3

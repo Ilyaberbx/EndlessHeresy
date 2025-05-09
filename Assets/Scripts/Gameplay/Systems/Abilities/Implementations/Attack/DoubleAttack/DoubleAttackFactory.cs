@@ -17,16 +17,16 @@ namespace EndlessHeresy.Gameplay.Abilities.DoubleAttack
 
         public override Ability Create()
         {
-            var doubleAttackAbility = new DoubleAttackAbility();
+            var ability = new DoubleAttackAbility();
             var isKeyPressed = new IsMousePressed(_configuration.MouseIndex);
-            doubleAttackAbility.SetCondition(isKeyPressed);
-            doubleAttackAbility.SetCooldown(_configuration.Cooldown);
-            doubleAttackAbility.SetFirstAttackData(_configuration.FirstAttackDto);
-            doubleAttackAbility.SetSecondAttackData(_configuration.SecondAttackDto);
-            doubleAttackAbility.SetType(_configuration.Type);
+            ability.SetCondition(isKeyPressed);
+            ability.SetCooldown(_configuration.Cooldown);
+            ability.SetFirstAttackData(_configuration.FirstAttackDto);
+            ability.SetSecondAttackData(_configuration.SecondAttackDto);
+            ability.SetType(_configuration.Type);
             _container.Inject(isKeyPressed);
-            _container.Inject(doubleAttackAbility);
-            return doubleAttackAbility;
+            _container.Inject(ability);
+            return ability;
         }
     }
 }

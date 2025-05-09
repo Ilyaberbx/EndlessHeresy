@@ -53,10 +53,15 @@ namespace EndlessHeresy.Core
             _componentsLocator = null;
         }
 
-        public IEnumerable<IComponent> GetAllComponents() => _componentsLocator.GetAllComponents();
+        public IEnumerable<IComponent> GetAllComponents()
+        {
+            return _componentsLocator.GetAllComponents();
+        }
 
-        public new bool TryGetComponent<TComponent>(out TComponent component) where TComponent : IComponent =>
-            _componentsLocator.TryGetComponent(out component);
+        public new bool TryGetComponent<TComponent>(out TComponent component) where TComponent : IComponent
+        {
+            return _componentsLocator.TryGetComponent(out component);
+        }
 
         public bool TryAddComponent<TComponent>(TComponent component) where TComponent : IComponent
         {
@@ -69,14 +74,19 @@ namespace EndlessHeresy.Core
             return false;
         }
 
-        public bool TryRemoveComponent<TComponent>(TComponent component) where TComponent : IComponent =>
-            _componentsLocator.TryRemoveComponent(component);
-
-        public new TComponent GetComponent<TComponent>() where TComponent : IComponent =>
-            _componentsLocator.GetComponent<TComponent>();
-
-        protected virtual async Task OnInitializeAsync()
+        public bool TryRemoveComponent<TComponent>(TComponent component) where TComponent : IComponent
         {
+            return _componentsLocator.TryRemoveComponent(component);
+        }
+
+        public new TComponent GetComponent<TComponent>() where TComponent : IComponent
+        {
+            return _componentsLocator.GetComponent<TComponent>();
+        }
+
+        protected virtual Task OnInitializeAsync()
+        {
+            return Task.CompletedTask;
         }
 
         protected virtual void OnDispose()

@@ -163,9 +163,9 @@ namespace EndlessHeresy.Gameplay.Abilities
             }
         }
 
-        private SpawnTrailDto CollectSpawnDto()
+        private SpawnTrailQuery CollectSpawnDto()
         {
-            return new SpawnTrailDto(_trailData.LifeTime,
+            return new SpawnTrailQuery(_trailData.LifeTime,
                 _trailData.Color,
                 Owner.Transform.position,
                 _spriteRendererComponent.SpriteRenderer.sprite,

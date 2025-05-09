@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Core;
+using EndlessHeresy.Extensions;
 using EndlessHeresy.Gameplay.Abilities.Enums;
-using EndlessHeresy.Gameplay.Attack;
 using EndlessHeresy.Gameplay.Common;
 using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Data.Operational;
@@ -11,25 +11,26 @@ using EndlessHeresy.Gameplay.Data.Static.Components;
 using EndlessHeresy.Gameplay.Facing;
 using EndlessHeresy.Gameplay.Health;
 using EndlessHeresy.Gameplay.StatusEffects;
-using EndlessHeresy.Helpers;
+using EndlessHeresy.Gameplay.Utilities;
+using EndlessHeresy.Gameplay.Utilities.Gizmos;
 using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Abilities
 {
     public abstract class MeleeAttackAbility : AbilityWithCooldown
     {
-        private MeleeAttackStorage _attackPointsStorage;
         private HealthComponent _selfHealthComponent;
         private DrawGizmosObserver _drawGizmosObserver;
-        private ProcessAttackDto _currentProcessAttackDto;
+        private ProcessAttackQuery? _currentProcessAttackQuery;
         private MouseFacingComponent _mouseFacingComponent;
+
         protected FacingComponent FacingComponent => _mouseFacingComponent.FacingComponent;
+
 
         public override void Initialize(IActor owner)
         {
             base.Initialize(owner);
             _selfHealthComponent = Owner.GetComponent<HealthComponent>();
-            _attackPointsStorage = Owner.GetComponent<MeleeAttackStorage>();
             _mouseFacingComponent = Owner.GetComponent<MouseFacingComponent>();
             _drawGizmosObserver = Owner.GetComponent<DrawGizmosObserver>();
             _drawGizmosObserver.OnDrawGizmosTriggered += OnDrawGizmosTriggered;
@@ -47,12 +48,14 @@ namespace EndlessHeresy.Gameplay.Abilities
             return Task.CompletedTask;
         }
 
-        protected void ProcessAttack(ProcessAttackDto dto)
+        protected void ProcessAttack(ProcessAttackQuery query)
         {
-            _currentProcessAttackDto = dto;
-            var at = _attackPointsStorage.GetPosition(FacingComponent.IsFacingRight);
-            var hasAttacked =
-                GamePhysics.TryOverlapCircleAll<HealthComponent>(at, dto.Radius, out var healthComponents);
+            _currentProcessAttackQuery = query;
+
+            var hasAttacked = GamePhysicsUtility.TryOverlapCapsuleAll<HealthComponent>(
+                query.OverlapData,
+                query.At,
+                out var healthComponents);
 
             if (!hasAttacked)
             {
@@ -66,7 +69,7 @@ namespace EndlessHeresy.Gameplay.Abilities
                     continue;
                 }
 
-                healthComponent.TakeDamage(dto.Damage);
+                healthComponent.TakeDamage(query.Damage);
 
 
                 if (healthComponent.IsDead())
@@ -81,7 +84,7 @@ namespace EndlessHeresy.Gameplay.Abilities
                     statusEffectsComponent.Add(StatusEffectType.Burning);
                 }
 
-                ProcessForceAt(at, healthComponent.Owner, dto.Force);
+                ProcessForceAt(query.At, healthComponent.Owner, query.Force);
             }
         }
 
@@ -93,12 +96,20 @@ namespace EndlessHeresy.Gameplay.Abilities
             ProcessForce(Owner, force);
         }
 
-        protected ProcessAttackDto CollectProcessAttackDto(AttackData data)
+        protected ProcessAttackQuery CollectProcessAttackQuery(AttackData data, Vector2 at)
         {
-            return new ProcessAttackDto(data.Damage,
+            var offSet = data.OffSet;
+
+            var processedOffSet = Vector2
+                .zero
+                .AddX(FacingComponent.IsFacingRight ? offSet.x : -offSet.x)
+                .AddY(offSet.y)
+                .ToVector2();
+
+            return new ProcessAttackQuery(data.Damage,
                 data.Force,
-                data.Radius,
-                data.DragForce);
+                data.OverlapData,
+                at + processedOffSet);
         }
 
         private void ProcessForceAt(Vector2 at, IActor actor, float forceMultiplier)
@@ -125,14 +136,17 @@ namespace EndlessHeresy.Gameplay.Abilities
         {
             if (State.Value != AbilityState.InUse)
             {
+                Gizmos.color = Color.white;
                 return;
             }
 
-            var at = _attackPointsStorage.GetPosition(FacingComponent.IsFacingRight);
-            var radius = _currentProcessAttackDto.Radius;
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(at, radius);
-            Gizmos.color = Color.white;
+            if (!_currentProcessAttackQuery.HasValue)
+            {
+                return;
+            }
+
+            var data = _currentProcessAttackQuery.Value;
+            GizmosUtility.DrawWireCapsule2D(data.OverlapData, data.At, Color.yellow);
         }
     }
 }

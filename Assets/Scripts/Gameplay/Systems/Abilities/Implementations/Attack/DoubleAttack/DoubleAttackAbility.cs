@@ -98,13 +98,13 @@ namespace EndlessHeresy.Gameplay.Abilities.DoubleAttack
 
         private void OnFirstHitTriggered()
         {
-            var processAttackDto = CollectProcessAttackDto(_firstAttackData);
+            var processAttackDto = CollectProcessAttackQuery(_firstAttackData, Owner.Transform.position);
             ProcessAttack(processAttackDto);
         }
 
         private void OnSecondHitTriggered()
         {
-            var processAttackDto = CollectProcessAttackDto(_secondAttackData);
+            var processAttackDto = CollectProcessAttackQuery(_secondAttackData, Owner.Transform.position);
             ProcessAttack(processAttackDto);
         }
 

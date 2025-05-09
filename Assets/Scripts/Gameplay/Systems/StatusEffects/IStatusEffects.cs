@@ -12,6 +12,6 @@ namespace EndlessHeresy.Gameplay.StatusEffects
 
     public interface IStatusEffectsReadOnly
     {
-        public ReadOnlyReactiveProperty<Locator<StatusEffectType, IStatusEffect>> ActiveStatusEffects { get; }
+        public ReadOnlyReactiveProperty<Locator<StatusEffectType, IStatusEffectRoot>> ActiveStatusEffects { get; }
     }
 }

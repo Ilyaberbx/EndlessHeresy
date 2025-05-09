@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38196ac7794d46df80715875ecccb409, type: 3}
+  m_Script: {fileID: 11500000, guid: d3f78c73b1114a03bcfdf95d65c0b702, type: 3}
   m_Name: BurningStatusEffectConfiguration
   m_EditorClassIdentifier: 
-  _identifier: 3
+  _identifier: 0
   _uiData:
     _icon: {fileID: 21300000, guid: c8f0d6c092af4c440b094658eb8a3bb3, type: 3}
-    _displayName: Entity is on fire!
+    _displayName: Entity receives period damage
   _periodDamageData:
     _perSeconds: 0.5
     _damage: 1
-  _duration: 5
   _vfxPrefab: {fileID: 1371693811414640555, guid: 21eed6c08f4d0f447ae0913cece67844, type: 3}
+  _duration: 5

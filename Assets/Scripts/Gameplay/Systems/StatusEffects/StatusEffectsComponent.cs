@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using Better.Commons.Runtime.DataStructures.Properties;
 using Better.Locators.Runtime;
@@ -7,8 +6,8 @@ using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Data.Static.StatusEffects;
 using EndlessHeresy.Gameplay.Services.StaticData;
-using EndlessHeresy.Gameplay.Services.Tick;
 using EndlessHeresy.Gameplay.Stats;
+using EndlessHeresy.Gameplay.StatusEffects.Builder;
 using EndlessHeresy.Gameplay.StatusEffects.Implementations;
 using VContainer;
 
@@ -17,23 +16,22 @@ namespace EndlessHeresy.Gameplay.StatusEffects
     public sealed class StatusEffectsComponent : PocoComponent, IStatusEffects
     {
         private IGameplayStaticDataService _gameStaticDataService;
-        private IGameUpdateService _gameUpdatesService;
+        private IObjectResolver _resolver;
         private StatsComponent _stats;
 
-        private ReactiveProperty<Locator<StatusEffectType, IStatusEffect>> _activeEffectsProperty;
+        private ReactiveProperty<Locator<StatusEffectType, IStatusEffectRoot>> _activeEffectsProperty;
 
-        public ReadOnlyReactiveProperty<Locator<StatusEffectType, IStatusEffect>> ActiveStatusEffects
+        public ReadOnlyReactiveProperty<Locator<StatusEffectType, IStatusEffectRoot>> ActiveStatusEffects
         {
             get;
             private set;
         }
 
         [Inject]
-        public void Construct(IGameUpdateService gameUpdateService,
-            IGameplayStaticDataService gameplayStaticDataService)
+        public void Construct(IGameplayStaticDataService gameplayStaticDataService, IObjectResolver resolver)
         {
             _gameStaticDataService = gameplayStaticDataService;
-            _gameUpdatesService = gameUpdateService;
+            _resolver = resolver;
         }
 
         protected override Task OnInitializeAsync(CancellationToken cancellationToken)
@@ -45,7 +43,6 @@ namespace EndlessHeresy.Gameplay.StatusEffects
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
-            _gameUpdatesService.OnUpdate += OnUpdate;
             return Task.CompletedTask;
         }
 
@@ -56,19 +53,6 @@ namespace EndlessHeresy.Gameplay.StatusEffects
             foreach (var activeEffect in _activeEffectsProperty.Value.GetElements())
             {
                 activeEffect.Remove(_stats);
-            }
-
-            _gameUpdatesService.OnUpdate -= OnUpdate;
-        }
-
-        private void OnUpdate(float deltaTime)
-        {
-            foreach (var activeEffect in _activeEffectsProperty.Value.GetElements())
-            {
-                if (activeEffect.TryGet(out IUpdatableStatusEffect statusEffect))
-                {
-                    statusEffect.Update(Owner);
-                }
             }
         }
 
@@ -81,24 +65,24 @@ namespace EndlessHeresy.Gameplay.StatusEffects
 
             if (!_activeEffectsProperty.Value.TryGet(identifier, out var exisingStatusEffect))
             {
-                var newStatusEffect = data.GetStatusEffect();
+                var builder = new StatusEffectsBuilder();
+                data.ConfigureBuilder(builder);
+                var newStatusEffect = builder.Build(Owner, _resolver);
                 newStatusEffect.Apply(_stats);
                 _activeEffectsProperty.Value.Add(identifier, newStatusEffect);
                 _activeEffectsProperty.SetDirty();
                 return;
             }
 
-            if (exisingStatusEffect.TryGet<StackableStatusEffect>(out var stackableStatusEffect))
+            if (exisingStatusEffect.TryGet<StackableStatusEffectComponent>(out var stackableStatusEffect))
             {
                 stackableStatusEffect.Apply(_stats);
                 _activeEffectsProperty.SetDirty();
-                return;
             }
 
-            if (exisingStatusEffect.TryGet<TemporaryStatusEffect>(out var temporaryStatusEffect))
+            if (exisingStatusEffect.TryGet<TemporaryStatusEffectComponent>(out var temporaryStatusEffect))
             {
                 temporaryStatusEffect.Reset();
-                _activeEffectsProperty.SetDirty();
             }
         }
 
@@ -116,11 +100,11 @@ namespace EndlessHeresy.Gameplay.StatusEffects
 
         private void InitializeEffectsProperty()
         {
-            var defaultLocator = new Locator<StatusEffectType, IStatusEffect>();
+            var defaultLocator = new Locator<StatusEffectType, IStatusEffectRoot>();
             _activeEffectsProperty =
-                new ReactiveProperty<Locator<StatusEffectType, IStatusEffect>>(defaultLocator);
+                new ReactiveProperty<Locator<StatusEffectType, IStatusEffectRoot>>(defaultLocator);
             ActiveStatusEffects =
-                new ReadOnlyReactiveProperty<Locator<StatusEffectType, IStatusEffect>>(_activeEffectsProperty);
+                new ReadOnlyReactiveProperty<Locator<StatusEffectType, IStatusEffectRoot>>(_activeEffectsProperty);
         }
 
         private bool TryGetEffectData(StatusEffectType identifier, out StatusEffectConfiguration data)

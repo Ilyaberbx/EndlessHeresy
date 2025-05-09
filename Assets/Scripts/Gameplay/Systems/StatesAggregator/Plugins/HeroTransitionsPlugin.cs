@@ -5,6 +5,7 @@ using EndlessHeresy.Core.States;
 using EndlessHeresy.Core.StatesAggregator.Plugins;
 using EndlessHeresy.Extensions;
 using EndlessHeresy.Gameplay.Abilities;
+using EndlessHeresy.Gameplay.Abilities.CrescentStrike;
 using EndlessHeresy.Gameplay.Abilities.DoubleAttack;
 using EndlessHeresy.Gameplay.Abilities.SingleAttack;
 using EndlessHeresy.Gameplay.Actors.Hero;
@@ -45,24 +46,32 @@ namespace EndlessHeresy.Gameplay.StatesAggregator.Plugins
                 isAliveCondition,
                 new ActiveAbilityCondition(abilitiesCastComponent, false)
             });
+            var anyToCrescentStrike = new AllComplexCondition(new Condition[]
+            {
+                isAliveCondition,
+                new AbilityCastCondition<CrescentStrikeAbility>(abilitiesCastComponent, abilitiesStorageComponent)
+            });
 
             var deadState = StatesFactory.CreateState<DeadState>();
             var locomotionState = StatesFactory.CreateState<LocomotionState>();
             var dashState = StatesFactory.CreateState<DashState>();
             var singleAttackState = StatesFactory.CreateState<SingleAttackState>();
             var doubleAttackState = StatesFactory.CreateState<DoubleAttackState>();
+            var crescentStrikeState = StatesFactory.CreateState<CrescentStrikeState>();
 
             deadState.SetContext(Context);
             locomotionState.SetContext(Context);
             dashState.SetContext(Context);
             singleAttackState.SetContext(Context);
             doubleAttackState.SetContext(Context);
+            crescentStrikeState.SetContext(Context);
 
             transitionsModule.Any(locomotionState, anyToLocomotion);
             transitionsModule.Any(deadState, anyToDead);
             transitionsModule.Any(dashState, anyToDash);
             transitionsModule.Any(singleAttackState, anyToSingleAttack);
             transitionsModule.Any(doubleAttackState, anyToDoubleAttack);
+            transitionsModule.Any(crescentStrikeState, anyToCrescentStrike);
 
             StateMachine.Run();
             StateMachine.ChangeStateAsync(locomotionState).Forget();

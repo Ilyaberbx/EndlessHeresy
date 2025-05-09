@@ -4,6 +4,7 @@
     {
         SingleAttack,
         Dash,
-        DoubleAttack
+        DoubleAttack,
+        CrescentStrike
     }
 }
