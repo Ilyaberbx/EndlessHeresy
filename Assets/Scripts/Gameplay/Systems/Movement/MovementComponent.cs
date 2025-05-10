@@ -4,17 +4,17 @@ using Better.Commons.Runtime.DataStructures.Properties;
 using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Common;
 using EndlessHeresy.Gameplay.Data.Identifiers;
-using EndlessHeresy.Gameplay.Stats;
+using EndlessHeresy.Gameplay.Stats.Modifiers;
 using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Movement
 {
     public sealed class MovementComponent : PocoComponent
     {
-        private IStatsReadonly _statsComponent;
         private RigidbodyStorageComponent _rigidbodyStorage;
+        private StatModifiersComponent _statModifiersComponent;
 
-        private ReactiveProperty<int> _moveSpeedStat;
+        private ReadOnlyReactiveProperty<int> _moveSpeedStat;
         private Transform _transform;
         private bool _isLocked;
 
@@ -23,14 +23,13 @@ namespace EndlessHeresy.Gameplay.Movement
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
             _rigidbodyStorage = Owner.GetComponent<RigidbodyStorageComponent>();
-            _statsComponent = Owner.GetComponent<StatsComponent>();
-            _moveSpeedStat = _statsComponent.Get(StatType.MoveSpeed);
+            _statModifiersComponent = Owner.GetComponent<StatModifiersComponent>();
+            _moveSpeedStat = _statModifiersComponent.GetProcessedStat(StatType.MoveSpeed);
             return Task.CompletedTask;
         }
 
         public void Lock() => _isLocked = true;
         public void Unlock() => _isLocked = false;
-
         public void Move(Vector2 input, float deltaTime)
         {
             if (_isLocked)

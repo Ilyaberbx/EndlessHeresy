@@ -14,6 +14,13 @@ namespace EndlessHeresy.Gameplay.Data.Static.Components
 
         public StatType StatIdentifier => _statIdentifier;
 
+        public StatModifierData(StatType statIdentifier, ModifierType identifier, int value)
+        {
+            _statIdentifier = statIdentifier;
+            _identifier = identifier;
+            _value = value;
+        }
+
         public IStatModifier GetInstance()
         {
             return _identifier switch

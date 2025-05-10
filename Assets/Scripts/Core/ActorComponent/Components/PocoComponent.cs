@@ -9,10 +9,14 @@ namespace EndlessHeresy.Core
         public IActor Owner { get; private set; }
         protected CancellationToken DisposalToken => _disposeCanceller.Token;
 
-        public virtual async Task InitializeAsync()
+        public Task InitializeAsync()
         {
-            await OnInitializeAsync(_disposeCanceller.Token);
-            await OnPostInitializeAsync(_disposeCanceller.Token);
+            return OnInitializeAsync(_disposeCanceller.Token);
+        }
+
+        public Task PostInitializeAsync()
+        {
+            return OnPostInitializeAsync(_disposeCanceller.Token);
         }
 
         public virtual void Dispose()
@@ -24,6 +28,7 @@ namespace EndlessHeresy.Core
         public void SetActor(IActor actor) => Owner = actor;
         protected virtual Task OnInitializeAsync(CancellationToken cancellationToken) => Task.CompletedTask;
         protected virtual Task OnPostInitializeAsync(CancellationToken cancellationToken) => Task.CompletedTask;
+
         protected virtual void OnDispose()
         {
         }

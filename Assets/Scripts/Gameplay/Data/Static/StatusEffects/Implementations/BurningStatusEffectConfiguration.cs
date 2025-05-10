@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace EndlessHeresy.Gameplay.Data.Static.StatusEffects
 {
+    [CreateAssetMenu(menuName = "Configs/Gameplay/StatusEffects/BurningStatusEffect",
+        fileName = "BurningStatusEffectConfiguration", order = 0)]
     public sealed class BurningStatusEffectConfiguration : StatusEffectConfiguration
     {
         [SerializeField] private PeriodDamageData _periodDamageData;

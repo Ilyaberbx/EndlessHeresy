@@ -17,7 +17,7 @@ namespace EndlessHeresy.Gameplay.StatusEffects
     {
         private IGameplayStaticDataService _gameStaticDataService;
         private IObjectResolver _resolver;
-        private StatsComponent _stats;
+        private StatsContainer _stats;
 
         private ReactiveProperty<Locator<StatusEffectType, IStatusEffectRoot>> _activeEffectsProperty;
 
@@ -36,7 +36,7 @@ namespace EndlessHeresy.Gameplay.StatusEffects
 
         protected override Task OnInitializeAsync(CancellationToken cancellationToken)
         {
-            _stats = Owner.GetComponent<StatsComponent>();
+            _stats = Owner.GetComponent<StatsContainer>();
             InitializeEffectsProperty();
             return Task.CompletedTask;
         }

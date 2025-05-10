@@ -6,6 +6,7 @@ namespace EndlessHeresy.Core
     {
         public void SetActor(IActor actor);
         public Task InitializeAsync();
+        public Task PostInitializeAsync();
         public void Dispose();
     }
 }

@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using EndlessHeresy.Gameplay.StatusEffects;
-using EndlessHeresy.Gameplay.StatusEffects.Implementations;
 using EndlessHeresy.UI.MVC;
 
 namespace EndlessHeresy.UI.Huds.StatusEffects

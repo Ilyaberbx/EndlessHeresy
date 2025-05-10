@@ -2,6 +2,7 @@
 {
     public enum StatusEffectType
     {
-        Burning
+        Burning,
+        PermanentDeceleration
     }
 }

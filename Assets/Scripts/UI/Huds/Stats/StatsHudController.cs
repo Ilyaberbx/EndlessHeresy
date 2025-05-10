@@ -6,19 +6,19 @@ namespace EndlessHeresy.UI.Huds.Stats
 {
     public sealed class StatsHudController : BaseController<StatsHudModel, StatsHudView>
     {
-        private ReactiveProperty<int> _maxHealthStat;
-        private ReactiveProperty<int> _maxManaStat;
-        private ReactiveProperty<int> _healthStat;
-        private ReactiveProperty<int> _manaStat;
+        private ReadOnlyReactiveProperty<int> _maxHealthStat;
+        private ReadOnlyReactiveProperty<int> _maxManaStat;
+        private ReadOnlyReactiveProperty<int> _healthStat;
+        private ReadOnlyReactiveProperty<int> _manaStat;
 
         protected override void Show(StatsHudModel model, StatsHudView view)
         {
             base.Show(model, view);
 
-            _maxHealthStat = Model.Stats.Get(StatType.MaxHealth);
-            _maxManaStat = Model.Stats.Get(StatType.MaxMana);
-            _healthStat = Model.Stats.Get(StatType.CurrentHealth);
-            _manaStat = Model.Stats.Get(StatType.CurrentMana);
+            _maxHealthStat = Model.StatModifiers.GetProcessedStat(StatType.MaxHealth);
+            _maxManaStat = Model.StatModifiers.GetProcessedStat(StatType.MaxMana);
+            _healthStat = Model.StatModifiers.GetProcessedStat(StatType.CurrentHealth);
+            _manaStat = Model.StatModifiers.GetProcessedStat(StatType.CurrentMana);
 
             _healthStat.SubscribeWithInvoke(OnHealthStatChanged);
             _manaStat.SubscribeWithInvoke(OnManaStatChanged);

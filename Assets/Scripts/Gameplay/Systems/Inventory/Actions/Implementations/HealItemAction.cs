@@ -1,5 +1,4 @@
 ﻿using EndlessHeresy.Core;
-using EndlessHeresy.Gameplay.Health;
 
 namespace EndlessHeresy.Gameplay.Inventory.Actions
 {
@@ -11,13 +10,7 @@ namespace EndlessHeresy.Gameplay.Inventory.Actions
 
         protected override bool TryProcessInternally(IActor owner)
         {
-            if (owner.TryGetComponent(out HealthComponent health))
-            {
-                health.Heal(_healAmount);
-                return true;
-            }
-
-            return false;
+            return true;
         }
     }
 }

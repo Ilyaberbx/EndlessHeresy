@@ -3,7 +3,6 @@
 namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
 {
     public sealed class IdentifiedStatusEffectComponent : IStatusEffectComponent
-
     {
         public StatusEffectType Identifier { get; }
 

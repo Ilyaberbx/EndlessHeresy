@@ -3,9 +3,11 @@ using EndlessHeresy.Core;
 using EndlessHeresy.Core.States;
 using EndlessHeresy.Gameplay.Abilities;
 using EndlessHeresy.Gameplay.Data.Identifiers;
+using EndlessHeresy.Gameplay.Data.Static.Components;
 using EndlessHeresy.Gameplay.Health;
 using EndlessHeresy.Gameplay.Services.Factory;
 using EndlessHeresy.Gameplay.Stats;
+using EndlessHeresy.Gameplay.Stats.Modifiers;
 using EndlessHeresy.Gameplay.StatusEffects;
 using EndlessHeresy.UI.Huds.Abilities;
 using EndlessHeresy.UI.Huds.Stats;
@@ -22,7 +24,7 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
 
         private HealthComponent _healthComponent;
         private AbilitiesStorageComponent _abilitiesStorage;
-        private StatsComponent _statsComponent;
+        private StatModifiersComponent _statModifiersComponent;
         private StatusEffectsComponent _statusEffectsStorage;
 
         [Inject]
@@ -37,7 +39,7 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
 
             _healthComponent = GetComponent<HealthComponent>();
             _abilitiesStorage = GetComponent<AbilitiesStorageComponent>();
-            _statsComponent = GetComponent<StatsComponent>();
+            _statModifiersComponent = GetComponent<StatModifiersComponent>();
             _statusEffectsStorage = GetComponent<StatusEffectsComponent>();
 
             await Task.WhenAll(ShowAbilitiesHudAsync(), ShowStatsHudAsync(), ShowStatusEffectsHudAsync());
@@ -48,7 +50,7 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
         {
             if (Input.GetKeyDown(KeyCode.O))
             {
-                _healthComponent.TakeDamage(10);
+                _healthComponent.TakeDamage(new DamageData());
             }
 
             if (Input.GetKeyDown(KeyCode.M))
@@ -71,7 +73,7 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
 
         private Task ShowStatsHudAsync()
         {
-            var model = new StatsHudModel(_statsComponent);
+            var model = new StatsHudModel(_statModifiersComponent);
             return _hudsService.ShowAsync<StatsHudController, StatsHudModel>(model, ShowType.Additive);
         }
     }

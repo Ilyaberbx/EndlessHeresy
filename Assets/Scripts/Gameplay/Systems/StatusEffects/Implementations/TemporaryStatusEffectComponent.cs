@@ -31,12 +31,12 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
             _root = root;
         }
 
-        public void Apply(StatsComponent stats)
+        public void Apply(StatsContainer stats)
         {
             _gameUpdateService.OnUpdate += OnUpdate;
         }
 
-        public void Remove(StatsComponent stats)
+        public void Remove(StatsContainer stats)
         {
             _gameUpdateService.OnUpdate -= OnUpdate;
         }

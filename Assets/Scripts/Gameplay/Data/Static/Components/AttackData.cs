@@ -11,7 +11,6 @@ namespace EndlessHeresy.Gameplay.Data.Static.Components
         [SerializeField] private CapsuleOverlapData _overlapData;
         [SerializeField] private Vector2 _offSet;
         [SerializeField] private DamageData _damageData;
-        [SerializeField] private StatPercentageData[] _statsDamageData;
 
         public float Force => _force;
         public float DragForce => _dragForce;

@@ -4,65 +4,44 @@ using System.Threading.Tasks;
 using Better.Commons.Runtime.DataStructures.Properties;
 using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Data.Identifiers;
-using EndlessHeresy.Gameplay.Stats;
+using EndlessHeresy.Gameplay.Data.Static.Components;
+using EndlessHeresy.Gameplay.Stats.Modifiers;
 
 namespace EndlessHeresy.Gameplay.Health
 {
     public sealed class HealthComponent : PocoComponent
     {
         public event Action OnHealthDepleted;
-        public event Action<float> OnTakeDamage;
-        
-        private IStatsReadonly _statsComponent;
-        private ReactiveProperty<int> _healthStat;
-        private ReactiveProperty<int> _maxHealthStat;
+        public event Action<DamageData> OnTakeDamage;
 
-        public int CurrentHp
-        {
-            get => _healthStat.Value;
-            private set => _healthStat.Value = value;
-        }
+        private ReadOnlyReactiveProperty<int> _healthStat;
+        private StatModifiersComponent _statsModifiersComponent;
+
+        public int CurrentHealth => _healthStat.Value;
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
-            _statsComponent = Owner.GetComponent<StatsComponent>();
-            _healthStat = _statsComponent.Get(StatType.CurrentHealth);
-            _maxHealthStat = _statsComponent.Get(StatType.MaxHealth);
+            _statsModifiersComponent = Owner.GetComponent<StatModifiersComponent>();
+            _healthStat = _statsModifiersComponent.GetProcessedStat(StatType.CurrentHealth);
             return Task.CompletedTask;
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(DamageData data)
         {
             if (IsDead())
             {
                 return;
             }
 
-            CurrentHp -= damage;
-            OnTakeDamage?.Invoke(damage);
+            var value = data.Value;
+            var modifierData = new StatModifierData(StatType.CurrentHealth, ModifierType.Subtraction, value);
+            _statsModifiersComponent.Process(modifierData);
+            OnTakeDamage?.Invoke(data);
 
             if (IsDead())
             {
                 OnHealthDepleted?.Invoke();
             }
-        }
-
-        public void Heal(int healAmount)
-        {
-            if (IsDead())
-            {
-                return;
-            }
-
-            var newValue = CurrentHp + healAmount;
-
-            if (newValue > _maxHealthStat.Value)
-            {
-                CurrentHp = _maxHealthStat.Value;
-                return;
-            }
-
-            CurrentHp += healAmount;
         }
 
         public bool IsDead() => _healthStat.Value <= 0;

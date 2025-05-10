@@ -52,23 +52,23 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var abilitiesStorageComponent = new AbilitiesStorageComponent();
             var trailsComponent = new TrailsSpawnerComponent();
             var inventoryComponent = new InventoryComponent();
-            var statsComponent = new StatsComponent();
+            var statsContainer = new StatsContainer();
             var statusEffectsComponent = new StatusEffectsComponent();
             var healthChangeMessages = new HealthChangeMessages();
             var attributesComponent = new AttributesComponent();
             var statModifiersComponent = new StatModifiersComponent();
 
+            statsContainer.SetStats(configuration.DefaultStats);
+            statModifiersComponent.SetContainer(statsContainer);
+            trailsComponent.SetSize(configuration.TrailsPoolData.DefaultCapacity, configuration.TrailsPoolData.MaxSize);
+            abilitiesStorageComponent.SetAbilities(configuration.AbilityConfigurations);
+            inventoryComponent.SetMaxSize(configuration.MaxInventorySize);
             var statesAggregator = GetStatesAggregatorBuilder<HeroActor>()
                 .WithPlugin<HeroTransitionsPlugin>()
                 .WithPlugin<LoggerPlugin<HeroActor>>()
                 .Build();
 
-            statsComponent.SetStats(configuration.DefaultStats);
             statesAggregatorComponent.SetSource(statesAggregator);
-            trailsComponent.SetSize(configuration.TrailsPoolData.DefaultCapacity, configuration.TrailsPoolData.MaxSize);
-            abilitiesStorageComponent.SetAbilities(configuration.AbilityConfigurations);
-            inventoryComponent.SetMaxSize(configuration.MaxInventorySize);
-
             return GetActorBuilder<HeroActor>()
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
@@ -82,7 +82,7 @@ namespace EndlessHeresy.Gameplay.Services.Factory
                 .WithComponent(abilitiesStorageComponent)
                 .WithComponent(inventoryComponent)
                 .WithComponent(mouseFacingComponent)
-                .WithComponent(statsComponent)
+                .WithComponent(statsContainer)
                 .WithComponent(statusEffectsComponent)
                 .WithComponent(inputMovementComponent)
                 .WithComponent(healthChangeMessages)
@@ -95,18 +95,21 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var configuration = _gameplayStaticDataService.PunchingDummyConfiguration;
             var healthComponent = new HealthComponent();
             var healthChangeMessages = new HealthChangeMessages();
-            var statsComponent = new StatsComponent();
+            var statsContainer = new StatsContainer();
             var statusEffectsComponent = new StatusEffectsComponent();
+            var statModifiersComponent = new StatModifiersComponent();
 
-            statsComponent.SetStats(configuration.StatsData);
+            statsContainer.SetStats(configuration.StatsData);
+            statModifiersComponent.SetContainer(statsContainer);
 
             return GetActorBuilder<PunchingDummyActor>()
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
-                .WithComponent(statsComponent)
+                .WithComponent(statsContainer)
                 .WithComponent(statusEffectsComponent)
                 .WithComponent(healthComponent)
                 .WithComponent(healthChangeMessages)
+                .WithComponent(statModifiersComponent)
                 .Build();
         }
 

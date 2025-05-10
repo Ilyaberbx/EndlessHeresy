@@ -27,7 +27,6 @@ MonoBehaviour:
       angle: 0
     _offSet: {x: 0, y: 0}
     _damageData:
+      _value: 10
       _identifier: 1
-      _value: 0
-    _statsDamageData: []
   _keyCode: 103

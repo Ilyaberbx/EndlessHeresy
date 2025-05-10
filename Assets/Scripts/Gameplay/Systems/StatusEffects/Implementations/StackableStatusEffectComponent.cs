@@ -28,9 +28,9 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
         public void Construct(IObjectResolver resolver) => _resolver = resolver;
 
         public void Initialize(IStatusEffectRoot root) => _root = root;
-        public void Apply(StatsComponent stats) => AddStack(stats);
+        public void Apply(StatsContainer stats) => AddStack(stats);
 
-        public void Remove(StatsComponent stats)
+        public void Remove(StatsContainer stats)
         {
             foreach (var effect in _activeStacks.OfType<IRemoveStatusEffect>())
             {
@@ -40,7 +40,7 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
             _activeStacks.Clear();
         }
 
-        private void AddStack(StatsComponent stats)
+        private void AddStack(StatsContainer stats)
         {
             var newStackIndex = _activeStacks.Count + 1;
             var effect = _effectFactory.Invoke(newStackIndex);

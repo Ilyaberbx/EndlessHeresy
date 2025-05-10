@@ -5,18 +5,12 @@ using UnityEngine;
 namespace EndlessHeresy.Gameplay.Data.Static.Components
 {
     [Serializable]
-    public struct DamageData
+    public struct DamageColorData
     {
-        [SerializeField] private int _value;
         [SerializeField] private DamageType _identifier;
+        [SerializeField] private Color _color;
 
         public DamageType Identifier => _identifier;
-        public int Value => _value;
-
-        public DamageData(int value, DamageType identifier)
-        {
-            _value = value;
-            _identifier = identifier;
-        }
+        public Color Color => _color;
     }
 }

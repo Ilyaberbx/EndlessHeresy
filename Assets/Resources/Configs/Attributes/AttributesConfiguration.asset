@@ -15,7 +15,13 @@ MonoBehaviour:
   _data:
   - _identifier: 0
     _modifiers:
-    - _statIdentifier: 0
+    - _statIdentifier: 2
       _identifier: 0
       _value: 2
+    _minValue: 1
+  - _identifier: 1
+    _modifiers:
+    - _statIdentifier: 4
+      _identifier: 2
+      _value: 10
     _minValue: 1

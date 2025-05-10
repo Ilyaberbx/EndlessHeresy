@@ -20,6 +20,7 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
         private ItemConfiguration[] _itemsConfigurations;
         private StatusEffectConfiguration[] _statusEffectsConfiguration;
         private AttributesConfiguration _attributesConfiguration;
+        private DamageColorsConfiguration _damageColorsConfiguration;
         public HeroConfiguration HeroConfiguration => _heroConfiguration;
         public PunchingDummyConfiguration PunchingDummyConfiguration => _punchingDummyConfiguration;
         public FloatingMessagesConfiguration FloatingMessagesConfiguration => _floatingMessagesConfiguration;
@@ -36,7 +37,8 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
                 LoadMessagesConfigurationAsync(),
                 LoadItemsConfigurationAsync(),
                 LoadStatusEffectsConfigurationAsync(),
-                LoadAttributesConfiguration());
+                LoadAttributesConfigurationAsync(),
+                LoadDamageColorsConfigurationAsync());
 
             initializationTask.Forget();
         }
@@ -56,15 +58,26 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
             return _statusEffectsConfiguration.FirstOrDefault(temp => temp.Identifier == identifier);
         }
 
+        public DamageColorData GetDamageColorData(DamageType identifier)
+        {
+            return _damageColorsConfiguration.Data.FirstOrDefault(temp => temp.Identifier == identifier);
+        }
+
         private async Task LoadItemsConfigurationAsync()
         {
             _itemsConfigurations = await _assetsService.LoadAll<ItemConfiguration>(GameplayStaticDataKeys.Items);
         }
 
-        private async Task LoadAttributesConfiguration()
+        private async Task LoadAttributesConfigurationAsync()
         {
             _attributesConfiguration =
                 await _assetsService.Load<AttributesConfiguration>(GameplayStaticDataKeys.Attributes);
+        }
+
+        private async Task LoadDamageColorsConfigurationAsync()
+        {
+            _damageColorsConfiguration =
+                await _assetsService.Load<DamageColorsConfiguration>(GameplayStaticDataKeys.DamageColors);
         }
 
         private async Task LoadMessagesConfigurationAsync()

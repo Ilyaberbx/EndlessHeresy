@@ -28,7 +28,7 @@ namespace EndlessHeresy.Gameplay.StatesAggregator
         public void Install(StatesAggregatorPlugin<TContext> plugin) => _statesAggregator.Install(plugin);
         public void Uninstall(StatesAggregatorPlugin<TContext> plugin) => _statesAggregator.Uninstall(plugin);
 
-        protected override Task OnInitializeAsync(CancellationToken cancellationToken)
+        protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
             if (Owner is TContext context)
             {

@@ -10,20 +10,21 @@ using EndlessHeresy.Gameplay.Utilities;
 
 namespace EndlessHeresy.Gameplay.Stats.Modifiers
 {
-    public sealed class StatModifiersComponent : PocoComponent
+    public sealed class StatModifiersComponent : PocoComponent, IStatModifiersReadonly
     {
-        private StatsComponent _statsComponent;
+        private StatsContainer _statsContainer;
 
         private Dictionary<StatType, List<IStatModifier>> _modifiersMap;
         private Dictionary<StatType, ReactiveProperty<int>> _processedPropertiesMap;
 
-        protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
+        protected override Task OnInitializeAsync(CancellationToken cancellationToken)
         {
-            _statsComponent = Owner.GetComponent<StatsComponent>();
             _modifiersMap = new Dictionary<StatType, List<IStatModifier>>();
             _processedPropertiesMap = new Dictionary<StatType, ReactiveProperty<int>>();
             return Task.CompletedTask;
         }
+
+        public void SetContainer(StatsContainer statsContainer) => _statsContainer = statsContainer;
 
         public void Process(StatModifierData data)
         {
@@ -37,29 +38,29 @@ namespace EndlessHeresy.Gameplay.Stats.Modifiers
 
         public ReadOnlyReactiveProperty<int> GetProcessedStat(StatType identifier)
         {
-            if (!_processedPropertiesMap.ContainsKey(identifier))
+            if (_processedPropertiesMap.TryGetValue(identifier, out var processedProperty))
             {
-                _processedPropertiesMap.Add(identifier, _statsComponent.Get(identifier));
+                return new ReadOnlyReactiveProperty<int>(processedProperty);
             }
 
-            return new ReadOnlyReactiveProperty<int>(_processedPropertiesMap[identifier]);
+            var value = _statsContainer.Get(identifier).Value;
+            var newProperty = new ReactiveProperty<int>(value);
+            _processedPropertiesMap.Add(identifier, newProperty);
+            return new ReadOnlyReactiveProperty<int>(newProperty);
         }
 
         private void Process(StatType identifier, IStatModifier modifier)
         {
             if (!_modifiersMap.TryGetValue(identifier, out var modifiers))
             {
-                _modifiersMap.Add(identifier, new List<IStatModifier>()
-                {
-                    modifier
-                });
-                return;
+                modifiers = new List<IStatModifier>();
+                _modifiersMap.Add(identifier, modifiers);
             }
 
             modifiers.Add(modifier);
             modifiers.Sort(ModifiersPriorityUtility.Comparison);
 
-            var value = _statsComponent.Get(identifier).Value;
+            var value = _statsContainer.Get(identifier).Value;
 
             value = modifiers.Aggregate(value, (current, addedModifier) => addedModifier.Modify(current));
 

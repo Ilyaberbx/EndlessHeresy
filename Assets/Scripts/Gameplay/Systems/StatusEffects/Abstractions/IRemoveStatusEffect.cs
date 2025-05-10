@@ -4,6 +4,6 @@ namespace EndlessHeresy.Gameplay.StatusEffects
 {
     public interface IRemoveStatusEffect
     {
-        void Remove(StatsComponent stats);
+        void Remove(StatsContainer stats);
     }
 }

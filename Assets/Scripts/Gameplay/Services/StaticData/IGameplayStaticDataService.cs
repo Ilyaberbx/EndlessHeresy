@@ -14,5 +14,6 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
         ItemConfiguration GetItemConfiguration(ItemType identifier);
         AttributeData GetAttributeData(AttributeType identifier);
         StatusEffectConfiguration GetStatusEffectConfiguration(StatusEffectType identifier);
+        DamageColorData GetDamageColorData(DamageType identifier);
     }
 }

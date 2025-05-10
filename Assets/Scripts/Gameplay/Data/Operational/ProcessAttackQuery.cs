@@ -5,14 +5,15 @@ namespace EndlessHeresy.Gameplay.Data.Operational
 {
     public struct ProcessAttackQuery
     {
-        public int Damage { get; }
+        public DamageData DamageData;
         public float Force { get; }
         public CapsuleOverlapData OverlapData { get; }
         public Vector2 At { get; }
 
-        public ProcessAttackQuery(int damage, float force, CapsuleOverlapData overlapData, Vector2 at)
+        public ProcessAttackQuery(DamageData damageData, float force, CapsuleOverlapData overlapData,
+            Vector2 at)
         {
-            Damage = damage;
+            DamageData = damageData;
             Force = force;
             OverlapData = overlapData;
             At = at;

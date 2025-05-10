@@ -17,7 +17,7 @@ namespace EndlessHeresy.Gameplay.Conditions
 
         public override bool Invoke()
         {
-            var isAlive = _healthComponent.CurrentHp > 0;
+            var isAlive = _healthComponent.CurrentHealth > 0;
             return isAlive == _state;
         }
 

@@ -29,7 +29,7 @@ namespace EndlessHeresy.Core
             await OnInitializeAsync();
         }
 
-        private Task InitializeComponents()
+        private async Task InitializeComponents()
         {
             _components = _componentsLocator.GetAllComponents();
 
@@ -44,7 +44,19 @@ namespace EndlessHeresy.Core
                 .Select(component => component.InitializeAsync())
                 .ToList();
 
-            return initializationTasks.IsNullOrEmpty() ? Task.CompletedTask : Task.WhenAll(initializationTasks);
+            var postInitializeTasks = components
+                .Select(component => component.PostInitializeAsync())
+                .ToList();
+
+            if (initializationTasks.Any())
+            {
+                await Task.WhenAll(initializationTasks);
+            }
+
+            if (postInitializeTasks.Any())
+            {
+                await Task.WhenAll(postInitializeTasks);
+            }
         }
 
         public void Dispose()

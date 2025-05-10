@@ -4,6 +4,6 @@ namespace EndlessHeresy.Gameplay.StatusEffects
 {
     public interface IApplyStatusEffect
     {
-        void Apply(StatsComponent stats);
+        void Apply(StatsContainer stats);
     }
 }

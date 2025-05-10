@@ -190,7 +190,7 @@ namespace EndlessHeresy.Gameplay.Abilities.CrescentStrike
         {
             _isReady = false;
             _movementComponent.Unlock();
-            _statusEffect.Add(StatusEffectType.Burning);
+            _statusEffect.Add(StatusEffectType.PermanentDeceleration);
             EnterSpinningState();
         }
 
@@ -198,7 +198,7 @@ namespace EndlessHeresy.Gameplay.Abilities.CrescentStrike
         {
             _isFinished = true;
             _movementComponent.Unlock();
-            _statusEffect.Remove(StatusEffectType.Burning);
+            _statusEffect.Remove(StatusEffectType.PermanentDeceleration);
             SetState(AbilityState.Cooldown);
         }
 

@@ -15,7 +15,7 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
             _innerStatusEffects = innerStatusEffects;
         }
 
-        public void Apply(StatsComponent stats)
+        public void Apply(StatsContainer stats)
         {
             foreach (var applyStatusEffect in _innerStatusEffects.OfType<IApplyStatusEffect>())
             {
@@ -28,7 +28,7 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
             }
         }
 
-        public void Remove(StatsComponent stats)
+        public void Remove(StatsContainer stats)
         {
             foreach (var removeStatusEffect in _innerStatusEffects.OfType<IRemoveStatusEffect>())
             {

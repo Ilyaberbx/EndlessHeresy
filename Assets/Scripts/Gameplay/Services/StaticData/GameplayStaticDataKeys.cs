@@ -12,5 +12,6 @@
         public const string Items = Configs + "Items";
         public const string StatusEffects = Configs + "StatusEffects";
         public const string Attributes = Configs + "Attributes";
+        public const string DamageColors = Configs + Vfx + "DamageColorsConfiguration";
     }
 }

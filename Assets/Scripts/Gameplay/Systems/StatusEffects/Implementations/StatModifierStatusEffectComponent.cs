@@ -13,20 +13,24 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
         private readonly StatModifierData _data;
         private StatModifiersComponent _statModifiersComponent;
 
-        public StatModifierStatusEffectComponent(StatModifierData data) => _data = data;
-
-        public void Apply(StatsComponent stats)
+        public StatModifierStatusEffectComponent(StatModifierData data)
         {
-            _statModifiersComponent.Process(_data);
-        }
-
-        public void Remove(StatsComponent stats)
-        {
+            _data = data;
         }
 
         public void Initialize(IStatusEffectRoot root)
         {
             _statModifiersComponent = root.Owner.GetComponent<StatModifiersComponent>();
+        }
+
+        public void Apply(StatsContainer stats)
+        {
+            _statModifiersComponent.Process(_data);
+        }
+
+        public void Remove(StatsContainer stats)
+        {
+            _statModifiersComponent.Reverse(_data);
         }
     }
 }

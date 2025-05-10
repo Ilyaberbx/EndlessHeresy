@@ -11,13 +11,13 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
         private Animator _fxAnimator;
         public VfxStatusEffectComponent(Animator fxAnimatorPrefab) => _fxAnimatorPrefab = fxAnimatorPrefab;
 
-        public void Apply(StatsComponent stats)
+        public void Apply(StatsContainer stats)
         {
             var ownerTransform = stats.Owner.Transform;
             _fxAnimator = CreateVfx(ownerTransform);
         }
 
-        public void Remove(StatsComponent stats) => Object.Destroy(_fxAnimator.gameObject);
+        public void Remove(StatsContainer stats) => Object.Destroy(_fxAnimator.gameObject);
 
         private Animator CreateVfx(Transform ownerTransform) =>
             Object.Instantiate(_fxAnimatorPrefab, ownerTransform.position, Quaternion.identity,

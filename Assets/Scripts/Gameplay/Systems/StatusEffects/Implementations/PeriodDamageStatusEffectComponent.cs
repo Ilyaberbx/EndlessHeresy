@@ -26,14 +26,14 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
 
         public void Initialize(IStatusEffectRoot root) => _root = root;
 
-        public void Apply(StatsComponent stats)
+        public void Apply(StatsContainer stats)
         {
             _elapsedTime = 0;
             _root.Owner.TryGetComponent(out _health);
             _gameUpdateService.OnUpdate += OnUpdate;
         }
 
-        public void Remove(StatsComponent stats)
+        public void Remove(StatsContainer stats)
         {
             _gameUpdateService.OnUpdate -= OnUpdate;
             _health = null;
@@ -48,7 +48,7 @@ namespace EndlessHeresy.Gameplay.StatusEffects.Implementations
                 return;
             }
 
-            _health.TakeDamage(_data.Damage);
+            _health.TakeDamage(_data.DamageData);
             _elapsedTime = 0;
         }
     }

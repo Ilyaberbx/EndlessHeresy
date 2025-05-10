@@ -69,7 +69,7 @@ namespace EndlessHeresy.Gameplay.Abilities
                     continue;
                 }
 
-                healthComponent.TakeDamage(query.Damage);
+                healthComponent.TakeDamage(query.DamageData);
 
 
                 if (healthComponent.IsDead())
@@ -106,7 +106,7 @@ namespace EndlessHeresy.Gameplay.Abilities
                 .AddY(offSet.y)
                 .ToVector2();
 
-            return new ProcessAttackQuery(data.DamageData.Value,
+            return new ProcessAttackQuery(data.DamageData,
                 data.Force,
                 data.OverlapData,
                 at + processedOffSet);
