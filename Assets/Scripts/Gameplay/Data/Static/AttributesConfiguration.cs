@@ -6,8 +6,8 @@ namespace EndlessHeresy.Gameplay.Data.Static
     [CreateAssetMenu(menuName = "Configs/Gameplay/Attributes", fileName = "AttributesConfiguration", order = 0)]
     public sealed class AttributesConfiguration : ScriptableObject
     {
-        [SerializeField] private AttributeData[] _data;
+        [SerializeField] private AttributeConfigurationData[] _data;
 
-        public AttributeData[] Data => _data;
+        public AttributeConfigurationData[] Data => _data;
     }
 }

@@ -1,19 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Better.Commons.Runtime.Utility;
+using Better.Locators.Runtime;
 using EndlessHeresy.Core;
 using EndlessHeresy.Gameplay.Data.Identifiers;
+using EndlessHeresy.Gameplay.Data.Persistant;
+using EndlessHeresy.Gameplay.Data.Static.Components;
 using EndlessHeresy.Gameplay.Services.StaticData;
 using EndlessHeresy.Gameplay.Stats.Modifiers;
 using VContainer;
 
 namespace EndlessHeresy.Gameplay.Attributes
 {
-    public sealed class AttributesComponent : PocoComponent
+    public sealed class AttributesComponent : PocoComponent, IAttributesReadOnly
     {
         private IGameplayStaticDataService _gameplayStaticDataService;
-        private Dictionary<AttributeType, int> _map;
         private StatModifiersComponent _statModifiersComponent;
+        private IReadOnlyList<AttributeData> _attributes;
 
         [Inject]
         public void Construct(IGameplayStaticDataService gameplayStaticDataService)
@@ -23,10 +29,11 @@ namespace EndlessHeresy.Gameplay.Attributes
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
-            _map = new Dictionary<AttributeType, int>();
             _statModifiersComponent = new StatModifiersComponent();
             return Task.CompletedTask;
         }
+
+        public void Setup(IReadOnlyList<AttributeData> attributes) => _attributes = attributes;
 
         public void Increase(AttributeType identifier, int count)
         {
@@ -58,12 +65,16 @@ namespace EndlessHeresy.Gameplay.Attributes
         {
             var configuration = _gameplayStaticDataService.GetAttributeData(identifier);
 
-            if (!_map.TryGetValue(identifier, out var attribute))
+            var existingAttribute = _attributes.SingleOrDefault(attribute => attribute.Identifier == identifier);
+
+            if (existingAttribute == null)
             {
+                DebugUtility.LogException<Exception>($"Can not find: {identifier}");
                 return;
             }
 
-            _map[identifier] = ++attribute;
+            existingAttribute.Value++;
+
             var modifiers = configuration.Modifiers;
 
             foreach (var modifier in modifiers)
@@ -76,19 +87,22 @@ namespace EndlessHeresy.Gameplay.Attributes
         {
             var configuration = _gameplayStaticDataService.GetAttributeData(identifier);
 
-            if (!_map.TryGetValue(identifier, out var attribute))
+            var existingAttribute = _attributes.SingleOrDefault(attribute => attribute.Identifier == identifier);
+
+            if (existingAttribute == null)
             {
+                DebugUtility.LogException<Exception>($"Can not find: {identifier}");
                 return;
             }
 
             var minValue = configuration.MinValue;
 
-            if (attribute <= minValue)
+            if (existingAttribute.Value <= minValue)
             {
                 return;
             }
 
-            _map[identifier] = --attribute;
+            existingAttribute.Value--;
 
             var modifiers = configuration.Modifiers;
 
@@ -96,6 +110,11 @@ namespace EndlessHeresy.Gameplay.Attributes
             {
                 _statModifiersComponent.Reverse(modifier);
             }
+        }
+
+        public IReadOnlyList<AttributeData> GetAll()
+        {
+            return _attributes;
         }
     }
 }
