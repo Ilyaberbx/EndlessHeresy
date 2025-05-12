@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using EndlessHeresy.Gameplay.StatusEffects;
-using EndlessHeresy.UI.MVC;
+using EndlessHeresy.UI.Core;
 
 namespace EndlessHeresy.UI.Huds.StatusEffects
 {

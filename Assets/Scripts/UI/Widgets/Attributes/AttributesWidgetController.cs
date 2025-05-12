@@ -1,8 +1,8 @@
-﻿using EndlessHeresy.UI.MVC;
+﻿using System.Collections.Generic;
+using Better.Commons.Runtime.DataStructures.Properties;
 using EndlessHeresy.Gameplay.Services.StaticData;
-using EndlessHeresy.Gameplay.Data.Identifiers;
-using EndlessHeresy.Gameplay.Data.Static.Components;
-using UnityEngine;
+using EndlessHeresy.Gameplay.Data.Persistant;
+using EndlessHeresy.UI.Core;
 using VContainer;
 
 namespace EndlessHeresy.UI.Widgets.Attributes
@@ -22,19 +22,48 @@ namespace EndlessHeresy.UI.Widgets.Attributes
             base.Show(model, view);
 
             var attributes = model.Attributes.GetAll();
-            for (var i = 0; i < view.AttributesView.Length; i++)
+
+            foreach (var attribute in attributes)
+            {
+                attribute.Subscribe(OnAttributeChanged);
+            }
+
+            UpdateView(attributes);
+        }
+
+        protected override void Hide()
+        {
+            base.Hide();
+
+            foreach (var attribute in Model.Attributes.GetAll())
+            {
+                attribute.Unsubscribe(OnAttributeChanged);
+            }
+        }
+
+        private void UpdateView(IReadOnlyList<ReactiveProperty<AttributeData>> attributes)
+        {
+            for (var i = 0; i < View.AttributesView.Length; i++)
             {
                 if (i >= attributes.Count)
                 {
-                    view.AttributesView[i].gameObject.SetActive(false);
+                    View.AttributesView[i].gameObject.SetActive(false);
                     continue;
                 }
-                
-                var data = _staticDataService.GetAttributeData(attributes[i].Identifier);
-                view.AttributesView[i].SetName(string.IsNullOrEmpty(data.DisplayName) ? attributes[i].Identifier.ToString() : data.DisplayName);
-                view.AttributesView[i].SetIcon(data.Icon);
-                view.AttributesView[i].SetValue(attributes[i].Value);
+
+                var property = attributes[i];
+                var data = _staticDataService.GetAttributeData(property.Value.Identifier);
+                View.AttributesView[i].SetName(string.IsNullOrEmpty(data.DisplayName)
+                    ? property.Value.Identifier.ToString()
+                    : data.DisplayName);
+                View.AttributesView[i].SetIcon(data.Icon);
+                View.AttributesView[i].SetValue(property.Value.Value);
             }
+        }
+
+        private void OnAttributeChanged(AttributeData data)
+        {
+            UpdateView(Model.Attributes.GetAll());
         }
     }
 }

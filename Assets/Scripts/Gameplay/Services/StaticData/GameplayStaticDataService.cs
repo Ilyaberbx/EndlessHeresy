@@ -32,13 +32,15 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
 
         public void Initialize()
         {
-            var initializationTask = Task.WhenAll(LoadHeroConfigurationAsync(),
+            var initializationTask = Task.WhenAll(
+                LoadHeroConfigurationAsync(),
                 LoadDummyConfigurationAsync(),
                 LoadMessagesConfigurationAsync(),
                 LoadItemsConfigurationAsync(),
                 LoadStatusEffectsConfigurationAsync(),
                 LoadAttributesConfigurationAsync(),
-                LoadDamageColorsConfigurationAsync());
+                LoadDamageColorsConfigurationAsync(),
+                LoadAttributesConfigurationAsync());
 
             initializationTask.Forget();
         }

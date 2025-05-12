@@ -7,7 +7,7 @@ using EndlessHeresy.Gameplay.Services.StaticData;
 using EndlessHeresy.Gameplay.Services.Tick;
 using EndlessHeresy.Gameplay.StatusEffects;
 using EndlessHeresy.Gameplay.StatusEffects.Implementations;
-using EndlessHeresy.UI.MVC;
+using EndlessHeresy.UI.Core;
 using EndlessHeresy.UI.ViewComponents;
 using VContainer;
 

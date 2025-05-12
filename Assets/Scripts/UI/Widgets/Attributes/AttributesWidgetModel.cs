@@ -1,5 +1,5 @@
 ﻿using EndlessHeresy.Gameplay.Attributes;
-using EndlessHeresy.UI.MVC;
+using EndlessHeresy.UI.Core;
 
 namespace EndlessHeresy.UI.Widgets.Attributes
 {

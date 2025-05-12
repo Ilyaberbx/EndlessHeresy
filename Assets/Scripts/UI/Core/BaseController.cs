@@ -1,6 +1,6 @@
 using System;
 
-namespace EndlessHeresy.UI.MVC
+namespace EndlessHeresy.UI.Core
 {
     public abstract class BaseController : IDisposable
     {

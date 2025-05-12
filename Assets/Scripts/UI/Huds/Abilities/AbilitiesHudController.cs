@@ -5,7 +5,7 @@ using EndlessHeresy.Gameplay.Abilities.Enums;
 using EndlessHeresy.Gameplay.Data.Static;
 using EndlessHeresy.Gameplay.Services.StaticData;
 using EndlessHeresy.Gameplay.Services.Tick;
-using EndlessHeresy.UI.MVC;
+using EndlessHeresy.UI.Core;
 using EndlessHeresy.UI.ViewComponents;
 using VContainer;
 

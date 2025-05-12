@@ -8,5 +8,11 @@ namespace EndlessHeresy.Gameplay.Data.Persistant
     {
         public AttributeType Identifier;
         public int Value;
+
+        public AttributeData(AttributeType identifier, int value)
+        {
+            Identifier = identifier;
+            Value = value;
+        }
     }
 }

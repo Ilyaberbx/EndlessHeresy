@@ -4,6 +4,7 @@ using EndlessHeresy.Global.Services.AssetsManagement;
 using EndlessHeresy.Global.Services.StatesManagement;
 using EndlessHeresy.Global.States.Factory;
 using EndlessHeresy.UI.Services.Huds;
+using EndlessHeresy.UI.Services.Modals;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -13,6 +14,7 @@ namespace EndlessHeresy.Global
     public sealed class GlobalLifetimeScope : LifetimeScope
     {
         [SerializeField] private Transform _hudsRoot;
+        [SerializeField] private Transform _modalsRoot;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -23,6 +25,7 @@ namespace EndlessHeresy.Global
             builder.Register<IAssetsService, ResourcesService>(Lifetime.Singleton);
             builder.RegisterEntryPoint<GameplayStaticDataService>();
             builder.Register<IHudsService, HudsService>(Lifetime.Singleton).WithParameter(_hudsRoot);
+            builder.Register<IModalsService, ModalsService>(Lifetime.Singleton).WithParameter(_modalsRoot);
         }
     }
 }

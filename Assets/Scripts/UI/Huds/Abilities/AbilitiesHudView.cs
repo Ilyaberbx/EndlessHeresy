@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using EndlessHeresy.UI.MVC;
+using EndlessHeresy.UI.Core;
 using EndlessHeresy.UI.ViewComponents;
 using UnityEngine;
 

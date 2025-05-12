@@ -1,6 +1,6 @@
 ﻿using Better.Commons.Runtime.DataStructures.Properties;
 using EndlessHeresy.Gameplay.Data.Identifiers;
-using EndlessHeresy.UI.MVC;
+using EndlessHeresy.UI.Core;
 
 namespace EndlessHeresy.UI.Huds.Stats
 {

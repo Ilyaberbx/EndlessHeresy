@@ -19,9 +19,37 @@ MonoBehaviour:
       _identifier: 0
       _value: 2
     _minValue: 1
+    _displayName: FVR
+    _icon: {fileID: 21300000, guid: de2cc86fdcd2f69439c8b98ebc3efcc4, type: 3}
   - _identifier: 1
     _modifiers:
     - _statIdentifier: 4
       _identifier: 2
       _value: 10
     _minValue: 1
+    _displayName: VTY
+    _icon: {fileID: 21300000, guid: de2cc86fdcd2f69439c8b98ebc3efcc4, type: 3}
+  - _identifier: 2
+    _modifiers:
+    - _statIdentifier: 4
+      _identifier: 2
+      _value: 10
+    _minValue: 1
+    _displayName: WIL
+    _icon: {fileID: 21300000, guid: de2cc86fdcd2f69439c8b98ebc3efcc4, type: 3}
+  - _identifier: 3
+    _modifiers:
+    - _statIdentifier: 4
+      _identifier: 2
+      _value: 10
+    _minValue: 1
+    _displayName: RNC
+    _icon: {fileID: 21300000, guid: de2cc86fdcd2f69439c8b98ebc3efcc4, type: 3}
+  - _identifier: 4
+    _modifiers:
+    - _statIdentifier: 4
+      _identifier: 2
+      _value: 10
+    _minValue: 1
+    _displayName: INT
+    _icon: {fileID: 21300000, guid: de2cc86fdcd2f69439c8b98ebc3efcc4, type: 3}

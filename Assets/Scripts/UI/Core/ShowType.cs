@@ -1,4 +1,4 @@
-﻿namespace EndlessHeresy.UI.Services.Huds
+﻿namespace EndlessHeresy.UI.Core
 {
     public enum ShowType
     {

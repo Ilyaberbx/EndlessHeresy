@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Better.Commons.Runtime.DataStructures.Properties;
 using Better.Commons.Runtime.Utility;
 using Better.Locators.Runtime;
 using EndlessHeresy.Core;
@@ -19,7 +20,8 @@ namespace EndlessHeresy.Gameplay.Attributes
     {
         private IGameplayStaticDataService _gameplayStaticDataService;
         private StatModifiersComponent _statModifiersComponent;
-        private IReadOnlyList<AttributeData> _attributes;
+        private IReadOnlyList<AddAttributeData> _initialAttributes;
+        private List<ReactiveProperty<AttributeData>> _attributes;
 
         [Inject]
         public void Construct(IGameplayStaticDataService gameplayStaticDataService)
@@ -27,13 +29,33 @@ namespace EndlessHeresy.Gameplay.Attributes
             _gameplayStaticDataService = gameplayStaticDataService;
         }
 
-        protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
+        protected override Task OnInitializeAsync(CancellationToken cancellationToken)
         {
-            _statModifiersComponent = new StatModifiersComponent();
+            _attributes = new List<ReactiveProperty<AttributeData>>();
             return Task.CompletedTask;
         }
 
-        public void Setup(IReadOnlyList<AttributeData> attributes) => _attributes = attributes;
+        protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
+        {
+            _statModifiersComponent = Owner.GetComponent<StatModifiersComponent>();
+
+            foreach (var initialAttribute in _initialAttributes)
+            {
+                Increase(initialAttribute.Identifier, initialAttribute.Value);
+            }
+
+            return Task.CompletedTask;
+        }
+
+        public IReadOnlyList<ReactiveProperty<AttributeData>> GetAll()
+        {
+            return _attributes.AsReadOnly();
+        }
+
+        public void SetAttributes(IReadOnlyList<AddAttributeData> data)
+        {
+            _initialAttributes = data;
+        }
 
         public void Increase(AttributeType identifier, int count)
         {
@@ -65,29 +87,31 @@ namespace EndlessHeresy.Gameplay.Attributes
         {
             var configuration = _gameplayStaticDataService.GetAttributeData(identifier);
 
-            var existingAttribute = _attributes.SingleOrDefault(attribute => attribute.Identifier == identifier);
+            var existingAttribute = _attributes.SingleOrDefault(attribute => attribute.Value.Identifier == identifier);
 
             if (existingAttribute == null)
             {
-                DebugUtility.LogException<Exception>($"Can not find: {identifier}");
+                _attributes.Add(GetNewAttributeProperty(identifier, configuration));
+                ProcessModifiers(configuration);
                 return;
             }
 
-            existingAttribute.Value++;
+            existingAttribute.Value.Value++;
 
-            var modifiers = configuration.Modifiers;
+            ProcessModifiers(configuration);
+        }
 
-            foreach (var modifier in modifiers)
-            {
-                _statModifiersComponent.Process(modifier);
-            }
+        private ReactiveProperty<AttributeData> GetNewAttributeProperty(AttributeType identifier,
+            AttributeConfigurationData configuration)
+        {
+            return new ReactiveProperty<AttributeData>(new AttributeData(identifier, configuration.MinValue));
         }
 
         private void DecreaseOne(AttributeType identifier)
         {
             var configuration = _gameplayStaticDataService.GetAttributeData(identifier);
 
-            var existingAttribute = _attributes.SingleOrDefault(attribute => attribute.Identifier == identifier);
+            var existingAttribute = _attributes.SingleOrDefault(attribute => attribute.Value.Identifier == identifier);
 
             if (existingAttribute == null)
             {
@@ -97,12 +121,12 @@ namespace EndlessHeresy.Gameplay.Attributes
 
             var minValue = configuration.MinValue;
 
-            if (existingAttribute.Value <= minValue)
+            if (existingAttribute.Value.Value <= minValue)
             {
                 return;
             }
 
-            existingAttribute.Value--;
+            existingAttribute.Value.Value--;
 
             var modifiers = configuration.Modifiers;
 
@@ -112,9 +136,14 @@ namespace EndlessHeresy.Gameplay.Attributes
             }
         }
 
-        public IReadOnlyList<AttributeData> GetAll()
+        private void ProcessModifiers(AttributeConfigurationData data)
         {
-            return _attributes;
+            var modifiers = data.Modifiers;
+
+            foreach (var modifier in modifiers)
+            {
+                _statModifiersComponent.Process(modifier);
+            }
         }
     }
 }

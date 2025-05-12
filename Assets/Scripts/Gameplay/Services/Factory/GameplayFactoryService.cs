@@ -57,8 +57,9 @@ namespace EndlessHeresy.Gameplay.Services.Factory
             var healthChangeMessages = new HealthChangeMessages();
             var attributesComponent = new AttributesComponent();
             var statModifiersComponent = new StatModifiersComponent();
-
+            
             statsContainer.SetStats(configuration.DefaultStats);
+            attributesComponent.SetAttributes(configuration.DefaultAttributes);
             statModifiersComponent.SetContainer(statsContainer);
             trailsComponent.SetSize(configuration.TrailsPoolData.DefaultCapacity, configuration.TrailsPoolData.MaxSize);
             abilitiesStorageComponent.SetAbilities(configuration.AbilityConfigurations);

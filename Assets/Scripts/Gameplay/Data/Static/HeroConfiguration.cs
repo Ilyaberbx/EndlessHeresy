@@ -10,6 +10,7 @@ namespace EndlessHeresy.Gameplay.Data.Static
     public sealed class HeroConfiguration : ScriptableObject
     {
         [SerializeField] private AddStatData[] _defaultStats;
+        [SerializeField] private AddAttributeData[] _defaultAttributes;
         [SerializeField] private HeroActor _prefab;
         [SerializeField, Range(0, 50)] private int _maxInventorySize;
         [SerializeField] private AbilityConfiguration[] _abilityConfigurations;
@@ -20,5 +21,6 @@ namespace EndlessHeresy.Gameplay.Data.Static
         public PoolData TrailsPoolData => _trailsPoolData;
         public int MaxInventorySize => _maxInventorySize;
         public IReadOnlyList<AddStatData> DefaultStats => _defaultStats;
+        public IReadOnlyList<AddAttributeData> DefaultAttributes => _defaultAttributes;
     }
 }

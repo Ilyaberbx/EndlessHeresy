@@ -1,5 +1,5 @@
 ﻿using EndlessHeresy.Gameplay.Stats.Modifiers;
-using EndlessHeresy.UI.MVC;
+using EndlessHeresy.UI.Core;
 
 namespace EndlessHeresy.UI.Huds.Stats
 {

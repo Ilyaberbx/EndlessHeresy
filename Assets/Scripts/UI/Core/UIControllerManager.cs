@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EndlessHeresy.Global.Services.AssetsManagement;
-using EndlessHeresy.UI.MVC;
 using UnityEngine;
 using VContainer;
 
@@ -22,7 +21,7 @@ namespace EndlessHeresy.UI.Core
             _resolver = resolver;
         }
 
-        public async Task<TController> ShowAsync<TController, TModel>(TModel model, string viewPath, bool additive = true)
+        public async Task<TController> ShowAsync<TController, TModel>(TModel model, string viewPath, ShowType showType)
             where TController : BaseController<TModel>, new()
             where TModel : IModel
         {
@@ -31,7 +30,7 @@ namespace EndlessHeresy.UI.Core
             if (viewPrefab == null)
                 return null;
 
-            if (!additive)
+            if (showType == ShowType.Single)
                 HideAll();
 
             var at = _root.GetComponent<RectTransform>().position;

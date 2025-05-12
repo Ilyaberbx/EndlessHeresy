@@ -23,6 +23,17 @@ MonoBehaviour:
     _identifier: 3
   - _value: 8000
     _identifier: 4
+  _defaultAttributes:
+  - _identifier: 0
+    _value: 1
+  - _identifier: 1
+    _value: 1
+  - _identifier: 2
+    _value: 1
+  - _identifier: 3
+    _value: 1
+  - _identifier: 4
+    _value: 1
   _prefab: {fileID: 5753913375855388206, guid: 8e2cf937bc869244caf19c5c4dae8fdc, type: 3}
   _maxInventorySize: 50
   _abilityConfigurations:
@@ -33,26 +44,3 @@ MonoBehaviour:
   _trailsPoolData:
     _defaultCapacity: 5
     _maxSize: 10000
-  _attributeData:
-    _identifier: 1
-    _onAddModifiers:
-    - _statIdentifier: 5
-      _identifier: 2
-      _value: 20
-    - _statIdentifier: 2
-      _identifier: 0
-      _value: 2
-    - _statIdentifier: 11
-      _identifier: 2
-      _value: 10
-    _onRemoveModifiers:
-    - _statIdentifier: 5
-      _identifier: 3
-      _value: 20
-    - _statIdentifier: 2
-      _identifier: 1
-      _value: 2
-    - _statIdentifier: 11
-      _identifier: 3
-      _value: 10
-    _minValue: 1
