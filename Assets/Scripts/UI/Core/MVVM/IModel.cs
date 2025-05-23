@@ -1,4 +1,4 @@
-namespace EndlessHeresy.UI.Core
+namespace EndlessHeresy.UI.Core.MVVM
 {
     public interface IModel
     {

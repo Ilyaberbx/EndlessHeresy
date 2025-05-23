@@ -1,6 +1,7 @@
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using EndlessHeresy.Global.Services.AssetsManagement;
-using EndlessHeresy.UI.Core;    
+using EndlessHeresy.UI.Core;
+using EndlessHeresy.UI.Core.MVVM;
 using UnityEngine;
 using VContainer;
 
@@ -19,7 +20,7 @@ namespace EndlessHeresy.UI.Services.Huds
         }
 
         public Task<TController> ShowAsync<TController, TModel>(TModel model, ShowType showType)
-            where TController : BaseController<TModel>, new()
+            where TController : BaseViewModel<TModel>, new()
             where TModel : IModel
         {
             var controllerName = typeof(TController).Name;

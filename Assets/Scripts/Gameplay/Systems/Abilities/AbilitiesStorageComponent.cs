@@ -3,8 +3,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EndlessHeresy.Core;
-using EndlessHeresy.UI.Huds.Abilities;
-using EndlessHeresy.UI.Services.Huds;
 using VContainer;
 
 namespace EndlessHeresy.Gameplay.Abilities

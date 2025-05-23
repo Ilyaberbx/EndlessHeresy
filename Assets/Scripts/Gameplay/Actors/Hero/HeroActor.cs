@@ -6,16 +6,10 @@ using EndlessHeresy.Gameplay.Attributes;
 using EndlessHeresy.Gameplay.Data.Identifiers;
 using EndlessHeresy.Gameplay.Data.Static.Components;
 using EndlessHeresy.Gameplay.Health;
-using EndlessHeresy.Gameplay.Services.Factory;
 using EndlessHeresy.Gameplay.Stats.Modifiers;
 using EndlessHeresy.Gameplay.StatusEffects;
 using EndlessHeresy.UI.Core;
-using EndlessHeresy.UI.Huds.Abilities;
-using EndlessHeresy.UI.Huds.Stats;
-using EndlessHeresy.UI.Huds.StatusEffects;
-using EndlessHeresy.UI.Modals.Inventory;
 using EndlessHeresy.UI.Services.Huds;
-using EndlessHeresy.UI.Services.Modals;
 using UnityEngine;
 using VContainer;
 
@@ -24,7 +18,6 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
     public sealed class HeroActor : MonoActor, IStateMachineContext
     {
         private IHudsService _hudsService;
-        private IModalsService _modalsService;
 
         private HealthComponent _healthComponent;
         private AbilitiesStorageComponent _abilitiesStorage;
@@ -33,23 +26,21 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
         private AttributesComponent _attributesComponent;
 
         [Inject]
-        public void Construct(IHudsService hudsService, IModalsService modalsService)
+        public void Construct(IHudsService hudsService)
         {
             _hudsService = hudsService;
-            _modalsService = modalsService;
         }
 
-        protected override async Task OnInitializeAsync()
+        protected override Task OnInitializeAsync()
         {
-            await base.OnInitializeAsync();
-
             _healthComponent = GetComponent<HealthComponent>();
             _abilitiesStorage = GetComponent<AbilitiesStorageComponent>();
             _statModifiersComponent = GetComponent<StatModifiersComponent>();
             _statusEffectsStorage = GetComponent<StatusEffectsComponent>();
             _attributesComponent = GetComponent<AttributesComponent>();
 
-            await Task.WhenAll(ShowAbilitiesHudAsync(), ShowStatsHudAsync(), ShowStatusEffectsHudAsync());
+            return Task.CompletedTask;
+            // return Task.WhenAll(ShowAbilitiesHudAsync(), ShowStatsHudAsync(), ShowStatusEffectsHudAsync());
         }
 
 
@@ -65,12 +56,6 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
                 _statusEffectsStorage.Add(StatusEffectType.Burning);
             }
 
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                _modalsService.ShowAsync<InventoryModalController, InventoryModalModel>(
-                    new InventoryModalModel(_attributesComponent));
-            }
-
             if (Input.GetKeyDown(KeyCode.K))
             {
                 _attributesComponent.Increase(AttributeType.Fervor, 5);
@@ -79,22 +64,22 @@ namespace EndlessHeresy.Gameplay.Actors.Hero
             }
         }
 
-        private Task ShowAbilitiesHudAsync()
-        {
-            var model = new AbilitiesHudModel(_abilitiesStorage.Abilities);
-            return _hudsService.ShowAsync<AbilitiesHudController, AbilitiesHudModel>(model, ShowType.Additive);
-        }
-
-        private Task ShowStatusEffectsHudAsync()
-        {
-            var model = new StatusEffectsHudModel(_statusEffectsStorage);
-            return _hudsService.ShowAsync<StatusEffectsHudController, StatusEffectsHudModel>(model, ShowType.Additive);
-        }
-
-        private Task ShowStatsHudAsync()
-        {
-            var model = new StatsHudModel(_statModifiersComponent);
-            return _hudsService.ShowAsync<StatsHudController, StatsHudModel>(model, ShowType.Additive);
-        }
+        // private Task ShowAbilitiesHudAsync()
+        // {
+        //     var model = new AbilitiesHudModel(_abilitiesStorage.Abilities);
+        //     return _hudsService.ShowAsync<AbilitiesHudController, AbilitiesHudModel>(model, ShowType.Additive);
+        // }
+        //
+        // private Task ShowStatusEffectsHudAsync()
+        // {
+        //     var model = new StatusEffectsHudModel(_statusEffectsStorage);
+        //     return _hudsService.ShowAsync<StatusEffectsHudController, StatusEffectsHudModel>(model, ShowType.Additive);
+        // }
+        //
+        // private Task ShowStatsHudAsync()
+        // {
+        //     var model = new StatsHudModel(_statModifiersComponent);
+        //     return _hudsService.ShowAsync<StatsHudController, StatsHudModel>(model, ShowType.Additive);
+        // }
     }
 }

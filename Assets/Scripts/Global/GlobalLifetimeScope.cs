@@ -3,8 +3,6 @@ using EndlessHeresy.Gameplay.Services.Tick;
 using EndlessHeresy.Global.Services.AssetsManagement;
 using EndlessHeresy.Global.Services.StatesManagement;
 using EndlessHeresy.Global.States.Factory;
-using EndlessHeresy.UI.Services.Huds;
-using EndlessHeresy.UI.Services.Modals;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -24,8 +22,6 @@ namespace EndlessHeresy.Global
             builder.Register<GameUpdateService>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<IAssetsService, ResourcesService>(Lifetime.Singleton);
             builder.RegisterEntryPoint<GameplayStaticDataService>();
-            builder.Register<IHudsService, HudsService>(Lifetime.Singleton).WithParameter(_hudsRoot);
-            builder.Register<IModalsService, ModalsService>(Lifetime.Singleton).WithParameter(_modalsRoot);
         }
     }
 }

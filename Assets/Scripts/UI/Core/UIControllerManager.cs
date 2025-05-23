@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EndlessHeresy.Global.Services.AssetsManagement;
+using EndlessHeresy.UI.Core.MVVM;
 using UnityEngine;
 using VContainer;
 
@@ -12,17 +13,19 @@ namespace EndlessHeresy.UI.Core
         private readonly IAssetsService _assetsService;
         private readonly IObjectResolver _resolver;
         private readonly Transform _root;
-        private readonly List<BaseController> _controllers = new();
+        private readonly Dictionary<BaseView, BaseViewModel> _viewMap;
 
         public UIControllerManager(Transform root, IAssetsService assetsService, IObjectResolver resolver)
         {
             _root = root;
             _assetsService = assetsService;
             _resolver = resolver;
+            _viewMap = new Dictionary<BaseView, BaseViewModel>();
         }
 
-        public async Task<TController> ShowAsync<TController, TModel>(TModel model, string viewPath, ShowType showType)
-            where TController : BaseController<TModel>, new()
+        public async Task<TBaseViewModel> ShowAsync<TBaseViewModel, TModel>(TModel model, string viewPath,
+            ShowType showType)
+            where TBaseViewModel : BaseViewModel<TModel>, new()
             where TModel : IModel
         {
             var viewPrefab = await _assetsService.Load<BaseView>(viewPath);
@@ -35,46 +38,44 @@ namespace EndlessHeresy.UI.Core
 
             var at = _root.GetComponent<RectTransform>().position;
             var view = Object.Instantiate(viewPrefab, at, Quaternion.identity, _root);
-            var controller = new TController();
+            var viewModel = new TBaseViewModel();
 
-            _resolver.Inject(controller);
-            controller.Initialize(view, model);
-            _controllers.Add(controller);
-
-            return controller;
+            _resolver.Inject(viewModel);
+            viewModel.Initialize(model);
+            view.Initialize(viewModel);
+            _viewMap.Add(view, viewModel);
+            return viewModel;
         }
 
         public void HideAll()
         {
-            if (_controllers.Count == 0)
+            if (_viewMap.Count == 0)
                 return;
 
-            foreach (var controller in _controllers)
+            foreach (var viewPair in _viewMap)
             {
-                var viewGameObject = controller.DerivedView.gameObject;
-                controller.Dispose();
-                Object.Destroy(viewGameObject);
+                viewPair.Value.Dispose();
+                Object.Destroy(viewPair.Key);
             }
-            _controllers.Clear();
+
+            _viewMap.Clear();
         }
 
-        public void HideAllOfType<TController>() where TController : BaseController
+        public void HideAllOfType<TViewModel>() where TViewModel : BaseViewModel
         {
-            var controllers = _controllers.OfType<TController>().ToList();
+            var viewPairs = _viewMap.Where(pair => pair.Value is TViewModel).ToArray();
 
-            if (controllers.Count == 0)
+            if (viewPairs.Length == 0)
             {
                 return;
             }
-            
-            
-            foreach (var controller in controllers)
+
+            foreach (var viewPair in viewPairs.ToArray())
             {
-                var viewGameObject = controller.DerivedView.gameObject;
-                controller.Dispose();
-                Object.Destroy(viewGameObject);
-                _controllers.Remove(controller);
+                viewPair.Value.Dispose();
+                Object.Destroy(viewPair.Key);
+                _viewMap.Remove(viewPair.Key);
             }
         }
     }
-} 
+}

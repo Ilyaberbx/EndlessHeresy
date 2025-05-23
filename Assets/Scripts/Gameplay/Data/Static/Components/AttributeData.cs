@@ -6,7 +6,7 @@ using UnityEngine;
 namespace EndlessHeresy.Gameplay.Data.Static.Components
 {
     [Serializable]
-    public struct AttributeConfigurationData
+    public struct AttributeData
     {
         [SerializeField] private AttributeType _identifier;
         [SerializeField] private List<StatModifierData> _modifiers;

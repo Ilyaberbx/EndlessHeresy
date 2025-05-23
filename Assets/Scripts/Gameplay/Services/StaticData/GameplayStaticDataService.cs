@@ -50,7 +50,7 @@ namespace EndlessHeresy.Gameplay.Services.StaticData
             return _itemsConfigurations.FirstOrDefault(temp => temp.Identifier == identifier);
         }
 
-        public AttributeConfigurationData GetAttributeData(AttributeType identifier)
+        public AttributeData GetAttributeData(AttributeType identifier)
         {
             return _attributesConfiguration.Data.FirstOrDefault(temp => temp.Identifier == identifier);
         }
