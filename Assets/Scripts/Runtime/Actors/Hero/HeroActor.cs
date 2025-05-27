@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
-using EndlessHeresy.Meta.UI.Services.Huds;
 using EndlessHeresy.Runtime.Abilities;
 using EndlessHeresy.Runtime.Attributes;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Health;
+using EndlessHeresy.Runtime.Services.Huds;
 using EndlessHeresy.Runtime.States;
 using EndlessHeresy.Runtime.Stats.Modifiers;
 using EndlessHeresy.Runtime.StatusEffects;

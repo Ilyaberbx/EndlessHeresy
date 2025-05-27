@@ -5,7 +5,8 @@ using EndlessHeresy.Runtime.Animations;
 using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Generic;
 using EndlessHeresy.Runtime.Input;
-using EndlessHeresy.Runtime.Tick;
+using EndlessHeresy.Runtime.Services.Input;
+using EndlessHeresy.Runtime.Services.Tick;
 using UnityEngine;
 using VContainer;
 

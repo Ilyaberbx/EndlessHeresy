@@ -1,7 +1,6 @@
 ﻿using Better.Commons.Runtime.Extensions;
 using Better.Conditions.Runtime;
 using Better.StateMachine.Runtime.Modules.Transitions;
-using EndlessHeresy.Extensions;
 using EndlessHeresy.Runtime.Abilities;
 using EndlessHeresy.Runtime.Abilities.Conditions;
 using EndlessHeresy.Runtime.Abilities.CrescentStrike;
@@ -9,6 +8,7 @@ using EndlessHeresy.Runtime.Abilities.DoubleAttack;
 using EndlessHeresy.Runtime.Abilities.SingleAttack;
 using EndlessHeresy.Runtime.Actors.Hero;
 using EndlessHeresy.Runtime.Actors.Hero.States;
+using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.Health;
 
 namespace EndlessHeresy.Runtime.States.Aggregator.Plugins

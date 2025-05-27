@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Health;
-using EndlessHeresy.Runtime.Scopes.Gameplay.Services.Factory;
+using EndlessHeresy.Runtime.Services.Gameplay.Factory;
 using VContainer;
 
 namespace EndlessHeresy.Runtime.Actors.Enemies

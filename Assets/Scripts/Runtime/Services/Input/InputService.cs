@@ -1,0 +1,32 @@
+using UnityEngine;
+
+namespace EndlessHeresy.Runtime.Services.Input
+{
+    public sealed class InputService : IInputService
+    {
+        private bool _isLocked;
+
+        public void Lock()
+        {
+            _isLocked = true;
+        }
+
+        public void Unlock()
+        {
+            _isLocked = false;
+        }
+
+        public Vector2 GetMovementInput()
+        {
+            var horizontal = UnityEngine.Input.GetAxisRaw("Horizontal");
+            var vertical = UnityEngine.Input.GetAxisRaw("Vertical");
+            return new Vector2(horizontal, vertical);
+        }
+
+        public Vector2 GetMousePosition() => UnityEngine.Input.mousePosition;
+        public bool GetKeyDown(KeyCode key) => !_isLocked && UnityEngine.Input.GetKeyDown(key);
+        public bool GetMouseButton(int button) => !_isLocked && UnityEngine.Input.GetMouseButton(button);
+        public bool GetMouseButtonDown(int button) => !_isLocked && UnityEngine.Input.GetMouseButtonDown(button);
+        public bool GetKey(KeyCode key) => !_isLocked && UnityEngine.Input.GetKey(key);
+    }
+}

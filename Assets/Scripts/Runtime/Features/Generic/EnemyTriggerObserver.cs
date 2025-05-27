@@ -1,4 +1,4 @@
-﻿using EndlessHeresy.Runtime.Supporting.Tags;
+﻿using EndlessHeresy.Runtime.Tags;
 
 namespace EndlessHeresy.Runtime.Generic
 {

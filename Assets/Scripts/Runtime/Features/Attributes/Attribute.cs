@@ -1,7 +1,7 @@
-﻿using EndlessHeresy.Meta.UI.Core.MVVM;
-using EndlessHeresy.Runtime.Data.Identifiers;
+﻿using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Persistant;
 using EndlessHeresy.Runtime.Data.Static.Components;
+using EndlessHeresy.Runtime.UI.Core.MVVM;
 using UniRx;
 using UnityEngine;
 

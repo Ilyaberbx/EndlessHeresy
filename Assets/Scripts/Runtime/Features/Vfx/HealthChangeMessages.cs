@@ -6,7 +6,8 @@ using EndlessHeresy.Runtime.Data.Operational;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.FloatingMessages;
 using EndlessHeresy.Runtime.Health;
-using EndlessHeresy.Runtime.Scopes.Gameplay.Services.StaticData;
+using EndlessHeresy.Runtime.Services.FloatingMessages;
+using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using UnityEngine;
 using VContainer;
 

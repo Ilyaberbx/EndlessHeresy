@@ -1,12 +1,12 @@
 ﻿using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using DG.Tweening;
-using EndlessHeresy.Extensions;
 using EndlessHeresy.Runtime.Data.Identifiers;
+using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.Generic;
 using EndlessHeresy.Runtime.Inventory;
-using EndlessHeresy.Runtime.Scopes.Gameplay.Services.Factory;
-using EndlessHeresy.Runtime.Supporting.Tags;
+using EndlessHeresy.Runtime.Services.Gameplay.Factory;
+using EndlessHeresy.Runtime.Tags;
 using UnityEngine;
 using VContainer;
 

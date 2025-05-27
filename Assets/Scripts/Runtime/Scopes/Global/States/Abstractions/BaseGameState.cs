@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Better.StateMachine.Runtime.States;
+using EndlessHeresy.Runtime.Services.Global.States;
 using VContainer;
 
 namespace EndlessHeresy.Runtime.Scopes.Global.States

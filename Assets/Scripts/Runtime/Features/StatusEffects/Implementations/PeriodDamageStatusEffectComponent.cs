@@ -1,7 +1,7 @@
 ﻿using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Health;
+using EndlessHeresy.Runtime.Services.Tick;
 using EndlessHeresy.Runtime.Stats;
-using EndlessHeresy.Runtime.Tick;
 using UnityEngine;
 using VContainer;
 

@@ -1,5 +1,5 @@
-﻿using EndlessHeresy.Meta.UI.ViewComponents;
-using EndlessHeresy.Runtime.Data.Static.Components;
+﻿using EndlessHeresy.Runtime.Data.Static.Components;
+using EndlessHeresy.Runtime.FloatingMessages;
 using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Data.Static

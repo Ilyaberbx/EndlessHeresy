@@ -1,6 +1,6 @@
 ﻿using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Data.Identifiers;
-using EndlessHeresy.Runtime.Tick;
+using EndlessHeresy.Runtime.Services.Tick;
 using UnityEngine;
 using VContainer;
 

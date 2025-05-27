@@ -1,6 +1,6 @@
 ﻿using System;
-using EndlessHeresy.Meta.UI.Core.MVVM;
 using EndlessHeresy.Runtime.Data.Identifiers;
+using EndlessHeresy.Runtime.UI.Core.MVVM;
 
 namespace EndlessHeresy.Runtime.Data.Persistant
 {

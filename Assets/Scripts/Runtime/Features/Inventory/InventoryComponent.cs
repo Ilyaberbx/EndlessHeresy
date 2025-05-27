@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Data.Identifiers;
-using EndlessHeresy.Runtime.Scopes.Gameplay.Services.StaticData;
+using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using UnityEngine;
 using VContainer;
 

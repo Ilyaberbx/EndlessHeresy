@@ -1,8 +1,7 @@
 ﻿using Better.Commons.Runtime.Extensions;
 using DG.Tweening;
-using EndlessHeresy.Meta.UI.ViewComponents;
 using EndlessHeresy.Runtime.Data.Static;
-using EndlessHeresy.Runtime.Scopes.Gameplay.Services.StaticData;
+using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using UnityEngine;
 using VContainer.Unity;
 

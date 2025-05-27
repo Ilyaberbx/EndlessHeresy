@@ -1,19 +1,19 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Better.Commons.Runtime.DataStructures.Properties;
 using Better.Locators.Runtime;
-using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.StatusEffects;
-using EndlessHeresy.Runtime.Scopes.Gameplay.Services.StaticData;
+using EndlessHeresy.Runtime.Extensions;
+using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using EndlessHeresy.Runtime.Stats;
 using EndlessHeresy.Runtime.StatusEffects.Builder;
 using EndlessHeresy.Runtime.StatusEffects.Implementations;
+using UniRx;
 using VContainer;
 
 namespace EndlessHeresy.Runtime.StatusEffects
 {
-    public sealed class StatusEffectsComponent : PocoComponent, IStatusEffects
+    public sealed class StatusEffectsComponent : PocoComponent, IStatusEffectsReadOnly
     {
         private IGameplayStaticDataService _gameStaticDataService;
         private IObjectResolver _resolver;
@@ -21,7 +21,7 @@ namespace EndlessHeresy.Runtime.StatusEffects
 
         private ReactiveProperty<Locator<StatusEffectType, IStatusEffectRoot>> _activeEffectsProperty;
 
-        public ReadOnlyReactiveProperty<Locator<StatusEffectType, IStatusEffectRoot>> ActiveStatusEffects
+        public IReadOnlyReactiveProperty<Locator<StatusEffectType, IStatusEffectRoot>> ActiveStatusEffects
         {
             get;
             private set;

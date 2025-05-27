@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using DG.Tweening;
-using EndlessHeresy.Extensions;
 using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Data.Operational;
+using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.Facing;
 using UnityEngine;
 using UnityEngine.Pool;

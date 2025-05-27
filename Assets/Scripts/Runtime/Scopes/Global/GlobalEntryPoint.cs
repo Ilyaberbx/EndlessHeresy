@@ -1,5 +1,6 @@
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Scopes.Global.States;
+using EndlessHeresy.Runtime.Services.Global.States;
 using VContainer.Unity;
 
 namespace EndlessHeresy.Runtime.Scopes.Global

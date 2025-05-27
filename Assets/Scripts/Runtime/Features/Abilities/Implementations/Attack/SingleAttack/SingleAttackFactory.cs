@@ -1,5 +1,5 @@
 ﻿using EndlessHeresy.Runtime.Data.Static.Abilities;
-using EndlessHeresy.Runtime.Input.Conditions;
+using EndlessHeresy.Runtime.Input;
 using VContainer;
 
 namespace EndlessHeresy.Runtime.Abilities.SingleAttack

@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using EndlessHeresy.Runtime.Actors;
-using EndlessHeresy.Runtime.Camera;
 using EndlessHeresy.Runtime.Input;
+using EndlessHeresy.Runtime.Services.Camera;
+using EndlessHeresy.Runtime.Services.Input;
 using VContainer;
 
 namespace EndlessHeresy.Runtime.Facing

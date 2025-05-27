@@ -1,5 +1,5 @@
-﻿using EndlessHeresy.Runtime.Stats;
-using EndlessHeresy.Runtime.Tick;
+﻿using EndlessHeresy.Runtime.Services.Tick;
+using EndlessHeresy.Runtime.Stats;
 using UnityEngine;
 using VContainer;
 

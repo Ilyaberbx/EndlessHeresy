@@ -1,11 +1,11 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
-using EndlessHeresy.Extensions;
 using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Operational;
 using EndlessHeresy.Runtime.Data.Static.Components;
+using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Generic;
 using EndlessHeresy.Runtime.Health;

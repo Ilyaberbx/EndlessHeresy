@@ -2,12 +2,12 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
-using EndlessHeresy.Extensions;
 using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Actors.Hero;
-using EndlessHeresy.Runtime.Camera;
 using EndlessHeresy.Runtime.Data.Identifiers;
-using EndlessHeresy.Runtime.Scopes.Gameplay.Services.Factory;
+using EndlessHeresy.Runtime.Extensions;
+using EndlessHeresy.Runtime.Services.Camera;
+using EndlessHeresy.Runtime.Services.Gameplay.Factory;
 using UnityEngine;
 using VContainer.Unity;
 

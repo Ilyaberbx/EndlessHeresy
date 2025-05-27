@@ -1,8 +1,9 @@
-using EndlessHeresy.Runtime.AssetsManagement;
-using EndlessHeresy.Runtime.Scopes.Gameplay.Services.StaticData;
 using EndlessHeresy.Runtime.Scopes.Global.States;
 using EndlessHeresy.Runtime.Scopes.Global.States.Factory;
-using EndlessHeresy.Runtime.Tick;
+using EndlessHeresy.Runtime.Services.AssetsManagement;
+using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
+using EndlessHeresy.Runtime.Services.Global.States;
+using EndlessHeresy.Runtime.Services.Tick;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
