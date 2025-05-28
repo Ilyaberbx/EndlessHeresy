@@ -2,30 +2,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Services.AssetsManagement;
+using EndlessHeresy.Runtime.UI.Core.Factory;
 using EndlessHeresy.Runtime.UI.Core.MVVM;
 using UnityEngine;
-using VContainer;
 
 namespace EndlessHeresy.Runtime.UI.Core
 {
     public class UIControllerManager
     {
         private readonly IAssetsService _assetsService;
-        private readonly IObjectResolver _resolver;
         private readonly Transform _root;
         private readonly Dictionary<BaseView, BaseViewModel> _viewMap;
 
-        public UIControllerManager(Transform root, IAssetsService assetsService, IObjectResolver resolver)
+        private IViewModelFactory _factory;
+
+        public UIControllerManager(Transform root, IAssetsService assetsService)
         {
             _root = root;
             _assetsService = assetsService;
-            _resolver = resolver;
             _viewMap = new Dictionary<BaseView, BaseViewModel>();
         }
 
-        public async Task<TBaseViewModel> ShowAsync<TBaseViewModel, TModel>(TModel model, string viewPath,
+        public void UpdateFactory(IViewModelFactory factory)
+        {
+            _factory = factory;
+        }
+
+        public async Task<TViewModel> ShowAsync<TViewModel, TModel>(TModel model, string viewPath,
             ShowType showType)
-            where TBaseViewModel : BaseViewModel<TModel>, new()
+            where TViewModel : BaseViewModel<TModel>
             where TModel : IModel
         {
             var viewPrefab = await _assetsService.Load<BaseView>(viewPath);
@@ -38,10 +43,7 @@ namespace EndlessHeresy.Runtime.UI.Core
 
             var at = _root.GetComponent<RectTransform>().position;
             var view = Object.Instantiate(viewPrefab, at, Quaternion.identity, _root);
-            var viewModel = new TBaseViewModel();
-
-            _resolver.Inject(viewModel);
-            viewModel.Initialize(model);
+            var viewModel = _factory.Create<TViewModel, TModel>(model);
             view.Initialize(viewModel);
             _viewMap.Add(view, viewModel);
             return viewModel;

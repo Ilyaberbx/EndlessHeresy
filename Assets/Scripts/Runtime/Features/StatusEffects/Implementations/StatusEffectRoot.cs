@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using EndlessHeresy.Runtime.Actors;
+using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Stats;
 
 namespace EndlessHeresy.Runtime.StatusEffects.Implementations
@@ -9,13 +9,20 @@ namespace EndlessHeresy.Runtime.StatusEffects.Implementations
         private readonly IStatusEffectComponent[] _innerStatusEffects;
 
         public IActor Owner { get; private set; }
+        public StatusEffectType Identifier { get; }
+        public StatusEffectClassType ClassIdentifier { get; }
 
-        public StatusEffectRoot(params IStatusEffectComponent[] innerStatusEffects)
+        public void SetOwner(IActor actor) => Owner = actor;
+
+        public StatusEffectRoot(StatusEffectType identifier, StatusEffectClassType classIdentifier,
+            params IStatusEffectComponent[] innerStatusEffects)
         {
+            Identifier = identifier;
+            ClassIdentifier = classIdentifier;
             _innerStatusEffects = innerStatusEffects;
         }
 
-        public void Apply(StatsContainer stats)
+        public void Apply(StatsComponent stats)
         {
             foreach (var applyStatusEffect in _innerStatusEffects.OfType<IApplyStatusEffect>())
             {
@@ -28,15 +35,13 @@ namespace EndlessHeresy.Runtime.StatusEffects.Implementations
             }
         }
 
-        public void Remove(StatsContainer stats)
+        public void Remove(StatsComponent stats)
         {
             foreach (var removeStatusEffect in _innerStatusEffects.OfType<IRemoveStatusEffect>())
             {
                 removeStatusEffect.Remove(stats);
             }
         }
-
-        public void SetOwner(IActor actor) => Owner = actor;
 
         public bool TryGet<TStatusEffect>(out TStatusEffect statusEffect)
             where TStatusEffect : class, IStatusEffectComponent

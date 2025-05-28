@@ -39,74 +39,41 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
         public Task<HeroActor> CreateHeroAsync(Vector2 at)
         {
             var configuration = _gameplayStaticDataService.HeroConfiguration;
-            var movementComponent = new MovementComponent();
-            var inputMovementComponent = new InputMovementComponent();
-            var healthComponent = new HealthComponent();
-            var facingComponent = new FacingComponent();
-            var mouseFacingComponent = new MouseFacingComponent();
-            var statesAggregatorComponent = new StatesAggregatorComponent<HeroActor>();
-            var abilitiesCastComponent = new AbilitiesCastComponent();
-            var abilitiesStorageComponent = new AbilitiesStorageComponent();
-            var trailsComponent = new TrailsSpawnerComponent();
-            var inventoryComponent = new InventoryComponent();
-            var statsContainer = new StatsContainer();
-            var statusEffectsComponent = new StatusEffectsComponent();
-            var healthChangeMessages = new HealthChangeMessages();
-            var attributesComponent = new AttributesComponent();
-            var statModifiersComponent = new StatModifiersComponent();
             
-            statsContainer.SetStats(configuration.DefaultStats);
-            statModifiersComponent.SetContainer(statsContainer);
-            trailsComponent.SetSize(configuration.TrailsPoolData.DefaultCapacity, configuration.TrailsPoolData.MaxSize);
-            abilitiesStorageComponent.SetAbilities(configuration.AbilityConfigurations);
-            inventoryComponent.SetMaxSize(configuration.MaxInventorySize);
-            var statesAggregator = GetStatesAggregatorBuilder<HeroActor>()
-                .WithPlugin<HeroTransitionsPlugin>()
-                .WithPlugin<LoggerPlugin<HeroActor>>()
-                .Build();
-
-            statesAggregatorComponent.SetSource(statesAggregator);
             return GetActorBuilder<HeroActor>()
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
-                .WithComponent(movementComponent)
-                .WithComponent(healthComponent)
-                .WithComponent(facingComponent)
-                .WithComponent(attributesComponent)
-                .WithComponent(trailsComponent)
-                .WithComponent(statesAggregatorComponent)
-                .WithComponent(abilitiesCastComponent)
-                .WithComponent(abilitiesStorageComponent)
-                .WithComponent(inventoryComponent)
-                .WithComponent(mouseFacingComponent)
-                .WithComponent(statsContainer)
-                .WithComponent(statusEffectsComponent)
-                .WithComponent(inputMovementComponent)
-                .WithComponent(healthChangeMessages)
-                .WithComponent(statModifiersComponent)
+                .WithComponent<MovementComponent>()
+                .WithComponent<InputMovementComponent>()
+                .WithComponent<HealthComponent>()
+                .WithComponent<FacingComponent>()
+                .WithComponent<MouseFacingComponent>()
+                .WithComponent<StatesAggregatorComponent<HeroActor>>(GetStatesAggregatorBuilder<HeroActor>()
+                    .WithPlugin<HeroTransitionsPlugin>()
+                    .WithPlugin<LoggerPlugin<HeroActor>>()
+                    .Build())
+                .WithComponent<AbilitiesCastComponent>()
+                .WithComponent<AbilitiesStorageComponent>(configuration.AbilityConfigurations)
+                .WithComponent<TrailsSpawnerComponent>(configuration.TrailsPoolData.DefaultCapacity, configuration.TrailsPoolData.MaxSize)
+                .WithComponent<InventoryComponent>(configuration.MaxInventorySize)
+                .WithComponent<StatsComponent>(configuration.DefaultStats)
+                .WithComponent<StatusEffectsComponent>()
+                .WithComponent<HealthChangeMessages>()
+                .WithComponent<AttributesComponent>()
                 .Build();
         }
 
         public Task<PunchingDummyActor> CreateDummyAsync(Vector2 at)
         {
             var configuration = _gameplayStaticDataService.PunchingDummyConfiguration;
-            var healthComponent = new HealthComponent();
-            var healthChangeMessages = new HealthChangeMessages();
-            var statsContainer = new StatsContainer();
-            var statusEffectsComponent = new StatusEffectsComponent();
-            var statModifiersComponent = new StatModifiersComponent();
-
-            statsContainer.SetStats(configuration.StatsData);
-            statModifiersComponent.SetContainer(statsContainer);
 
             return GetActorBuilder<PunchingDummyActor>()
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
-                .WithComponent(statsContainer)
-                .WithComponent(statusEffectsComponent)
-                .WithComponent(healthComponent)
-                .WithComponent(healthChangeMessages)
-                .WithComponent(statModifiersComponent)
+                .WithComponent<HealthComponent>()
+                .WithComponent<StatusEffectsComponent>()
+                .WithComponent<HealthChangeMessages>()
+                .WithComponent<StatsComponent>(configuration.StatsData)
                 .Build();
         }
 
@@ -135,9 +102,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
 
         private MonoActorBuilder<TActor> GetActorBuilder<TActor>() where TActor : MonoActor
         {
-            var componentsLocator = new ComponentsLocator();
-            var builder = new MonoActorBuilder<TActor>(componentsLocator, _container);
-            return builder;
+            return new MonoActorBuilder<TActor>(_container);
         }
 
         private StatesAggregatorBuilder<TContext> GetStatesAggregatorBuilder<TContext>()

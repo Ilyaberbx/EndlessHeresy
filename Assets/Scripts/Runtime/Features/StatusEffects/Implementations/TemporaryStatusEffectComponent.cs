@@ -1,7 +1,7 @@
 ﻿using EndlessHeresy.Runtime.Services.Tick;
 using EndlessHeresy.Runtime.Stats;
+using UniRx;
 using UnityEngine;
-using VContainer;
 
 namespace EndlessHeresy.Runtime.StatusEffects.Implementations
 {
@@ -12,18 +12,19 @@ namespace EndlessHeresy.Runtime.StatusEffects.Implementations
     {
         private const float MaxProgress = 1;
 
-        private IGameUpdateService _gameUpdateService;
-        private IStatusEffectRoot _root;
-
+        private readonly IGameUpdateService _gameUpdateService;
+        private readonly ReactiveProperty<float> _progress;
         private readonly float _duration;
         private float _elapsedTime;
+        private IStatusEffectRoot _root;
 
-        public TemporaryStatusEffectComponent(float duration) => _duration = duration;
+        public IReadOnlyReactiveProperty<float> ProgressReadOnly => _progress;
 
-        [Inject]
-        public void Construct(IGameUpdateService gameUpdateService)
+        public TemporaryStatusEffectComponent(IGameUpdateService gameUpdateService, float duration)
         {
             _gameUpdateService = gameUpdateService;
+            _duration = duration;
+            _progress = new ReactiveProperty<float>();
         }
 
         public void Initialize(IStatusEffectRoot root)
@@ -31,34 +32,28 @@ namespace EndlessHeresy.Runtime.StatusEffects.Implementations
             _root = root;
         }
 
-        public void Apply(StatsContainer stats)
+        public void Apply(StatsComponent stats)
         {
             _gameUpdateService.OnUpdate += OnUpdate;
         }
 
-        public void Remove(StatsContainer stats)
+        public void Remove(StatsComponent stats)
         {
             _gameUpdateService.OnUpdate -= OnUpdate;
-        }
-
-        public float GetProgress()
-        {
-            return MaxProgress - _elapsedTime / _duration;
         }
 
         private void OnUpdate(float deltaTime)
         {
             _elapsedTime += Time.deltaTime;
 
+            _progress.Value = MaxProgress - _elapsedTime / _duration;
+
             if (_elapsedTime < _duration)
             {
                 return;
             }
 
-            if (_root.TryGet<IdentifiedStatusEffectComponent>(out var identifiedStatusEffect))
-            {
-                _root.Owner.GetComponent<StatusEffectsComponent>().Remove(identifiedStatusEffect.Identifier);
-            }
+            _root.Owner.GetComponent<StatusEffectsComponent>().Remove(_root.Identifier);
         }
 
         public void Reset() => _elapsedTime = 0;

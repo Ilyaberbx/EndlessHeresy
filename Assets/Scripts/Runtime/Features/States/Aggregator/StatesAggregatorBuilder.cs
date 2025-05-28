@@ -7,15 +7,15 @@ namespace EndlessHeresy.Runtime.States.Aggregator
     public sealed class StatesAggregatorBuilder<TContext> where TContext : class, IStateMachineContext
     {
         private readonly List<StatesAggregatorPlugin<TContext>> _plugins = new();
-        private readonly IObjectResolver _container;
+        private readonly IObjectResolver _resolver;
 
-        public StatesAggregatorBuilder(IObjectResolver container) => _container = container;
+        public StatesAggregatorBuilder(IObjectResolver resolver) => _resolver = resolver;
 
         public StatesAggregatorBuilder<TContext> WithPlugin<TPlugin>()
             where TPlugin : StatesAggregatorPlugin<TContext>, new()
         {
             var plugin = new TPlugin();
-            _container.Inject(plugin);
+            _resolver.Inject(plugin);
             _plugins.Add(plugin);
             return this;
         }

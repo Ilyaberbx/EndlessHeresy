@@ -3,7 +3,6 @@ using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Services.Tick;
 using EndlessHeresy.Runtime.Stats;
 using UnityEngine;
-using VContainer;
 
 namespace EndlessHeresy.Runtime.StatusEffects.Implementations
 {
@@ -13,27 +12,29 @@ namespace EndlessHeresy.Runtime.StatusEffects.Implementations
         IRootHandler
     {
         private readonly PeriodDamageData _data;
+        private readonly IGameUpdateService _gameUpdateService;
 
-        private IGameUpdateService _gameUpdateService;
         private IStatusEffectRoot _root;
         private HealthComponent _health;
 
         private float _elapsedTime;
-        public PeriodDamageStatusEffectComponent(PeriodDamageData data) => _data = data;
 
-        [Inject]
-        public void Construct(IGameUpdateService gameUpdateService) => _gameUpdateService = gameUpdateService;
+        public PeriodDamageStatusEffectComponent(IGameUpdateService gameUpdateService, PeriodDamageData data)
+        {
+            _gameUpdateService = gameUpdateService;
+            _data = data;
+        }
 
         public void Initialize(IStatusEffectRoot root) => _root = root;
 
-        public void Apply(StatsContainer stats)
+        public void Apply(StatsComponent stats)
         {
             _elapsedTime = 0;
             _root.Owner.TryGetComponent(out _health);
             _gameUpdateService.OnUpdate += OnUpdate;
         }
 
-        public void Remove(StatsContainer stats)
+        public void Remove(StatsComponent stats)
         {
             _gameUpdateService.OnUpdate -= OnUpdate;
             _health = null;

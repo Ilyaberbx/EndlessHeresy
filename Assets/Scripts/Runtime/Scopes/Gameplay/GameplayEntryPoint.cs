@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Actors;
@@ -13,7 +12,7 @@ using VContainer.Unity;
 
 namespace EndlessHeresy.Runtime.Scopes.Gameplay
 {
-    public sealed class GameplayEntryPoint : IAsyncStartable
+    public sealed class GameplayEntryPoint : IPostInitializable
     {
         private readonly IGameplayFactoryService _gameplayFactoryService;
         private readonly ICameraService _cameraService;
@@ -24,7 +23,7 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
             _cameraService = cameraService;
         }
 
-        public async Task StartAsync(CancellationToken cancellation = default)
+        public async void PostInitialize()
         {
             try
             {
@@ -36,7 +35,6 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
             catch (Exception e)
             {
                 Debug.LogException(e);
-                throw;
             }
         }
 

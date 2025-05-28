@@ -1,30 +1,27 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using EndlessHeresy.Runtime.Actors;
+using UniRx;
 using VContainer;
 
 namespace EndlessHeresy.Runtime.Abilities
 {
     public sealed class AbilitiesStorageComponent : PocoComponent
     {
-        private AbilityConfiguration[] _abilityConfiguration;
-        private readonly List<Ability> _abilities = new();
+        private readonly AbilityConfiguration[] _abilityConfigurations;
+        private readonly ReactiveCollection<Ability> _abilities = new();
+        private readonly IObjectResolver _resolver;
+        public IReadOnlyReactiveCollection<Ability> Abilities => _abilities;
 
-        private IObjectResolver _resolver;
-
-        public List<Ability> Abilities => _abilities;
-
-        [Inject]
-        public void Construct(IObjectResolver resolver)
+        public AbilitiesStorageComponent(IObjectResolver resolver, AbilityConfiguration[] abilityConfigurations)
         {
             _resolver = resolver;
+            _abilityConfigurations = abilityConfigurations;
         }
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
-            foreach (var abilityConfiguration in _abilityConfiguration)
+            foreach (var abilityConfiguration in _abilityConfigurations)
             {
                 var factory = abilityConfiguration.GetFactory(_resolver);
                 var ability = factory.Create();
@@ -45,11 +42,6 @@ namespace EndlessHeresy.Runtime.Abilities
             }
 
             _abilities.Clear();
-        }
-
-        public void SetAbilities(AbilityConfiguration[] abilityConfigurations)
-        {
-            _abilityConfiguration = abilityConfigurations;
         }
 
         public bool TryGetAbility<TAbility>(out TAbility ability) where TAbility : Ability

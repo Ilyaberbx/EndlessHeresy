@@ -747,7 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReference:
-    TypeName: EndlessHeresy.Global.GlobalLifetimeScope
+    TypeName: EndlessHeresy.Runtime.UI.UILifetimeScope
   autoRun: 1
   autoInjectGameObjects: []
   _camera: {fileID: 1573129787}

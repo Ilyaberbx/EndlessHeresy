@@ -9,18 +9,17 @@ namespace EndlessHeresy.Runtime.Inventory
 {
     public class InventoryComponent : PocoComponent
     {
-        private IGameplayStaticDataService _gameplayStaticDataService;
+        private readonly IGameplayStaticDataService _gameplayStaticDataService;
         private readonly List<ItemType> _items = new();
-        private int _maxSize;
+        private readonly int _maxSize;
+
         private int _currentSize;
 
-        [Inject]
-        public void Construct(IGameplayStaticDataService gameplayStaticDataService)
+        public InventoryComponent(IGameplayStaticDataService gameplayStaticDataService, int maxSize)
         {
             _gameplayStaticDataService = gameplayStaticDataService;
+            _maxSize = maxSize;
         }
-
-        public void SetMaxSize(int size) => _maxSize = size;
 
         public void Add(ItemType itemType)
         {

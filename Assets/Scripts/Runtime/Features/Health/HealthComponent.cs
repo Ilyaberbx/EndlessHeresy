@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Better.Commons.Runtime.DataStructures.Properties;
-using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.Components;
-using EndlessHeresy.Runtime.Stats.Modifiers;
+using EndlessHeresy.Runtime.Stats;
 
 namespace EndlessHeresy.Runtime.Health
 {
@@ -14,15 +12,15 @@ namespace EndlessHeresy.Runtime.Health
         public event Action OnHealthDepleted;
         public event Action<DamageData> OnTakeDamage;
 
-        private ReadOnlyReactiveProperty<int> _healthStat;
-        private StatModifiersComponent _statsModifiersComponent;
+        private Stat _healthStat;
+        private StatsComponent _statsComponent;
 
-        public int CurrentHealth => _healthStat.Value;
+        public float CurrentHealth => _healthStat.ProcessedValueProperty.Value;
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
-            _statsModifiersComponent = Owner.GetComponent<StatModifiersComponent>();
-            _healthStat = _statsModifiersComponent.GetProcessedStat(StatType.CurrentHealth);
+            _statsComponent = Owner.GetComponent<StatsComponent>();
+            _healthStat = _statsComponent.GetStat(StatType.CurrentHealth);
             return Task.CompletedTask;
         }
 
@@ -33,9 +31,6 @@ namespace EndlessHeresy.Runtime.Health
                 return;
             }
 
-            var value = data.Value;
-            var modifierData = new StatModifierData(StatType.CurrentHealth, ModifierType.Subtraction, value);
-            _statsModifiersComponent.Process(modifierData);
             OnTakeDamage?.Invoke(data);
 
             if (IsDead())
@@ -44,6 +39,6 @@ namespace EndlessHeresy.Runtime.Health
             }
         }
 
-        public bool IsDead() => _healthStat.Value <= 0;
+        public bool IsDead() => _healthStat.ProcessedValueProperty.Value <= 0;
     }
 }

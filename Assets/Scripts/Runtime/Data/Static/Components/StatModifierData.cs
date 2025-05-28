@@ -10,27 +10,13 @@ namespace EndlessHeresy.Runtime.Data.Static.Components
     {
         [SerializeField] private StatType _statIdentifier;
         [SerializeField] private ModifierType _identifier;
-        [SerializeField] private int _value;
+        [SerializeField] private float _value;
 
         public StatType StatIdentifier => _statIdentifier;
 
-        public StatModifierData(StatType statIdentifier, ModifierType identifier, int value)
+        public StatModifier GetStatModifier(IStatModifierSource source)
         {
-            _statIdentifier = statIdentifier;
-            _identifier = identifier;
-            _value = value;
-        }
-
-        public IStatModifier GetInstance()
-        {
-            return _identifier switch
-            {
-                ModifierType.Multiplying => new MultiplyModifier(_value),
-                ModifierType.Dividing => new DividingModifier(_value),
-                ModifierType.Addition => new AdditionModifier(_value),
-                ModifierType.Subtraction => new SubtractionModifier(_value),
-                _ => throw new ArgumentOutOfRangeException()
-            };
+            return new StatModifier(_value, _identifier, source);
         }
     }
 }

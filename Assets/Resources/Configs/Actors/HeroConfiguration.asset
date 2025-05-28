@@ -13,27 +13,16 @@ MonoBehaviour:
   m_Name: HeroConfiguration
   m_EditorClassIdentifier: 
   _defaultStats:
-  - _value: 100
+  - _baseValue: 10
     _identifier: 0
-  - _value: 100
+  - _baseValue: 10
     _identifier: 1
-  - _value: 150
+  - _baseValue: 10
     _identifier: 2
-  - _value: 150
+  - _baseValue: 10
     _identifier: 3
-  - _value: 8000
+  - _baseValue: 500
     _identifier: 4
-  _defaultAttributes:
-  - _identifier: 0
-    _value: 1
-  - _identifier: 1
-    _value: 1
-  - _identifier: 2
-    _value: 1
-  - _identifier: 3
-    _value: 1
-  - _identifier: 4
-    _value: 1
   _prefab: {fileID: 5753913375855388206, guid: 8e2cf937bc869244caf19c5c4dae8fdc, type: 3}
   _maxInventorySize: 50
   _abilityConfigurations:

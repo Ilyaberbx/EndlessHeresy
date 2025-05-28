@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
-using EndlessHeresy.Runtime.Actors;
+﻿using System;
+using System.Collections.Generic;
+using EndlessHeresy.Runtime.Data.Identifiers;
+using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.StatusEffects.Implementations;
 using VContainer;
 
@@ -7,29 +9,40 @@ namespace EndlessHeresy.Runtime.StatusEffects.Builder
 {
     public sealed class StatusEffectsBuilder
     {
-        private readonly List<IStatusEffectComponent> _forComponents = new();
+        private readonly Dictionary<Type, object[]> _componentsParamsMap = new();
 
-        public void WithComponent(IStatusEffectComponent component)
+        private StatusEffectType _identifier;
+        private StatusEffectClassType _classIdentifier;
+
+        public void WithId(StatusEffectType identifier)
         {
-            if (_forComponents.Contains(component))
-            {
-                return;
-            }
-
-            _forComponents.Add(component);
+            _identifier = identifier;
         }
 
-        public IStatusEffectRoot Build(IActor owner, IObjectResolver resolver)
+        public void WithClass(StatusEffectClassType classIdentifier)
         {
-            foreach (var component in _forComponents)
+            _classIdentifier = classIdentifier;
+        }
+
+        public void WithComponent<TComponent>(params object[] parameters) where TComponent : IStatusEffectComponent
+        {
+            _componentsParamsMap.Add(typeof(TComponent), parameters);
+        }
+
+        public IStatusEffectRoot Build(IObjectResolver resolver)
+        {
+            var forComponents = new List<IStatusEffectComponent>();
+
+            foreach (var componentParamsPair in _componentsParamsMap)
             {
-                resolver.Inject(component);
+                var type = componentParamsPair.Key;
+                var parameters = componentParamsPair.Value;
+                var component = (IStatusEffectComponent)resolver.Instantiate(type, Lifetime.Singleton, parameters);
+                forComponents.Add(component);
             }
 
-            var root = new StatusEffectRoot(_forComponents.ToArray());
-            root.SetOwner(owner);
-            resolver.Inject(root);
-            return root;
+            return resolver.Instantiate<StatusEffectRoot>(Lifetime.Singleton, forComponents.ToArray(), _identifier,
+                _classIdentifier);
         }
     }
 }

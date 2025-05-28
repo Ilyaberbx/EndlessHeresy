@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using EndlessHeresy.Runtime.Stats;
+using EndlessHeresy.Runtime.StatusEffects.Builder;
+using UniRx;
 using VContainer;
 
 namespace EndlessHeresy.Runtime.StatusEffects.Implementations
@@ -12,52 +13,55 @@ namespace EndlessHeresy.Runtime.StatusEffects.Implementations
         IRemoveStatusEffect,
         IRootHandler
     {
-        private readonly Func<int, IStatusEffectComponent> _effectFactory;
-        private readonly List<IStatusEffectComponent> _activeStacks;
+        private readonly IList<IStatusEffectRoot> _activeEffects;
+        private readonly IObjectResolver _resolver;
+        private readonly IEnumerable<StatusEffectsBuilder> _effectsBuilders;
         private IStatusEffectRoot _root;
-        private IObjectResolver _resolver;
-        public int StackCount => _activeStacks.Count;
+        public IReactiveProperty<int> StackCountProperty { get; }
 
-        public StackableStatusEffectComponent(Func<int, IStatusEffectComponent> effectFactory)
+        public StackableStatusEffectComponent(IObjectResolver resolver, List<StatusEffectsBuilder> effectsBuilders)
         {
-            _effectFactory = effectFactory;
-            _activeStacks = new List<IStatusEffectComponent>();
+            _resolver = resolver;
+            _effectsBuilders = effectsBuilders;
+            _activeEffects = new List<IStatusEffectRoot>();
+            StackCountProperty = new ReactiveProperty<int>(0);
         }
 
-        [Inject]
-        public void Construct(IObjectResolver resolver) => _resolver = resolver;
-
         public void Initialize(IStatusEffectRoot root) => _root = root;
-        public void Apply(StatsContainer stats) => AddStack(stats);
 
-        public void Remove(StatsContainer stats)
+        public void Apply(StatsComponent stats) => AddStack(stats);
+
+        public void Remove(StatsComponent stats)
         {
-            foreach (var effect in _activeStacks.OfType<IRemoveStatusEffect>())
+            foreach (var effect in _activeEffects.OfType<IRemoveStatusEffect>())
             {
                 effect.Remove(stats);
             }
 
-            _activeStacks.Clear();
+            _activeEffects.Clear();
+            StackCountProperty.Value = 0;
         }
 
-        private void AddStack(StatsContainer stats)
+        private void AddStack(StatsComponent stats)
         {
-            var newStackIndex = _activeStacks.Count + 1;
-            var effect = _effectFactory.Invoke(newStackIndex);
+            var newStackIndex = _activeEffects.Count;
 
-            _resolver.Inject(effect);
-
-            if (effect is IRootHandler rootHandler)
+            if (newStackIndex >= _effectsBuilders.Count())
             {
-                rootHandler.Initialize(_root);
+                return;
             }
+
+            var builder = _effectsBuilders.ElementAt(newStackIndex);
+            var effect = builder.Build(_resolver);
+            effect.SetOwner(_root.Owner);
 
             if (effect is IApplyStatusEffect applyStatusEffect)
             {
                 applyStatusEffect.Apply(stats);
             }
 
-            _activeStacks.Add(effect);
+            _activeEffects.Add(effect);
+            StackCountProperty.Value++;
         }
     }
 }

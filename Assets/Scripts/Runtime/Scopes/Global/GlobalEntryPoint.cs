@@ -5,7 +5,7 @@ using VContainer.Unity;
 
 namespace EndlessHeresy.Runtime.Scopes.Global
 {
-    public sealed class GlobalEntryPoint : IStartable
+    public sealed class GlobalEntryPoint : IPostInitializable
     {
         private readonly IGameStatesService _gameStatesService;
 
@@ -14,7 +14,7 @@ namespace EndlessHeresy.Runtime.Scopes.Global
             _gameStatesService = gameStatesService;
         }
 
-        public void Start()
+        public void PostInitialize()
         {
             _gameStatesService.ChangeStateAsync<GameplayState>().Forget();
         }

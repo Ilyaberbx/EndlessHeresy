@@ -14,8 +14,14 @@ namespace EndlessHeresy.Runtime.Vfx
     {
         private FacingComponent _facingComponent;
         private IObjectPool<SpriteRenderer> _trailPool;
-        private int _defaultCapacity;
-        private int _maxSize;
+        private readonly int _defaultCapacity;
+        private readonly int _maxSize;
+
+        public TrailsSpawnerComponent(int defaultCapacity, int maxSize)
+        {
+            _defaultCapacity = defaultCapacity;
+            _maxSize = maxSize;
+        }
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
@@ -38,12 +44,6 @@ namespace EndlessHeresy.Runtime.Vfx
         {
             base.OnDispose();
             _trailPool.Clear();
-        }
-
-        public void SetSize(int defaultCapacity, int maxSize)
-        {
-            _defaultCapacity = defaultCapacity;
-            _maxSize = maxSize;
         }
 
         public async Task SpawnTrailsAsync(SpawnTrailQuery query)

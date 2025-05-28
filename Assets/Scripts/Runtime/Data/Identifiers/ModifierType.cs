@@ -2,9 +2,7 @@
 {
     public enum ModifierType
     {
-        Multiplying,
-        Dividing,
-        Addition,
-        Subtraction,
+        Flat,
+        Percent,
     }
 }

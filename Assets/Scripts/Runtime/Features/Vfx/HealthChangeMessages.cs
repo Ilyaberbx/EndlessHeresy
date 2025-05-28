@@ -1,15 +1,12 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
-using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Data.Operational;
 using EndlessHeresy.Runtime.Data.Static.Components;
-using EndlessHeresy.Runtime.FloatingMessages;
 using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Services.FloatingMessages;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using UnityEngine;
-using VContainer;
 
 namespace EndlessHeresy.Runtime.Vfx
 {
@@ -18,13 +15,13 @@ namespace EndlessHeresy.Runtime.Vfx
         private const string TakeDamageFormat = "- {0}";
         private const float Duration = 1f;
 
-        private IFloatingMessagesService _floatingMessagesService;
-        private IGameplayStaticDataService _gameplayStaticDataService;
+        private readonly IFloatingMessagesService _floatingMessagesService;
+        private readonly IGameplayStaticDataService _gameplayStaticDataService;
+
         private HealthComponent _healthComponent;
 
-        [Inject]
-        public void Construct(IFloatingMessagesService floatingMessagesService,
-            IGameplayStaticDataService gameplayStaticDataService)
+        public HealthChangeMessages(IGameplayStaticDataService gameplayStaticDataService,
+            IFloatingMessagesService floatingMessagesService)
         {
             _floatingMessagesService = floatingMessagesService;
             _gameplayStaticDataService = gameplayStaticDataService;
@@ -39,7 +36,6 @@ namespace EndlessHeresy.Runtime.Vfx
 
         protected override void OnDispose()
         {
-            base.OnDispose();
             _healthComponent.OnTakeDamage -= OnTakeDamage;
         }
 

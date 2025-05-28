@@ -4,6 +4,6 @@ namespace EndlessHeresy.Runtime.StatusEffects
 {
     public interface IApplyStatusEffect
     {
-        void Apply(StatsContainer stats);
+        void Apply(StatsComponent stats);
     }
 }

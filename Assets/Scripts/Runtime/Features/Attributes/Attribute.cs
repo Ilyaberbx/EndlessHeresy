@@ -1,49 +1,54 @@
-﻿using EndlessHeresy.Runtime.Data.Identifiers;
+﻿using System.Collections.Generic;
+using System.Linq;
+using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Persistant;
 using EndlessHeresy.Runtime.Data.Static.Components;
-using EndlessHeresy.Runtime.UI.Core.MVVM;
+using EndlessHeresy.Runtime.Stats.Modifiers;
 using UniRx;
-using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Attributes
 {
-    public sealed class Attribute : IModel
+    public sealed class Attribute
     {
-        private readonly AttributeData _data;
-        public IReadOnlyReactiveProperty<int> ValueProperty { get; }
-        public IReadOnlyReactiveProperty<Sprite> IconProperty { get; }
-        public IReadOnlyReactiveProperty<AttributeType> IdentifierProperty { get; }
-        public IReadOnlyReactiveProperty<string> DisplayNameProperty { get; }
-        private IReadOnlyReactiveProperty<int> MinValueProperty { get; }
-        private IReadOnlyReactiveCollection<StatModifierData> ModifiersProperty { get; set; }
+        private readonly ReactiveProperty<int> _valueProperty;
+        private readonly List<IStatModifierSource> _sources;
+        public IReadOnlyReactiveProperty<int> ValueProperty => _valueProperty;
+        public AttributeType Identifier { get; }
 
-        public Attribute(AttributeData data, AttributeItemData item)
+        public Attribute(int value, AttributeType identifier)
         {
-            _data = data;
-            IdentifierProperty = item.Identifier;
-            ValueProperty = new ReactiveProperty<int>(_data.Value);
-            IconProperty = item.Icon;
-            DisplayNameProperty = item.DisplayName;
-            MinValueProperty = item.MinValue;
-            ModifiersProperty = item.Modifiers;
+            Identifier = identifier;
+            _valueProperty = new ReactiveProperty<int>(value);
+            _sources = new List<IStatModifierSource>();
         }
 
-        public void Increase()
+        public IStatModifierSource Increase()
         {
-            _data.Value++;
+            _valueProperty.Value++;
+
+            var source = new StatModifierSource();
+            _sources.Add(source);
+
+            return source;
         }
 
-        public bool TryDecrease()
+        public bool TryDecrease(out IStatModifierSource source)
         {
-            if (_data.Value <= MinValueProperty.Value)
+            if (_valueProperty.Value <= 0)
             {
+                source = null;
                 return false;
             }
 
-            _data.Value--;
+            source = _sources[_valueProperty.Value];
+            _valueProperty.Value--;
             return true;
         }
 
-        public AttributeData GetSnapshot() => _data;
+        public AttributeData GetSnapshot() => new()
+        {
+            Identifier = Identifier,
+            Value = _valueProperty.Value
+        };
     }
 }

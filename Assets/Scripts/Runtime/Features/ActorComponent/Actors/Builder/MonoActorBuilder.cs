@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Better.Commons.Runtime.Utility;
+using EndlessHeresy.Runtime.Extensions;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -12,7 +14,7 @@ namespace EndlessHeresy.Runtime.Builder
     {
         private const string NoPrefabProvidedMessage = "No prefab provided";
 
-        private readonly IObjectResolver _container;
+        private readonly IObjectResolver _resolver;
         private readonly IComponentsLocator _forComponents;
 
         private Vector2 _at;
@@ -35,10 +37,10 @@ namespace EndlessHeresy.Runtime.Builder
             }
         }
 
-        public MonoActorBuilder(IComponentsLocator forComponents, IObjectResolver container)
+        public MonoActorBuilder(IObjectResolver resolver)
         {
-            _forComponents = forComponents;
-            _container = container;
+            _resolver = resolver;
+            _forComponents = new ComponentsLocator();
         }
 
         public MonoActorBuilder<TActor> ForPrefab(TActor prefab)
@@ -65,9 +67,17 @@ namespace EndlessHeresy.Runtime.Builder
             return this;
         }
 
-        public MonoActorBuilder<TActor> WithComponent<TComponent>(TComponent component) where TComponent : IComponent
+        public MonoActorBuilder<TActor> WithComponent<TComponent>(params object[] parameters)
+            where TComponent : IComponent
         {
-            _container.Inject(component);
+            _forComponents.TryAddComponent(_resolver.Instantiate<TComponent>(Lifetime.Scoped, parameters));
+            return this;
+        }
+
+        public MonoActorBuilder<TActor> WithComponent<TComponent>(TComponent component)
+            where TComponent : IComponent
+        {
+            _resolver.Inject(component);
             _forComponents.TryAddComponent(component);
             return this;
         }
@@ -86,7 +96,7 @@ namespace EndlessHeresy.Runtime.Builder
             }
 
             var actor = Object.Instantiate(_prefab, _at, _rotation, _parent);
-            _container.InjectGameObject(actor.gameObject);
+            _resolver.InjectGameObject(actor.gameObject);
             return actor;
         }
     }

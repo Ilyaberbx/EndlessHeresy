@@ -7,31 +7,28 @@ using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Persistant;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
-using EndlessHeresy.Runtime.Stats.Modifiers;
+using EndlessHeresy.Runtime.Stats;
 using UniRx;
-using VContainer;
 
 namespace EndlessHeresy.Runtime.Attributes
 {
     public sealed class AttributesComponent : PocoComponent, IAttributesReadOnly
     {
+        private readonly IGameplayStaticDataService _gameplayStaticDataService;
+        private readonly IReactiveCollection<Attribute> _attributes;
+
+        private StatsComponent _statsComponent;
         public IReadOnlyReactiveCollection<Attribute> AttributesReadOnly => _attributes;
 
-        private IGameplayStaticDataService _gameplayStaticDataService;
-
-        private StatModifiersComponent _statModifiersComponent;
-
-        private IReactiveCollection<Attribute> _attributes;
-
-        [Inject]
-        public void Construct(IGameplayStaticDataService gameplayStaticDataService)
+        public AttributesComponent(IGameplayStaticDataService gameplayStaticDataService)
         {
             _gameplayStaticDataService = gameplayStaticDataService;
+            _attributes = new ReactiveCollection<Attribute>();
         }
 
-        protected override Task OnInitializeAsync(CancellationToken cancellationToken)
+        protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
-            _attributes = new ReactiveCollection<Attribute>();
+            _statsComponent = Owner.GetComponent<StatsComponent>();
             return Task.CompletedTask;
         }
 
@@ -71,32 +68,28 @@ namespace EndlessHeresy.Runtime.Attributes
         private void IncreaseOne(AttributeType identifier)
         {
             var configuration = _gameplayStaticDataService.GetAttributeData(identifier);
-            var existingAttribute =
-                _attributes.SingleOrDefault(attribute => attribute.IdentifierProperty.Value == identifier);
+            var existingAttribute = _attributes.SingleOrDefault(attribute => attribute.Identifier == identifier);
 
             if (existingAttribute == null)
             {
-                var defaultData = new AttributeData()
-                {
-                    Identifier = identifier,
-                    Value = configuration.MinValue.Value
-                };
-
-                _attributes.Add(new Attribute(defaultData, configuration));
-                ProcessModifiers(configuration);
-                return;
+                existingAttribute = configuration.GetAttribute();
+                _attributes.Add(existingAttribute);
             }
 
-            existingAttribute.Increase();
-            ProcessModifiers(configuration);
+            var source = existingAttribute.Increase();
+
+            foreach (var modifierData in configuration.Modifiers)
+            {
+                var statIdentifier = modifierData.StatIdentifier;
+                var modifier = modifierData.GetStatModifier(source);
+                var stat = _statsComponent.GetStat(statIdentifier);
+                stat.AddModifier(modifier);
+            }
         }
 
         private void DecreaseOne(AttributeType identifier)
         {
-            var configuration = _gameplayStaticDataService.GetAttributeData(identifier);
-
-            var existingAttribute =
-                _attributes.SingleOrDefault(attribute => attribute.IdentifierProperty.Value == identifier);
+            var existingAttribute = _attributes.SingleOrDefault(attribute => attribute.Identifier == identifier);
 
             if (existingAttribute == null)
             {
@@ -104,27 +97,13 @@ namespace EndlessHeresy.Runtime.Attributes
                 return;
             }
 
-            if (!existingAttribute.TryDecrease())
+            if (!existingAttribute.TryDecrease(out var source))
             {
+                DebugUtility.LogException<Exception>($"Attribute reached minimal value: {identifier}");
                 return;
             }
 
-            var modifiers = configuration.Modifiers;
-
-            foreach (var modifier in modifiers)
-            {
-                _statModifiersComponent.Reverse(modifier);
-            }
-        }
-
-        private void ProcessModifiers(AttributeItemData data)
-        {
-            var modifiers = data.Modifiers;
-
-            foreach (var modifier in modifiers)
-            {
-                _statModifiersComponent.Process(modifier);
-            }
+            _statsComponent.RemoveAllModifiersBySource(source);
         }
     }
 }

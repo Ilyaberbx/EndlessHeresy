@@ -52,7 +52,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
 
         public AttributeItemData GetAttributeData(AttributeType identifier)
         {
-            return _attributesConfiguration.Data.FirstOrDefault(temp => temp.Identifier.Value == identifier);
+            return _attributesConfiguration.Data.FirstOrDefault(temp => temp.Identifier == identifier);
         }
 
         public StatusEffectConfiguration GetStatusEffectConfiguration(StatusEffectType identifier)

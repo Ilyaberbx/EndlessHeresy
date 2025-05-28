@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Better.Locators.Runtime;
 using EndlessHeresy.Runtime.Data.Identifiers;
@@ -15,34 +16,28 @@ namespace EndlessHeresy.Runtime.StatusEffects
 {
     public sealed class StatusEffectsComponent : PocoComponent, IStatusEffectsReadOnly
     {
-        private IGameplayStaticDataService _gameStaticDataService;
-        private IObjectResolver _resolver;
-        private StatsContainer _stats;
+        private readonly IGameplayStaticDataService _gameStaticDataService;
+        private readonly IObjectResolver _resolver;
+        private readonly IReactiveCollection<IStatusEffectRoot> _activeStatusEffects;
 
-        private ReactiveProperty<Locator<StatusEffectType, IStatusEffectRoot>> _activeEffectsProperty;
+        private StatsComponent _statsComponent;
+        public IReadOnlyReactiveCollection<IStatusEffectRoot> ActiveStatusEffects => _activeStatusEffects;
 
-        public IReadOnlyReactiveProperty<Locator<StatusEffectType, IStatusEffectRoot>> ActiveStatusEffects
-        {
-            get;
-            private set;
-        }
-
-        [Inject]
-        public void Construct(IGameplayStaticDataService gameplayStaticDataService, IObjectResolver resolver)
+        public StatusEffectsComponent(IGameplayStaticDataService gameplayStaticDataService, IObjectResolver resolver)
         {
             _gameStaticDataService = gameplayStaticDataService;
             _resolver = resolver;
+            _activeStatusEffects = new ReactiveCollection<IStatusEffectRoot>();
         }
 
         protected override Task OnInitializeAsync(CancellationToken cancellationToken)
         {
-            _stats = Owner.GetComponent<StatsContainer>();
-            InitializeEffectsProperty();
             return Task.CompletedTask;
         }
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
+            _statsComponent = Owner.GetComponent<StatsComponent>();
             return Task.CompletedTask;
         }
 
@@ -50,9 +45,9 @@ namespace EndlessHeresy.Runtime.StatusEffects
         {
             base.OnDispose();
 
-            foreach (var activeEffect in _activeEffectsProperty.Value.GetElements())
+            foreach (var activeEffect in _activeStatusEffects)
             {
-                activeEffect.Remove(_stats);
+                activeEffect.Remove(_statsComponent);
             }
         }
 
@@ -63,21 +58,22 @@ namespace EndlessHeresy.Runtime.StatusEffects
                 return;
             }
 
-            if (!_activeEffectsProperty.Value.TryGet(identifier, out var exisingStatusEffect))
+            var exisingStatusEffect = _activeStatusEffects.FirstOrDefault(temp => temp.Identifier == identifier);
+
+            if (exisingStatusEffect == null)
             {
                 var builder = new StatusEffectsBuilder();
                 data.ConfigureBuilder(builder);
-                var newStatusEffect = builder.Build(Owner, _resolver);
-                newStatusEffect.Apply(_stats);
-                _activeEffectsProperty.Value.Add(identifier, newStatusEffect);
-                _activeEffectsProperty.SetDirty();
+                var newStatusEffect = builder.Build(_resolver);
+                newStatusEffect.SetOwner(Owner);
+                newStatusEffect.Apply(_statsComponent);
+                _activeStatusEffects.Add(newStatusEffect);
                 return;
             }
 
             if (exisingStatusEffect.TryGet<StackableStatusEffectComponent>(out var stackableStatusEffect))
             {
-                stackableStatusEffect.Apply(_stats);
-                _activeEffectsProperty.SetDirty();
+                stackableStatusEffect.Apply(_statsComponent);
             }
 
             if (exisingStatusEffect.TryGet<TemporaryStatusEffectComponent>(out var temporaryStatusEffect))
@@ -88,23 +84,15 @@ namespace EndlessHeresy.Runtime.StatusEffects
 
         public void Remove(StatusEffectType identifier)
         {
-            if (!_activeEffectsProperty.Value.TryGet(identifier, out var exisingStatusEffect))
+            var exisingStatusEffect = _activeStatusEffects.FirstOrDefault(temp => temp.Identifier == identifier);
+
+            if (exisingStatusEffect == null)
             {
                 return;
             }
 
-            exisingStatusEffect.Remove(_stats);
-            _activeEffectsProperty.Value.Remove(identifier);
-            _activeEffectsProperty.SetDirty();
-        }
-
-        private void InitializeEffectsProperty()
-        {
-            var defaultLocator = new Locator<StatusEffectType, IStatusEffectRoot>();
-            _activeEffectsProperty =
-                new ReactiveProperty<Locator<StatusEffectType, IStatusEffectRoot>>(defaultLocator);
-            ActiveStatusEffects =
-                new ReadOnlyReactiveProperty<Locator<StatusEffectType, IStatusEffectRoot>>(_activeEffectsProperty);
+            exisingStatusEffect.Remove(_statsComponent);
+            _activeStatusEffects.Remove(exisingStatusEffect);
         }
 
         private bool TryGetEffectData(StatusEffectType identifier, out StatusEffectConfiguration data)

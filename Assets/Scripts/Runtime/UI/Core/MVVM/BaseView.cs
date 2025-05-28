@@ -1,5 +1,6 @@
 ﻿using System;
 using Better.Commons.Runtime.Components.UI;
+using UniRx;
 using UnityEngine;
 
 namespace EndlessHeresy.Runtime.UI.Core.MVVM
@@ -8,7 +9,7 @@ namespace EndlessHeresy.Runtime.UI.Core.MVVM
     public abstract class BaseView<TViewModel> : BaseView where TViewModel : BaseViewModel
     {
         private CanvasGroup _canvasGroup;
-        protected TViewModel ViewModel { get; private set; }
+        public TViewModel ViewModel { get; private set; }
 
         private CanvasGroup CanvasGroup
         {
@@ -30,21 +31,35 @@ namespace EndlessHeresy.Runtime.UI.Core.MVVM
             if (derivedViewModel is TViewModel viewModel)
             {
                 ViewModel = viewModel;
+                Initialize(ViewModel);
             }
             else
             {
                 throw new InvalidCastException();
             }
         }
+
+        protected abstract void Initialize(TViewModel viewModel);
     }
 
     public abstract class BaseView : UIMonoBehaviour
     {
+        protected CompositeDisposable CompositeDisposable { get; private set; }
         protected BaseViewModel DerivedViewModel { get; private set; }
+
+        private void Awake()
+        {
+            CompositeDisposable = new CompositeDisposable();
+        }
 
         public virtual void Initialize(BaseViewModel derivedViewModel)
         {
             DerivedViewModel = derivedViewModel;
+        }
+
+        protected virtual void OnDestroy()
+        {
+            CompositeDisposable.Dispose();
         }
     }
 }

@@ -4,6 +4,7 @@ using Better.Commons.Runtime.DataStructures.Properties;
 using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Generic;
+using EndlessHeresy.Runtime.Stats;
 using EndlessHeresy.Runtime.Stats.Modifiers;
 using UnityEngine;
 
@@ -12,9 +13,9 @@ namespace EndlessHeresy.Runtime.Movement
     public sealed class MovementComponent : PocoComponent
     {
         private RigidbodyStorageComponent _rigidbodyStorage;
-        private StatModifiersComponent _statModifiersComponent;
+        private StatsComponent _statsComponent;
 
-        private ReadOnlyReactiveProperty<int> _moveSpeedStat;
+        private Stat _moveSpeedStat;
         private Transform _transform;
         private bool _isLocked;
 
@@ -23,13 +24,14 @@ namespace EndlessHeresy.Runtime.Movement
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
             _rigidbodyStorage = Owner.GetComponent<RigidbodyStorageComponent>();
-            _statModifiersComponent = Owner.GetComponent<StatModifiersComponent>();
-            _moveSpeedStat = _statModifiersComponent.GetProcessedStat(StatType.MoveSpeed);
+            _statsComponent = Owner.GetComponent<StatsComponent>();
+            _moveSpeedStat = _statsComponent.GetStat(StatType.MoveSpeed);
             return Task.CompletedTask;
         }
 
         public void Lock() => _isLocked = true;
         public void Unlock() => _isLocked = false;
+
         public void Move(Vector2 input, float deltaTime)
         {
             if (_isLocked)
@@ -52,7 +54,7 @@ namespace EndlessHeresy.Runtime.Movement
         private Vector2 CalculateRawMovement(Vector2 input)
         {
             input.Normalize();
-            return input * _moveSpeedStat.Value;
+            return input * _moveSpeedStat.ProcessedValueProperty.Value;
         }
     }
 }
