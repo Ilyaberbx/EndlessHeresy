@@ -6,46 +6,76 @@ using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Services.FloatingMessages;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
+using UniRx;
 using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Vfx
 {
     public sealed class HealthChangeMessages : PocoComponent
     {
-        private const string TakeDamageFormat = "- {0}";
-        private const float Duration = 1f;
+        private const float MessageDuration = 1f;
+        private static readonly Color HealColor = Color.green;
+        private static readonly Vector2 MessageOffset = Vector2.up;
 
         private readonly IFloatingMessagesService _floatingMessagesService;
-        private readonly IGameplayStaticDataService _gameplayStaticDataService;
+        private readonly IGameplayStaticDataService _staticDataService;
 
-        private HealthComponent _healthComponent;
+        private HealthComponent _health;
 
-        public HealthChangeMessages(IGameplayStaticDataService gameplayStaticDataService,
+        public HealthChangeMessages(
+            IGameplayStaticDataService staticDataService,
             IFloatingMessagesService floatingMessagesService)
         {
             _floatingMessagesService = floatingMessagesService;
-            _gameplayStaticDataService = gameplayStaticDataService;
+            _staticDataService = staticDataService;
         }
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
-            _healthComponent = Owner.GetComponent<HealthComponent>();
-            _healthComponent.OnTakeDamage += OnTakeDamage;
+            _health = Owner.GetComponent<HealthComponent>();
+
+            _health.OnTookDamage += OnTookDamage;
+
+            _health.CurrentHealthProperty
+                .Pairwise()
+                .Subscribe(OnHealthChanged)
+                .AddTo(CompositeDisposable);
+
             return Task.CompletedTask;
         }
 
         protected override void OnDispose()
         {
-            _healthComponent.OnTakeDamage -= OnTakeDamage;
+            if (_health != null)
+            {
+                _health.OnTookDamage -= OnTookDamage;
+            }
         }
 
-        private void OnTakeDamage(DamageData data)
+        private void OnHealthChanged(Pair<float> healthPair)
         {
-            var at = Owner.Transform.position;
-            var message = string.Format(TakeDamageFormat, data.Value);
-            var colorData = _gameplayStaticDataService.GetDamageColorData(data.Identifier);
-            var showMessageDto = new ShowFloatingMessageQuery(at, message, Duration, colorData.Color, Vector2.up);
-            _floatingMessagesService.ShowAsync(showMessageDto).Forget();
+            var delta = healthPair.Current - healthPair.Previous;
+            if (delta > 0f)
+            {
+                ShowFloatingMessage($"+ {delta}", HealColor);
+            }
+        }
+
+        private void OnTookDamage(DamageData damageData)
+        {
+            var color = _staticDataService.GetDamageColorData(damageData.Identifier).Color;
+            ShowFloatingMessage($"- {damageData.Value}", color);
+        }
+
+        private void ShowFloatingMessage(string message, Color color)
+        {
+            var query = new ShowFloatingMessageQuery(Owner.Transform.position,
+                message,
+                MessageDuration,
+                color, MessageOffset
+            );
+
+            _floatingMessagesService.ShowAsync(query).Forget();
         }
     }
 }

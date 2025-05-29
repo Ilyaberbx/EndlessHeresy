@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HeroConfiguration
   m_EditorClassIdentifier: 
   _defaultStats:
-  - _baseValue: 10
+  - _baseValue: 50
     _identifier: 0
   - _baseValue: 10
     _identifier: 1

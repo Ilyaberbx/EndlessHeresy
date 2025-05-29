@@ -7,7 +7,7 @@ using VContainer;
 
 namespace EndlessHeresy.Runtime.StatusEffects.Implementations
 {
-    public sealed class StackableStatusEffectComponent :
+    public sealed class StackableEffectComponent :
         IStatusEffectComponent,
         IApplyStatusEffect,
         IRemoveStatusEffect,
@@ -19,7 +19,7 @@ namespace EndlessHeresy.Runtime.StatusEffects.Implementations
         private IStatusEffectRoot _root;
         public IReactiveProperty<int> StackCountProperty { get; }
 
-        public StackableStatusEffectComponent(IObjectResolver resolver, List<StatusEffectsBuilder> effectsBuilders)
+        public StackableEffectComponent(IObjectResolver resolver, List<StatusEffectsBuilder> effectsBuilders)
         {
             _resolver = resolver;
             _effectsBuilders = effectsBuilders;

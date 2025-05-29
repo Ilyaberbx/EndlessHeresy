@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace EndlessHeresy.Runtime.StatusEffects.Implementations
 {
-    public sealed class VfxStatusEffectComponent : IStatusEffectComponent,
+    public sealed class VfxEffectComponent : IStatusEffectComponent,
         IApplyStatusEffect,
         IRemoveStatusEffect
     {
         private readonly Animator _fxAnimatorPrefab;
         private Animator _fxAnimator;
-        public VfxStatusEffectComponent(Animator fxAnimatorPrefab) => _fxAnimatorPrefab = fxAnimatorPrefab;
+        public VfxEffectComponent(Animator fxAnimatorPrefab) => _fxAnimatorPrefab = fxAnimatorPrefab;
 
         public void Apply(StatsComponent stats)
         {

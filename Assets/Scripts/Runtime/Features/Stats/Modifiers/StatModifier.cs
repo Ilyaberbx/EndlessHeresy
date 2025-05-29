@@ -9,7 +9,7 @@ namespace EndlessHeresy.Runtime.Stats.Modifiers
         public IStatModifierSource Source { get; }
         public int Order { get; }
 
-        public StatModifier(float value, ModifierType identifier, IStatModifierSource source)
+        public StatModifier(float value, ModifierType identifier, IStatModifierSource source = null)
         {
             Value = value;
             Identifier = identifier;

@@ -16,11 +16,11 @@ MonoBehaviour:
   _identifier: 0
   _uiData:
     _icon: {fileID: 21300000, guid: c8f0d6c092af4c440b094658eb8a3bb3, type: 3}
-    _displayName: Burning Status Effect !!!!!
   _installers:
   - rid: 6311075342630256641
   - rid: 6311075342630256642
   - rid: 6311075350344892416
+  - rid: 6311075371900731392
   references:
     version: 2
     RefIds:
@@ -38,4 +38,13 @@ MonoBehaviour:
         _installers:
         - {fileID: 11400000, guid: 61940ade67130ef489998c5e651a538d, type: 2}
         - {fileID: 11400000, guid: 61940ade67130ef489998c5e651a538d, type: 2}
-        - {fileID: 11400000, guid: 61940ade67130ef489998c5e651a538d, type: 2}
+    - rid: 6311075371900731392
+      type: {class: PeriodStatModifierInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
+      data:
+        _data:
+          _perSeconds: 2
+          _modifierData:
+            _statIdentifier: 0
+            _identifier: 1
+            _value: 1.1
+          _isTemporary: 1

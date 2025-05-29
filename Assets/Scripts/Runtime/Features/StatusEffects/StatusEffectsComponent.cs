@@ -71,12 +71,12 @@ namespace EndlessHeresy.Runtime.StatusEffects
                 return;
             }
 
-            if (exisingStatusEffect.TryGet<StackableStatusEffectComponent>(out var stackableStatusEffect))
+            if (exisingStatusEffect.TryGet<StackableEffectComponent>(out var stackableStatusEffect))
             {
                 stackableStatusEffect.Apply(_statsComponent);
             }
 
-            if (exisingStatusEffect.TryGet<TemporaryStatusEffectComponent>(out var temporaryStatusEffect))
+            if (exisingStatusEffect.TryGet<TemporaryEffectComponent>(out var temporaryStatusEffect))
             {
                 temporaryStatusEffect.Reset();
             }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EndlessHeresy.Runtime.StatusEffects.Implementations
 {
-    public sealed class TemporaryStatusEffectComponent : IStatusEffectComponent,
+    public sealed class TemporaryEffectComponent : IStatusEffectComponent,
         IApplyStatusEffect,
         IRemoveStatusEffect,
         IRootHandler
@@ -20,7 +20,7 @@ namespace EndlessHeresy.Runtime.StatusEffects.Implementations
 
         public IReadOnlyReactiveProperty<float> ProgressReadOnly => _progress;
 
-        public TemporaryStatusEffectComponent(IGameUpdateService gameUpdateService, float duration)
+        public TemporaryEffectComponent(IGameUpdateService gameUpdateService, float duration)
         {
             _gameUpdateService = gameUpdateService;
             _duration = duration;

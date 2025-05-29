@@ -16,7 +16,7 @@ namespace EndlessHeresy.Runtime.Health
 
         public override bool Invoke()
         {
-            var isAlive = _healthComponent.CurrentHealth > 0;
+            var isAlive = _healthComponent.CurrentHealthProperty.Value > 0;
             return isAlive == _state;
         }
 

@@ -13,7 +13,7 @@ namespace EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementat
 
         public override void Install(StatusEffectsBuilder builder)
         {
-            builder.WithComponent<VfxStatusEffectComponent>(_vfxPrefab);
+            builder.WithComponent<VfxEffectComponent>(_vfxPrefab);
         }
     }
 }

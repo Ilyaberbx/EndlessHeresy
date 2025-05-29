@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using UniRx;
 
 namespace EndlessHeresy.Runtime
 {
@@ -8,6 +9,7 @@ namespace EndlessHeresy.Runtime
         private readonly CancellationTokenSource _disposeCanceller = new();
         public IActor Owner { get; private set; }
         protected CancellationToken DisposalToken => _disposeCanceller.Token;
+        protected CompositeDisposable CompositeDisposable { get; } = new();
 
         public Task InitializeAsync()
         {
@@ -23,6 +25,7 @@ namespace EndlessHeresy.Runtime
         {
             OnDispose();
             _disposeCanceller.Cancel();
+            CompositeDisposable.Dispose();
         }
 
         public void SetActor(IActor actor) => Owner = actor;

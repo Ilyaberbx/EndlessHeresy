@@ -14,7 +14,7 @@ namespace EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementat
 
         public override void Install(StatusEffectsBuilder builder)
         {
-            builder.WithComponent<PeriodDamageStatusEffectComponent>(_data);
+            builder.WithComponent<PeriodDamageEffectComponent>(_data);
         }
     }
 }

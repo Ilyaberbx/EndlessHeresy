@@ -26,7 +26,7 @@ namespace EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementat
                 builders.Add(internalBuilder);
             }
 
-            builder.WithComponent<StackableStatusEffectComponent>(builders);
+            builder.WithComponent<StackableEffectComponent>(builders);
         }
     }
 }

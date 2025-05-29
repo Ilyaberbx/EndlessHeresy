@@ -26,8 +26,8 @@ namespace EndlessHeresy.Runtime.UI.Widgets.StatusEffects.Item
 
             IconProperty.Value = configuration.UIData.Icon;
 
-            var isStackable = Model.StatusEffect.TryGet<StackableStatusEffectComponent>(out var stackableStatusEffect);
-            var isTemporary = Model.StatusEffect.TryGet<TemporaryStatusEffectComponent>(out var temporaryStatusEffect);
+            var isStackable = Model.StatusEffect.TryGet<StackableEffectComponent>(out var stackableStatusEffect);
+            var isTemporary = Model.StatusEffect.TryGet<TemporaryEffectComponent>(out var temporaryStatusEffect);
 
             if (isStackable)
             {
