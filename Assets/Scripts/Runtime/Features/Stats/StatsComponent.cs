@@ -10,24 +10,17 @@ namespace EndlessHeresy.Runtime.Stats
 {
     public sealed class StatsComponent : PocoComponent
     {
-        private readonly StatData[] _initialStats;
         private readonly IReactiveCollection<Stat> _stats;
         public IReadOnlyReactiveCollection<Stat> StatsReadOnly => _stats;
 
         public StatsComponent(StatData[] initialStats)
         {
-            _initialStats = initialStats;
             _stats = new ReactiveCollection<Stat>();
-        }
-
-        protected override Task OnInitializeAsync(CancellationToken cancellationToken)
-        {
-            foreach (var statData in _initialStats)
+            
+            foreach (var statData in initialStats)
             {
                 _stats.Add(statData.GetStat());
             }
-
-            return Task.CompletedTask;
         }
 
         public Stat GetStat(StatType identifier)

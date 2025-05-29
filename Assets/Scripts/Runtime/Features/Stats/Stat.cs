@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Stats.Modifiers;
 using UniRx;
@@ -10,10 +9,10 @@ namespace EndlessHeresy.Runtime.Stats
     public sealed class Stat
     {
         private const int Accuracy = 4;
-        private readonly IList<StatModifier> _modifiers;
+
+        private readonly List<StatModifier> _modifiers;
         private readonly IReactiveProperty<float> _processedValueProperty;
         private readonly float _baseValue;
-
         public IReadOnlyReactiveProperty<float> ProcessedValueProperty => _processedValueProperty;
         public StatType Identifier { get; }
 
@@ -28,55 +27,89 @@ namespace EndlessHeresy.Runtime.Stats
         public void AddModifier(StatModifier modifier)
         {
             _modifiers.Add(modifier);
+            _modifiers.Sort(CompareModifiersOrder);
             _processedValueProperty.Value = GetProcessedValue();
-        }
-
-        public void RemoveModifier(StatModifier modifier)
-        {
-            if (_modifiers.Remove(modifier))
-            {
-                _processedValueProperty.Value = GetProcessedValue();
-            }
         }
 
         public bool RemoveAllModifiersBySource(IStatModifierSource source)
         {
-            var modifiersToRemove = _modifiers.Where(temp => temp.Source == source).ToList();
+            var didRemove = false;
 
-            if (modifiersToRemove.Count == 0)
+            for (var i = 0; i < _modifiers.Count; i++)
             {
-                return false;
+                var modifier = _modifiers[i];
+
+                if (modifier.Source != source)
+                {
+                    continue;
+                }
+
+                _modifiers.RemoveAt(i);
+                didRemove = true;
             }
 
-            foreach (var modifier in modifiersToRemove)
+            if (didRemove)
             {
-                _modifiers.Remove(modifier);
+                _processedValueProperty.Value = GetProcessedValue();
             }
 
-            _processedValueProperty.Value = GetProcessedValue();
-            return true;
+            return didRemove;
         }
 
         private float GetProcessedValue()
         {
             var finalValue = _baseValue;
+            var percentAdditiveSum = 0f;
 
-            foreach (var modifier in _modifiers)
+            for (var i = 0; i < _modifiers.Count; i++)
             {
+                var modifier = _modifiers[i];
+
                 switch (modifier.Identifier)
                 {
                     case ModifierType.Flat:
                         finalValue += modifier.Value;
                         break;
-                    case ModifierType.Percent:
+
+                    case ModifierType.PercentAdditive:
+                        percentAdditiveSum += modifier.Value;
+                        if (IsLastAdditive(i))
+                        {
+                            finalValue *= 1 + percentAdditiveSum;
+                            percentAdditiveSum = 0f;
+                        }
+
+                        break;
+
+                    case ModifierType.PercentMultiply:
                         finalValue *= 1 + modifier.Value;
                         break;
+
                     default:
-                        throw new ArgumentOutOfRangeException();
+                        throw new ArgumentOutOfRangeException(
+                            nameof(modifier.Identifier),
+                            modifier.Identifier,
+                            "Unknown modifier type"
+                        );
                 }
             }
 
-            return (float)Math.Round(finalValue, Accuracy);
+            return MathF.Round(finalValue, Accuracy);
+        }
+
+        private bool IsLastAdditive(int i)
+        {
+            return i + 1 >= _modifiers.Count || _modifiers[i + 1].Identifier != ModifierType.PercentAdditive;
+        }
+
+        private int CompareModifiersOrder(StatModifier x, StatModifier y)
+        {
+            if (x.Order < y.Order)
+            {
+                return -1;
+            }
+
+            return x.Order > y.Order ? 1 : 0;
         }
     }
 }

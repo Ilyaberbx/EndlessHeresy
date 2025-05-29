@@ -7,9 +7,7 @@ namespace EndlessHeresy.Runtime.Data.Static.UI
     public struct StatusEffectUIData
     {
         [SerializeField] private Sprite _icon;
-        [SerializeField] private string _displayName;
 
         public Sprite Icon => _icon;
-        public string DisplayName => _displayName;
     }
 }

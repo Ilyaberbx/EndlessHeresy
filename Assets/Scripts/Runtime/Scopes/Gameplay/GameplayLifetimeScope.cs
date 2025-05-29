@@ -33,7 +33,7 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
                 .WithParameter(_floatingMessageContainer);
             builder.Register<FloatingMessagesService>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<IViewModelFactory, ViewModelFactory>(Lifetime.Scoped);
-            builder.RegisterEntryPoint<ScopedViewModelsFactoryService>();
+            builder.RegisterEntryPoint<UpdateViewModelsFactoryService>();
         }
     }
 }

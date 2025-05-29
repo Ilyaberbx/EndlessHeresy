@@ -4,12 +4,12 @@ using VContainer.Unity;
 
 namespace EndlessHeresy.Runtime.UI.Core
 {
-    public sealed class ScopedViewModelsFactoryService : IInitializable
+    public sealed class UpdateViewModelsFactoryService : IInitializable
     {
         private readonly IViewModelFactory _factory;
         private readonly IHudsService _hudsService;
 
-        public ScopedViewModelsFactoryService(IViewModelFactory factory, IHudsService hudsService)
+        public UpdateViewModelsFactoryService(IViewModelFactory factory, IHudsService hudsService)
         {
             _factory = factory;
             _hudsService = hudsService;

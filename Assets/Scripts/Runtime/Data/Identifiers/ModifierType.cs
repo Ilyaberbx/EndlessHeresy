@@ -2,7 +2,8 @@
 {
     public enum ModifierType
     {
-        Flat,
-        Percent,
+        Flat = 0,
+        PercentAdditive = 1,
+        PercentMultiply = 2,
     }
 }
