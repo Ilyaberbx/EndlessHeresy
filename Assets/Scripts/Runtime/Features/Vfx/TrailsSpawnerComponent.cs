@@ -1,7 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using DG.Tweening;
-using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Data.Operational;
 using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.Facing;

@@ -14,7 +14,7 @@ namespace EndlessHeresy.Runtime.Data.Static.Components
 
         public StatType StatIdentifier => _statIdentifier;
 
-        public StatModifier GetStatModifier(IStatModifierSource source)
+        public readonly StatModifier GetStatModifier(IStatModifierSource source)
         {
             return new StatModifier(_value, _identifier, source);
         }

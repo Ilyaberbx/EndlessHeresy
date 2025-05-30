@@ -10,32 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8049780506344ab1b1f44774ccfc9f01, type: 3}
-  m_Name: BurningStatusEffect
+  m_Name: HealingStatusEffect
   m_EditorClassIdentifier: 
-  _classIdentifier: 1
-  _identifier: 0
+  _classIdentifier: 0
+  _identifier: 1
   _uiData:
-    _icon: {fileID: 21300000, guid: c8f0d6c092af4c440b094658eb8a3bb3, type: 3}
+    _icon: {fileID: 21300000, guid: 6e680dca883813d4e81439c6cff79d25, type: 3}
   _installers:
-  - rid: 6311075342630256641
   - rid: 6311075342630256642
-  - rid: 6311075388076589056
+  - rid: 6311075388076589057
   references:
     version: 2
     RefIds:
-    - rid: 6311075342630256641
-      type: {class: VfxInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
-      data:
-        _vfxPrefab: {fileID: 1371693811414640555, guid: 21eed6c08f4d0f447ae0913cece67844, type: 3}
     - rid: 6311075342630256642
       type: {class: TemporaryInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
       data:
         _duration: 10
-    - rid: 6311075388076589056
-      type: {class: PeriodDamageInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
+    - rid: 6311075388076589057
+      type: {class: PeriodStatModifierInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
       data:
         _data:
-          _perSeconds: 0.5
-          _damageData:
-            _value: 3
+          _perSeconds: 0.1
+          _modifierData:
+            _statIdentifier: 0
             _identifier: 0
+            _value: 0.5
+          _isTemporary: 0

@@ -85,6 +85,10 @@ namespace EndlessHeresy.Runtime.Stats
                         finalValue *= 1 + modifier.Value;
                         break;
 
+                    case ModifierType.PercentDivision:
+                        finalValue *= 1 - modifier.Value;
+                        break;
+                    
                     default:
                         throw new ArgumentOutOfRangeException(
                             nameof(modifier.Identifier),

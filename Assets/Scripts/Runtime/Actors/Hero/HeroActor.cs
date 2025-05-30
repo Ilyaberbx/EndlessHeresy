@@ -46,7 +46,7 @@ namespace EndlessHeresy.Runtime.Actors.Hero
 
         private Task ShowStatusEffectsHudAsync()
         {
-            var model = new StatusEffectsHudModel(new StatusEffectsModel(_statusEffectsStorage.ActiveStatusEffects));
+            var model = new StatusEffectsHudModel(new StatusEffectsModel(_statusEffectsStorage.ActiveStatusEffectsReadOnly));
 
             return _hudsService.ShowAsync<StatusEffectsHudViewModel, StatusEffectsHudModel>(model, ShowType.Additive);
         }
@@ -61,6 +61,7 @@ namespace EndlessHeresy.Runtime.Actors.Hero
             if (UnityInput.GetKeyDown(KeyCode.M))
             {
                 _statusEffectsStorage.Add(StatusEffectType.Burning);
+                _statusEffectsStorage.Add(StatusEffectType.Healing);
             }
 
             if (UnityInput.GetKeyDown(KeyCode.K))

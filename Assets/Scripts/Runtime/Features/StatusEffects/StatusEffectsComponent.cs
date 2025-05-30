@@ -21,7 +21,7 @@ namespace EndlessHeresy.Runtime.StatusEffects
         private readonly IReactiveCollection<IStatusEffectRoot> _activeStatusEffects;
 
         private StatsComponent _statsComponent;
-        public IReadOnlyReactiveCollection<IStatusEffectRoot> ActiveStatusEffects => _activeStatusEffects;
+        public IReadOnlyReactiveCollection<IStatusEffectRoot> ActiveStatusEffectsReadOnly => _activeStatusEffects;
 
         public StatusEffectsComponent(IGameplayStaticDataService gameplayStaticDataService, IObjectResolver resolver)
         {

@@ -4,6 +4,6 @@ namespace EndlessHeresy.Runtime.StatusEffects
 {
     public interface IStatusEffectsReadOnly
     {
-        public IReadOnlyReactiveCollection<IStatusEffectRoot> ActiveStatusEffects { get; }
+        public IReadOnlyReactiveCollection<IStatusEffectRoot> ActiveStatusEffectsReadOnly { get; }
     }
 }

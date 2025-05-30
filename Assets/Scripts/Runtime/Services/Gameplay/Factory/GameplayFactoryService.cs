@@ -53,7 +53,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                     configuration.TrailsPoolData.MaxSize)
                 .WithComponent<StatsComponent>(configuration.DefaultStats)
                 .WithComponent<StatusEffectsComponent>()
-                .WithComponent<HealthChangeMessages>()
+                .WithComponent<HealthChangesMessages>()
                 .WithComponent<AttributesComponent>(configuration.DefaultAttributes)
                 .Build();
         }
@@ -67,7 +67,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithPosition(at)
                 .WithComponent<HealthComponent>()
                 .WithComponent<StatusEffectsComponent>()
-                .WithComponent<HealthChangeMessages>()
+                .WithComponent<HealthChangesMessages>()
                 .WithComponent<StatsComponent>(configuration.StatsData)
                 .Build();
         }

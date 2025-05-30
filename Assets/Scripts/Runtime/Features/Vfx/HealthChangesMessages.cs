@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Vfx
 {
-    public sealed class HealthChangeMessages : PocoComponent
+    public sealed class HealthChangesMessages : PocoComponent
     {
         private const float MessageDuration = 1f;
         private static readonly Color HealColor = Color.green;
@@ -22,7 +22,7 @@ namespace EndlessHeresy.Runtime.Vfx
 
         private HealthComponent _health;
 
-        public HealthChangeMessages(
+        public HealthChangesMessages(
             IGameplayStaticDataService staticDataService,
             IFloatingMessagesService floatingMessagesService)
         {
