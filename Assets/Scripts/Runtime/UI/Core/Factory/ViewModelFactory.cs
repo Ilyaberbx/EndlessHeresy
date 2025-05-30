@@ -21,5 +21,12 @@ namespace EndlessHeresy.Runtime.UI.Core.Factory
             viewModel.Initialize(model);
             return viewModel;
         }
+
+        public TViewModel Create<TViewModel>() where TViewModel : BaseViewModel
+        {
+            var viewModel = _resolver.Instantiate<TViewModel>(Lifetime.Scoped);
+            viewModel.Initialize(null);
+            return viewModel;
+        }
     }
 }

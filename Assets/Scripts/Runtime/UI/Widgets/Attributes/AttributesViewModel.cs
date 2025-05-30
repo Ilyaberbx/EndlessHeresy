@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using EndlessHeresy.Runtime.StatusEffects;
+using System.Linq;
 using EndlessHeresy.Runtime.UI.Core.Factory;
 using EndlessHeresy.Runtime.UI.Core.MVVM;
 using EndlessHeresy.Runtime.UI.Widgets.Attributes.Item;
-using EndlessHeresy.Runtime.UI.Widgets.StatusEffects.Item;
 using UniRx;
+using Unity.VisualScripting;
 using Attribute = EndlessHeresy.Runtime.Attributes.Attribute;
 
 namespace EndlessHeresy.Runtime.UI.Widgets.Attributes
@@ -26,13 +26,22 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Attributes
         {
             Model.Attributes.ObserveAdd().Subscribe(OnAttributeAdded).AddTo(CompositeDisposable);
             Model.Attributes.ObserveRemove().Subscribe(OnAttributeRemoved).AddTo(CompositeDisposable);
+
+            ItemsProperty.AddRange(Model
+                .Attributes
+                .Select(CreateItemViewModel));
+        }
+
+        private AttributeItemViewModel CreateItemViewModel(Attribute attribute)
+        {
+            var model = new AttributeItemModel(attribute);
+            return _factory.Create<AttributeItemViewModel, AttributeItemModel>(model);
         }
 
         private void OnAttributeAdded(CollectionAddEvent<Attribute> addEvent)
         {
             var attribute = addEvent.Value;
-            var model = new AttributeItemModel(attribute);
-            var viewModel = _factory.Create<AttributeItemViewModel, AttributeItemModel>(model);
+            var viewModel = CreateItemViewModel(attribute);
             _map.Add(attribute, viewModel);
             ItemsProperty.Add(viewModel);
         }

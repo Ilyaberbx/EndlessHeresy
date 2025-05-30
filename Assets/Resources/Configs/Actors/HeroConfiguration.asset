@@ -23,6 +23,17 @@ MonoBehaviour:
     _identifier: 3
   - _baseValue: 500
     _identifier: 4
+  _defaultAttributes:
+  - Identifier: 0
+    Value: 2
+  - Identifier: 1
+    Value: 2
+  - Identifier: 2
+    Value: 2
+  - Identifier: 3
+    Value: 2
+  - Identifier: 4
+    Value: 2
   _prefab: {fileID: 5753913375855388206, guid: 8e2cf937bc869244caf19c5c4dae8fdc, type: 3}
   _maxInventorySize: 50
   _abilityConfigurations:

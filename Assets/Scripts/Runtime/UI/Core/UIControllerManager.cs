@@ -56,8 +56,8 @@ namespace EndlessHeresy.Runtime.UI.Core
 
             foreach (var viewPair in _viewMap)
             {
+                Object.Destroy(viewPair.Key.gameObject);
                 viewPair.Value.Dispose();
-                Object.Destroy(viewPair.Key);
             }
 
             _viewMap.Clear();

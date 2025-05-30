@@ -4,7 +4,6 @@ using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static;
 using EndlessHeresy.Runtime.Data.Static.Components;
-using EndlessHeresy.Runtime.Data.Static.Items;
 using EndlessHeresy.Runtime.Data.Static.StatusEffects;
 using EndlessHeresy.Runtime.Services.AssetsManagement;
 using VContainer.Unity;
@@ -17,7 +16,6 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
         private HeroConfiguration _heroConfiguration;
         private PunchingDummyConfiguration _punchingDummyConfiguration;
         private FloatingMessagesConfiguration _floatingMessagesConfiguration;
-        private ItemConfiguration[] _itemsConfigurations;
         private StatusEffectConfiguration[] _statusEffectsConfiguration;
         private AttributesConfiguration _attributesConfiguration;
         private DamageColorsConfiguration _damageColorsConfiguration;
@@ -32,22 +30,15 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
 
         public void Initialize()
         {
-            var initializationTask = Task.WhenAll(
-                LoadHeroConfigurationAsync(),
-                LoadDummyConfigurationAsync(),
-                LoadMessagesConfigurationAsync(),
-                LoadItemsConfigurationAsync(),
-                LoadStatusEffectsConfigurationAsync(),
-                LoadAttributesConfigurationAsync(),
-                LoadDamageColorsConfigurationAsync(),
-                LoadAttributesConfigurationAsync());
-
-            initializationTask.Forget();
-        }
-
-        public ItemConfiguration GetItemConfiguration(ItemType identifier)
-        {
-            return _itemsConfigurations.FirstOrDefault(temp => temp.Identifier == identifier);
+            Task.WhenAll(
+                    LoadHeroConfigurationAsync(),
+                    LoadDummyConfigurationAsync(),
+                    LoadMessagesConfigurationAsync(),
+                    LoadStatusEffectsConfigurationAsync(),
+                    LoadAttributesConfigurationAsync(),
+                    LoadDamageColorsConfigurationAsync(),
+                    LoadAttributesConfigurationAsync())
+                .Forget();
         }
 
         public AttributeItemData GetAttributeData(AttributeType identifier)
@@ -63,11 +54,6 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
         public DamageColorData GetDamageColorData(DamageType identifier)
         {
             return _damageColorsConfiguration.Data.FirstOrDefault(temp => temp.Identifier == identifier);
-        }
-
-        private async Task LoadItemsConfigurationAsync()
-        {
-            _itemsConfigurations = await _assetsService.LoadAll<ItemConfiguration>(GameplayStaticDataKeys.Items);
         }
 
         private async Task LoadAttributesConfigurationAsync()

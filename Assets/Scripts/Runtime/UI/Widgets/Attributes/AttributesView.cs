@@ -15,6 +15,12 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Attributes
         {
             viewModel.ItemsProperty.ObserveAdd().Subscribe(OnItemAdded).AddTo(CompositeDisposable);
             viewModel.ItemsProperty.ObserveRemove().Subscribe(OnItemRemoved).AddTo(CompositeDisposable);
+
+            for (var i = 0; i < viewModel.ItemsProperty.Count; i++)
+            {
+                var itemViewModel = viewModel.ItemsProperty[i];
+                OnItemAdded(new CollectionAddEvent<AttributeItemViewModel>(i, itemViewModel));
+            }
         }
 
         private void OnItemAdded(CollectionAddEvent<AttributeItemViewModel> addEvent)

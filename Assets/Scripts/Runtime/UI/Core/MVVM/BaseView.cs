@@ -39,7 +39,9 @@ namespace EndlessHeresy.Runtime.UI.Core.MVVM
             }
         }
 
-        protected abstract void Initialize(TViewModel viewModel);
+        protected virtual void Initialize(TViewModel viewModel)
+        {
+        }
     }
 
     public abstract class BaseView : UIMonoBehaviour

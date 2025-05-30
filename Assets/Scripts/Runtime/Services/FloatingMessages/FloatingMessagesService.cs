@@ -10,7 +10,7 @@ using VContainer.Unity;
 
 namespace EndlessHeresy.Runtime.Services.FloatingMessages
 {
-    public sealed class FloatingMessagesService : IFloatingMessagesService, IPostInitializable, IDisposable
+    public sealed class FloatingMessagesService : IFloatingMessagesService, IInitializable, IDisposable
     {
         private readonly IFloatingMessagesFactory _factory;
         private readonly IGameplayStaticDataService _gameplayStaticDataService;
@@ -26,7 +26,7 @@ namespace EndlessHeresy.Runtime.Services.FloatingMessages
             _cameraService = cameraService;
         }
 
-        public void PostInitialize()
+        public void Initialize()
         {
             var configuration = _gameplayStaticDataService.FloatingMessagesConfiguration;
 

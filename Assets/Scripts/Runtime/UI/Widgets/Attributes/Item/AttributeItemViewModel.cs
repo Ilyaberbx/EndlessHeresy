@@ -10,6 +10,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Attributes.Item
         private readonly IGameplayStaticDataService _gameplayStaticDataService;
         public IReactiveProperty<Sprite> IconProperty { get; } = new ReactiveProperty<Sprite>();
         public IReactiveProperty<int> ValueProperty { get; } = new ReactiveProperty<int>();
+        public IReactiveProperty<string> NameProperty { get; } = new ReactiveProperty<string>();
 
         public AttributeItemViewModel(IGameplayStaticDataService gameplayStaticDataService)
         {
@@ -20,6 +21,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Attributes.Item
         {
             var configuration = _gameplayStaticDataService.GetAttributeData(Model.Attribute.Identifier);
             IconProperty.Value = configuration.Icon;
+            NameProperty.Value = configuration.Name;
             Model.Attribute.ValueProperty.Subscribe(OnModelValueChanged).AddTo(CompositeDisposable);
         }
 

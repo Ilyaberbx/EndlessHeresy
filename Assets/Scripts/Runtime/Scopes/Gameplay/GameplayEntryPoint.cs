@@ -30,18 +30,13 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
                 await CreatDummiesAsync();
                 var hero = await CreateHero();
                 _cameraService.SetTarget(hero.transform);
-                CreateTestItemPickUp().Forget();
             }
             catch (Exception e)
             {
                 Debug.LogException(e);
             }
         }
-
-        private Task<ItemPickUpActor> CreateTestItemPickUp()
-        {
-            return _gameplayFactoryService.CreateItemPickUpAsync(ItemType.Test);
-        }
+        
 
         private Task<HeroActor> CreateHero()
         {

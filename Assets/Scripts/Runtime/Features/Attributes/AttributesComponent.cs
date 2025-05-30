@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,20 +16,29 @@ namespace EndlessHeresy.Runtime.Attributes
     public sealed class AttributesComponent : PocoComponent, IAttributesReadOnly
     {
         private readonly IGameplayStaticDataService _gameplayStaticDataService;
+        private readonly AttributeData[] _initialAttributesData;
         private readonly IReactiveCollection<Attribute> _attributes;
 
         private StatsComponent _statsComponent;
         public IReadOnlyReactiveCollection<Attribute> AttributesReadOnly => _attributes;
 
-        public AttributesComponent(IGameplayStaticDataService gameplayStaticDataService)
+        public AttributesComponent(IGameplayStaticDataService gameplayStaticDataService,
+            AttributeData[] initialAttributesData)
         {
             _gameplayStaticDataService = gameplayStaticDataService;
+            _initialAttributesData = initialAttributesData;
             _attributes = new ReactiveCollection<Attribute>();
         }
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
             _statsComponent = Owner.GetComponent<StatsComponent>();
+
+            foreach (var data in _initialAttributesData)
+            {
+                Increase(data.Identifier, data.Value);
+            }
+
             return Task.CompletedTask;
         }
 

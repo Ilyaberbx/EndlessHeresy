@@ -11,7 +11,6 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
     {
         public Task<HeroActor> CreateHeroAsync(Vector2 at);
         public Task<PunchingDummyActor> CreateDummyAsync(Vector2 at);
-        public Task<ItemPickUpActor> CreateItemPickUpAsync(ItemType itemType);
         void Dispose(IActor actor);
     }
 }

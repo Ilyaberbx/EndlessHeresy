@@ -15,6 +15,7 @@ namespace EndlessHeresy.Runtime.UI.Core.MVVM
             {
                 Model = model;
                 Initialize(Model);
+                Show();
             }
             else
             {
@@ -36,7 +37,6 @@ namespace EndlessHeresy.Runtime.UI.Core.MVVM
         {
             DerivedModel = derivedModel;
             CompositeDisposable = new CompositeDisposable();
-            Show();
         }
 
         public void Dispose()

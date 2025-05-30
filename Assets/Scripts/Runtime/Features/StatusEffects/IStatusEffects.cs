@@ -1,6 +1,4 @@
-﻿using Better.Locators.Runtime;
-using EndlessHeresy.Runtime.Data.Identifiers;
-using UniRx;
+﻿using UniRx;
 
 namespace EndlessHeresy.Runtime.StatusEffects
 {

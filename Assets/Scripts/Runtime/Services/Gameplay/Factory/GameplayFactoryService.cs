@@ -1,23 +1,18 @@
 ﻿using System.Threading.Tasks;
 using DG.Tweening;
 using EndlessHeresy.Runtime.Abilities;
-using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Actors.Enemies;
 using EndlessHeresy.Runtime.Actors.Hero;
 using EndlessHeresy.Runtime.Attributes;
 using EndlessHeresy.Runtime.Builder;
-using EndlessHeresy.Runtime.Data.Identifiers;
-using EndlessHeresy.Runtime.Data.Static.Items;
 using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Health;
-using EndlessHeresy.Runtime.Inventory;
 using EndlessHeresy.Runtime.Movement;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using EndlessHeresy.Runtime.States;
 using EndlessHeresy.Runtime.States.Aggregator;
 using EndlessHeresy.Runtime.States.Aggregator.Plugins;
 using EndlessHeresy.Runtime.Stats;
-using EndlessHeresy.Runtime.Stats.Modifiers;
 using EndlessHeresy.Runtime.StatusEffects;
 using EndlessHeresy.Runtime.Vfx;
 using UnityEngine;
@@ -39,7 +34,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
         public Task<HeroActor> CreateHeroAsync(Vector2 at)
         {
             var configuration = _gameplayStaticDataService.HeroConfiguration;
-            
+
             return GetActorBuilder<HeroActor>()
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
@@ -54,12 +49,12 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                     .Build())
                 .WithComponent<AbilitiesCastComponent>()
                 .WithComponent<AbilitiesStorageComponent>(configuration.AbilityConfigurations)
-                .WithComponent<TrailsSpawnerComponent>(configuration.TrailsPoolData.DefaultCapacity, configuration.TrailsPoolData.MaxSize)
-                .WithComponent<InventoryComponent>(configuration.MaxInventorySize)
+                .WithComponent<TrailsSpawnerComponent>(configuration.TrailsPoolData.DefaultCapacity,
+                    configuration.TrailsPoolData.MaxSize)
                 .WithComponent<StatsComponent>(configuration.DefaultStats)
                 .WithComponent<StatusEffectsComponent>()
                 .WithComponent<HealthChangeMessages>()
-                .WithComponent<AttributesComponent>()
+                .WithComponent<AttributesComponent>(configuration.DefaultAttributes)
                 .Build();
         }
 
@@ -74,23 +69,6 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<StatusEffectsComponent>()
                 .WithComponent<HealthChangeMessages>()
                 .WithComponent<StatsComponent>(configuration.StatsData)
-                .Build();
-        }
-
-        public Task<ItemPickUpActor> CreateItemPickUpAsync(ItemType itemType)
-        {
-            var derivedConfiguration = _gameplayStaticDataService.GetItemConfiguration(itemType);
-
-            if (derivedConfiguration is not PickableItemConfiguration itemConfiguration)
-            {
-                return Task.FromResult<ItemPickUpActor>(null);
-            }
-
-            var prefab = itemConfiguration.PickUpPrefab;
-
-            return GetActorBuilder<ItemPickUpActor>()
-                .ForPrefab(prefab)
-                .WithPosition(Vector2.one)
                 .Build();
         }
 

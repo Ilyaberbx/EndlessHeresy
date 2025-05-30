@@ -6,5 +6,8 @@ namespace EndlessHeresy.Runtime.UI.Core.Factory
     {
         TViewModel Create<TViewModel, TModel>(TModel model)
             where TViewModel : BaseViewModel<TModel> where TModel : IModel;
+
+        TViewModel Create<TViewModel>()
+            where TViewModel : BaseViewModel;
     }
 }
