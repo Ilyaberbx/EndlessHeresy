@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.boxqkrtm.ide.cursor": "https://github.com/boxqkrtm/com.unity.ide.cursor.git",
     "com.tdw.better.attributes": "0.0.4",
     "com.tdw.better.commons": "0.0.61",
     "com.tdw.better.locators": "0.1.14",
