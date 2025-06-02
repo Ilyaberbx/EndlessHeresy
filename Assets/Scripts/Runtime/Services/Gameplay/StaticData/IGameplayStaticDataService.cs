@@ -1,6 +1,7 @@
 ﻿using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static;
 using EndlessHeresy.Runtime.Data.Static.Components;
+using EndlessHeresy.Runtime.Data.Static.Inventory;
 using EndlessHeresy.Runtime.Data.Static.StatusEffects;
 
 namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
@@ -13,5 +14,6 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
         AttributeItemData GetAttributeData(AttributeType identifier);
         StatusEffectConfiguration GetStatusEffectConfiguration(StatusEffectType identifier);
         DamageColorData GetDamageColorData(DamageType identifier);
+        InventoryItemConfiguration GetItemData(ItemType identifier);
     }
 }

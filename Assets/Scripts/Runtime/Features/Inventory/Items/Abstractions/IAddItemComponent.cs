@@ -1,6 +1,7 @@
 ﻿namespace EndlessHeresy.Runtime.Inventory.Items.Abstractions
 {
-    public interface IItemComponent
+    public interface IAddItemComponent
     {
+        void Add(MonoActor actor);
     }
 }
