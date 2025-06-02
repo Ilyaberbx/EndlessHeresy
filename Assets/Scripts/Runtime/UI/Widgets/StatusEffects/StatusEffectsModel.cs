@@ -6,16 +6,16 @@ using UniRx;
 
 namespace EndlessHeresy.Runtime.UI.Widgets.StatusEffects
 {
-    public sealed class StatusEffectsModel : IModel, IEnumerable<IStatusEffectRoot>
+    public sealed class StatusEffectsModel : IModel, IEnumerable<StatusEffectRoot>
     {
-        public IReadOnlyReactiveCollection<IStatusEffectRoot> StatusEffects { get; }
+        public IReadOnlyReactiveCollection<StatusEffectRoot> StatusEffects { get; }
 
-        public StatusEffectsModel(IReadOnlyReactiveCollection<IStatusEffectRoot> statusEffects)
+        public StatusEffectsModel(IReadOnlyReactiveCollection<StatusEffectRoot> statusEffects)
         {
             StatusEffects = statusEffects;
         }
 
-        public IEnumerator<IStatusEffectRoot> GetEnumerator()
+        public IEnumerator<StatusEffectRoot> GetEnumerator()
         {
             return StatusEffects.GetEnumerator();
         }

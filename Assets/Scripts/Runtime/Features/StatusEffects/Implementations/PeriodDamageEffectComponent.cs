@@ -2,7 +2,7 @@
 using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Stats;
 
-namespace EndlessHeresy.Runtime.StatusEffects.Implementations
+namespace EndlessHeresy.Runtime.StatusEffects
 {
     public sealed class PeriodDamageEffectComponent :
         IStatusEffectComponent,

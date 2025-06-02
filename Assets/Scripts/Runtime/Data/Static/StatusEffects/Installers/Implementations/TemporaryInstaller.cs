@@ -1,7 +1,7 @@
 ﻿using System;
 using EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Abstractions;
+using EndlessHeresy.Runtime.StatusEffects;
 using EndlessHeresy.Runtime.StatusEffects.Builder;
-using EndlessHeresy.Runtime.StatusEffects.Implementations;
 using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations

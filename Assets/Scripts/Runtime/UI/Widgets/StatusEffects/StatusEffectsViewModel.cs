@@ -10,13 +10,13 @@ namespace EndlessHeresy.Runtime.UI.Widgets.StatusEffects
     public sealed class StatusEffectsViewModel : BaseViewModel<StatusEffectsModel>
     {
         private readonly IViewModelFactory _factory;
-        private readonly Dictionary<IStatusEffectRoot, StatusEffectItemViewModel> _map;
+        private readonly Dictionary<StatusEffectRoot, StatusEffectItemViewModel> _map;
         public IReactiveCollection<StatusEffectItemViewModel> ItemsProperty { get; }
 
         public StatusEffectsViewModel(IViewModelFactory factory)
         {
             _factory = factory;
-            _map = new Dictionary<IStatusEffectRoot, StatusEffectItemViewModel>();
+            _map = new Dictionary<StatusEffectRoot, StatusEffectItemViewModel>();
             ItemsProperty = new ReactiveCollection<StatusEffectItemViewModel>();
         }
 
@@ -26,7 +26,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.StatusEffects
             Model.StatusEffects.ObserveRemove().Subscribe(OnStatusEffectRemoved).AddTo(CompositeDisposable);
         }
 
-        private void OnStatusEffectAdded(CollectionAddEvent<IStatusEffectRoot> addEvent)
+        private void OnStatusEffectAdded(CollectionAddEvent<StatusEffectRoot> addEvent)
         {
             var statusEffect = addEvent.Value;
             var model = new StatusEffectItemModel(statusEffect);
@@ -35,7 +35,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.StatusEffects
             ItemsProperty.Add(viewModel);
         }
 
-        private void OnStatusEffectRemoved(CollectionRemoveEvent<IStatusEffectRoot> removeEvent)
+        private void OnStatusEffectRemoved(CollectionRemoveEvent<StatusEffectRoot> removeEvent)
         {
             var statusEffect = removeEvent.Value;
 

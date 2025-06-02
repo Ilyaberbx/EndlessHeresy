@@ -4,7 +4,7 @@ using EndlessHeresy.Runtime.Stats;
 using EndlessHeresy.Runtime.StatusEffects.Builder;
 using UniRx;
 
-namespace EndlessHeresy.Runtime.StatusEffects.Implementations
+namespace EndlessHeresy.Runtime.StatusEffects
 {
     public sealed class StackableEffectComponent :
         IStatusEffectComponent,
@@ -12,19 +12,19 @@ namespace EndlessHeresy.Runtime.StatusEffects.Implementations
         IRemoveStatusEffect,
         IRootHandler
     {
-        private readonly IList<IStatusEffectRoot> _activeEffects;
+        private readonly IList<StatusEffectRoot> _activeEffects;
         private readonly IEnumerable<StatusEffectsBuilder> _effectsBuilders;
-        private IStatusEffectRoot _root;
+        private StatusEffectRoot _root;
         public IReactiveProperty<int> StackCountProperty { get; }
 
         public StackableEffectComponent(List<StatusEffectsBuilder> effectsBuilders)
         {
             _effectsBuilders = effectsBuilders;
-            _activeEffects = new List<IStatusEffectRoot>();
+            _activeEffects = new List<StatusEffectRoot>();
             StackCountProperty = new ReactiveProperty<int>(0);
         }
 
-        public void Initialize(IStatusEffectRoot root) => _root = root;
+        public void Initialize(StatusEffectRoot root) => _root = root;
 
         public void Apply(StatsComponent stats) => AddStack(stats);
 
@@ -51,12 +51,7 @@ namespace EndlessHeresy.Runtime.StatusEffects.Implementations
             var builder = _effectsBuilders.ElementAt(newStackIndex);
             var effect = builder.Build();
             effect.SetOwner(_root.Owner);
-
-            if (effect is IApplyStatusEffect applyStatusEffect)
-            {
-                applyStatusEffect.Apply(stats);
-            }
-
+            effect.Apply(stats);
             _activeEffects.Add(effect);
             StackCountProperty.Value++;
         }

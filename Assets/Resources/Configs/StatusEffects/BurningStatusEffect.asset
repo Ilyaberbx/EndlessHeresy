@@ -17,30 +17,21 @@ MonoBehaviour:
   _uiData:
     _icon: {fileID: 21300000, guid: c8f0d6c092af4c440b094658eb8a3bb3, type: 3}
   _installers:
-  - rid: 719119144832466949
   - rid: 6311075342630256642
-  - rid: 6311075388076589056
+  - rid: 719119144832466955
   references:
     version: 2
     RefIds:
-    - rid: 719119144832466949
+    - rid: 719119144832466955
       type: {class: ApplicatorEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
       data:
         _installer:
-          rid: 719119144832466950
-    - rid: 719119144832466950
+          rid: 719119144832466956
+    - rid: 719119144832466956
       type: {class: VfxApplicatorInstaller, ns: EndlessHeresy.Runtime.Data.Static.Applicator.Installers, asm: Assembly-CSharp}
       data:
-        _vfxPrefab: {fileID: 1371693811414640555, guid: 21eed6c08f4d0f447ae0913cece67844, type: 3}
+        _vfxPrefab: {fileID: 0}
     - rid: 6311075342630256642
       type: {class: TemporaryInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
       data:
         _duration: 10
-    - rid: 6311075388076589056
-      type: {class: PeriodDamageInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
-      data:
-        _data:
-          _perSeconds: 0.5
-          _damageData:
-            _value: 3
-            _identifier: 0

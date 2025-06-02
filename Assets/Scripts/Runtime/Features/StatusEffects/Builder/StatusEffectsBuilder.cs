@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Extensions;
-using EndlessHeresy.Runtime.StatusEffects.Implementations;
 using VContainer;
 
 namespace EndlessHeresy.Runtime.StatusEffects.Builder
@@ -46,7 +45,7 @@ namespace EndlessHeresy.Runtime.StatusEffects.Builder
         }
 
 
-        public IStatusEffectRoot Build()
+        public StatusEffectRoot Build()
         {
             foreach (var component in from componentParamsPair in _componentsParamsMap
                      let type = componentParamsPair.Key

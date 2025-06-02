@@ -6,7 +6,6 @@ using EndlessHeresy.Runtime.Data.Static.StatusEffects;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using EndlessHeresy.Runtime.Stats;
 using EndlessHeresy.Runtime.StatusEffects.Builder;
-using EndlessHeresy.Runtime.StatusEffects.Implementations;
 using UniRx;
 using VContainer;
 
@@ -16,16 +15,16 @@ namespace EndlessHeresy.Runtime.StatusEffects
     {
         private readonly IGameplayStaticDataService _gameStaticDataService;
         private readonly IObjectResolver _resolver;
-        private readonly IReactiveCollection<IStatusEffectRoot> _activeStatusEffects;
+        private readonly IReactiveCollection<StatusEffectRoot> _activeStatusEffects;
 
         private StatsComponent _statsComponent;
-        public IReadOnlyReactiveCollection<IStatusEffectRoot> ActiveStatusEffectsReadOnly => _activeStatusEffects;
+        public IReadOnlyReactiveCollection<StatusEffectRoot> ActiveStatusEffectsReadOnly => _activeStatusEffects;
 
         public StatusEffectsComponent(IGameplayStaticDataService gameplayStaticDataService, IObjectResolver resolver)
         {
             _gameStaticDataService = gameplayStaticDataService;
             _resolver = resolver;
-            _activeStatusEffects = new ReactiveCollection<IStatusEffectRoot>();
+            _activeStatusEffects = new ReactiveCollection<StatusEffectRoot>();
         }
 
         protected override Task OnInitializeAsync(CancellationToken cancellationToken)

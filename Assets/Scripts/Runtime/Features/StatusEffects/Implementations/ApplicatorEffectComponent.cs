@@ -1,7 +1,7 @@
 ﻿using EndlessHeresy.Runtime.Applicators;
 using EndlessHeresy.Runtime.Stats;
 
-namespace EndlessHeresy.Runtime.StatusEffects.Implementations
+namespace EndlessHeresy.Runtime.StatusEffects
 {
     public sealed class ApplicatorEffectComponent : IStatusEffectComponent, IApplyStatusEffect, IRemoveStatusEffect
     {

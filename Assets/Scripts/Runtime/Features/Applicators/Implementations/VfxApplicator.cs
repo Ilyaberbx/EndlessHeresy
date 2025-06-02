@@ -16,8 +16,7 @@ namespace EndlessHeresy.Runtime.Applicators
         {
             if (_fxAnimatorPrefab != null)
             {
-                _fxAnimator = Object
-                    .Instantiate(_fxAnimatorPrefab, actor.Transform.position,
+                _fxAnimator = Object.Instantiate(_fxAnimatorPrefab, actor.Transform.position,
                         Quaternion.identity, actor.Transform);
             }
         }

@@ -2,9 +2,9 @@
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Stats;
 
-namespace EndlessHeresy.Runtime.StatusEffects.Implementations
+namespace EndlessHeresy.Runtime.StatusEffects
 {
-    public sealed class StatusEffectRoot : IStatusEffectRoot
+    public sealed class StatusEffectRoot
     {
         private readonly IStatusEffectComponent[] _innerStatusEffects;
 

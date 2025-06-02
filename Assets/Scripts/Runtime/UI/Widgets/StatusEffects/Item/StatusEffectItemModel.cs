@@ -5,9 +5,9 @@ namespace EndlessHeresy.Runtime.UI.Widgets.StatusEffects.Item
 {
     public sealed class StatusEffectItemModel : IModel
     {
-        public IStatusEffectRoot StatusEffect { get; }
+        public StatusEffectRoot StatusEffect { get; }
 
-        public StatusEffectItemModel(IStatusEffectRoot statusEffect)
+        public StatusEffectItemModel(StatusEffectRoot statusEffect)
         {
             StatusEffect = statusEffect;
         }

@@ -1,5 +1,5 @@
 ﻿using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
-using EndlessHeresy.Runtime.StatusEffects.Implementations;
+using EndlessHeresy.Runtime.StatusEffects;
 using EndlessHeresy.Runtime.UI.Core.MVVM;
 using UniRx;
 using UnityEngine;

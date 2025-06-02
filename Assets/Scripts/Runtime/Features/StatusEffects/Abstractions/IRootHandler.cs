@@ -2,6 +2,6 @@
 {
     public interface IRootHandler
     {
-        void Initialize(IStatusEffectRoot root);
+        void Initialize(StatusEffectRoot root);
     }
 }

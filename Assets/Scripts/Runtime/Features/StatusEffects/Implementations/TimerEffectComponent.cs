@@ -1,7 +1,7 @@
 ﻿using EndlessHeresy.Runtime.Services.Tick;
 using EndlessHeresy.Runtime.Stats;
 
-namespace EndlessHeresy.Runtime.StatusEffects.Implementations
+namespace EndlessHeresy.Runtime.StatusEffects
 {
     public sealed class TimerEffectComponent : IStatusEffectComponent,
         IApplyStatusEffect,

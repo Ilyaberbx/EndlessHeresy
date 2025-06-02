@@ -3,7 +3,7 @@ using EndlessHeresy.Runtime.Stats;
 using UniRx;
 using UnityEngine;
 
-namespace EndlessHeresy.Runtime.StatusEffects.Implementations
+namespace EndlessHeresy.Runtime.StatusEffects
 {
     public sealed class TemporaryEffectComponent : IStatusEffectComponent,
         IApplyStatusEffect,
@@ -16,7 +16,7 @@ namespace EndlessHeresy.Runtime.StatusEffects.Implementations
         private readonly ReactiveProperty<float> _progress;
         private readonly float _duration;
         private float _elapsedTime;
-        private IStatusEffectRoot _root;
+        private StatusEffectRoot _root;
 
         public IReadOnlyReactiveProperty<float> ProgressReadOnly => _progress;
 
@@ -27,7 +27,7 @@ namespace EndlessHeresy.Runtime.StatusEffects.Implementations
             _progress = new ReactiveProperty<float>();
         }
 
-        public void Initialize(IStatusEffectRoot root)
+        public void Initialize(StatusEffectRoot root)
         {
             _root = root;
         }
