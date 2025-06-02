@@ -1,36 +1,38 @@
 ﻿using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Health;
-using EndlessHeresy.Runtime.Services.Tick;
 using EndlessHeresy.Runtime.Stats;
 
 namespace EndlessHeresy.Runtime.StatusEffects.Implementations
 {
-    public sealed class PeriodDamageEffectComponent : PeriodicStatusEffectComponent
+    public sealed class PeriodDamageEffectComponent :
+        IStatusEffectComponent,
+        IApplyStatusEffect,
+        IRemoveStatusEffect
     {
-        private readonly PeriodDamageData _data;
+        private readonly DamageData _data;
+        private readonly Timer.Timer _timer;
         private HealthComponent _health;
 
-        public PeriodDamageEffectComponent(IGameUpdateService gameUpdateService, PeriodDamageData data) : base(
-            gameUpdateService)
+        public PeriodDamageEffectComponent(DamageData data, Timer.Timer timer)
         {
             _data = data;
+            _timer = timer;
         }
 
-        public override void Apply(StatsComponent stats)
+        public void Apply(StatsComponent stats)
         {
-            base.Apply(stats);
-
             _health = stats.Owner.GetComponent<HealthComponent>();
+            _timer.OnTick += OnTick;
         }
 
-        protected override float GetInterval()
+        public void Remove(StatsComponent stats)
         {
-            return _data.PerSeconds;
+            _timer.OnTick -= OnTick;
         }
 
-        protected override void OnIntervalTick()
+        private void OnTick()
         {
-            _health.TakeDamage(_data.DamageData);
+            _health.TakeDamage(_data);
         }
     }
 }

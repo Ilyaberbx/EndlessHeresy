@@ -17,14 +17,19 @@ MonoBehaviour:
   _uiData:
     _icon: {fileID: 21300000, guid: c8f0d6c092af4c440b094658eb8a3bb3, type: 3}
   _installers:
-  - rid: 6311075342630256641
+  - rid: 719119144832466949
   - rid: 6311075342630256642
   - rid: 6311075388076589056
   references:
     version: 2
     RefIds:
-    - rid: 6311075342630256641
-      type: {class: VfxInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
+    - rid: 719119144832466949
+      type: {class: ApplicatorEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
+      data:
+        _installer:
+          rid: 719119144832466950
+    - rid: 719119144832466950
+      type: {class: VfxApplicatorInstaller, ns: EndlessHeresy.Runtime.Data.Static.Applicator.Installers, asm: Assembly-CSharp}
       data:
         _vfxPrefab: {fileID: 1371693811414640555, guid: 21eed6c08f4d0f447ae0913cece67844, type: 3}
     - rid: 6311075342630256642

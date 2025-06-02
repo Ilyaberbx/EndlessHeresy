@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using Better.Attributes.Runtime.Select;
 using EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Abstractions;
-using EndlessHeresy.Runtime.StatusEffects;
 using EndlessHeresy.Runtime.StatusEffects.Builder;
 using EndlessHeresy.Runtime.StatusEffects.Implementations;
 using UnityEngine;
@@ -21,7 +18,7 @@ namespace EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementat
 
             foreach (var installer in _installers)
             {
-                var internalBuilder = new StatusEffectsBuilder();
+                var internalBuilder = new StatusEffectsBuilder(builder.Resolver);
                 installer.ConfigureBuilder(internalBuilder);
                 builders.Add(internalBuilder);
             }

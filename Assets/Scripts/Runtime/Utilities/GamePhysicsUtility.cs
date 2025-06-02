@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using UnityEngine;
 

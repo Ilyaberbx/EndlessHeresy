@@ -3,7 +3,6 @@ using System.Linq;
 using EndlessHeresy.Runtime.Stats;
 using EndlessHeresy.Runtime.StatusEffects.Builder;
 using UniRx;
-using VContainer;
 
 namespace EndlessHeresy.Runtime.StatusEffects.Implementations
 {
@@ -14,14 +13,12 @@ namespace EndlessHeresy.Runtime.StatusEffects.Implementations
         IRootHandler
     {
         private readonly IList<IStatusEffectRoot> _activeEffects;
-        private readonly IObjectResolver _resolver;
         private readonly IEnumerable<StatusEffectsBuilder> _effectsBuilders;
         private IStatusEffectRoot _root;
         public IReactiveProperty<int> StackCountProperty { get; }
 
-        public StackableEffectComponent(IObjectResolver resolver, List<StatusEffectsBuilder> effectsBuilders)
+        public StackableEffectComponent(List<StatusEffectsBuilder> effectsBuilders)
         {
-            _resolver = resolver;
             _effectsBuilders = effectsBuilders;
             _activeEffects = new List<IStatusEffectRoot>();
             StackCountProperty = new ReactiveProperty<int>(0);
@@ -52,7 +49,7 @@ namespace EndlessHeresy.Runtime.StatusEffects.Implementations
             }
 
             var builder = _effectsBuilders.ElementAt(newStackIndex);
-            var effect = builder.Build(_resolver);
+            var effect = builder.Build();
             effect.SetOwner(_root.Owner);
 
             if (effect is IApplyStatusEffect applyStatusEffect)

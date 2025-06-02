@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.StatusEffects.Implementations;
@@ -9,10 +10,20 @@ namespace EndlessHeresy.Runtime.StatusEffects.Builder
 {
     public sealed class StatusEffectsBuilder
     {
-        private readonly Dictionary<Type, object[]> _componentsParamsMap = new();
+        private readonly Dictionary<Type, object[]> _componentsParamsMap;
+        private readonly IList<IStatusEffectComponent> _forComponents;
+        private readonly IScopedObjectResolver _childScope;
 
         private StatusEffectType _identifier;
         private StatusEffectClassType _classIdentifier;
+        public IObjectResolver Resolver => _childScope;
+
+        public StatusEffectsBuilder(IObjectResolver resolver)
+        {
+            _childScope = resolver.CreateScope();
+            _componentsParamsMap = new Dictionary<Type, object[]>();
+            _forComponents = new List<IStatusEffectComponent>();
+        }
 
         public void WithId(StatusEffectType identifier)
         {
@@ -24,24 +35,28 @@ namespace EndlessHeresy.Runtime.StatusEffects.Builder
             _classIdentifier = classIdentifier;
         }
 
+        public void WithComponent<TComponent>(TComponent component) where TComponent : IStatusEffectComponent
+        {
+            _forComponents.Add(component);
+        }
+
         public void WithComponent<TComponent>(params object[] parameters) where TComponent : IStatusEffectComponent
         {
             _componentsParamsMap.Add(typeof(TComponent), parameters);
         }
 
-        public IStatusEffectRoot Build(IObjectResolver resolver)
-        {
-            var forComponents = new List<IStatusEffectComponent>();
 
-            foreach (var componentParamsPair in _componentsParamsMap)
+        public IStatusEffectRoot Build()
+        {
+            foreach (var component in from componentParamsPair in _componentsParamsMap
+                     let type = componentParamsPair.Key
+                     let parameters = componentParamsPair.Value
+                     select (IStatusEffectComponent)_childScope.Instantiate(type, Lifetime.Singleton, parameters))
             {
-                var type = componentParamsPair.Key;
-                var parameters = componentParamsPair.Value;
-                var component = (IStatusEffectComponent)resolver.Instantiate(type, Lifetime.Singleton, parameters);
-                forComponents.Add(component);
+                _forComponents.Add(component);
             }
 
-            return resolver.Instantiate<StatusEffectRoot>(Lifetime.Singleton, forComponents.ToArray(), _identifier,
+            return _childScope.Instantiate<StatusEffectRoot>(Lifetime.Singleton, _forComponents.ToArray(), _identifier,
                 _classIdentifier);
         }
     }

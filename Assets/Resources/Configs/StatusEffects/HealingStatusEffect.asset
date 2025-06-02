@@ -18,21 +18,24 @@ MonoBehaviour:
     _icon: {fileID: 21300000, guid: 6e680dca883813d4e81439c6cff79d25, type: 3}
   _installers:
   - rid: 6311075342630256642
-  - rid: 6311075388076589057
+  - rid: 719119144832466944
   references:
     version: 2
     RefIds:
+    - rid: 719119144832466944
+      type: {class: PeriodApplicatorInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
+      data:
+        _perSeconds: 0.3
+        _installer:
+          rid: 719119144832466951
+    - rid: 719119144832466951
+      type: {class: StatModifiersApplicatorInstaller, ns: EndlessHeresy.Runtime.Data.Static.Applicator.Installers, asm: Assembly-CSharp}
+      data:
+        _modifiersData:
+        - _statIdentifier: 0
+          _identifier: 0
+          _value: 5
     - rid: 6311075342630256642
       type: {class: TemporaryInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
       data:
         _duration: 10
-    - rid: 6311075388076589057
-      type: {class: PeriodStatModifierInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
-      data:
-        _data:
-          _perSeconds: 0.1
-          _modifierData:
-            _statIdentifier: 0
-            _identifier: 0
-            _value: 0.5
-          _isTemporary: 0

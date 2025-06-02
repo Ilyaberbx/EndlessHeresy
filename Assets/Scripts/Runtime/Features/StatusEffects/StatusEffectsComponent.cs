@@ -1,10 +1,8 @@
 ﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Better.Locators.Runtime;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.StatusEffects;
-using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using EndlessHeresy.Runtime.Stats;
 using EndlessHeresy.Runtime.StatusEffects.Builder;
@@ -62,9 +60,9 @@ namespace EndlessHeresy.Runtime.StatusEffects
 
             if (exisingStatusEffect == null)
             {
-                var builder = new StatusEffectsBuilder();
+                var builder = new StatusEffectsBuilder(_resolver);
                 data.ConfigureBuilder(builder);
-                var newStatusEffect = builder.Build(_resolver);
+                var newStatusEffect = builder.Build();
                 newStatusEffect.SetOwner(Owner);
                 newStatusEffect.Apply(_statsComponent);
                 _activeStatusEffects.Add(newStatusEffect);
