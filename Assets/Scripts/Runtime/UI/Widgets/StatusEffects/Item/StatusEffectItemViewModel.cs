@@ -9,22 +9,27 @@ namespace EndlessHeresy.Runtime.UI.Widgets.StatusEffects.Item
     public sealed class StatusEffectItemViewModel : BaseViewModel<StatusEffectItemModel>
     {
         private readonly IGameplayStaticDataService _gameplayStaticDataService;
-        public IReactiveProperty<bool> IsTemporaryEnabledProperty { get; } = new ReactiveProperty<bool>();
-        public IReactiveProperty<bool> IsStackableEnabledProperty { get; } = new ReactiveProperty<bool>();
-        public IReactiveProperty<float> TemporaryProgressProperty { get; } = new ReactiveProperty<float>();
-        public IReactiveProperty<Sprite> IconProperty { get; } = new ReactiveProperty<Sprite>();
-        public IReactiveProperty<int> StackProperty { get; } = new ReactiveProperty<int>();
+        public IReactiveProperty<bool> IsTemporaryEnabledProperty { get; }
+        public IReactiveProperty<bool> IsStackableEnabledProperty { get; }
+        public IReactiveProperty<float> TemporaryProgressProperty { get; }
+        public IReactiveProperty<Sprite> IconProperty { get; }
+        public IReactiveProperty<int> StackProperty { get; }
 
         public StatusEffectItemViewModel(IGameplayStaticDataService gameplayStaticDataService)
         {
             _gameplayStaticDataService = gameplayStaticDataService;
+            IsTemporaryEnabledProperty = new ReactiveProperty<bool>();
+            IsStackableEnabledProperty = new ReactiveProperty<bool>();
+            TemporaryProgressProperty = new ReactiveProperty<float>();
+            IconProperty = new ReactiveProperty<Sprite>();
+            StackProperty = new ReactiveProperty<int>();
         }
 
         protected override void Initialize(StatusEffectItemModel model)
         {
-            var configuration = _gameplayStaticDataService.GetStatusEffectConfiguration(Model.StatusEffect.Identifier);
+            var data = _gameplayStaticDataService.GetStatusEffectConfiguration(Model.StatusEffect.Identifier);
 
-            IconProperty.Value = configuration.UIData.Icon;
+            IconProperty.Value = data.Icon;
 
             var isStackable = Model.StatusEffect.TryGet<StackableEffectComponent>(out var stackableStatusEffect);
             var isTemporary = Model.StatusEffect.TryGet<TemporaryEffectComponent>(out var temporaryStatusEffect);

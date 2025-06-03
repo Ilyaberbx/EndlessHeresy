@@ -2,7 +2,6 @@
 using Better.Attributes.Runtime.Select;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Abstractions;
-using EndlessHeresy.Runtime.Data.Static.UI;
 using EndlessHeresy.Runtime.StatusEffects.Builder;
 using UnityEngine;
 
@@ -13,12 +12,11 @@ namespace EndlessHeresy.Runtime.Data.Static.StatusEffects
     {
         [SerializeField] private StatusEffectClassType _classIdentifier;
         [SerializeField] private StatusEffectType _identifier;
-        [SerializeField] private StatusEffectUIData _uiData;
+        [SerializeField] private Sprite _icon;
         [SerializeReference, Select] private List<StatusEffectComponentInstaller> _installers;
 
         public StatusEffectType Identifier => _identifier;
-
-        public StatusEffectUIData UIData => _uiData;
+        public Sprite Icon => _icon;
 
         public void ConfigureBuilder(StatusEffectsBuilder builder)
         {

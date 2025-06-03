@@ -4,6 +4,7 @@ using EndlessHeresy.Runtime.Attributes;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Health;
+using EndlessHeresy.Runtime.Inventory;
 using EndlessHeresy.Runtime.States;
 using EndlessHeresy.Runtime.StatusEffects;
 using EndlessHeresy.Runtime.UI.Core;
@@ -12,6 +13,7 @@ using EndlessHeresy.Runtime.UI.Modals.Inventory;
 using EndlessHeresy.Runtime.UI.Services.Huds;
 using EndlessHeresy.Runtime.UI.Services.Modals;
 using EndlessHeresy.Runtime.UI.Widgets.Attributes;
+using EndlessHeresy.Runtime.UI.Widgets.Inventory;
 using EndlessHeresy.Runtime.UI.Widgets.StatusEffects;
 using UnityEngine;
 using VContainer;
@@ -27,6 +29,7 @@ namespace EndlessHeresy.Runtime.Actors.Hero
         private HealthComponent _healthComponent;
         private StatusEffectsComponent _statusEffectsStorage;
         private AttributesComponent _attributesComponent;
+        private InventoryComponent _inventoryComponent;
 
         [Inject]
         public void Construct(IHudsService hudsService, IModalsService modalsService)
@@ -40,13 +43,15 @@ namespace EndlessHeresy.Runtime.Actors.Hero
             _healthComponent = GetComponent<HealthComponent>();
             _statusEffectsStorage = GetComponent<StatusEffectsComponent>();
             _attributesComponent = GetComponent<AttributesComponent>();
+            _inventoryComponent = GetComponent<InventoryComponent>();
 
             return Task.WhenAll(ShowStatusEffectsHudAsync());
         }
 
         private Task ShowStatusEffectsHudAsync()
         {
-            var model = new StatusEffectsHudModel(new StatusEffectsModel(_statusEffectsStorage.ActiveStatusEffectsReadOnly));
+            var model = new StatusEffectsHudModel(
+                new StatusEffectsModel(_statusEffectsStorage.ActiveStatusEffectsReadOnly));
 
             return _hudsService.ShowAsync<StatusEffectsHudViewModel, StatusEffectsHudModel>(model, ShowType.Additive);
         }
@@ -74,7 +79,8 @@ namespace EndlessHeresy.Runtime.Actors.Hero
             if (UnityInput.GetKeyDown(KeyCode.I))
             {
                 var attributesModel = new AttributesModel(_attributesComponent.AttributesReadOnly);
-                var model = new InventoryModalModel(attributesModel);
+                var inventoryModel = new InventoryModel(_inventoryComponent.Items, this);
+                var model = new InventoryModalModel(attributesModel, inventoryModel);
                 _modalsService.ShowAsync<InventoryModalViewModel, InventoryModalModel>(model).Forget();
             }
         }

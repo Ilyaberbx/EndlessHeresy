@@ -11,9 +11,15 @@ namespace EndlessHeresy.Runtime.Data.Static.Inventory
     public sealed class InventoryItemConfiguration : ScriptableObject
     {
         [SerializeField] private ItemType _identifier;
+        [SerializeField] private Sprite _icon;
+        [SerializeField, TextArea] private string _name;
+        [SerializeField, TextArea] private string _description;
         [SerializeReference, Select] private ItemComponentInstaller[] _installers;
 
         public ItemType Identifier => _identifier;
+        public Sprite Icon => _icon;
+        public string Name => _name;
+        public string Description => _description;
 
         public ItemRoot GetInstance()
         {

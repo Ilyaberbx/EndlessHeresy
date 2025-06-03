@@ -2,6 +2,7 @@
 using EndlessHeresy.Runtime.UI.Core.MVVM;
 using EndlessHeresy.Runtime.UI.Widgets.Attributes;
 using EndlessHeresy.Runtime.UI.Widgets.Common;
+using EndlessHeresy.Runtime.UI.Widgets.Inventory;
 
 namespace EndlessHeresy.Runtime.UI.Modals.Inventory
 {
@@ -10,6 +11,7 @@ namespace EndlessHeresy.Runtime.UI.Modals.Inventory
         private readonly IViewModelFactory _factory;
         public AttributesViewModel AttributesViewModel { get; private set; }
         public CloseModalWindowViewModel CloseWindowViewModel { get; private set; }
+        public InventoryViewModel InventoryViewModel { get; private set; }
 
         public InventoryModalViewModel(IViewModelFactory factory)
         {
@@ -22,6 +24,7 @@ namespace EndlessHeresy.Runtime.UI.Modals.Inventory
 
             AttributesViewModel = _factory.Create<AttributesViewModel, AttributesModel>(Model.AttributesModel);
             CloseWindowViewModel = _factory.Create<CloseModalWindowViewModel>();
+            InventoryViewModel = _factory.Create<InventoryViewModel, InventoryModel>(Model.InventoryModel);
         }
 
         protected override void OnDispose()
@@ -29,6 +32,8 @@ namespace EndlessHeresy.Runtime.UI.Modals.Inventory
             base.OnDispose();
 
             AttributesViewModel.Dispose();
+            CloseWindowViewModel.Dispose();
+            InventoryViewModel.Dispose();
         }
     }
 }

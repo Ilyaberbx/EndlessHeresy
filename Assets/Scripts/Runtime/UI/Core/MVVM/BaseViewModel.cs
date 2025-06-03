@@ -5,7 +5,7 @@ namespace EndlessHeresy.Runtime.UI.Core.MVVM
 {
     public abstract class BaseViewModel<TModel> : BaseViewModel where TModel : IModel
     {
-        protected TModel Model { get; private set; }
+        public TModel Model { get; private set; }
 
         public sealed override void Initialize(IModel derivedModel)
         {
