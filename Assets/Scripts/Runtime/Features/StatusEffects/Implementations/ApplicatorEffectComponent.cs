@@ -19,7 +19,7 @@ namespace EndlessHeresy.Runtime.StatusEffects
 
         public void Remove(StatsComponent stats)
         {
-            throw new System.NotImplementedException();
+            _applicator.Remove(stats.Owner);
         }
     }
 }

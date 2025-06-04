@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 909749483287877028}
   - component: {fileID: 6416296474797314555}
   m_Layer: 6
-  m_Name: StatusEffectsWorldView
+  m_Name: StatusEffectsWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemsView:
-    _itemPrefab: {fileID: 7017266276888435320, guid: e120514818a6ba74998a58e0e2098fda, type: 3}
+    _factory:
+      _itemPrefab: {fileID: 7017266276888435320, guid: e120514818a6ba74998a58e0e2098fda, type: 3}
     _container: {fileID: 7709409102829264663}
 --- !u!114 &6416296474797314555
 MonoBehaviour:

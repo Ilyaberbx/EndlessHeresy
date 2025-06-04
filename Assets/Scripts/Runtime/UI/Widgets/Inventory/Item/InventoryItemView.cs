@@ -1,4 +1,6 @@
-﻿using EndlessHeresy.Runtime.UI.Core.MVVM;
+﻿using System.Collections.Generic;
+using System.Linq;
+using EndlessHeresy.Runtime.UI.Core.MVVM;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -14,6 +16,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item
         [SerializeField] private Button _equipButton;
         [SerializeField] private Button _selectionButton;
         [SerializeField] private GameObject _stackableContainer;
+        [SerializeField] private GameObject _selectionContainer;
 
         protected override void Initialize(InventoryItemViewModel viewModel)
         {
@@ -22,6 +25,12 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item
             ViewModel.IsEquipableProperty.Subscribe(OnIsEquipableChanged).AddTo(CompositeDisposable);
             ViewModel.IsStackableProperty.Subscribe(OnIsStackableChanged).AddTo(CompositeDisposable);
             ViewModel.IsUsableProperty.Subscribe(OnIsUsableChanged).AddTo(CompositeDisposable);
+            ViewModel.IsSelectedProperty.Subscribe(OnIsSelectedChanged).AddTo(CompositeDisposable);
+
+            Observable
+                .CombineLatest(ViewModel.IsEquipableProperty, ViewModel.IsUsableProperty)
+                .Subscribe(OnSelectionStateChanged)
+                .AddTo(CompositeDisposable);
 
             _useButton.onClick.AddListener(ViewModel.Use);
             _equipButton.onClick.AddListener(ViewModel.Equip);
@@ -42,5 +51,10 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item
         private void OnIsEquipableChanged(bool isEquipable) => _equipButton.gameObject.SetActive(isEquipable);
         private void OnIsStackableChanged(bool isStackable) => _stackableContainer.SetActive(isStackable);
         private void OnIsUsableChanged(bool isUsable) => _useButton.gameObject.SetActive(isUsable);
+        private void OnIsSelectedChanged(bool isSelected) => _selectionContainer.SetActive(isSelected);
+        private void OnSelectionStateChanged(IList<bool> actions)
+        {
+            _selectionButton.gameObject.SetActive(actions.Any());
+        }
     }
 }

@@ -167,5 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemsView:
-    _itemPrefab: {fileID: 7017266276888435320, guid: 48bf372f3fdb01b4a9dcb335e7718ab8, type: 3}
+    _factory:
+      _itemPrefab: {fileID: 7017266276888435320, guid: 48bf372f3fdb01b4a9dcb335e7718ab8, type: 3}
     _container: {fileID: 8645162265265082692}

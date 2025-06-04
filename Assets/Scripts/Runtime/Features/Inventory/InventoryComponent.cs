@@ -1,10 +1,7 @@
 ﻿using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Inventory.Items.Implementations;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
-using EndlessHeresy.Runtime.Stats;
 using UniRx;
 
 namespace EndlessHeresy.Runtime.Inventory
