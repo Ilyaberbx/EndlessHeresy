@@ -13,6 +13,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
         private readonly IViewModelFactory _factory;
         private readonly Dictionary<ItemRoot, InventoryItemViewModel> _itemViewModels;
         public IReactiveCollection<InventoryItemViewModel> ItemsProperty { get; }
+        public IReactiveProperty<int> InventorySizeProperty { get; }
         public InventoryItemInfoViewModel InfoViewModel { get; private set; }
 
         public InventoryViewModel(IViewModelFactory factory)
@@ -20,6 +21,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
             _factory = factory;
             _itemViewModels = new Dictionary<ItemRoot, InventoryItemViewModel>();
             ItemsProperty = new ReactiveCollection<InventoryItemViewModel>();
+            InventorySizeProperty = new ReactiveProperty<int>();
         }
 
         protected override void Initialize(InventoryModel model)
@@ -27,6 +29,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
             Model.Items.ObserveAdd().Subscribe(OnItemAdded).AddTo(CompositeDisposable);
             Model.Items.ObserveRemove().Subscribe(OnItemRemoved).AddTo(CompositeDisposable);
             InfoViewModel = _factory.Create<InventoryItemInfoViewModel>();
+            InventorySizeProperty.Value = Model.MaxSize;
         }
 
         private void OnItemAdded(CollectionAddEvent<ItemRoot> addEvent)

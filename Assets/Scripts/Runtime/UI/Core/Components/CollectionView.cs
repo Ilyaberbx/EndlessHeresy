@@ -3,21 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using EndlessHeresy.Runtime.UI.Core.MVVM;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace EndlessHeresy.Runtime.UI.Core.Components
 {
     [Serializable]
     public sealed class CollectionView<TView> : IEnumerable<TView> where TView : BaseView
     {
-        [SerializeField] private TView _itemPrefab;
+        [SerializeField] private ViewFactory<TView> _factory;
         [SerializeField] private Transform _container;
 
         private List<TView> _items = new();
-        
+
         public TView Add()
         {
-            var itemView = Object.Instantiate(_itemPrefab, _container);
+            var itemView = _factory.CreateView(_container);
             _items.Add(itemView);
             return itemView;
         }
@@ -26,7 +25,7 @@ namespace EndlessHeresy.Runtime.UI.Core.Components
         {
             if (_items.Remove(item))
             {
-                Object.Destroy(item.gameObject);
+                _factory.DestroyView(item);
                 return true;
             }
 
@@ -37,7 +36,7 @@ namespace EndlessHeresy.Runtime.UI.Core.Components
         {
             foreach (var item in _items)
             {
-                Object.Destroy(item.gameObject);
+                _factory.DestroyView(item);
             }
 
             _items.Clear();

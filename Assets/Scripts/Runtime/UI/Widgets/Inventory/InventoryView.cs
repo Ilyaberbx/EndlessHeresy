@@ -3,6 +3,7 @@ using EndlessHeresy.Runtime.UI.Core.Components;
 using EndlessHeresy.Runtime.UI.Core.MVVM;
 using EndlessHeresy.Runtime.UI.Widgets.Inventory.Item;
 using EndlessHeresy.Runtime.UI.Widgets.Inventory.Item.Info;
+using EndlessHeresy.Runtime.UI.Widgets.Inventory.Slot;
 using UniRx;
 using UnityEngine;
 
@@ -10,7 +11,8 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
 {
     public sealed class InventoryView : BaseView<InventoryViewModel>
     {
-        [SerializeField] private CollectionView<InventoryItemView> _itemsView;
+        [SerializeField] private ViewFactory<InventoryItemView> _itemViewFactory;
+        [SerializeField] private CollectionView<InventorySlotView> _slotsView;
         [SerializeField] private InventoryItemInfoView _itemInfoView;
 
         protected override void Initialize(InventoryViewModel viewModel)
@@ -19,17 +21,50 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
 
             viewModel.ItemsProperty.ObserveAdd().Subscribe(OnItemAdded).AddTo(CompositeDisposable);
             viewModel.ItemsProperty.ObserveRemove().Subscribe(OnItemRemoved).AddTo(CompositeDisposable);
+            viewModel.InventorySizeProperty.Subscribe(OnInventorySizeChanged).AddTo(CompositeDisposable);
         }
 
         private void OnItemAdded(CollectionAddEvent<InventoryItemViewModel> addEvent)
         {
-            _itemsView.Add().Initialize(addEvent.Value);
+            var index = addEvent.Index;
+            var viewModel = addEvent.Value;
+
+            if (_slotsView.Count() <= index)
+            {
+                return;
+            }
+
+            var slotView = _slotsView.ElementAt(index);
+            var itemView = _itemViewFactory.CreateView(slotView.RectTransform);
+            itemView.Initialize(viewModel);
+            slotView.SetItem(itemView);
         }
 
         private void OnItemRemoved(CollectionRemoveEvent<InventoryItemViewModel> removeEvent)
         {
-            var viewToRemove = _itemsView.FirstOrDefault(view => view.ViewModel == removeEvent.Value);
-            _itemsView.Remove(viewToRemove);
+            var index = removeEvent.Index;
+
+            if (_slotsView.Count() <= index)
+            {
+                return;
+            }
+
+            var slotView = _slotsView.ElementAt(index);
+            if (slotView.IsEmpty)
+            {
+                return;
+            }
+
+            _itemViewFactory.DestroyView(slotView.ItemView);
+            slotView.Clear();
+        }
+
+        private void OnInventorySizeChanged(int size)
+        {
+            for (var i = 0; i < size; i++)
+            {
+                _slotsView.Add();
+            }
         }
     }
 }

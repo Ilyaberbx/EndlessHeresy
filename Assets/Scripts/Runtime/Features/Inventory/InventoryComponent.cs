@@ -1,7 +1,10 @@
 ﻿using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Inventory.Items.Implementations;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
+using EndlessHeresy.Runtime.Stats;
 using UniRx;
 
 namespace EndlessHeresy.Runtime.Inventory
@@ -10,12 +13,13 @@ namespace EndlessHeresy.Runtime.Inventory
     {
         private readonly IGameplayStaticDataService _gameplayStaticDataService;
         private readonly ReactiveCollection<ItemRoot> _items;
-
         public IReadOnlyReactiveCollection<ItemRoot> Items => _items;
+        public int MaxSize { get; }
 
-        public InventoryComponent(IGameplayStaticDataService gameplayStaticDataService)
+        public InventoryComponent(IGameplayStaticDataService gameplayStaticDataService, int maxSize)
         {
             _gameplayStaticDataService = gameplayStaticDataService;
+            MaxSize = maxSize;
             _items = new ReactiveCollection<ItemRoot>();
         }
 
@@ -29,6 +33,11 @@ namespace EndlessHeresy.Runtime.Inventory
             if (stackableComponent != null)
             {
                 stackableComponent.AddStack();
+                return;
+            }
+
+            if (_items.Count >= MaxSize)
+            {
                 return;
             }
 

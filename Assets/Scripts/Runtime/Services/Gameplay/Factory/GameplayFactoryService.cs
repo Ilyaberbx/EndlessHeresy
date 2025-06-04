@@ -7,6 +7,7 @@ using EndlessHeresy.Runtime.Attributes;
 using EndlessHeresy.Runtime.Builder;
 using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Health;
+using EndlessHeresy.Runtime.Inventory;
 using EndlessHeresy.Runtime.Movement;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using EndlessHeresy.Runtime.States;
@@ -55,6 +56,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<StatusEffectsComponent>()
                 .WithComponent<HealthChangesMessages>()
                 .WithComponent<AttributesComponent>(configuration.DefaultAttributes)
+                .WithComponent<InventoryComponent>(configuration.MaxInventorySize)
                 .Build();
         }
 

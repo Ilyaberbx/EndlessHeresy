@@ -79,7 +79,7 @@ namespace EndlessHeresy.Runtime.Actors.Hero
             if (UnityInput.GetKeyDown(KeyCode.I))
             {
                 var attributesModel = new AttributesModel(_attributesComponent.AttributesReadOnly);
-                var inventoryModel = new InventoryModel(_inventoryComponent.Items, this);
+                var inventoryModel = new InventoryModel(_inventoryComponent.Items, _inventoryComponent.MaxSize, this);
                 var model = new InventoryModalModel(attributesModel, inventoryModel);
                 _modalsService.ShowAsync<InventoryModalViewModel, InventoryModalModel>(model).Forget();
             }

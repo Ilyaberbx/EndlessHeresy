@@ -7,11 +7,13 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
     public sealed class InventoryModel : IModel
     {
         public IReadOnlyReactiveCollection<ItemRoot> Items { get; }
+        public int MaxSize { get; }
         public MonoActor Owner { get; }
 
-        public InventoryModel(IReadOnlyReactiveCollection<ItemRoot> items, MonoActor owner)
+        public InventoryModel(IReadOnlyReactiveCollection<ItemRoot> items, int maxSize, MonoActor owner)
         {
             Items = items;
+            MaxSize = maxSize;
             Owner = owner;
         }
     }
