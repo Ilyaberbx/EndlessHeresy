@@ -12,6 +12,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Slot
         public void SetItem(InventoryItemView itemView)
         {
             ItemView = itemView;
+            ItemView.RectTransform.SetParent(transform);
             ItemView.RectTransform.localPosition = Vector3.zero;
         }
 

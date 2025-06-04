@@ -9,6 +9,7 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
         private readonly int _maxStackSize;
         private readonly ReactiveProperty<int> _stackCountProperty;
         public IReadOnlyReactiveProperty<int> StackCountProperty => _stackCountProperty;
+        public bool HasFreeSpace => _stackCountProperty.Value < _maxStackSize;
 
         public StackableItemComponent(int maxStackSize)
         {
@@ -16,14 +17,15 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
             _stackCountProperty = new ReactiveProperty<int>(InitialValue);
         }
 
-        public void AddStack()
+        public bool AddStack()
         {
-            if (_stackCountProperty.Value >= _maxStackSize)
+            if (!HasFreeSpace)
             {
-                return;
+                return false;
             }
 
             _stackCountProperty.Value++;
+            return true;
         }
 
         public bool RemoveStack()

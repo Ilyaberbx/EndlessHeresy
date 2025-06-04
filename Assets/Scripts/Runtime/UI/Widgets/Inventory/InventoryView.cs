@@ -43,21 +43,36 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
 
         private void OnItemRemoved(CollectionRemoveEvent<InventoryItemViewModel> removeEvent)
         {
-            var index = removeEvent.Index;
+            var removalIndex = removeEvent.Index;
 
-            if (_slotsView.Count() <= index)
+            if (_slotsView.Count() <= removalIndex)
             {
                 return;
             }
 
-            var slotView = _slotsView.ElementAt(index);
-            if (slotView.IsEmpty)
-            {
-                return;
-            }
+            var slotViewToRemove = _slotsView.ElementAt(removalIndex);
+            var itemViewToRemove = slotViewToRemove.ItemView;
+            slotViewToRemove.Clear();
+            _itemViewFactory.DestroyView(itemViewToRemove);
 
-            _itemViewFactory.DestroyView(slotView.ItemView);
-            slotView.Clear();
+            for (var i = 0; i < _slotsView.Count(); i++)
+            {
+                if (i <= removalIndex)
+                {
+                    continue;
+                }
+
+                var slotView = _slotsView.ElementAt(i);
+                if (slotView.IsEmpty)
+                {
+                    continue;
+                }
+
+                var itemView = slotView.ItemView;
+                var prevSlotView = _slotsView.ElementAt(i - 1);
+                prevSlotView.SetItem(itemView);
+                slotView.Clear();
+            }
         }
 
         private void OnInventorySizeChanged(int size)

@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Inventory.Items.Implementations;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
@@ -22,16 +24,16 @@ namespace EndlessHeresy.Runtime.Inventory
 
         public void Add(ItemType identifier)
         {
-            var existingItem = _items.FirstOrDefault(item => item.Identifier.Equals(identifier));
+            var existingItems = _items.Where(item => item.Identifier.Equals(identifier)).ToArray();
 
-            var stackableComponent = existingItem?.Components
-                .OfType<StackableItemComponent>()
-                .FirstOrDefault();
-
-            if (stackableComponent != null)
+            if (!existingItems.IsNullOrEmpty())
             {
-                stackableComponent?.AddStack();
-                return;
+                if (existingItems.Select(StackableItemsSelector())
+                    .Where(stackableComponent => stackableComponent != null)
+                    .Any(stackableComponent => stackableComponent.AddStack()))
+                {
+                    return;
+                }
             }
 
             if (_items.Count >= MaxSize)
@@ -49,6 +51,14 @@ namespace EndlessHeresy.Runtime.Inventory
             var newItem = itemData.GetInstance();
             newItem.Add(Owner);
             _items.Add(newItem);
+        }
+
+        private static Func<ItemRoot, StackableItemComponent> StackableItemsSelector()
+        {
+            return existingItem =>
+                existingItem.Components
+                    .OfType<StackableItemComponent>()
+                    .FirstOrDefault();
         }
 
         public void Remove(ItemType identifier)
