@@ -9,13 +9,13 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
         public ItemType Identifier { get; }
         public IEnumerable<IItemComponent> Components { get; }
 
-        public ItemRoot(ItemType identifier, IEnumerable<IItemComponent> components)
+        public ItemRoot(ItemType identifier, IItemComponent[] components)
         {
             Identifier = identifier;
             Components = components;
         }
 
-        public void Add(MonoActor actor)
+        public void Add(IActor actor)
         {
             foreach (var component in Components)
             {
@@ -23,10 +23,15 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
                 {
                     addComponent.Add(actor);
                 }
+
+                if (component is IRootHandlerItemComponent rootHandlerComponent)
+                {
+                    rootHandlerComponent.Initialize(this);
+                }
             }
         }
 
-        public void Remove(MonoActor actor)
+        public void Remove(IActor actor)
         {
             foreach (var component in Components)
             {

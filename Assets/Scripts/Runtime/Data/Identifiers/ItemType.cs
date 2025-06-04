@@ -2,6 +2,7 @@
 {
     public enum ItemType
     {
-        Test
+        Test,
+        Test2
     }
 }

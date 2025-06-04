@@ -23,7 +23,8 @@ namespace EndlessHeresy.Runtime.Data.Static.Inventory
 
         public ItemRoot GetInstance()
         {
-            return new ItemRoot(_identifier, _installers.Select(temp => temp.GetComponent()));
+            var components = _installers.Select(temp => temp.GetComponent());
+            return new ItemRoot(_identifier, components.ToArray());
         }
     }
 }

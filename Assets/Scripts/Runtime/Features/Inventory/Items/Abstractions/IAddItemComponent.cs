@@ -2,6 +2,6 @@
 {
     public interface IAddItemComponent
     {
-        void Add(MonoActor actor);
+        void Add(IActor actor);
     }
 }

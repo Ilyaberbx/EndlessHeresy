@@ -1,12 +1,16 @@
-﻿using UniRx;
+﻿using System;
+using System.Linq;
+using UniRx;
 
 namespace EndlessHeresy.Runtime.Extensions
 {
     public static class UniRxExtensions
     {
-        public static void SetDirty<T>(this ReactiveProperty<T> property)
+        public static IObservable<CollectionAddEvent<T>> ObserveAddWithInitial<T>(
+            this IReadOnlyReactiveCollection<T> collection)
         {
-            property.SetValueAndForceNotify(property.Value);
+            return collection.ObserveAdd()
+                .StartWith(collection.Select((item, index) => new CollectionAddEvent<T>(index, item)));
         }
     }
 }

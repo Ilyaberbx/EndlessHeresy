@@ -49,7 +49,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item
         public void Equip()
         {
             var equipableComponent = Model.Item.Components.OfType<EquipableItemComponent>().FirstOrDefault();
-            equipableComponent?.Add(Model.Owner);
+            equipableComponent?.Equip(Model.Owner);
         }
 
         public void Select()
@@ -90,8 +90,20 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item
         private void UpdateStackable()
         {
             var stackableComponent = Model.Item.Components.OfType<StackableItemComponent>().FirstOrDefault();
+
             IsStackableProperty.Value = stackableComponent != null;
-            StackCountProperty.Value = stackableComponent?.StackCount.Value ?? 1;
+
+            if (stackableComponent == null)
+            {
+                StackCountProperty.Value = 1;
+                return;
+            }
+
+            stackableComponent.StackCountProperty
+                .Subscribe(OnStackValueChanged)
+                .AddTo(CompositeDisposable);
         }
+
+        private void OnStackValueChanged(int stack) => StackCountProperty.Value = stack;
     }
 }

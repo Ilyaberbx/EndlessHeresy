@@ -13,7 +13,7 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
             _applicators = applicators;
         }
 
-        public void Add(MonoActor actor)
+        public void Equip(MonoActor actor)
         {
             foreach (var applicator in _applicators)
             {
@@ -21,7 +21,7 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
             }
         }
 
-        public void Remove(MonoActor actor)
+        public void Unequip(MonoActor actor)
         {
             foreach (var applicator in _applicators)
             {

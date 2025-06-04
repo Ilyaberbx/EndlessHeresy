@@ -5,19 +5,36 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
 {
     public sealed class StackableItemComponent : IItemComponent
     {
-        private readonly ReactiveProperty<int> _stackCount;
-        public bool MaxStackSize { get; }
-        public IReadOnlyReactiveProperty<int> StackCount => _stackCount;
+        private const int InitialValue = 1;
+        private readonly int _maxStackSize;
+        private readonly ReactiveProperty<int> _stackCountProperty;
+        public IReadOnlyReactiveProperty<int> StackCountProperty => _stackCountProperty;
 
-        public StackableItemComponent(bool maxStackSize)
+        public StackableItemComponent(int maxStackSize)
         {
-            MaxStackSize = maxStackSize;
-            _stackCount = new ReactiveProperty<int>(1);
+            _maxStackSize = maxStackSize;
+            _stackCountProperty = new ReactiveProperty<int>(InitialValue);
         }
 
         public void AddStack()
         {
-            _stackCount.Value++;
+            if (_stackCountProperty.Value >= _maxStackSize)
+            {
+                return;
+            }
+
+            _stackCountProperty.Value++;
+        }
+
+        public bool RemoveStack()
+        {
+            if (_stackCountProperty.Value <= InitialValue)
+            {
+                return false;
+            }
+
+            _stackCountProperty.Value--;
+            return true;
         }
     }
 }

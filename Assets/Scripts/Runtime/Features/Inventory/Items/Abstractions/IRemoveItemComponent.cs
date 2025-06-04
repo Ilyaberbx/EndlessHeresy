@@ -2,6 +2,6 @@
 {
     public interface IRemoveItemComponent
     {
-        void Remove(MonoActor actor);
+        void Remove(IActor actor);
     }
 }

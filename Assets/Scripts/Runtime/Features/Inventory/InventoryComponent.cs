@@ -23,13 +23,14 @@ namespace EndlessHeresy.Runtime.Inventory
         public void Add(ItemType identifier)
         {
             var existingItem = _items.FirstOrDefault(item => item.Identifier.Equals(identifier));
+
             var stackableComponent = existingItem?.Components
                 .OfType<StackableItemComponent>()
                 .FirstOrDefault();
 
             if (stackableComponent != null)
             {
-                stackableComponent.AddStack();
+                stackableComponent?.AddStack();
                 return;
             }
 
@@ -46,6 +47,7 @@ namespace EndlessHeresy.Runtime.Inventory
             }
 
             var newItem = itemData.GetInstance();
+            newItem.Add(Owner);
             _items.Add(newItem);
         }
 
@@ -58,6 +60,19 @@ namespace EndlessHeresy.Runtime.Inventory
                 return;
             }
 
+            var stackableComponent = itemToRemove.Components
+                .OfType<StackableItemComponent>()
+                .FirstOrDefault();
+
+            if (stackableComponent != null)
+            {
+                if (stackableComponent.RemoveStack())
+                {
+                    return;
+                }
+            }
+
+            itemToRemove.Remove(Owner);
             _items.Remove(itemToRemove);
         }
     }

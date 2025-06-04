@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.UI.Core.Components;
 using EndlessHeresy.Runtime.UI.Core.MVVM;
 using EndlessHeresy.Runtime.UI.Widgets.Inventory.Item;
@@ -19,9 +20,9 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
         {
             _itemInfoView.Initialize(viewModel.InfoViewModel);
 
-            viewModel.ItemsProperty.ObserveAdd().Subscribe(OnItemAdded).AddTo(CompositeDisposable);
-            viewModel.ItemsProperty.ObserveRemove().Subscribe(OnItemRemoved).AddTo(CompositeDisposable);
             viewModel.InventorySizeProperty.Subscribe(OnInventorySizeChanged).AddTo(CompositeDisposable);
+            viewModel.ItemsProperty.ObserveAddWithInitial().Subscribe(OnItemAdded).AddTo(CompositeDisposable);
+            viewModel.ItemsProperty.ObserveRemove().Subscribe(OnItemRemoved).AddTo(CompositeDisposable);
         }
 
         private void OnItemAdded(CollectionAddEvent<InventoryItemViewModel> addEvent)

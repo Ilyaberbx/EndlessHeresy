@@ -9,13 +9,13 @@ using UnityEngine;
 namespace EndlessHeresy.Runtime.Data.Static.Inventory.Installers
 {
     [Serializable]
-    public sealed class EquipableItemInstaller : ItemComponentInstaller
+    public sealed class UsableItemInstaller : ItemComponentInstaller
     {
         [SerializeReference, Select] private ApplicatorInstaller[] _applicatorInstallers;
 
         public override IItemComponent GetComponent()
         {
-            return new EquipableItemComponent(_applicatorInstallers.Select(installer => installer.GetApplicator()));
+            return new UsableItemComponent(_applicatorInstallers.Select(temp => temp.GetApplicator()));
         }
     }
 }

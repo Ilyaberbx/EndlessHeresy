@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.Inventory.Items.Implementations;
 using EndlessHeresy.Runtime.UI.Core.Factory;
 using EndlessHeresy.Runtime.UI.Core.MVVM;
@@ -26,10 +28,21 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
 
         protected override void Initialize(InventoryModel model)
         {
-            Model.Items.ObserveAdd().Subscribe(OnItemAdded).AddTo(CompositeDisposable);
-            Model.Items.ObserveRemove().Subscribe(OnItemRemoved).AddTo(CompositeDisposable);
+            var items = Model.Items;
+
+            items.ObserveAddWithInitial().Subscribe(OnItemAdded).AddTo(CompositeDisposable);
+            items.ObserveRemove().Subscribe(OnItemRemoved).AddTo(CompositeDisposable);
+
             InfoViewModel = _factory.Create<InventoryItemInfoViewModel>();
             InventorySizeProperty.Value = Model.MaxSize;
+        }
+
+        protected override void OnDispose()
+        {
+            foreach (var viewModel in _itemViewModels)
+            {
+                viewModel.Value.OnSelected -= OnItemSelected;
+            }
         }
 
         private void OnItemAdded(CollectionAddEvent<ItemRoot> addEvent)
@@ -56,6 +69,11 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
 
         private void OnItemSelected(ItemRoot item)
         {
+            foreach (var viewModel in _itemViewModels.Values.Where(temp => temp.Model.Item != item))
+            {
+                viewModel.Deselect();
+            }
+
             InfoViewModel.Deselect();
             InfoViewModel.Select(item);
         }
