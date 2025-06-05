@@ -6,12 +6,10 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
 {
     public sealed class UsableItemComponent : IItemComponent,
         IAddItemComponent,
-        IRemoveItemComponent,
-        IRootHandlerItemComponent
+        IRemoveItemComponent
     {
         private readonly IEnumerable<IApplicator> _applicators;
         private IActor _owner;
-        private ItemRoot _root;
 
         public UsableItemComponent(IEnumerable<IApplicator> applicators)
         {
@@ -24,8 +22,6 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
             {
                 applicator.Apply(_owner);
             }
-
-            _owner.GetComponent<InventoryComponent>().Remove(_root.Identifier);
         }
 
         public void Add(IActor actor)
@@ -36,11 +32,6 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
         public void Remove(IActor actor)
         {
             _owner = null;
-        }
-
-        public void Initialize(ItemRoot root)
-        {
-            _root = root;
         }
     }
 }

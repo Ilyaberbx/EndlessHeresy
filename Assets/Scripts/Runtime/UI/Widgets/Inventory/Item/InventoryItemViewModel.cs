@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using EndlessHeresy.Runtime.Inventory;
 using EndlessHeresy.Runtime.Inventory.Items.Implementations;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using EndlessHeresy.Runtime.UI.Core.MVVM;
@@ -11,7 +12,6 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item
     public sealed class InventoryItemViewModel : BaseViewModel<InventoryItemModel>
     {
         public event Action<ItemRoot> OnSelected;
-
         private readonly IGameplayStaticDataService _gameplayStaticDataService;
         public IReactiveProperty<Sprite> IconProperty { get; }
         public IReactiveProperty<int> StackCountProperty { get; }
@@ -44,6 +44,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item
         {
             var usableComponent = Model.Item.Components.OfType<UsableItemComponent>().FirstOrDefault();
             usableComponent?.Use();
+            Model.Inventory.Remove(Model.Item.Identifier, Model.Item.Index);
         }
 
         public void Equip()

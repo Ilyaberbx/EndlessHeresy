@@ -21,10 +21,10 @@ namespace EndlessHeresy.Runtime.Data.Static.Inventory
         public string Name => _name;
         public string Description => _description;
 
-        public ItemRoot GetInstance()
+        public ItemRoot GetInstance(int index)
         {
             var components = _installers.Select(temp => temp.GetComponent());
-            return new ItemRoot(_identifier, components.ToArray());
+            return new ItemRoot(_identifier, components.ToArray(), index);
         }
     }
 }

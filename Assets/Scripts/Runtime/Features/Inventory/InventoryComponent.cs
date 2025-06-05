@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Data.Identifiers;
@@ -28,7 +29,7 @@ namespace EndlessHeresy.Runtime.Inventory
 
             if (!existingItems.IsNullOrEmpty())
             {
-                if (existingItems.Select(StackableItemsSelector())
+                if (existingItems.SelectMany(StackableItemsSelector())
                     .Where(stackableComponent => stackableComponent != null)
                     .Any(stackableComponent => stackableComponent.AddStack()))
                 {
@@ -48,28 +49,21 @@ namespace EndlessHeresy.Runtime.Inventory
                 return;
             }
 
-            var newItem = itemData.GetInstance();
+            var index = existingItems.Length;
+            var newItem = itemData.GetInstance(index);
             newItem.Add(Owner);
             _items.Add(newItem);
         }
 
-        private static Func<ItemRoot, StackableItemComponent> StackableItemsSelector()
+        public void Remove(ItemType identifier, int index)
         {
-            return existingItem =>
-                existingItem.Components
-                    .OfType<StackableItemComponent>()
-                    .FirstOrDefault();
-        }
-
-        public void Remove(ItemType identifier)
-        {
-            var itemToRemove = _items.FirstOrDefault(item => item.Identifier.Equals(identifier));
+            var itemToRemove = _items.FirstOrDefault(item => item.Identifier.Equals(identifier) && item.Index == index);
             if (itemToRemove == null)
             {
-                UnityEngine.Debug.LogWarning($"Item with identifier {identifier} not found in inventory.");
+                UnityEngine.Debug.LogWarning($"Item with Identifier {identifier} and Index {index} not found in inventory.");
                 return;
             }
-
+            
             var stackableComponent = itemToRemove.Components
                 .OfType<StackableItemComponent>()
                 .FirstOrDefault();
@@ -81,9 +75,16 @@ namespace EndlessHeresy.Runtime.Inventory
                     return;
                 }
             }
-
+            
             itemToRemove.Remove(Owner);
             _items.Remove(itemToRemove);
+        }
+
+        private static Func<ItemRoot, IEnumerable<StackableItemComponent>> StackableItemsSelector()
+        {
+            return existingItem => existingItem
+                .Components
+                .OfType<StackableItemComponent>();
         }
     }
 }

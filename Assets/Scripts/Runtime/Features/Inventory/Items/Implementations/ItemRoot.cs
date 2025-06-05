@@ -8,11 +8,13 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
     {
         public ItemType Identifier { get; }
         public IEnumerable<IItemComponent> Components { get; }
+        public int Index { get; }
 
-        public ItemRoot(ItemType identifier, IItemComponent[] components)
+        public ItemRoot(ItemType identifier, IItemComponent[] components, int index)
         {
             Identifier = identifier;
             Components = components;
+            Index = index;
         }
 
         public void Add(IActor actor)
