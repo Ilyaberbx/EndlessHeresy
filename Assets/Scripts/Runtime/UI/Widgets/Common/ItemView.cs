@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace EndlessHeresy.Runtime.UI.Widgets.Slot
+namespace EndlessHeresy.Runtime.UI.Widgets.Common
 {
-    public abstract class ItemCoreView<TViewModel> : BaseView<TViewModel> where TViewModel : BaseViewModel
+    public abstract class ItemView<TViewModel> : BaseView<TViewModel> where TViewModel : BaseViewModel
     {
         [SerializeField] private Image _iconImage;
         [SerializeField] private Button _selectionButton;

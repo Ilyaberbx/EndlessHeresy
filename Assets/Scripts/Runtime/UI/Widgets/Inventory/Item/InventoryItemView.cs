@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using EndlessHeresy.Runtime.UI.Widgets.Slot;
+using EndlessHeresy.Runtime.UI.Widgets.Common;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item
 {
-    public sealed class InventoryItemView : ItemCoreView<InventoryItemViewModel>
+    public sealed class InventoryItemView : ItemView<InventoryItemViewModel>
     {
         [SerializeField] private TextMeshProUGUI _stackText;
         [SerializeField] private Button _useButton;

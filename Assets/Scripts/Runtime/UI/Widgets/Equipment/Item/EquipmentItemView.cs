@@ -1,11 +1,11 @@
-﻿using EndlessHeresy.Runtime.UI.Widgets.Slot;
+﻿using EndlessHeresy.Runtime.UI.Widgets.Common;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace EndlessHeresy.Runtime.UI.Widgets.Equipment.Item
 {
-    public sealed class EquipmentItemView : ItemCoreView<EquipmentItemViewModel>
+    public sealed class EquipmentItemView : ItemView<EquipmentItemViewModel>
     {
         [SerializeField] private Button _unequipButton;
 

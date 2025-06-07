@@ -1,11 +1,11 @@
 ﻿using EndlessHeresy.Runtime.UI.Core.MVVM;
 using UnityEngine;
 
-namespace EndlessHeresy.Runtime.UI.Widgets.Slot
+namespace EndlessHeresy.Runtime.UI.Widgets.Common
 {
-    public abstract class InventorySlotView<TItemView, TViewModel> : BaseView<TViewModel>
+    public abstract class SlotView<TItemView, TViewModel> : BaseView<TViewModel>
         where TViewModel : BaseViewModel
-        where TItemView : ItemCoreView<TViewModel>
+        where TItemView : ItemView<TViewModel>
     {
         public TItemView ItemView { get; private set; }
         public bool IsEmpty => ItemView == null;

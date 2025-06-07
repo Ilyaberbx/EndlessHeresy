@@ -11,7 +11,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
     public sealed class InventoryView : BaseView<InventoryViewModel>
     {
         [SerializeField] private ViewFactory<InventoryItemView> _itemViewFactory;
-        [SerializeField] private CollectionView<InventoryItemSlotView> _slotsView;
+        [SerializeField] private CollectionView<ItemSlotView> _slotsView;
 
         protected override void Initialize(InventoryViewModel viewModel)
         {
