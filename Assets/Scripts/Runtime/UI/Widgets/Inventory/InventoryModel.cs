@@ -8,9 +8,9 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
     {
         public IReadOnlyReactiveCollection<ItemRoot> Items { get; }
         public int MaxSize { get; }
-        public MonoActor Owner { get; }
+        public IActor Owner { get; }
 
-        public InventoryModel(IReadOnlyReactiveCollection<ItemRoot> items, int maxSize, MonoActor owner)
+        public InventoryModel(IReadOnlyReactiveCollection<ItemRoot> items, int maxSize, IActor owner)
         {
             Items = items;
             MaxSize = maxSize;

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using EndlessHeresy.Runtime.Inventory;
 using EndlessHeresy.Runtime.Inventory.Items.Implementations;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using EndlessHeresy.Runtime.UI.Core.MVVM;
@@ -45,12 +44,22 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item
             var usableComponent = Model.Item.Components.OfType<UsableItemComponent>().FirstOrDefault();
             usableComponent?.Use();
             Model.Inventory.Remove(Model.Item.Identifier, Model.Item.Index);
+            Deselect();
         }
 
         public void Equip()
         {
             var equipableComponent = Model.Item.Components.OfType<EquipableItemComponent>().FirstOrDefault();
-            equipableComponent?.Equip(Model.Owner);
+
+            if (equipableComponent == null)
+            {
+                return;
+            }
+
+            if (equipableComponent.TryEquip(Model.Owner))
+            {
+                Deselect();
+            }
         }
 
         public void Select()

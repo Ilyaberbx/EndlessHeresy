@@ -1,5 +1,4 @@
-﻿using EndlessHeresy.Runtime.UI.Core.MVVM;
-using EndlessHeresy.Runtime.UI.Widgets.ItemSelection;
+﻿using EndlessHeresy.Runtime.UI.Widgets.Slot;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;

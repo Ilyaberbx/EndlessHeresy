@@ -3,7 +3,6 @@ using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.UI.Core.Components;
 using EndlessHeresy.Runtime.UI.Core.MVVM;
 using EndlessHeresy.Runtime.UI.Widgets.Equipment.Item;
-using EndlessHeresy.Runtime.UI.Widgets.Inventory.Slot;
 using UniRx;
 using UnityEngine;
 
@@ -11,9 +10,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Equipment
 {
     public sealed class EquipmentView : BaseView<EquipmentViewModel>
     {
-        [SerializeField]
-        private CollectionView<InventorySlotView<EquipmentItemView, EquipmentItemViewModel>> _slotsView;
-
+        [SerializeField] private CollectionView<EquipmentItemSlotView> _slotsView;
         [SerializeField] private ViewFactory<EquipmentItemView> _itemsFactory;
 
         protected override void Initialize(EquipmentViewModel viewModel)

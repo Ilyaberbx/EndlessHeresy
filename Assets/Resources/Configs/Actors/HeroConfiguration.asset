@@ -23,6 +23,8 @@ MonoBehaviour:
     _identifier: 3
   - _baseValue: 6500
     _identifier: 4
+  - _baseValue: 6
+    _identifier: 18
   _defaultAttributes:
   - Identifier: 0
     Value: 2

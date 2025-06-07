@@ -1,6 +1,6 @@
-﻿using EndlessHeresy.Runtime.UI.Widgets.ItemSelection;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using EndlessHeresy.Runtime.UI.Widgets.Slot;
 using TMPro;
 using UniRx;
 using UnityEngine;

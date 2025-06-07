@@ -1,11 +1,9 @@
 ﻿using EndlessHeresy.Runtime.UI.Core.MVVM;
-using EndlessHeresy.Runtime.UI.Widgets.Inventory.Item;
-using EndlessHeresy.Runtime.UI.Widgets.ItemSelection;
 using UnityEngine;
 
-namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Slot
+namespace EndlessHeresy.Runtime.UI.Widgets.Slot
 {
-    public sealed class InventorySlotView<TItemView, TViewModel> : BaseView<TViewModel>
+    public abstract class InventorySlotView<TItemView, TViewModel> : BaseView<TViewModel>
         where TViewModel : BaseViewModel
         where TItemView : ItemCoreView<TViewModel>
     {
@@ -15,8 +13,8 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Slot
         public void SetItem(TItemView itemView)
         {
             ItemView = itemView;
-            ItemView.Root.SetParent(transform);
-            ItemView.Root.localPosition = Vector3.zero;
+            ItemView.RectTransform.SetParent(transform);
+            ItemView.RectTransform.localPosition = Vector3.zero;
         }
 
         public void Clear()

@@ -8,10 +8,10 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item
     {
         private InventoryComponent _inventory;
         public ItemRoot Item { get; }
-        public MonoActor Owner { get; }
+        public IActor Owner { get; }
         public InventoryComponent Inventory => _inventory ??= Owner.GetComponent<InventoryComponent>();
 
-        public InventoryItemModel(ItemRoot item, MonoActor owner)
+        public InventoryItemModel(ItemRoot item, IActor owner)
         {
             Item = item;
             Owner = owner;
