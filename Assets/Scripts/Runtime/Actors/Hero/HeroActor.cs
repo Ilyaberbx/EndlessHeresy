@@ -76,6 +76,7 @@ namespace EndlessHeresy.Runtime.Actors.Hero
                 _attributesComponent.Increase(AttributeType.Vitality, 2);
                 _inventoryComponent.Add(ItemType.Test);
                 _inventoryComponent.Add(ItemType.Test2);
+                _inventoryComponent.Add(ItemType.Test3);
             }
 
             if (UnityInput.GetKeyDown(KeyCode.I))

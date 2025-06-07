@@ -15,7 +15,8 @@ namespace EndlessHeresy.Runtime.Data.Static.Inventory.Installers
 
         public override IItemComponent GetComponent()
         {
-            return new EquipableItemComponent(_applicatorInstallers.Select(installer => installer.GetApplicator()));
+            var applicators = _applicatorInstallers.Select(temp => temp.GetApplicator()).ToArray();
+            return new EquipableItemComponent(applicators);
         }
     }
 }

@@ -10,10 +10,10 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
 {
     public sealed class EquipableItemComponent : IItemComponent
     {
-        private readonly IEnumerable<IApplicator> _applicators;
+        private readonly IApplicator[] _applicators;
         public IReactiveProperty<bool> IsEquipped { get; }
 
-        public EquipableItemComponent(IEnumerable<IApplicator> applicators)
+        public EquipableItemComponent(IApplicator[] applicators)
         {
             _applicators = applicators;
             IsEquipped = new ReactiveProperty<bool>(false);
