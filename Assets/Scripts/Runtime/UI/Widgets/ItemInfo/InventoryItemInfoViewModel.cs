@@ -4,7 +4,7 @@ using EndlessHeresy.Runtime.UI.Core.MVVM;
 using UniRx;
 using UnityEngine;
 
-namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item.Info
+namespace EndlessHeresy.Runtime.UI.Widgets.ItemInfo
 {
     public sealed class InventoryItemInfoViewModel : BaseViewModel
     {

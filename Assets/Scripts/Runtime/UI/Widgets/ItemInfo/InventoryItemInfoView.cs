@@ -4,7 +4,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item.Info
+namespace EndlessHeresy.Runtime.UI.Widgets.ItemInfo
 {
     public sealed class InventoryItemInfoView : BaseView<InventoryItemInfoViewModel>
     {

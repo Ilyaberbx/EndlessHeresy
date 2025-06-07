@@ -16,7 +16,7 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
             IsEquipped = new ReactiveProperty<bool>(false);
         }
 
-        public void Equip(MonoActor actor)
+        public void Equip(IActor actor)
         {
             foreach (var applicator in _applicators)
             {
@@ -26,7 +26,7 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
             IsEquipped.Value = true;
         }
 
-        public void Unequip(MonoActor actor)
+        public void Unequip(IActor actor)
         {
             foreach (var applicator in _applicators)
             {

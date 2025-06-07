@@ -2,28 +2,28 @@
 using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.UI.Core.Components;
 using EndlessHeresy.Runtime.UI.Core.MVVM;
-using EndlessHeresy.Runtime.UI.Widgets.Inventory.Item;
+using EndlessHeresy.Runtime.UI.Widgets.Equipment.Item;
 using EndlessHeresy.Runtime.UI.Widgets.Inventory.Slot;
 using UniRx;
 using UnityEngine;
 
-namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
+namespace EndlessHeresy.Runtime.UI.Widgets.Equipment
 {
-    public sealed class InventoryView : BaseView<InventoryViewModel>
+    public sealed class EquipmentView : BaseView<EquipmentViewModel>
     {
-        [SerializeField] private ViewFactory<InventoryItemView> _itemViewFactory;
-
         [SerializeField]
-        private CollectionView<InventorySlotView<InventoryItemView, InventoryItemViewModel>> _slotsView;
+        private CollectionView<InventorySlotView<EquipmentItemView, EquipmentItemViewModel>> _slotsView;
 
-        protected override void Initialize(InventoryViewModel viewModel)
+        [SerializeField] private ViewFactory<EquipmentItemView> _itemsFactory;
+
+        protected override void Initialize(EquipmentViewModel viewModel)
         {
-            viewModel.InventorySizeProperty.Subscribe(OnInventorySizeChanged).AddTo(CompositeDisposable);
+            viewModel.ActiveSlotsSizeProperty.Subscribe(OnActiveSlotsSizeChanged).AddTo(CompositeDisposable);
             viewModel.ItemsProperty.ObserveAddWithInitial().Subscribe(OnItemAdded).AddTo(CompositeDisposable);
             viewModel.ItemsProperty.ObserveRemove().Subscribe(OnItemRemoved).AddTo(CompositeDisposable);
         }
 
-        private void OnItemAdded(CollectionAddEvent<InventoryItemViewModel> addEvent)
+        private void OnItemAdded(CollectionAddEvent<EquipmentItemViewModel> addEvent)
         {
             var index = addEvent.Index;
             var viewModel = addEvent.Value;
@@ -34,12 +34,12 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
             }
 
             var slotView = _slotsView.ElementAt(index);
-            var itemView = _itemViewFactory.CreateView(slotView.RectTransform);
+            var itemView = _itemsFactory.CreateView(slotView.RectTransform);
             itemView.Initialize(viewModel);
             slotView.SetItem(itemView);
         }
 
-        private void OnItemRemoved(CollectionRemoveEvent<InventoryItemViewModel> removeEvent)
+        private void OnItemRemoved(CollectionRemoveEvent<EquipmentItemViewModel> removeEvent)
         {
             var removalIndex = removeEvent.Index;
 
@@ -51,16 +51,12 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
             var slotViewToRemove = _slotsView.ElementAt(removalIndex);
             var itemViewToRemove = slotViewToRemove.ItemView;
             slotViewToRemove.Clear();
-            _itemViewFactory.DestroyView(itemViewToRemove);
+            _itemsFactory.DestroyView(itemViewToRemove);
 
-            for (var i = 0; i < _slotsView.Count(); i++)
+            for (var i = removalIndex; i < _slotsView.Count(); i++)
             {
-                if (i <= removalIndex)
-                {
-                    continue;
-                }
-
                 var slotView = _slotsView.ElementAt(i);
+
                 if (slotView.IsEmpty)
                 {
                     continue;
@@ -73,11 +69,26 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory
             }
         }
 
-        private void OnInventorySizeChanged(int size)
+        private void OnActiveSlotsSizeChanged(float size)
         {
-            for (var i = 0; i < size; i++)
+            var roundedSize = Mathf.RoundToInt(size);
+
+            var existingItemViewModels = _slotsView
+                .Where(slot => !slot.IsEmpty)
+                .Select(slot => slot.ItemView.ViewModel)
+                .ToList();
+
+            _slotsView.Clear();
+
+            for (var i = 0; i < roundedSize; i++)
             {
                 _slotsView.Add();
+            }
+
+            for (var i = 0; i < existingItemViewModels.Count; i++)
+            {
+                var viewModel = existingItemViewModels[i];
+                OnItemAdded(new CollectionAddEvent<EquipmentItemViewModel>(i, viewModel));
             }
         }
     }

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using EndlessHeresy.Runtime.UI.Widgets.ItemSelection;
+using System.Collections.Generic;
 using System.Linq;
-using EndlessHeresy.Runtime.UI.Core.MVVM;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -8,15 +8,12 @@ using UnityEngine.UI;
 
 namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item
 {
-    public sealed class InventoryItemView : BaseView<InventoryItemViewModel>
+    public sealed class InventoryItemView : ItemCoreView<InventoryItemViewModel>
     {
-        [SerializeField] private Image _iconImage;
         [SerializeField] private TextMeshProUGUI _stackText;
         [SerializeField] private Button _useButton;
         [SerializeField] private Button _equipButton;
-        [SerializeField] private Button _selectionButton;
         [SerializeField] private GameObject _stackableContainer;
-        [SerializeField] private GameObject _selectionContainer;
 
         protected override void Initialize(InventoryItemViewModel viewModel)
         {
@@ -34,7 +31,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item
 
             _useButton.onClick.AddListener(ViewModel.Use);
             _equipButton.onClick.AddListener(ViewModel.Equip);
-            _selectionButton.onClick.AddListener(ViewModel.Select);
+            SelectionButton.onClick.AddListener(ViewModel.Select);
         }
 
         protected override void OnDestroy()
@@ -43,18 +40,19 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item
 
             _useButton.onClick.RemoveListener(ViewModel.Use);
             _equipButton.onClick.RemoveListener(ViewModel.Equip);
-            _selectionButton.onClick.RemoveListener(ViewModel.Select);
+            SelectionButton.onClick.RemoveListener(ViewModel.Select);
         }
 
-        private void OnIconChanged(Sprite icon) => _iconImage.sprite = icon;
+        private void OnIconChanged(Sprite icon) => IconImage.sprite = icon;
         private void OnStackChanged(int count) => _stackText.text = count.ToString();
         private void OnIsEquipableChanged(bool isEquipable) => _equipButton.gameObject.SetActive(isEquipable);
         private void OnIsStackableChanged(bool isStackable) => _stackableContainer.SetActive(isStackable);
         private void OnIsUsableChanged(bool isUsable) => _useButton.gameObject.SetActive(isUsable);
-        private void OnIsSelectedChanged(bool isSelected) => _selectionContainer.SetActive(isSelected);
+        private void OnIsSelectedChanged(bool isSelected) => SelectionContainer.SetActive(isSelected);
+
         private void OnSelectionStateChanged(IList<bool> actions)
         {
-            _selectionButton.gameObject.SetActive(actions.Any());
+            SelectionButton.gameObject.SetActive(actions.Any());
         }
     }
 }
