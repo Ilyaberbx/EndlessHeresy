@@ -2,8 +2,20 @@
 {
     public enum ItemType
     {
-        Test,
-        Test2,
-        Test3,
+        WitchersDagger,
+        SwordDeathCard,
+        RedHandle,
+        PoisonerCape,
+        PentagramCharm,
+        PaladinCreed,
+        NecrophagistFlute,
+        MirrorOrb,
+        MastadonsTusk,
+        InsaneClownPurse,
+        HoarderNickleback,
+        GeneralGreaves,
+        ExorcistCross,
+        EdgeOfSanity,
+        DanzigBrew
     }
 }

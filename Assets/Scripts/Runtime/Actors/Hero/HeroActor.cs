@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Attributes;
 using EndlessHeresy.Runtime.Data.Identifiers;
@@ -74,9 +75,6 @@ namespace EndlessHeresy.Runtime.Actors.Hero
                 _attributesComponent.Increase(AttributeType.Fervor, 5);
                 _attributesComponent.Increase(AttributeType.Insight, 3);
                 _attributesComponent.Increase(AttributeType.Vitality, 2);
-                _inventoryComponent.Add(ItemType.Test);
-                _inventoryComponent.Add(ItemType.Test2);
-                _inventoryComponent.Add(ItemType.Test3);
             }
 
             if (UnityInput.GetKeyDown(KeyCode.I))
