@@ -20,6 +20,6 @@
         DebuffsDurationMultiplier,
         CriticalMultiplier,
         CriticalChance,
-        ActiveEquipmentSlots
+        ActiveEquipmentSlots,
     }
 }
