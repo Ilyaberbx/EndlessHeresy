@@ -1,6 +1,7 @@
 ﻿using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.Abilities.New.Installers;
 using EndlessHeresy.Runtime.NewAbilities;
+using EndlessHeresy.Runtime.NewAbilities.Nodes;
 using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Data.Static.Abilities.New
@@ -25,7 +26,7 @@ namespace EndlessHeresy.Runtime.Data.Static.Abilities.New
             var ability = new NewAbility();
             ability.WithCooldown(_cooldown);
             ability.WithIdentifier(_identifier);
-            ability.WithRootNode(_rootInstaller.GetNode());
+            ability.WithRootNode(_rootInstaller.GetNode() as SequenceNode);
             ability.WithInitialState(AbilityState.Ready);
             return ability;
         }

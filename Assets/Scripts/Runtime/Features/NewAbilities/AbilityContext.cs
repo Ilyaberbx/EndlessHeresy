@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using EndlessHeresy.Runtime.Data.Operational.Abilities;
 
 namespace EndlessHeresy.Runtime.NewAbilities
 {

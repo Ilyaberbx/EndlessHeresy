@@ -1,20 +1,21 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EndlessHeresy.Runtime.NewAbilities.Nodes
 {
     public sealed class SequenceNode : AbilityNode
     {
-        private readonly AbilityNode[] _children;
+        public IList<AbilityNode> Children { get; }
 
         public SequenceNode(AbilityNode[] children)
         {
-            _children = children;
+            Children = children;
         }
 
         public override async Task ExecuteAsync(AbilityContext context, CancellationToken cancellationToken)
         {
-            foreach (var child in _children)
+            foreach (var child in Children)
             {
                 await child.ExecuteAsync(context, cancellationToken);
             }

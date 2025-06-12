@@ -11,7 +11,7 @@ namespace EndlessHeresy.Runtime.NewAbilities
         private float _elapsedTime;
         public AbilityType Identifier { get; private set; }
         public IReadOnlyReactiveProperty<AbilityState> State { get; private set; }
-        public AbilityNode RootNode { get; private set; }
+        public SequenceNode RootNode { get; private set; }
 
         public void WithIdentifier(AbilityType identifier)
         {
@@ -29,7 +29,7 @@ namespace EndlessHeresy.Runtime.NewAbilities
             _cooldown = cooldown;
         }
 
-        public void WithRootNode(AbilityNode rootNode)
+        public void WithRootNode(SequenceNode rootNode)
         {
             RootNode = rootNode;
         }
