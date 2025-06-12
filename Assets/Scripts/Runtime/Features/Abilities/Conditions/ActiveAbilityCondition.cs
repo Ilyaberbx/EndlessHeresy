@@ -1,5 +1,6 @@
 ﻿using System;
 using Better.Conditions.Runtime;
+using EndlessHeresy.Runtime.NewAbilities;
 
 namespace EndlessHeresy.Runtime.Abilities.Conditions
 {

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Abilities;
 using EndlessHeresy.Runtime.Abilities.DoubleAttack;
 using EndlessHeresy.Runtime.Movement;
+using EndlessHeresy.Runtime.NewAbilities;
 using EndlessHeresy.Runtime.States;
 
 namespace EndlessHeresy.Runtime.Actors.Hero.States

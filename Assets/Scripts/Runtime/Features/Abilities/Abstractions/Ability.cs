@@ -3,7 +3,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Better.Commons.Runtime.DataStructures.Properties;
 using Better.Conditions.Runtime;
-using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Data.Identifiers;
 
 namespace EndlessHeresy.Runtime.Abilities
@@ -11,10 +10,10 @@ namespace EndlessHeresy.Runtime.Abilities
     public abstract class Ability : IDisposable
     {
         private Condition _condition;
-        private AbilityType _type;
+        private AbilityType _identifier;
 
         public Condition Condition => _condition;
-        public AbilityType Type => _type;
+        public AbilityType Identifier => _identifier;
         public ReactiveProperty<AbilityState> State { get; } = new();
         protected IActor Owner { get; private set; }
 
@@ -29,7 +28,7 @@ namespace EndlessHeresy.Runtime.Abilities
 
         public abstract Task UseAsync(CancellationToken token);
         public void SetCondition(Condition condition) => _condition = condition;
-        public void SetType(AbilityType type) => _type = type;
+        public void SetType(AbilityType type) => _identifier = type;
         protected void SetState(AbilityState state) => State.Value = state;
     }
 }

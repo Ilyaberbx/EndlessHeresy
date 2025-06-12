@@ -1,16 +1,17 @@
 ﻿using System;
 using Better.Conditions.Runtime;
 using EndlessHeresy.Runtime.Data.Identifiers;
+using EndlessHeresy.Runtime.NewAbilities;
 
 namespace EndlessHeresy.Runtime.Abilities.Conditions
 {
     public sealed class AbilityCastCondition<TAbility> : Condition where TAbility : Ability
     {
         private readonly AbilitiesCastComponent _castComponent;
-        private readonly AbilitiesStorageComponent _storageComponent;
+        private readonly AbilitiesComponent _storageComponent;
 
         public AbilityCastCondition(AbilitiesCastComponent castComponent,
-            AbilitiesStorageComponent storageComponent)
+            AbilitiesComponent storageComponent)
         {
             _castComponent = castComponent;
             _storageComponent = storageComponent;

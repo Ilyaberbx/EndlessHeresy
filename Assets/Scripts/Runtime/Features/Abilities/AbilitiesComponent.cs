@@ -1,19 +1,20 @@
 ﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using EndlessHeresy.Runtime.Abilities;
 using UniRx;
 using VContainer;
 
-namespace EndlessHeresy.Runtime.Abilities
+namespace EndlessHeresy.Runtime.NewAbilities
 {
-    public sealed class AbilitiesStorageComponent : PocoComponent
+    public sealed class AbilitiesComponent : PocoComponent
     {
         private readonly AbilityConfiguration[] _abilityConfigurations;
         private readonly ReactiveCollection<Ability> _abilities = new();
         private readonly IObjectResolver _resolver;
         public IReadOnlyReactiveCollection<Ability> Abilities => _abilities;
 
-        public AbilitiesStorageComponent(IObjectResolver resolver, AbilityConfiguration[] abilityConfigurations)
+        public AbilitiesComponent(IObjectResolver resolver, AbilityConfiguration[] abilityConfigurations)
         {
             _resolver = resolver;
             _abilityConfigurations = abilityConfigurations;

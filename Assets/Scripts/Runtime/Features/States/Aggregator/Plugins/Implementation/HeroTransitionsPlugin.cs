@@ -10,6 +10,7 @@ using EndlessHeresy.Runtime.Actors.Hero;
 using EndlessHeresy.Runtime.Actors.Hero.States;
 using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.Health;
+using EndlessHeresy.Runtime.NewAbilities;
 
 namespace EndlessHeresy.Runtime.States.Aggregator.Plugins
 {
@@ -19,7 +20,7 @@ namespace EndlessHeresy.Runtime.States.Aggregator.Plugins
         {
             var healthComponent = Context.GetComponent<HealthComponent>();
             var abilitiesCastComponent = Context.GetComponent<AbilitiesCastComponent>();
-            var abilitiesStorageComponent = Context.GetComponent<AbilitiesStorageComponent>();
+            var abilitiesStorageComponent = Context.GetComponent<AbilitiesComponent>();
 
             var anyToDead = new HealthStateCondition(healthComponent, false);
             var isAliveCondition = new HealthStateCondition(healthComponent, true);

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Abilities;
 using EndlessHeresy.Runtime.Abilities.CrescentStrike;
+using EndlessHeresy.Runtime.NewAbilities;
 using EndlessHeresy.Runtime.States;
 
 namespace EndlessHeresy.Runtime.Actors.Hero.States

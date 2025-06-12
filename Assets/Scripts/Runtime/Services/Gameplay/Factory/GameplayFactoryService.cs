@@ -9,6 +9,7 @@ using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Inventory;
 using EndlessHeresy.Runtime.Movement;
+using EndlessHeresy.Runtime.NewAbilities;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using EndlessHeresy.Runtime.States;
 using EndlessHeresy.Runtime.States.Aggregator;
@@ -49,7 +50,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                     .WithPlugin<LoggerPlugin<HeroActor>>()
                     .Build())
                 .WithComponent<AbilitiesCastComponent>()
-                .WithComponent<AbilitiesStorageComponent>(configuration.AbilityConfigurations)
+                .WithComponent<AbilitiesComponent>(configuration.AbilityConfigurations)
                 .WithComponent<TrailsSpawnerComponent>(configuration.TrailsPoolData.DefaultCapacity,
                     configuration.TrailsPoolData.MaxSize)
                 .WithComponent<StatsComponent>(configuration.DefaultStats)
