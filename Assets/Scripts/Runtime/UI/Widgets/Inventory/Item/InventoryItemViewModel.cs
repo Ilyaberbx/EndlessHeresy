@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Inventory.Items.Implementations;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using EndlessHeresy.Runtime.UI.Core.MVVM;
@@ -56,7 +57,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Inventory.Item
                 return;
             }
 
-            if (equipableComponent.TryEquip(Model.Owner))
+            if (equipableComponent.TryEquip(Model.Owner, EquipmentSlotType.Attack))
             {
                 Deselect();
             }

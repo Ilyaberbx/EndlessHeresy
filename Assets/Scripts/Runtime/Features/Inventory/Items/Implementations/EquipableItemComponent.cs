@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using EndlessHeresy.Runtime.Applicators;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Inventory.Items.Abstractions;
@@ -19,7 +18,7 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
             IsEquipped = new ReactiveProperty<bool>(false);
         }
 
-        public bool TryEquip(IActor actor)
+        public bool TryEquip(IActor actor, EquipmentSlotType slotIdentifier)
         {
             var inventory = actor.GetComponent<InventoryComponent>();
 

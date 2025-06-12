@@ -4,18 +4,15 @@ using System.Threading.Tasks;
 
 namespace EndlessHeresy.Runtime.NewAbilities.Nodes
 {
-    public sealed class ParallelNode : AbilityNode
+    public sealed class ParallelNode : CollectionNode
     {
-        private readonly AbilityNode[] _children;
-
-        public ParallelNode(AbilityNode[] children)
+        public ParallelNode(AbilityNode[] children) : base(children)
         {
-            _children = children;
         }
 
         public override Task ExecuteAsync(AbilityContext context, CancellationToken cancellationToken)
         {
-            var tasks = _children
+            var tasks = Children
                 .Select(child => child.ExecuteAsync(context, cancellationToken))
                 .ToList();
 
