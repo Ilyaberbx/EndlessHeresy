@@ -7,19 +7,22 @@ using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Inventory.Items.Abstractions;
 using EndlessHeresy.Runtime.Inventory.Items.Implementations;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace EndlessHeresy.Runtime.Data.Static.Inventory.Installers
 {
     [Serializable]
     public sealed class EquipableItemInstaller : ItemComponentInstaller
     {
-        [SerializeReference, Select] private ApplicatorInstaller[] _applicatorInstallers;
-        [SerializeField] private List<AbilityMutationData> _abilityMutations;
+        [SerializeField] private EquipmentSlotApplicatorsData[] _slotsMutations;
 
         public override IItemComponent GetComponent()
         {
-            var applicators = _applicatorInstallers.Select(temp => temp.GetApplicator()).ToArray();
-            return new EquipableItemComponent(applicators);
+            var applicatorsBySlot = _slotsMutations
+                .ToDictionary(temp => temp.Identifier,
+                    temp => temp.ApplicatorInstallers.Select(installer => installer.GetApplicator())
+                        .ToArray());
+            return new EquipableItemComponent(applicatorsBySlot);
         }
     }
 }

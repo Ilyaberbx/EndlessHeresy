@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using EndlessHeresy.Runtime.Applicators;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Inventory.Items.Abstractions;
@@ -9,14 +10,14 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
 {
     public sealed class EquipableItemComponent : IItemComponent
     {
-        private readonly IApplicator[] _applicators;
-        public IReactiveProperty<bool> IsEquipped { get; }
+        private readonly IDictionary<EquipmentSlotType, IApplicator[]> _applicatorsBySlot;
 
-        public EquipableItemComponent(IApplicator[] applicators)
+        public EquipableItemComponent(IDictionary<EquipmentSlotType, IApplicator[]> applicatorsBySlot)
         {
-            _applicators = applicators;
-            IsEquipped = new ReactiveProperty<bool>(false);
+            _applicatorsBySlot = applicatorsBySlot;
         }
+
+        public IReactiveProperty<bool> IsEquipped { get; }
 
         public bool TryEquip(IActor actor, EquipmentSlotType slotIdentifier)
         {
@@ -29,13 +30,14 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
                 .Value;
 
             var occupiedSlots = GetOccupiedSlots(inventory);
-
             if (occupiedSlots >= activeSlots)
             {
                 return false;
             }
 
-            foreach (var applicator in _applicators)
+            var applicators = _applicatorsBySlot[slotIdentifier];
+
+            foreach (var applicator in applicators)
             {
                 applicator.Apply(actor);
             }
@@ -44,16 +46,18 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
             return true;
         }
 
-        public void Unequip(IActor actor)
+        public void Unequip(IActor actor, EquipmentSlotType slotIdentifier)
         {
             if (IsEquipped.Value == false)
             {
                 return;
             }
 
-            foreach (var applicator in _applicators)
+            var applicators = _applicatorsBySlot[slotIdentifier];
+
+            foreach (var applicator in applicators)
             {
-                applicator.Remove(actor);
+                applicator.Apply(actor);
             }
 
             IsEquipped.Value = false;

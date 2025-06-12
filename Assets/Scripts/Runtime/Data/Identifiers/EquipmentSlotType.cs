@@ -7,5 +7,6 @@
         Dash,
         Passive,
         Usable,
+        General,
     }
 }

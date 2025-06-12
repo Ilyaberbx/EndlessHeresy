@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Inventory.Items.Implementations;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using EndlessHeresy.Runtime.UI.Core.MVVM;
@@ -32,7 +33,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Equipment.Item
         public void Unequip()
         {
             var equipableComponent = Model.Item.Components.OfType<EquipableItemComponent>().FirstOrDefault();
-            equipableComponent?.Unequip(Model.Owner);
+            equipableComponent?.Unequip(Model.Owner, EquipmentSlotType.Attack);
         }
 
         public void Select()

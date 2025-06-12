@@ -25,11 +25,6 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
                 {
                     addComponent.Add(actor);
                 }
-
-                if (component is IRootHandlerItemComponent rootHandlerComponent)
-                {
-                    rootHandlerComponent.Initialize(this);
-                }
             }
         }
 

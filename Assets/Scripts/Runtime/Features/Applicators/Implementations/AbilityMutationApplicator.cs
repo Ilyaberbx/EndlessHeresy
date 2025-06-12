@@ -9,9 +9,10 @@ namespace EndlessHeresy.Runtime.Applicators
     public sealed class AbilityMutationApplicator : IApplicator
     {
         private readonly AbilityMutationData _data;
+
         private AbilitiesNewStorageComponent _storage;
-        private bool _isApplied;
         private AbilityNode _newNode;
+        private bool _isApplied;
 
         public AbilityMutationApplicator(AbilityMutationData data)
         {

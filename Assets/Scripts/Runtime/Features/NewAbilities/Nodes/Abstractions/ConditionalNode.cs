@@ -4,20 +4,22 @@ using Better.Conditions.Runtime;
 
 namespace EndlessHeresy.Runtime.NewAbilities.Nodes
 {
-    public abstract class ConditionalNode : AbilityNode
+    public sealed class ConditionalNode : AbilityNode
     {
         private readonly AbilityNode _trueBranch;
         private readonly AbilityNode _falseBranch;
+        private readonly Condition _condition;
 
-        protected ConditionalNode(AbilityNode trueBranch, AbilityNode falseBranch)
+        public ConditionalNode(AbilityNode trueBranch, AbilityNode falseBranch, Condition condition)
         {
             _trueBranch = trueBranch;
             _falseBranch = falseBranch;
+            _condition = condition;
         }
 
         public override async Task ExecuteAsync(AbilityContext context, CancellationToken cancellationToken)
         {
-            var condition = GetCondition(context).SafeInvoke();
+            var condition = _condition.SafeInvoke();
             var selected = condition ? _trueBranch : _falseBranch;
 
             if (selected != null)
@@ -25,7 +27,5 @@ namespace EndlessHeresy.Runtime.NewAbilities.Nodes
                 await selected.ExecuteAsync(context, cancellationToken);
             }
         }
-
-        protected abstract Condition GetCondition(AbilityContext context);
     }
 }
