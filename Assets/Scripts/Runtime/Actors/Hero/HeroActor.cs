@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Attributes;
 using EndlessHeresy.Runtime.Data.Identifiers;
@@ -13,8 +12,6 @@ using EndlessHeresy.Runtime.UI.Huds.StatusEffects;
 using EndlessHeresy.Runtime.UI.Modals.Inventory;
 using EndlessHeresy.Runtime.UI.Services.Huds;
 using EndlessHeresy.Runtime.UI.Services.Modals;
-using EndlessHeresy.Runtime.UI.Widgets.Attributes;
-using EndlessHeresy.Runtime.UI.Widgets.Inventory;
 using EndlessHeresy.Runtime.UI.Widgets.StatusEffects;
 using UnityEngine;
 using VContainer;

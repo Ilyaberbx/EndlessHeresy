@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using EndlessHeresy.Runtime.Applicators;
+﻿using System.Threading;
+using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Inventory.Items.Abstractions;
 
 namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
@@ -8,20 +8,17 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
         IAddItemComponent,
         IRemoveItemComponent
     {
-        private readonly IEnumerable<IApplicator> _applicators;
+        private readonly ICommand _command;
         private IActor _owner;
 
-        public UsableItemComponent(IEnumerable<IApplicator> applicators)
+        public UsableItemComponent(ICommand command)
         {
-            _applicators = applicators;
+            _command = command;
         }
 
         public void Use()
         {
-            foreach (var applicator in _applicators)
-            {
-                applicator.Apply(_owner);
-            }
+            _command.ExecuteAsync(_owner, CancellationToken.None);
         }
 
         public void Add(IActor actor)

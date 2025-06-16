@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using DG.Tweening;
-using EndlessHeresy.Runtime.Abilities;
 using EndlessHeresy.Runtime.Actors.Enemies;
 using EndlessHeresy.Runtime.Actors.Hero;
 using EndlessHeresy.Runtime.Attributes;
@@ -9,7 +8,6 @@ using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Inventory;
 using EndlessHeresy.Runtime.Movement;
-using EndlessHeresy.Runtime.NewAbilities;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using EndlessHeresy.Runtime.States;
 using EndlessHeresy.Runtime.States.Aggregator;
@@ -49,8 +47,6 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                     .WithPlugin<HeroTransitionsPlugin>()
                     .WithPlugin<LoggerPlugin<HeroActor>>()
                     .Build())
-                .WithComponent<AbilitiesCastComponent>()
-                .WithComponent<AbilitiesComponent>(configuration.AbilityConfigurations)
                 .WithComponent<TrailsSpawnerComponent>(configuration.TrailsPoolData.DefaultCapacity,
                     configuration.TrailsPoolData.MaxSize)
                 .WithComponent<StatsComponent>(configuration.DefaultStats)

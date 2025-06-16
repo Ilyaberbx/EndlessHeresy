@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Abilities;
-using EndlessHeresy.Runtime.Abilities.SingleAttack;
+using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Movement;
-using EndlessHeresy.Runtime.NewAbilities;
 using EndlessHeresy.Runtime.States;
 
 namespace EndlessHeresy.Runtime.Actors.Hero.States
@@ -11,30 +11,20 @@ namespace EndlessHeresy.Runtime.Actors.Hero.States
     public sealed class SingleAttackState : BaseState<HeroActor>
     {
         private AbilitiesCastComponent _abilitiesCastComponent;
-        private MovementComponent _movementComponent;
 
         protected override void OnContextSet(HeroActor context)
         {
             base.OnContextSet(context);
 
             _abilitiesCastComponent = context.GetComponent<AbilitiesCastComponent>();
-            _movementComponent = context.GetComponent<MovementComponent>();
         }
 
         public override Task EnterAsync(CancellationToken token)
         {
-            if (_abilitiesCastComponent.TryCast<SingleAttackAbility>())
-            {
-                _movementComponent.Lock();
-            }
-
+            _abilitiesCastComponent.TryCastAsync(AbilityType.SingleAttack).Forget();
             return Task.CompletedTask;
         }
 
-        public override Task ExitAsync(CancellationToken token)
-        {
-            _movementComponent.Unlock();
-            return Task.CompletedTask;
-        }
+        public override Task ExitAsync(CancellationToken token) => Task.CompletedTask;
     }
 }

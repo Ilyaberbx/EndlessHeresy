@@ -11,8 +11,10 @@ namespace EndlessHeresy.Runtime.Actors.Enemies
         private HealthComponent _healthComponent;
 
         [Inject]
-        public void Construct(IGameplayFactoryService gameplayFactoryService) =>
+        public void Construct(IGameplayFactoryService gameplayFactoryService)
+        {
             _gameplayFactoryService = gameplayFactoryService;
+        }
 
         protected override Task OnInitializeAsync()
         {

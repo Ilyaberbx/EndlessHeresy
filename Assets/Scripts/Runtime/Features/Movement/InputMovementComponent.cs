@@ -1,10 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using EndlessHeresy.Runtime.Actors;
-using EndlessHeresy.Runtime.Animations;
 using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Generic;
-using EndlessHeresy.Runtime.Input;
 using EndlessHeresy.Runtime.Services.Input;
 using EndlessHeresy.Runtime.Services.Tick;
 using UnityEngine;
@@ -17,8 +14,7 @@ namespace EndlessHeresy.Runtime.Movement
         private IGameUpdateService _gameUpdateService;
         private IInputService _inputService;
 
-        private AnimationsStorageComponent _animationsStorage;
-        private MovementAnimation _movementAnimation;
+        private AnimatorStorageComponent _animatorStorage;
         private MovementComponent _movementComponent;
         private FacingComponent _facingComponent;
         private Vector2 _input;
@@ -33,10 +29,9 @@ namespace EndlessHeresy.Runtime.Movement
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
-            _animationsStorage = Owner.GetComponent<AnimationsStorageComponent>();
+            _animatorStorage = Owner.GetComponent<AnimatorStorageComponent>();
             _movementComponent = Owner.GetComponent<MovementComponent>();
             _facingComponent = Owner.GetComponent<FacingComponent>();
-            _animationsStorage.TryGetAnimation(out _movementAnimation);
             _gameUpdateService.OnUpdate += OnUpdate;
             _gameUpdateService.OnFixedUpdate += OnFixedUpdate;
             return Task.CompletedTask;
@@ -56,7 +51,6 @@ namespace EndlessHeresy.Runtime.Movement
         {
             _input = _inputService.GetMovementInput();
             var isMoving = _input != Vector2.zero;
-            _movementAnimation.SetMoving(isMoving);
 
             if (!isMoving)
             {

@@ -11,7 +11,7 @@ using VContainer;
 
 namespace EndlessHeresy.Runtime.StatusEffects
 {
-    public sealed class StatusEffectsComponent : PocoComponent, IStatusEffectsReadOnly
+    public sealed class StatusEffectsComponent : PocoComponent
     {
         private readonly IGameplayStaticDataService _gameStaticDataService;
         private readonly IObjectResolver _resolver;

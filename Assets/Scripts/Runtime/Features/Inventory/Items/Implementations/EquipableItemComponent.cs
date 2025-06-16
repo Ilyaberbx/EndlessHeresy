@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using EndlessHeresy.Runtime.Applicators;
+using System.Threading;
+using Better.Commons.Runtime.Extensions;
+using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Inventory.Items.Abstractions;
 using EndlessHeresy.Runtime.Stats;
@@ -10,11 +12,12 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
 {
     public sealed class EquipableItemComponent : IItemComponent
     {
-        private readonly IDictionary<EquipmentSlotType, IApplicator[]> _applicatorsBySlot;
+        private readonly IDictionary<EquipmentSlotType, IUndoableCommand> _commandBySlot;
 
-        public EquipableItemComponent(IDictionary<EquipmentSlotType, IApplicator[]> applicatorsBySlot)
+        public EquipableItemComponent(IDictionary<EquipmentSlotType, IUndoableCommand> commandBySlot)
         {
-            _applicatorsBySlot = applicatorsBySlot;
+            _commandBySlot = commandBySlot;
+            IsEquipped = new ReactiveProperty<bool>(false);
         }
 
         public IReactiveProperty<bool> IsEquipped { get; }
@@ -35,13 +38,8 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
                 return false;
             }
 
-            var applicators = _applicatorsBySlot[slotIdentifier];
-
-            foreach (var applicator in applicators)
-            {
-                applicator.Apply(actor);
-            }
-
+            var command = _commandBySlot[slotIdentifier];
+            command.ExecuteAsync(actor, CancellationToken.None).Forget();
             IsEquipped.Value = true;
             return true;
         }
@@ -53,12 +51,12 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
                 return;
             }
 
-            var applicators = _applicatorsBySlot[slotIdentifier];
+            var command = _commandBySlot[slotIdentifier];
 
-            foreach (var applicator in applicators)
-            {
-                applicator.Apply(actor);
-            }
+            command
+                .GetUndoCommand()
+                .ExecuteAsync(actor, CancellationToken.None)
+                .Forget();
 
             IsEquipped.Value = false;
         }

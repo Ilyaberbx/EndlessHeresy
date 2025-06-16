@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37894e045c174eaf8fa706757e4b59d5, type: 3}
+  m_Name: SingleAttack
+  m_EditorClassIdentifier: 
+  _identifier: 0
+  _icon: {fileID: 0}
+  _description: 
+  _name: 
+  _cooldown: 3
+  _commandInstaller:
+    rid: 719119469492305926
+  references:
+    version: 2
+    RefIds:
+    - rid: 719119469492305926
+      type: {class: ParallelCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _commandInstallers:
+        - rid: 719119469492305936
+    - rid: 719119469492305936
+      type: {class: WaitForSecondsInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _seconds: 50

@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
 using Better.Attributes.Runtime.Select;
-using EndlessHeresy.Runtime.Data.Static.Applicator.Installers;
+using EndlessHeresy.Runtime.Data.Static.Commands.Installers;
 using EndlessHeresy.Runtime.Inventory.Items.Abstractions;
 using EndlessHeresy.Runtime.Inventory.Items.Implementations;
 using UnityEngine;
@@ -11,11 +10,11 @@ namespace EndlessHeresy.Runtime.Data.Static.Inventory.Installers
     [Serializable]
     public sealed class UsableItemInstaller : ItemComponentInstaller
     {
-        [SerializeReference, Select] private ApplicatorInstaller[] _applicatorInstallers;
+        [SerializeReference, Select] private CommandInstaller _commandInstaller;
 
         public override IItemComponent GetComponent()
         {
-            return new UsableItemComponent(_applicatorInstallers.Select(temp => temp.GetApplicator()));
+            return new UsableItemComponent(_commandInstaller.GetCommand());
         }
     }
 }

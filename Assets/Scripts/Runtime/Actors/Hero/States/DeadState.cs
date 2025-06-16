@@ -16,7 +16,7 @@ namespace EndlessHeresy.Runtime.Actors.Hero.States
         protected override void OnContextSet(HeroActor context)
         {
             base.OnContextSet(context);
-            _animator = context.GetComponent<AnimationsStorageComponent>().Animator;
+            _animator = context.GetComponent<AnimatorStorageComponent>().Animator;
             _movementComponent = context.GetComponent<MovementComponent>();
         }
 

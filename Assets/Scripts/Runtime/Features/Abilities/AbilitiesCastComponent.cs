@@ -1,54 +1,47 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Better.Commons.Runtime.Extensions;
-using EndlessHeresy.Runtime.Abilities;
 using EndlessHeresy.Runtime.Data.Identifiers;
 
-namespace EndlessHeresy.Runtime.NewAbilities
+namespace EndlessHeresy.Runtime.Abilities
 {
     public sealed class AbilitiesCastComponent : PocoComponent
     {
-        private AbilitiesComponent _storage;
-        private IEnumerable<Ability> Abilities => _storage.Abilities;
-        private Task _castTask;
-        private Ability _activeAbility;
+        private AbilitiesStorageComponent _storage;
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
-            _storage = Owner.GetComponent<AbilitiesComponent>();
+            _storage = Owner.GetComponent<AbilitiesStorageComponent>();
             return Task.CompletedTask;
         }
 
-        public bool HasActiveAbility() => _activeAbility != null;
-
-        public bool TryCast<TAbility>() where TAbility : Ability
+        public async Task<bool> TryCastAsync(AbilityType identifier)
         {
-            if (Abilities.IsNullOrEmpty())
+            if (HasActiveAbilities())
             {
                 return false;
             }
 
-            if (HasActiveAbility())
+            var ability = _storage.Abilities.FirstOrDefault(temp => temp.Identifier == identifier);
+            if (ability == null)
             {
                 return false;
             }
 
-            var ability = Abilities.FirstOrDefault(temp => temp.GetType() == typeof(TAbility));
-
-            if (ability?.State.Value is not AbilityState.Ready)
+            if (!ability.IsReady())
             {
                 return false;
             }
 
-            CastAsync(ability).Forget();
+            ability.SetState(AbilityState.InUse);
+            await ability.RootCommand.ExecuteAsync(Owner, DisposalToken);
+            ability.SetState(AbilityState.Cooldown);
             return true;
         }
 
-        private Task CastAsync(Ability ability)
+        private bool HasActiveAbilities()
         {
-            throw new System.NotImplementedException();
+            return _storage.Abilities.Any(temp => temp.State.Value == AbilityState.InUse);
         }
     }
 }

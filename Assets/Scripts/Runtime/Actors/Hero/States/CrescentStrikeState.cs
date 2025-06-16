@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Abilities;
-using EndlessHeresy.Runtime.Abilities.CrescentStrike;
-using EndlessHeresy.Runtime.NewAbilities;
+using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.States;
 
 namespace EndlessHeresy.Runtime.Actors.Hero.States
@@ -20,7 +20,7 @@ namespace EndlessHeresy.Runtime.Actors.Hero.States
 
         public override Task EnterAsync(CancellationToken token)
         {
-            _abilitiesCastComponent.TryCast<CrescentStrikeAbility>();
+            _abilitiesCastComponent.TryCastAsync(AbilityType.CrescentStrike).Forget();
             return Task.CompletedTask;
         }
 

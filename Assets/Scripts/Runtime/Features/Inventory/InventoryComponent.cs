@@ -60,10 +60,11 @@ namespace EndlessHeresy.Runtime.Inventory
             var itemToRemove = _items.FirstOrDefault(item => item.Identifier.Equals(identifier) && item.Index == index);
             if (itemToRemove == null)
             {
-                UnityEngine.Debug.LogWarning($"Item with Identifier {identifier} and Index {index} not found in inventory.");
+                UnityEngine.Debug.LogWarning(
+                    $"Item with Identifier {identifier} and Index {index} not found in inventory.");
                 return;
             }
-            
+
             var stackableComponent = itemToRemove.Components
                 .OfType<StackableItemComponent>()
                 .FirstOrDefault();
@@ -75,7 +76,7 @@ namespace EndlessHeresy.Runtime.Inventory
                     return;
                 }
             }
-            
+
             itemToRemove.Remove(Owner);
             _items.Remove(itemToRemove);
         }
