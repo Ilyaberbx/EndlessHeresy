@@ -77,6 +77,11 @@ namespace EndlessHeresy.Runtime.StatusEffects
             {
                 temporaryStatusEffect.Reset();
             }
+
+            if (exisingStatusEffect.TryGet<CommandEffectComponent>(out var commandEffectComponent))
+            {
+                commandEffectComponent.Apply(_statsComponent);
+            }
         }
 
         public void Remove(StatusEffectType identifier)

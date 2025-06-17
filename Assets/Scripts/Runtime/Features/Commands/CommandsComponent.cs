@@ -17,7 +17,7 @@ namespace EndlessHeresy.Runtime.Commands
             StopAll();
         }
 
-        public Task<bool> QueueCommandAsync(ICommand command)
+        public Task<bool> EnqueueInMainSequenceAsync(ICommand command)
         {
             var queued = new QueuedCommand(command);
             _queue.Enqueue(queued);
@@ -28,6 +28,25 @@ namespace EndlessHeresy.Runtime.Commands
             }
 
             return queued.Completion.Task;
+        }
+
+        public Task<bool> ExecuteAsParallel(ICommand command)
+        {
+            var queued = new QueuedCommand(command);
+            ProcessConcurrentAsync(queued).Forget();
+            return queued.Completion.Task;
+        }
+
+        public void StopAll()
+        {
+            if (!_stopCts.IsCancellationRequested)
+            {
+                _stopCts.Cancel();
+            }
+
+            _stopCts.Dispose();
+            _stopCts = new CancellationTokenSource();
+            _queue.Clear();
         }
 
         private async Task ProcessNextAsync()
@@ -52,16 +71,21 @@ namespace EndlessHeresy.Runtime.Commands
             }
         }
 
-        public void StopAll()
+        private async Task ProcessConcurrentAsync(QueuedCommand queued)
         {
-            if (!_stopCts.IsCancellationRequested)
+            try
             {
-                _stopCts.Cancel();
+                await queued.Command.ExecuteAsync(Owner, StopCancellationToken);
+                queued.Completion.TrySetResult(true);
             }
-
-            _stopCts.Dispose();
-            _stopCts = new CancellationTokenSource();
-            _queue.Clear();
+            catch (OperationCanceledException)
+            {
+                queued.Completion.TrySetCanceled();
+            }
+            catch (Exception ex)
+            {
+                queued.Completion.TrySetException(ex);
+            }
         }
     }
 }

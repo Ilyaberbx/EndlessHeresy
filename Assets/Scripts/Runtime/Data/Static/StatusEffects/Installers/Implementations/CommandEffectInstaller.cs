@@ -15,8 +15,7 @@ namespace EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementat
 
         public override void Install(StatusEffectsBuilder builder)
         {
-            var command = _commandInstaller.GetCommand();
-            builder.WithComponent(new CommandEffectComponent(command));
+            builder.WithComponent(new CommandEffectComponent(_commandInstaller));
         }
     }
 }

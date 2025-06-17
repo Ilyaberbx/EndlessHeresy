@@ -1,6 +1,6 @@
-﻿using System.Threading;
-using Better.Commons.Runtime.Extensions;
+﻿using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Commands;
+using EndlessHeresy.Runtime.Data.Static.Commands.Installers;
 using EndlessHeresy.Runtime.Stats;
 
 namespace EndlessHeresy.Runtime.StatusEffects
@@ -9,11 +9,11 @@ namespace EndlessHeresy.Runtime.StatusEffects
         IStatusEffectComponent,
         IApplyStatusEffect
     {
-        private readonly ICommand _command;
+        private readonly CommandInstaller _commandInstaller;
 
-        public CommandEffectComponent(ICommand command)
+        public CommandEffectComponent(CommandInstaller commandInstaller)
         {
-            _command = command;
+            _commandInstaller = commandInstaller;
         }
 
         public void Apply(StatsComponent stats)
@@ -24,8 +24,13 @@ namespace EndlessHeresy.Runtime.StatusEffects
                 return;
             }
 
-            _command
-                .ExecuteAsync(owner, CancellationToken.None)
+            if (!owner.TryGetComponent<CommandsComponent>(out var commands))
+            {
+                return;
+            }
+
+            commands
+                .ExecuteAsParallel(_commandInstaller.GetCommand())
                 .Forget();
         }
     }
