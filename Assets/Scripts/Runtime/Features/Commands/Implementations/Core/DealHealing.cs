@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Health;
 
-namespace EndlessHeresy.Runtime.Commands.Attack
+namespace EndlessHeresy.Runtime.Commands.Core
 {
     public sealed class DealHealing : ICommand
     {

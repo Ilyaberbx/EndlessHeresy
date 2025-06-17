@@ -20,13 +20,14 @@ namespace EndlessHeresy.Runtime.Data.Static.Abilities
         public string Description => _description;
         public string Name => _name;
         public float Cooldown => _cooldown;
+
         public Ability GetAbility()
         {
             var ability = new Ability();
             ability.WithCooldown(_cooldown);
             ability.WithIdentifier(_identifier);
             ability.WithInitialState(AbilityState.Ready);
-            ability.WithCommand(_commandInstaller.GetCommand());
+            ability.WithCommandInstaller(_commandInstaller);
             return ability;
         }
     }

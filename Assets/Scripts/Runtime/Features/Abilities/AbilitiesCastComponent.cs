@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Services.Tick;
 
@@ -10,6 +11,7 @@ namespace EndlessHeresy.Runtime.Abilities
     {
         private readonly IGameUpdateService _gameUpdateService;
         private AbilitiesStorageComponent _storage;
+        private CommandsComponent _commands;
 
         public AbilitiesCastComponent(IGameUpdateService gameUpdateService)
         {
@@ -19,6 +21,7 @@ namespace EndlessHeresy.Runtime.Abilities
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
             _storage = Owner.GetComponent<AbilitiesStorageComponent>();
+            _commands = Owner.GetComponent<CommandsComponent>();
             _gameUpdateService.OnUpdate += OnUpdate;
             return Task.CompletedTask;
         }
@@ -47,7 +50,7 @@ namespace EndlessHeresy.Runtime.Abilities
             }
 
             ability.SetState(AbilityState.InUse);
-            await ability.RootCommand.ExecuteAsync(Owner, DisposalToken);
+            await _commands.QueueCommandAsync(ability.GetCommand());
             ability.SetState(AbilityState.Cooldown);
             return true;
         }

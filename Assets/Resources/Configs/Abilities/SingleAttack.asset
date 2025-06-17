@@ -13,16 +13,65 @@ MonoBehaviour:
   m_Name: SingleAttack
   m_EditorClassIdentifier: 
   _identifier: 0
-  _icon: {fileID: 0}
-  _description: 
-  _name: 
-  _cooldown: 3
+  _icon: {fileID: 21300000, guid: de2cc86fdcd2f69439c8b98ebc3efcc4, type: 3}
+  _description: Test
+  _name: Test
+  _cooldown: 1.5
   _commandInstaller:
-    rid: 719119469492305926
+    rid: 719119482670809091
   references:
     version: 2
     RefIds:
-    - rid: 719119469492305926
-      type: {class: ParallelCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+    - rid: 719119482670809091
+      type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
-        _commandInstallers: []
+        _commandInstallers:
+        - rid: 719119482670809094
+        - rid: 719119482670809095
+        - rid: 719119482670809102
+        - rid: 719119482670809096
+        - rid: 719119482670809099
+        - rid: 719119482670809100
+        - rid: 719119482670809101
+    - rid: 719119482670809094
+      type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _animationName: SingleAttack
+    - rid: 719119482670809095
+      type: {class: WaitForAnimationEventInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _eventName: OnHit
+    - rid: 719119482670809096
+      type: {class: WaitForAnimationFinishInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data: 
+    - rid: 719119482670809099
+      type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _animationName: Idle
+    - rid: 719119482670809100
+      type: {class: WaitForAnimationFinishInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data: 
+    - rid: 719119482670809101
+      type: {class: StopAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data: 
+    - rid: 719119482670809102
+      type: {class: DealMeleeAttackInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _data:
+          _forceMultiplier: 15
+          _dragForceMultiplier: 15
+          _overlapData:
+            center: {x: 0, y: 0}
+            size: {x: 1.5, y: 2}
+            direction: 0
+            angle: 0
+          _offSet: {x: 3, y: 0}
+          _damageData:
+            _value: 10
+            _identifier: 1
+        _targetCommandInstaller:
+          rid: 719119482670809103
+    - rid: 719119482670809103
+      type: {class: ApplyStatusEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _identifier: 0

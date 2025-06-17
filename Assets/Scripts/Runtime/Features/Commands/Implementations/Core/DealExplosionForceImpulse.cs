@@ -1,17 +1,19 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using EndlessHeresy.Runtime.Facing;
+using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Generic;
 using UnityEngine;
 
-namespace EndlessHeresy.Runtime.Commands.Attack
+namespace EndlessHeresy.Runtime.Commands.Core
 {
-    public sealed class DealFacingDirectionForceImpulse : ICommand
+    public sealed class DealExplosionForceImpulse : ICommand
     {
+        private readonly Vector2 _at;
         private readonly float _multiplier;
 
-        public DealFacingDirectionForceImpulse(float multiplier)
+        public DealExplosionForceImpulse(Vector2 at, float multiplier)
         {
+            _at = at;
             _multiplier = multiplier;
         }
 
@@ -21,13 +23,13 @@ namespace EndlessHeresy.Runtime.Commands.Attack
             {
                 return Task.CompletedTask;
             }
-            
-            var facingComponent = actor.GetComponent<FacingComponent>();
-            var horizontalDirection = facingComponent.IsFacingRight ? 1f : -1f;
-            var forceDirection = new Vector2(horizontalDirection, 0);
-            var force = forceDirection * _multiplier;
+
             var rigidbody = rigidbodyStorageComponent.Rigidbody;
-            rigidbody.AddForce(force, ForceMode2D.Impulse);
+            var actorPosition = actor.Transform.position;
+            var forceDirection = _at.DirectionTo(actorPosition).normalized;
+            var processedForce = forceDirection * _multiplier;
+
+            rigidbody.AddForce(processedForce, ForceMode2D.Impulse);
             return Task.CompletedTask;
         }
     }

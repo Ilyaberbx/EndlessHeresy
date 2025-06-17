@@ -12,11 +12,5 @@ namespace EndlessHeresy.Runtime.Data.Static.Components
 
         public DamageType Identifier => _identifier;
         public int Value => _value;
-
-        public DamageData(int value, DamageType identifier)
-        {
-            _value = value;
-            _identifier = identifier;
-        }
     }
 }

@@ -5,7 +5,7 @@ using EndlessHeresy.Runtime.StatusEffects;
 
 namespace EndlessHeresy.Runtime.Commands.StatusEffects
 {
-    public sealed class RemoveStatusEffect : ICommand, IUndoableCommand
+    public sealed class RemoveStatusEffect : IUndoableCommand
     {
         private readonly StatusEffectType _identifier;
 

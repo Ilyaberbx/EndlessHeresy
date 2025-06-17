@@ -1,6 +1,6 @@
 ﻿using System;
 using EndlessHeresy.Runtime.Commands;
-using EndlessHeresy.Runtime.Commands.Attack;
+using EndlessHeresy.Runtime.Commands.Core;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using UnityEngine;
 

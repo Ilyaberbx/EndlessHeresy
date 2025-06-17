@@ -29,7 +29,7 @@ MonoBehaviour:
     - rid: 719119470955331585
       type: {class: PeriodicInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
-        _duration: 10
+        _duration: 5
         _perSeconds: 1
         _command:
           rid: 719119470955331586
@@ -38,8 +38,15 @@ MonoBehaviour:
       data:
         _data:
           _value: 5
-          _identifier: 0
+          _identifier: 4
+          _bonusDamagesData:
+          - _value: 2
+            _bonusModifier: 2
+            _forStat: 5
+          - _value: 5
+            _bonusModifier: 2
+            _forStat: 6
     - rid: 719119482670809088
       type: {class: TemporaryEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
       data:
-        _duration: 2
+        _duration: 5

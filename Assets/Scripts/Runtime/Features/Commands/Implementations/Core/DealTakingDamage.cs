@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Health;
 
-namespace EndlessHeresy.Runtime.Commands.Attack
+namespace EndlessHeresy.Runtime.Commands.Core
 {
     public sealed class DealTakingDamage : ICommand
     {

@@ -14,6 +14,10 @@ namespace EndlessHeresy.Runtime.Commands.Supporting
             foreach (var command in Commands)
             {
                 await command.ExecuteAsync(actor, cancellationToken);
+                if (cancellationToken.IsCancellationRequested)
+                {
+                    return;
+                }
             }
         }
     }

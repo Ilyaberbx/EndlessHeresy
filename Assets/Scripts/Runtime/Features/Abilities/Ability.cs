@@ -1,5 +1,6 @@
 ﻿using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Data.Identifiers;
+using EndlessHeresy.Runtime.Data.Static.Commands.Installers;
 using UniRx;
 
 namespace EndlessHeresy.Runtime.Abilities
@@ -9,9 +10,9 @@ namespace EndlessHeresy.Runtime.Abilities
         private ReactiveProperty<AbilityState> _state;
         private float _cooldown;
         private float _elapsedTime;
+        private CommandInstaller _rootCommandInstaller;
         public AbilityType Identifier { get; private set; }
         public IReadOnlyReactiveProperty<AbilityState> State { get; private set; }
-        public ICommand RootCommand { get; private set; }
 
         public void WithIdentifier(AbilityType identifier)
         {
@@ -29,9 +30,9 @@ namespace EndlessHeresy.Runtime.Abilities
             _cooldown = cooldown;
         }
 
-        public void WithCommand(ICommand rootCommand)
+        public void WithCommandInstaller(CommandInstaller rootCommandInstaller)
         {
-            RootCommand = rootCommand;
+            _rootCommandInstaller = rootCommandInstaller;
         }
 
         public void SetState(AbilityState state)
@@ -51,12 +52,23 @@ namespace EndlessHeresy.Runtime.Abilities
             if (_elapsedTime >= _cooldown)
             {
                 SetState(AbilityState.Ready);
+                _elapsedTime = 0;
             }
         }
 
         public bool IsReady()
         {
             return State.Value == AbilityState.Ready;
+        }
+
+        public bool IsInUse()
+        {
+            return State.Value == AbilityState.InUse;
+        }
+
+        public ICommand GetCommand()
+        {
+            return _rootCommandInstaller.GetCommand();
         }
     }
 }

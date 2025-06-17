@@ -1,12 +1,14 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Better.Commons.Runtime.Extensions;
+using EndlessHeresy.Runtime.Commands.Supporting.Gizmos;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Utilities;
 
-namespace EndlessHeresy.Runtime.Commands.Attack
+namespace EndlessHeresy.Runtime.Commands.Core
 {
     public sealed class DealMeleeAttack : ICommand
     {
@@ -36,6 +38,8 @@ namespace EndlessHeresy.Runtime.Commands.Attack
                 attackPosition,
                 out var healthComponents);
 
+            var drawGizmosCommand = new DrawOverlapGizmos(attackPosition, _data.OverlapData);
+            drawGizmosCommand.ExecuteAsync(actor, cancellationToken).Forget();
 
             if (!hasAttacked)
             {

@@ -4,21 +4,12 @@ using EndlessHeresy.Runtime.Generic;
 
 namespace EndlessHeresy.Runtime.Commands.Animations
 {
-    public sealed class PlayAnimation : ICommand
+    public sealed class StopAnimation : ICommand
     {
-        private readonly string _animationName;
-
-        public PlayAnimation(string animationName)
-        {
-            _animationName = animationName;
-        }
-
         public Task ExecuteAsync(IActor actor, CancellationToken cancellationToken)
         {
             var animator = actor.GetComponent<AnimatorStorageComponent>().Animator;
-            animator.enabled = true;
-            animator.StopPlayback();
-            animator.Play(_animationName);
+            animator.enabled = false;
             return Task.CompletedTask;
         }
     }

@@ -1,18 +1,15 @@
 ﻿using System;
 using EndlessHeresy.Runtime.Commands;
-using EndlessHeresy.Runtime.Commands.Core;
-using UnityEngine;
+using EndlessHeresy.Runtime.Commands.Animations;
 
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class DealHealingInstaller : CommandInstaller
+    public sealed class StopAnimationInstaller : CommandInstaller
     {
-        [SerializeField] private float _value;
-
         public override ICommand GetCommand()
         {
-            return new DealHealing(_value);
+            return new StopAnimation();
         }
     }
 }

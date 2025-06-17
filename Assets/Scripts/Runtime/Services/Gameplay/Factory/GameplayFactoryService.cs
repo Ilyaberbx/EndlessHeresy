@@ -1,9 +1,11 @@
 ﻿using System.Threading.Tasks;
 using DG.Tweening;
+using EndlessHeresy.Runtime.Abilities;
 using EndlessHeresy.Runtime.Actors.Enemies;
 using EndlessHeresy.Runtime.Actors.Hero;
 using EndlessHeresy.Runtime.Attributes;
 using EndlessHeresy.Runtime.Builder;
+using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Inventory;
@@ -42,6 +44,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<InputMovementComponent>()
                 .WithComponent<HealthComponent>()
                 .WithComponent<FacingComponent>()
+                .WithComponent<CommandsComponent>()
                 .WithComponent<MouseFacingComponent>()
                 .WithComponent<StatesAggregatorComponent<HeroActor>>(GetStatesAggregatorBuilder<HeroActor>()
                     .WithPlugin<HeroTransitionsPlugin>()
@@ -54,6 +57,9 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<HealthChangesMessages>()
                 .WithComponent<AttributesComponent>(configuration.DefaultAttributes)
                 .WithComponent<InventoryComponent>(configuration.MaxInventorySize)
+                .WithComponent<AbilitiesStorageComponent>(configuration.AbilityConfigurations)
+                .WithComponent<AbilitiesCastComponent>()
+                .WithComponent<AbilitiesControlsHandler>(configuration.AbilityControlsData)
                 .Build();
         }
 
