@@ -12,10 +12,11 @@ using VContainer.Unity;
 
 namespace EndlessHeresy.Runtime.Scopes.Gameplay
 {
-    public sealed class GameplayEntryPoint : IPostInitializable
+    public sealed class GameplayEntryPoint : IPostInitializable, IDisposable
     {
         private readonly IGameplayFactoryService _gameplayFactoryService;
         private readonly ICameraService _cameraService;
+        private HeroActor _hero;
 
         public GameplayEntryPoint(IGameplayFactoryService gameplayFactoryService, ICameraService cameraService)
         {
@@ -28,15 +29,20 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
             try
             {
                 await CreatDummiesAsync();
-                var hero = await CreateHero();
-                _cameraService.SetTarget(hero.transform);
+                _hero = await CreateHero();
+                _cameraService.SetTarget(_hero.transform);
             }
             catch (Exception e)
             {
                 Debug.LogException(e);
             }
         }
-        
+
+
+        public void Dispose()
+        {
+            _gameplayFactoryService.Dispose(_hero);
+        }
 
         private Task<HeroActor> CreateHero()
         {

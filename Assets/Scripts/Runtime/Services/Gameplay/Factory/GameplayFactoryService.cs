@@ -73,6 +73,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<HealthComponent>()
                 .WithComponent<StatusEffectsComponent>()
                 .WithComponent<HealthChangesMessages>()
+                .WithComponent<CommandsComponent>()
                 .WithComponent<StatsComponent>(configuration.StatsData)
                 .Build();
         }

@@ -16,7 +16,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: de2cc86fdcd2f69439c8b98ebc3efcc4, type: 3}
   _description: Test
   _name: Test
-  _cooldown: 1.5
+  _cooldown: 0
   _commandInstaller:
     rid: 719119482670809091
   references:

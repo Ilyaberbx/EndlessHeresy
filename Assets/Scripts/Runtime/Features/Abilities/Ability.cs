@@ -13,6 +13,7 @@ namespace EndlessHeresy.Runtime.Abilities
         private CommandInstaller _rootCommandInstaller;
         public AbilityType Identifier { get; private set; }
         public IReadOnlyReactiveProperty<AbilityState> State { get; private set; }
+        public bool HasCooldown => _cooldown != 0;
 
         public void WithIdentifier(AbilityType identifier)
         {

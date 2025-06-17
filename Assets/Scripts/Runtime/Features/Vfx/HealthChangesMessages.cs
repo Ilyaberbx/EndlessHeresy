@@ -46,10 +46,7 @@ namespace EndlessHeresy.Runtime.Vfx
 
         protected override void OnDispose()
         {
-            if (_health != null)
-            {
-                _health.OnTookDamage -= OnTookDamage;
-            }
+            _health.OnTookDamage -= OnTookDamage;
         }
 
         private void OnHealthChanged(Pair<float> healthPair)

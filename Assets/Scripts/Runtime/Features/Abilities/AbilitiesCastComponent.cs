@@ -51,7 +51,10 @@ namespace EndlessHeresy.Runtime.Abilities
 
             ability.SetState(AbilityState.InUse);
             await _commands.EnqueueInMainSequenceAsync(ability.GetCommand());
-            ability.SetState(AbilityState.Cooldown);
+            ability.SetState(ability.HasCooldown
+                ? AbilityState.Cooldown
+                : AbilityState.Ready);
+
             return true;
         }
 
