@@ -31,7 +31,7 @@ namespace EndlessHeresy.Runtime.Commands.Supporting
 
                 if (_periodElapsedTime < _perSeconds)
                 {
-                    return;
+                    continue;
                 }
 
                 await _command.ExecuteAsync(actor, cancellationToken);

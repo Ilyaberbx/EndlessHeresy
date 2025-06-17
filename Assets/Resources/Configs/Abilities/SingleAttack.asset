@@ -25,9 +25,4 @@ MonoBehaviour:
     - rid: 719119469492305926
       type: {class: ParallelCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
-        _commandInstallers:
-        - rid: 719119469492305936
-    - rid: 719119469492305936
-      type: {class: WaitForSecondsInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _seconds: 50
+        _commandInstallers: []

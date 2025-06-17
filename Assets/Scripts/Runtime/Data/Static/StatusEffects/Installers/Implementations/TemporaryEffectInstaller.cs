@@ -7,7 +7,7 @@ using UnityEngine;
 namespace EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations
 {
     [Serializable]
-    public sealed class TemporaryInstaller : StatusEffectComponentInstaller
+    public sealed class TemporaryEffectInstaller : StatusEffectComponentInstaller
     {
         [SerializeField, Min(0)] private float _duration;
 

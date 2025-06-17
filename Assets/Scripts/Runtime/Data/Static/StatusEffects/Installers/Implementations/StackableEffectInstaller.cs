@@ -8,7 +8,7 @@ using UnityEngine;
 namespace EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations
 {
     [Serializable]
-    public sealed class StackableInstaller : StatusEffectComponentInstaller
+    public sealed class StackableEffectInstaller : StatusEffectComponentInstaller
     {
         [SerializeField] private List<StatusEffectConfiguration> _installers;
 

@@ -15,13 +15,11 @@ namespace EndlessHeresy.Runtime.Data.Static.Abilities
         [SerializeField] private string _name;
         [SerializeField] private float _cooldown;
         [SerializeReference, Select] private CommandInstaller _commandInstaller;
-
         public AbilityType Identifier => _identifier;
         public Sprite Icon => _icon;
         public string Description => _description;
         public string Name => _name;
         public float Cooldown => _cooldown;
-
         public Ability GetAbility()
         {
             var ability = new Ability();

@@ -10,6 +10,7 @@ namespace EndlessHeresy.Runtime.Actors.Hero.States
     public sealed class DeadState : BaseState<HeroActor>
     {
         private static readonly int IsDead = Animator.StringToHash("IsDead");
+
         private Animator _animator;
         private MovementComponent _movementComponent;
 

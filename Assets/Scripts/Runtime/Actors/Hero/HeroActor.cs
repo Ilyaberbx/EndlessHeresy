@@ -64,7 +64,6 @@ namespace EndlessHeresy.Runtime.Actors.Hero
             if (UnityInput.GetKeyDown(KeyCode.M))
             {
                 _statusEffectsStorage.Add(StatusEffectType.Burning);
-                _statusEffectsStorage.Add(StatusEffectType.Healing);
             }
 
             if (UnityInput.GetKeyDown(KeyCode.K))

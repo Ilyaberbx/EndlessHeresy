@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Abilities;
 using EndlessHeresy.Runtime.Data.Identifiers;
-using EndlessHeresy.Runtime.Movement;
 using EndlessHeresy.Runtime.States;
 
 namespace EndlessHeresy.Runtime.Actors.Hero.States
@@ -15,7 +14,6 @@ namespace EndlessHeresy.Runtime.Actors.Hero.States
         protected override void OnContextSet(HeroActor context)
         {
             base.OnContextSet(context);
-
             _abilitiesCastComponent = context.GetComponent<AbilitiesCastComponent>();
         }
 

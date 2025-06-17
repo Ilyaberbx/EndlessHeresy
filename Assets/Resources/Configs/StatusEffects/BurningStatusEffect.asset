@@ -16,21 +16,30 @@ MonoBehaviour:
   _identifier: 0
   _icon: {fileID: 21300000, guid: de2cc86fdcd2f69439c8b98ebc3efcc4, type: 3}
   _installers:
-  - rid: 6311075342630256642
-  - rid: 719119144832466955
+  - rid: 719119470955331584
+  - rid: 719119482670809088
   references:
     version: 2
     RefIds:
-    - rid: 719119144832466955
-      type: {class: ApplicatorEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
+    - rid: 719119470955331584
+      type: {class: CommandEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
       data:
-        _installer:
-          rid: 719119144832466956
-    - rid: 719119144832466956
-      type: {class: VfxApplicatorInstaller, ns: EndlessHeresy.Runtime.Data.Static.Applicator.Installers, asm: Assembly-CSharp}
-      data:
-        _vfxPrefab: {fileID: 1371693811414640555, guid: 21eed6c08f4d0f447ae0913cece67844, type: 3}
-    - rid: 6311075342630256642
-      type: {class: TemporaryInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
+        _commandInstaller:
+          rid: 719119470955331585
+    - rid: 719119470955331585
+      type: {class: PeriodicInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
         _duration: 10
+        _perSeconds: 1
+        _command:
+          rid: 719119470955331586
+    - rid: 719119470955331586
+      type: {class: DealTakingDamageInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _data:
+          _value: 5
+          _identifier: 0
+    - rid: 719119482670809088
+      type: {class: TemporaryEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
+      data:
+        _duration: 2
