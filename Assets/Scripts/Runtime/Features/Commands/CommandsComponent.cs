@@ -67,6 +67,11 @@ namespace EndlessHeresy.Runtime.Commands
                     current.Completion.TrySetException(ex);
                 }
 
+                if (_queue.IsEmpty())
+                {
+                    return;
+                }
+
                 _queue.Dequeue();
             }
         }

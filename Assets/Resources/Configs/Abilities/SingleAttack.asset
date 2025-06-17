@@ -31,8 +31,6 @@ MonoBehaviour:
         - rid: 719119482670809102
         - rid: 719119482670809096
         - rid: 719119482670809099
-        - rid: 719119482670809100
-        - rid: 719119482670809101
     - rid: 719119482670809094
       type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
@@ -48,24 +46,18 @@ MonoBehaviour:
       type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
         _animationName: Idle
-    - rid: 719119482670809100
-      type: {class: WaitForAnimationFinishInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data: 
-    - rid: 719119482670809101
-      type: {class: StopAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data: 
     - rid: 719119482670809102
       type: {class: DealMeleeAttackInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
         _data:
           _forceMultiplier: 15
-          _dragForceMultiplier: 15
+          _dragForceMultiplier: 104.7
           _overlapData:
             center: {x: 0, y: 0}
-            size: {x: 1.5, y: 2}
+            size: {x: 4.4, y: 2}
             direction: 0
             angle: 0
-          _offSet: {x: 3, y: 0}
+          _offSet: {x: 2, y: 0}
           _damageData:
             _value: 10
             _identifier: 1

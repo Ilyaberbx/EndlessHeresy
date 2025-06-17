@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Actors;
@@ -17,11 +18,13 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
         private readonly IGameplayFactoryService _gameplayFactoryService;
         private readonly ICameraService _cameraService;
         private HeroActor _hero;
+        private List<MonoActor> _activeActors;
 
         public GameplayEntryPoint(IGameplayFactoryService gameplayFactoryService, ICameraService cameraService)
         {
             _gameplayFactoryService = gameplayFactoryService;
             _cameraService = cameraService;
+            _activeActors = new List<MonoActor>();
         }
 
         public async void PostInitialize()
@@ -30,6 +33,7 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
             {
                 await CreatDummiesAsync();
                 _hero = await CreateHero();
+                _activeActors.Add(_hero);
                 _cameraService.SetTarget(_hero.transform);
             }
             catch (Exception e)
@@ -41,7 +45,10 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
 
         public void Dispose()
         {
-            _gameplayFactoryService.Dispose(_hero);
+            foreach (var actor in _activeActors)
+            {
+                _gameplayFactoryService.Dispose(actor);
+            }
         }
 
         private Task<HeroActor> CreateHero()
@@ -58,10 +65,11 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
                 var isEven = i % 2 == 0;
                 var multiplier = isEven ? 1f : -1f;
                 var posOffset = i * multiplier * 2;
-                await _gameplayFactoryService.CreateDummyAsync(Vector2
+                var dummy = await _gameplayFactoryService.CreateDummyAsync(Vector2
                     .zero
                     .AddX(posOffset)
                     .AddY(posOffset));
+                _activeActors.Add(dummy);
             }
         }
     }

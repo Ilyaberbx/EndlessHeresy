@@ -65,10 +65,10 @@ namespace EndlessHeresy.Runtime.Commands.Core
 
                 var dealExplosionForceCommand = new DealExplosionForceImpulse(attackPosition, _data.ForceMultiplier);
                 await dealExplosionForceCommand.ExecuteAsync(target, cancellationToken);
-                await _additionalTargetCommand.ExecuteAsync(target, cancellationToken);
+                _additionalTargetCommand.ExecuteAsync(target, cancellationToken).Forget();
             }
 
-            var facingDirectionForceCommand = new DealFacingDirectionForceImpulse(_data.ForceMultiplier);
+            var facingDirectionForceCommand = new DealFacingDirectionForceImpulse(_data.DragForceMultiplier);
             await facingDirectionForceCommand.ExecuteAsync(actor, cancellationToken);
         }
     }

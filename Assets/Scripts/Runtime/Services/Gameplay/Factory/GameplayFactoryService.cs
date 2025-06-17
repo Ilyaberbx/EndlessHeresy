@@ -82,6 +82,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
         {
             DOTween.Kill(actor);
             actor.Dispose();
+            Object.Destroy(actor.GameObject);
         }
 
         private MonoActorBuilder<TActor> GetActorBuilder<TActor>() where TActor : MonoActor

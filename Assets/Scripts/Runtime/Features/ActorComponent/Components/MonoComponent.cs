@@ -21,7 +21,6 @@ namespace EndlessHeresy.Runtime
         public void Dispose()
         {
             OnDispose();
-            Destroy(gameObject);
         }
 
         public void SetActor(IActor actor) => Owner = actor;
