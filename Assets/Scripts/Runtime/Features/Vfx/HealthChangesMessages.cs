@@ -51,10 +51,11 @@ namespace EndlessHeresy.Runtime.Vfx
 
         private void OnHealthChanged(Pair<float> healthPair)
         {
-            var delta = healthPair.Current - healthPair.Previous;
-            if (delta > 0f)
+            var difference = healthPair.Current - healthPair.Previous;
+
+            if (difference > 0f)
             {
-                ShowFloatingMessage($"+ {delta}", HealColor);
+                ShowFloatingMessage($"+ {difference}", HealColor);
             }
         }
 

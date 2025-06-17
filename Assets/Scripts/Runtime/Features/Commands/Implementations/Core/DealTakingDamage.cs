@@ -16,6 +16,11 @@ namespace EndlessHeresy.Runtime.Commands.Core
 
         public Task ExecuteAsync(IActor actor, CancellationToken cancellationToken)
         {
+            if (cancellationToken.IsCancellationRequested)
+            {
+                return Task.CompletedTask;
+            }
+
             var health = actor.GetComponent<HealthComponent>();
             health.TakeDamage(_data);
             return Task.CompletedTask;

@@ -15,7 +15,7 @@ namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 
         public override ICommand GetCommand()
         {
-            return new DealMeleeAttack(_data, _targetCommandInstaller.GetCommand());
+            return new DealMeleeAttack(_data, _targetCommandInstaller);
         }
     }
 }

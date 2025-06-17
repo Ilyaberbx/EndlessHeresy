@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Commands.Supporting.Gizmos;
+using EndlessHeresy.Runtime.Data.Static.Commands.Installers;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.Facing;
@@ -13,12 +14,12 @@ namespace EndlessHeresy.Runtime.Commands.Core
     public sealed class DealMeleeAttack : ICommand
     {
         private readonly MeleeAttackData _data;
-        private readonly ICommand _additionalTargetCommand;
+        private readonly CommandInstaller _targetCommandInstaller;
 
-        public DealMeleeAttack(MeleeAttackData data, ICommand additionalTargetCommand)
+        public DealMeleeAttack(MeleeAttackData data, CommandInstaller targetCommandInstaller)
         {
             _data = data;
-            _additionalTargetCommand = additionalTargetCommand;
+            _targetCommandInstaller = targetCommandInstaller;
         }
 
         public async Task ExecuteAsync(IActor actor, CancellationToken cancellationToken)
@@ -65,7 +66,12 @@ namespace EndlessHeresy.Runtime.Commands.Core
 
                 var dealExplosionForceCommand = new DealExplosionForceImpulse(attackPosition, _data.ForceMultiplier);
                 await dealExplosionForceCommand.ExecuteAsync(target, cancellationToken);
-                _additionalTargetCommand.ExecuteAsync(target, cancellationToken).Forget();
+
+                if (target.TryGetComponent<CommandsComponent>(out var commands))
+                {
+                    var targetCommand = _targetCommandInstaller.GetCommand();
+                    commands.ExecuteAsParallel(targetCommand).Forget();
+                }
             }
 
             var facingDirectionForceCommand = new DealFacingDirectionForceImpulse(_data.DragForceMultiplier);
