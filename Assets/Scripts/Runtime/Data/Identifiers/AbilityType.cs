@@ -2,7 +2,8 @@
 {
     public enum AbilityType
     {
-        Attack,
+        SingleAttack,
+        DoubleAttack,
         Dash,
         CrescentStrike
     }

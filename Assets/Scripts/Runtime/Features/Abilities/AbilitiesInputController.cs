@@ -23,30 +23,37 @@ namespace EndlessHeresy.Runtime.Abilities
         {
             _storage = Owner.GetComponent<AbilitiesStorageComponent>();
             _cast = Owner.GetComponent<AbilitiesCastComponent>();
-            _inputService.GameplayActions.FirstAbilityCast.performed += OnFirstAbilityTriggered;
-            _inputService.GameplayActions.SecondAbilityCast.canceled += OnSecondAbilityTriggered;
-            _inputService.GameplayActions.ThirdAbilityCast.performed += OnThirdAbilityTriggered;
+            _inputService.GameplayActions.FirstAbilityCast.performed += OnFirstAbilityActionPerformed;
+            _inputService.GameplayActions.FirstAbilityCast.canceled += OnFirstAbilityActionCanceled;
+            _inputService.GameplayActions.SecondAbilityCast.performed += OnSecondAbilityActionPerformed;
+            _inputService.GameplayActions.ThirdAbilityCast.performed += OnThirdAbilityActionPerformed;
             return Task.CompletedTask;
         }
 
         protected override void OnDispose()
         {
-            _inputService.GameplayActions.FirstAbilityCast.performed -= OnFirstAbilityTriggered;
-            _inputService.GameplayActions.SecondAbilityCast.canceled -= OnSecondAbilityTriggered;
-            _inputService.GameplayActions.ThirdAbilityCast.performed -= OnThirdAbilityTriggered;
+            _inputService.GameplayActions.FirstAbilityCast.performed -= OnFirstAbilityActionPerformed;
+            _inputService.GameplayActions.FirstAbilityCast.canceled -= OnFirstAbilityActionCanceled;
+            _inputService.GameplayActions.SecondAbilityCast.performed -= OnSecondAbilityActionPerformed;
+            _inputService.GameplayActions.ThirdAbilityCast.performed -= OnThirdAbilityActionPerformed;
         }
 
-        private void OnFirstAbilityTriggered(InputAction.CallbackContext context)
+        private void OnFirstAbilityActionCanceled(InputAction.CallbackContext context)
         {
-            CheckAndCastAbility(AbilityType.Attack);
+            CheckAndCastAbility(AbilityType.SingleAttack);
         }
 
-        private void OnSecondAbilityTriggered(InputAction.CallbackContext context)
+        private void OnFirstAbilityActionPerformed(InputAction.CallbackContext context)
+        {
+            CheckAndCastAbility(AbilityType.DoubleAttack);
+        }
+
+        private void OnSecondAbilityActionPerformed(InputAction.CallbackContext context)
         {
             CheckAndCastAbility(AbilityType.Dash);
         }
 
-        private void OnThirdAbilityTriggered(InputAction.CallbackContext context)
+        private void OnThirdAbilityActionPerformed(InputAction.CallbackContext context)
         {
             CheckAndCastAbility(AbilityType.CrescentStrike);
         }
