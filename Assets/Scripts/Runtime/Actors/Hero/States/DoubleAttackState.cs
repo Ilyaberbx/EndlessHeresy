@@ -19,7 +19,6 @@ namespace EndlessHeresy.Runtime.Actors.Hero.States
 
         public override Task EnterAsync(CancellationToken token)
         {
-            _abilitiesCastComponent.TryCastAsync(AbilityType.DoubleAttack).Forget();
             return Task.CompletedTask;
         }
 

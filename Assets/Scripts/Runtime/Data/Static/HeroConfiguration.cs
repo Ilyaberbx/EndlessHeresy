@@ -3,7 +3,6 @@ using EndlessHeresy.Runtime.Actors.Hero;
 using EndlessHeresy.Runtime.Data.Persistant;
 using EndlessHeresy.Runtime.Data.Static.Abilities;
 using EndlessHeresy.Runtime.Data.Static.Components;
-using EndlessHeresy.Runtime.Data.Static.Components.Controls;
 using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Data.Static
@@ -11,7 +10,6 @@ namespace EndlessHeresy.Runtime.Data.Static
     [CreateAssetMenu(menuName = "Configs/Actors/Hero", fileName = "HeroConfiguration", order = 0)]
     public sealed class HeroConfiguration : ScriptableObject
     {
-        [SerializeField] private AbilityControlsData[] _abilityControlsData;
         [SerializeField] private AbilityConfiguration[] _abilityConfigurations;
         [SerializeField] private StatData[] _defaultStats;
         [SerializeField] private AttributeData[] _defaultAttributes;
@@ -24,7 +22,6 @@ namespace EndlessHeresy.Runtime.Data.Static
         public int MaxInventorySize => _maxInventorySize;
         public IReadOnlyList<StatData> DefaultStats => _defaultStats;
         public IReadOnlyList<AttributeData> DefaultAttributes => _defaultAttributes;
-        public IReadOnlyList<AbilityControlsData> AbilityControlsData => _abilityControlsData;
         public IReadOnlyList<AbilityConfiguration> AbilityConfigurations => _abilityConfigurations;
     }
 }

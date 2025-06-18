@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32fe745d1674901ba94af5a5a63fe38, type: 3}
   m_Name: HeroConfiguration
   m_EditorClassIdentifier: 
-  _abilityControlsData:
-  - _abilityIdentifier: 0
-    _keyCode: 103
   _abilityConfigurations:
   - {fileID: 11400000, guid: b0ad9868582a4db4baf8c7e4a3648035, type: 2}
   _defaultStats:

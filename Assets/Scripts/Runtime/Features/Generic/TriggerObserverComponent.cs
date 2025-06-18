@@ -31,6 +31,11 @@ namespace EndlessHeresy.Runtime.Generic
                 return;
             }
 
+            if (actor == null)
+            {
+                return;
+            }
+
             if (actor.TryGetComponent(out TComponent component))
             {
                 OnTriggerExit?.Invoke(component);

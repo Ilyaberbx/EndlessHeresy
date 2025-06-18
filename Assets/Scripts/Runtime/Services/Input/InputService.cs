@@ -1,32 +1,31 @@
-using UnityEngine;
+using System;
+using UnityEngine.InputSystem;
+using VContainer.Unity;
 
 namespace EndlessHeresy.Runtime.Services.Input
 {
-    public sealed class InputService : IInputService
+    public sealed class InputService : IInputService, IInitializable
     {
-        private bool _isLocked;
+        public event Action<InputActionMap> OnActiveMapChanged;
+        private GameActions _gameActions;
+        public GameActions.GameplayActions GameplayActions => _gameActions.Gameplay;
 
-        public void Lock()
+        public void Initialize()
         {
-            _isLocked = true;
+            _gameActions = new GameActions();
+            SetActiveMap(GameplayActions);
         }
 
-        public void Unlock()
+        public void SetActiveMap(InputActionMap map)
         {
-            _isLocked = false;
-        }
+            if (map.enabled)
+            {
+                return;
+            }
 
-        public Vector2 GetMovementInput()
-        {
-            var horizontal = UnityEngine.Input.GetAxisRaw("Horizontal");
-            var vertical = UnityEngine.Input.GetAxisRaw("Vertical");
-            return new Vector2(horizontal, vertical);
+            _gameActions.Disable();
+            map.Enable();
+            OnActiveMapChanged?.Invoke(map);
         }
-
-        public Vector2 GetMousePosition() => UnityEngine.Input.mousePosition;
-        public bool GetKeyDown(KeyCode key) => !_isLocked && UnityEngine.Input.GetKeyDown(key);
-        public bool GetMouseButton(int button) => !_isLocked && UnityEngine.Input.GetMouseButton(button);
-        public bool GetMouseButtonDown(int button) => !_isLocked && UnityEngine.Input.GetMouseButtonDown(button);
-        public bool GetKey(KeyCode key) => !_isLocked && UnityEngine.Input.GetKey(key);
     }
 }

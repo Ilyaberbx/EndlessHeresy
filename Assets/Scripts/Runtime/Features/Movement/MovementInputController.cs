@@ -1,33 +1,30 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Facing;
-using EndlessHeresy.Runtime.Input;
+using EndlessHeresy.Runtime.Services.Input;
 using EndlessHeresy.Runtime.Services.Tick;
 using UnityEngine;
-using VContainer;
+using UnityEngine.InputSystem;
 
 namespace EndlessHeresy.Runtime.Movement
 {
     public sealed class MovementInputController : PocoComponent
     {
-        private IGameUpdateService _gameUpdateService;
+        private readonly IGameUpdateService _gameUpdateService;
+        private readonly IInputService _inputService;
 
         private MovementComponent _movementComponent;
         private FacingComponent _facingComponent;
-        private Vector2 _input;
-        private GameplayInputStorage _gameplayInputStorage;
+        private Vector2 _inputValue;
 
-        private GameActions GameActions => _gameplayInputStorage.GameActions;
-
-        [Inject]
-        public void Construct(IGameUpdateService gameUpdateService)
+        public MovementInputController(IGameUpdateService gameUpdateService, IInputService inputService)
         {
             _gameUpdateService = gameUpdateService;
+            _inputService = inputService;
         }
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
-            _gameplayInputStorage = Owner.GetComponent<GameplayInputStorage>();
             _movementComponent = Owner.GetComponent<MovementComponent>();
             _facingComponent = Owner.GetComponent<FacingComponent>();
             _gameUpdateService.OnUpdate += OnUpdate;
@@ -43,20 +40,20 @@ namespace EndlessHeresy.Runtime.Movement
             _gameUpdateService.OnFixedUpdate -= OnFixedUpdate;
         }
 
-        private void OnFixedUpdate(float deltaTime) => _movementComponent.Move(_input, deltaTime);
+        private void OnFixedUpdate(float deltaTime) => _movementComponent.Move(_inputValue, deltaTime);
 
         private void OnUpdate(float deltaTime)
         {
-            _input = GameActions.Movement.Movement.ReadValue<Vector2>();
+            _inputValue = _inputService.GameplayActions.Movement.ReadValue<Vector2>();
 
-            var isMoving = _input != Vector2.zero;
+            var isMoving = _inputValue != Vector2.zero;
 
             if (!isMoving)
             {
                 return;
             }
 
-            UpdateFacingDirection(_input);
+            UpdateFacingDirection(_inputValue);
         }
 
         private void UpdateFacingDirection(Vector2 input)

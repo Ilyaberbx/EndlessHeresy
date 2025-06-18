@@ -8,7 +8,6 @@ using EndlessHeresy.Runtime.Builder;
 using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Health;
-using EndlessHeresy.Runtime.Input;
 using EndlessHeresy.Runtime.Inventory;
 using EndlessHeresy.Runtime.Movement;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
@@ -43,11 +42,9 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithPosition(at)
                 .WithComponent<MovementComponent>()
                 .WithComponent<MovementInputController>()
-                .WithComponent<GameplayInputStorage>()
                 .WithComponent<HealthComponent>()
                 .WithComponent<FacingComponent>()
                 .WithComponent<CommandsComponent>()
-                .WithComponent<MouseFacingComponent>()
                 .WithComponent<StatesAggregatorComponent<HeroActor>>(GetStatesAggregatorBuilder<HeroActor>()
                     .WithPlugin<HeroTransitionsPlugin>()
                     .WithPlugin<LoggerPlugin<HeroActor>>()
@@ -61,7 +58,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<InventoryComponent>(configuration.MaxInventorySize)
                 .WithComponent<AbilitiesStorageComponent>(configuration.AbilityConfigurations)
                 .WithComponent<AbilitiesCastComponent>()
-                .WithComponent<AbilitiesControlsHandler>(configuration.AbilityControlsData)
+                .WithComponent<AbilitiesControlsHandler>()
                 .Build();
         }
 
@@ -83,8 +80,8 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
         public void Dispose(IActor actor)
         {
             DOTween.Kill(actor);
-            actor.Dispose();
             Object.Destroy(actor.GameObject);
+            actor.Dispose();
         }
 
         private MonoActorBuilder<TActor> GetActorBuilder<TActor>() where TActor : MonoActor

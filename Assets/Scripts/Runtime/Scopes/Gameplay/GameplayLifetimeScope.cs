@@ -24,7 +24,7 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
             builder.RegisterEntryPoint<GameplayEntryPoint>();
             builder.RegisterEntryPoint<GameplayStaticDataService>();
             builder.RegisterEntryPoint<GameplayFactoryService>();
-            builder.Register<IInputService, InputService>(Lifetime.Singleton);
+            builder.RegisterEntryPoint<InputService>();
             builder.Register<ICameraService, CameraService>(Lifetime.Singleton)
                 .WithParameter(_camera)
                 .WithParameter(_followCamera);
