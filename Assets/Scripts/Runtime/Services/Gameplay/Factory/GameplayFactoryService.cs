@@ -8,6 +8,7 @@ using EndlessHeresy.Runtime.Builder;
 using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Health;
+using EndlessHeresy.Runtime.Input;
 using EndlessHeresy.Runtime.Inventory;
 using EndlessHeresy.Runtime.Movement;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
@@ -41,7 +42,8 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
                 .WithComponent<MovementComponent>()
-                .WithComponent<InputMovementComponent>()
+                .WithComponent<MovementInputController>()
+                .WithComponent<GameplayInputStorage>()
                 .WithComponent<HealthComponent>()
                 .WithComponent<FacingComponent>()
                 .WithComponent<CommandsComponent>()

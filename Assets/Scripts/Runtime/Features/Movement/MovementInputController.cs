@@ -1,35 +1,33 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Facing;
-using EndlessHeresy.Runtime.Generic;
-using EndlessHeresy.Runtime.Services.Input;
+using EndlessHeresy.Runtime.Input;
 using EndlessHeresy.Runtime.Services.Tick;
 using UnityEngine;
 using VContainer;
 
 namespace EndlessHeresy.Runtime.Movement
 {
-    public sealed class InputMovementComponent : PocoComponent
+    public sealed class MovementInputController : PocoComponent
     {
         private IGameUpdateService _gameUpdateService;
-        private IInputService _inputService;
 
-        private AnimatorStorageComponent _animatorStorage;
         private MovementComponent _movementComponent;
         private FacingComponent _facingComponent;
         private Vector2 _input;
+        private GameplayInputStorage _gameplayInputStorage;
+
+        private GameActions GameActions => _gameplayInputStorage.GameActions;
 
         [Inject]
-        public void Construct(IGameUpdateService gameUpdateService,
-            IInputService inputService)
+        public void Construct(IGameUpdateService gameUpdateService)
         {
             _gameUpdateService = gameUpdateService;
-            _inputService = inputService;
         }
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
-            _animatorStorage = Owner.GetComponent<AnimatorStorageComponent>();
+            _gameplayInputStorage = Owner.GetComponent<GameplayInputStorage>();
             _movementComponent = Owner.GetComponent<MovementComponent>();
             _facingComponent = Owner.GetComponent<FacingComponent>();
             _gameUpdateService.OnUpdate += OnUpdate;
@@ -49,7 +47,8 @@ namespace EndlessHeresy.Runtime.Movement
 
         private void OnUpdate(float deltaTime)
         {
-            _input = _inputService.GetMovementInput();
+            _input = GameActions.Movement.Movement.ReadValue<Vector2>();
+
             var isMoving = _input != Vector2.zero;
 
             if (!isMoving)
