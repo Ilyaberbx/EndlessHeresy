@@ -6,18 +6,23 @@ using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Inventory.Items.Implementations;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using UniRx;
+using VContainer;
 
 namespace EndlessHeresy.Runtime.Inventory
 {
     public sealed class InventoryComponent : PocoComponent
     {
+        private readonly IObjectResolver _resolver;
         private readonly IGameplayStaticDataService _gameplayStaticDataService;
         private readonly ReactiveCollection<ItemRoot> _items;
         public IReadOnlyReactiveCollection<ItemRoot> Items => _items;
         public int MaxSize { get; }
 
-        public InventoryComponent(IGameplayStaticDataService gameplayStaticDataService, int maxSize)
+        public InventoryComponent(IObjectResolver resolver,
+            IGameplayStaticDataService gameplayStaticDataService,
+            int maxSize)
         {
+            _resolver = resolver;
             _gameplayStaticDataService = gameplayStaticDataService;
             MaxSize = maxSize;
             _items = new ReactiveCollection<ItemRoot>();
@@ -50,7 +55,7 @@ namespace EndlessHeresy.Runtime.Inventory
             }
 
             var index = existingItems.Length;
-            var newItem = itemData.GetInstance(index);
+            var newItem = itemData.GetInstance(index, _resolver);
             newItem.Add(Owner);
             _items.Add(newItem);
         }

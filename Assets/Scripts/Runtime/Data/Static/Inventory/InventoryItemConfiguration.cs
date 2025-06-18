@@ -4,6 +4,7 @@ using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.Inventory.Installers;
 using EndlessHeresy.Runtime.Inventory.Items.Implementations;
 using UnityEngine;
+using VContainer;
 
 namespace EndlessHeresy.Runtime.Data.Static.Inventory
 {
@@ -21,9 +22,9 @@ namespace EndlessHeresy.Runtime.Data.Static.Inventory
         public string Name => _name;
         public string Description => _description;
 
-        public ItemRoot GetInstance(int index)
+        public ItemRoot GetInstance(int index, IObjectResolver resolver)
         {
-            var components = _installers.Select(temp => temp.GetComponent());
+            var components = _installers.Select(temp => temp.GetComponent(resolver));
             return new ItemRoot(_identifier, components.ToArray(), index);
         }
     }

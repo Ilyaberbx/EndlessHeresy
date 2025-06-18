@@ -2,6 +2,7 @@
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.Commands.Installers;
 using UniRx;
+using VContainer;
 
 namespace EndlessHeresy.Runtime.Abilities
 {
@@ -67,9 +68,9 @@ namespace EndlessHeresy.Runtime.Abilities
             return State.Value == AbilityState.InUse;
         }
 
-        public ICommand GetCommand()
+        public ICommand GetCommand(IObjectResolver resolver)
         {
-            return _rootCommandInstaller.GetCommand();
+            return _rootCommandInstaller.GetCommand(resolver);
         }
     }
 }

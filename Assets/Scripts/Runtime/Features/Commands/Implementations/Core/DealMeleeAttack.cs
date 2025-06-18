@@ -8,16 +8,19 @@ using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Utilities;
+using VContainer;
 
 namespace EndlessHeresy.Runtime.Commands.Core
 {
     public sealed class DealMeleeAttack : ICommand
     {
+        private readonly IObjectResolver _resolver;
         private readonly MeleeAttackData _data;
         private readonly CommandInstaller _targetCommandInstaller;
 
-        public DealMeleeAttack(MeleeAttackData data, CommandInstaller targetCommandInstaller)
+        public DealMeleeAttack(IObjectResolver resolver, MeleeAttackData data, CommandInstaller targetCommandInstaller)
         {
+            _resolver = resolver;
             _data = data;
             _targetCommandInstaller = targetCommandInstaller;
         }
@@ -69,7 +72,7 @@ namespace EndlessHeresy.Runtime.Commands.Core
 
                 if (target.TryGetComponent<CommandsComponent>(out var commands))
                 {
-                    var targetCommand = _targetCommandInstaller.GetCommand();
+                    var targetCommand = _targetCommandInstaller.GetCommand(_resolver);
                     commands.ExecuteAsParallel(targetCommand).Forget();
                 }
             }

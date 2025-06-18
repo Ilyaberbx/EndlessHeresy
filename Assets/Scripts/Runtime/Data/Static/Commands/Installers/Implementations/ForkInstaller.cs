@@ -4,6 +4,7 @@ using Better.Conditions.Runtime;
 using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Commands.Supporting;
 using UnityEngine;
+using VContainer;
 
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
@@ -14,9 +15,9 @@ namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
         [SerializeReference, Select] private CommandInstaller _true;
         [SerializeReference, Select] private CommandInstaller _false;
 
-        public override ICommand GetCommand()
+        public override ICommand GetCommand(IObjectResolver resolver)
         {
-            return new Fork(_condition, _true.GetCommand(), _false.GetCommand());
+            return new Fork(_condition, _true.GetCommand(resolver), _false.GetCommand(resolver));
         }
     }
 }

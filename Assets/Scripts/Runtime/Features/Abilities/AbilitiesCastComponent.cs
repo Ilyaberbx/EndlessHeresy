@@ -4,17 +4,20 @@ using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Services.Tick;
+using VContainer;
 
 namespace EndlessHeresy.Runtime.Abilities
 {
     public sealed class AbilitiesCastComponent : PocoComponent
     {
+        private readonly IObjectResolver _resolver;
         private readonly IGameUpdateService _gameUpdateService;
         private AbilitiesStorageComponent _storage;
         private CommandsComponent _commands;
 
-        public AbilitiesCastComponent(IGameUpdateService gameUpdateService)
+        public AbilitiesCastComponent(IObjectResolver resolver, IGameUpdateService gameUpdateService)
         {
+            _resolver = resolver;
             _gameUpdateService = gameUpdateService;
         }
 
@@ -50,7 +53,7 @@ namespace EndlessHeresy.Runtime.Abilities
             }
 
             ability.SetState(AbilityState.InUse);
-            await _commands.EnqueueInMainSequenceAsync(ability.GetCommand());
+            await _commands.EnqueueInMainSequenceAsync(ability.GetCommand(_resolver));
             ability.SetState(ability.HasCooldown
                 ? AbilityState.Cooldown
                 : AbilityState.Ready);

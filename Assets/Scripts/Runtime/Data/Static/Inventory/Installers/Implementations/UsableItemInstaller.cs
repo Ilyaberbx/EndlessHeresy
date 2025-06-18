@@ -4,6 +4,7 @@ using EndlessHeresy.Runtime.Data.Static.Commands.Installers;
 using EndlessHeresy.Runtime.Inventory.Items.Abstractions;
 using EndlessHeresy.Runtime.Inventory.Items.Implementations;
 using UnityEngine;
+using VContainer;
 
 namespace EndlessHeresy.Runtime.Data.Static.Inventory.Installers
 {
@@ -12,9 +13,9 @@ namespace EndlessHeresy.Runtime.Data.Static.Inventory.Installers
     {
         [SerializeReference, Select] private CommandInstaller _commandInstaller;
 
-        public override IItemComponent GetComponent()
+        public override IItemComponent GetComponent(IObjectResolver resolver)
         {
-            return new UsableItemComponent(_commandInstaller.GetCommand());
+            return new UsableItemComponent(_commandInstaller.GetCommand(resolver));
         }
     }
 }

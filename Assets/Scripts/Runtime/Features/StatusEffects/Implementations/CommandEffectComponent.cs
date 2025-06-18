@@ -2,6 +2,7 @@
 using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Data.Static.Commands.Installers;
 using EndlessHeresy.Runtime.Stats;
+using VContainer;
 
 namespace EndlessHeresy.Runtime.StatusEffects
 {
@@ -9,10 +10,12 @@ namespace EndlessHeresy.Runtime.StatusEffects
         IStatusEffectComponent,
         IApplyStatusEffect
     {
+        private readonly IObjectResolver _resolver;
         private readonly CommandInstaller _commandInstaller;
 
-        public CommandEffectComponent(CommandInstaller commandInstaller)
+        public CommandEffectComponent(IObjectResolver resolver, CommandInstaller commandInstaller)
         {
+            _resolver = resolver;
             _commandInstaller = commandInstaller;
         }
 
@@ -30,7 +33,7 @@ namespace EndlessHeresy.Runtime.StatusEffects
             }
 
             commands
-                .ExecuteAsParallel(_commandInstaller.GetCommand())
+                .ExecuteAsParallel(_commandInstaller.GetCommand(_resolver))
                 .Forget();
         }
     }

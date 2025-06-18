@@ -4,6 +4,7 @@ using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Inventory.Items.Abstractions;
 using EndlessHeresy.Runtime.Inventory.Items.Implementations;
 using UnityEngine;
+using VContainer;
 
 namespace EndlessHeresy.Runtime.Data.Static.Inventory.Installers
 {
@@ -12,7 +13,7 @@ namespace EndlessHeresy.Runtime.Data.Static.Inventory.Installers
     {
         [SerializeField] private EquipmentSlotCommandData[] _slotsMutations;
 
-        public override IItemComponent GetComponent()
+        public override IItemComponent GetComponent(IObjectResolver resolver)
         {
             var applicatorsBySlot = _slotsMutations
                 .ToDictionary(temp => temp.Identifier,

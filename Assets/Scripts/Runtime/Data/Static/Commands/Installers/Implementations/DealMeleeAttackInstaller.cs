@@ -4,6 +4,7 @@ using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Commands.Core;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using UnityEngine;
+using VContainer;
 
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
@@ -13,9 +14,9 @@ namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
         [SerializeField] private MeleeAttackData _data;
         [SerializeReference, Select] private CommandInstaller _targetCommandInstaller;
 
-        public override ICommand GetCommand()
+        public override ICommand GetCommand(IObjectResolver resolver)
         {
-            return new DealMeleeAttack(_data, _targetCommandInstaller);
+            return new DealMeleeAttack(resolver, _data, _targetCommandInstaller);
         }
     }
 }
