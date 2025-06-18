@@ -12,6 +12,7 @@ namespace EndlessHeresy.Runtime.Movement
 {
     public sealed class MovementComponent : PocoComponent
     {
+        private const float FullStopMagnitude = 1f;
         private RigidbodyStorageComponent _rigidbodyStorage;
         private StatsComponent _statsComponent;
 
@@ -41,7 +42,13 @@ namespace EndlessHeresy.Runtime.Movement
 
             if (NoMovementInput(input))
             {
+                if (Rigidbody.velocity.magnitude > FullStopMagnitude)
+                {
+                    return;
+                }
+
                 Rigidbody.velocity = Vector2.zero;
+
                 return;
             }
 

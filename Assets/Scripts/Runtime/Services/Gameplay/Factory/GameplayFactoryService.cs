@@ -58,7 +58,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<InventoryComponent>(configuration.MaxInventorySize)
                 .WithComponent<AbilitiesStorageComponent>(configuration.AbilityConfigurations)
                 .WithComponent<AbilitiesCastComponent>()
-                .WithComponent<AbilitiesControlsHandler>()
+                .WithComponent<AbilitiesInputController>()
                 .Build();
         }
 

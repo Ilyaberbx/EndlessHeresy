@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Generic;
+using EndlessHeresy.Runtime.Movement;
 using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Commands.Core
@@ -21,7 +22,7 @@ namespace EndlessHeresy.Runtime.Commands.Core
             {
                 return Task.CompletedTask;
             }
-            
+
             var facingComponent = actor.GetComponent<FacingComponent>();
             var horizontalDirection = facingComponent.IsFacingRight ? 1f : -1f;
             var forceDirection = new Vector2(horizontalDirection, 0);

@@ -51,13 +51,13 @@ MonoBehaviour:
       data:
         _data:
           _forceMultiplier: 15
-          _dragForceMultiplier: 104.7
+          _dragForceMultiplier: 93.9
           _overlapData:
             center: {x: 0, y: 0}
-            size: {x: 4.4, y: 2}
-            direction: 0
+            size: {x: 5, y: 2.2}
+            direction: 1
             angle: 0
-          _offSet: {x: 2, y: 0}
+          _offSet: {x: 3, y: 0}
           _damageData:
             _value: 10
             _identifier: 1

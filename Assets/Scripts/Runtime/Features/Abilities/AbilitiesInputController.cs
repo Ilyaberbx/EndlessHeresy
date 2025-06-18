@@ -8,13 +8,13 @@ using UnityEngine.InputSystem;
 
 namespace EndlessHeresy.Runtime.Abilities
 {
-    public sealed class AbilitiesControlsHandler : PocoComponent
+    public sealed class AbilitiesInputController : PocoComponent
     {
         private readonly IInputService _inputService;
         private AbilitiesStorageComponent _storage;
         private AbilitiesCastComponent _cast;
 
-        public AbilitiesControlsHandler(IInputService inputService)
+        public AbilitiesInputController(IInputService inputService)
         {
             _inputService = inputService;
         }

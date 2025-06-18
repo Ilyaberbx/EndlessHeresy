@@ -1,5 +1,4 @@
-﻿using EndlessHeresy.Runtime.Actors;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Generic
 {
