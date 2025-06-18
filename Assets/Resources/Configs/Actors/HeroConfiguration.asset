@@ -15,6 +15,7 @@ MonoBehaviour:
   _abilityConfigurations:
   - {fileID: 11400000, guid: b0ad9868582a4db4baf8c7e4a3648035, type: 2}
   - {fileID: 11400000, guid: 06799f70bdd372143be6117d97ca7533, type: 2}
+  - {fileID: 11400000, guid: ef791a144caec0b40b914af65ac703c7, type: 2}
   _defaultStats:
   - _baseValue: 1000
     _identifier: 0

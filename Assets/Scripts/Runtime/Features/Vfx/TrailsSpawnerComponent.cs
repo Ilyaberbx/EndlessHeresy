@@ -4,6 +4,7 @@ using DG.Tweening;
 using EndlessHeresy.Runtime.Data.Operational;
 using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.Facing;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -82,6 +83,10 @@ namespace EndlessHeresy.Runtime.Vfx
             trailRenderer.color = Color.clear;
         }
 
-        private void OnTrailDestroy(SpriteRenderer trailRenderer) => Object.Destroy(trailRenderer.gameObject);
+        private void OnTrailDestroy(SpriteRenderer trailRenderer)
+        {
+            if (trailRenderer.IsUnityNull()) return;
+            Object.Destroy(trailRenderer.gameObject);
+        }
     }
 }

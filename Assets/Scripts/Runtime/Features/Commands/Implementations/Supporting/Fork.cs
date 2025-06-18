@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Better.Conditions.Runtime;
+using EndlessHeresy.Runtime.Conditions;
 
 namespace EndlessHeresy.Runtime.Commands.Supporting
 {
@@ -19,6 +20,16 @@ namespace EndlessHeresy.Runtime.Commands.Supporting
 
         public Task ExecuteAsync(IActor actor, CancellationToken cancellationToken)
         {
+            if (_condition is IActorCondition actorCondition)
+            {
+                actorCondition.Initialize(actor);
+            }
+
+            if (!_condition.Validate())
+            {
+                return Task.CompletedTask;
+            }
+
             return _condition.SafeInvoke()
                 ? _trueCommand.ExecuteAsync(actor, cancellationToken)
                 : _falseCommand.ExecuteAsync(actor, cancellationToken);
