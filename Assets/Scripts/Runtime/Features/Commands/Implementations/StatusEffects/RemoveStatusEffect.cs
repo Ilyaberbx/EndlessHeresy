@@ -17,7 +17,7 @@ namespace EndlessHeresy.Runtime.Commands.StatusEffects
         public Task ExecuteAsync(IActor actor, CancellationToken cancellationToken)
         {
             var statusEffects = actor.GetComponent<StatusEffectsComponent>();
-            statusEffects.Add(_identifier);
+            statusEffects.Remove(_identifier);
             return Task.CompletedTask;
         }
 

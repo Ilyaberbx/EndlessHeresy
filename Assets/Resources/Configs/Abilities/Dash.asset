@@ -16,7 +16,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: de2cc86fdcd2f69439c8b98ebc3efcc4, type: 3}
   _description: Test
   _name: Test
-  _cooldown: 0
+  _cooldown: 5
   _commandInstaller:
     rid: 719119482670809091
   references:
@@ -36,7 +36,7 @@ MonoBehaviour:
       type: {class: PeriodicInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
         _duration: 2
-        _perSeconds: 0.05
+        _perSeconds: 0.04
         _command:
           rid: 719119511784259590
     - rid: 719119511784259590
@@ -64,4 +64,4 @@ MonoBehaviour:
     - rid: 719119511784259599
       type: {class: IsMovingCondition, ns: EndlessHeresy.Runtime.Conditions, asm: Assembly-CSharp}
       data:
-        _minMagnitude: 25
+        _minMagnitude: 15

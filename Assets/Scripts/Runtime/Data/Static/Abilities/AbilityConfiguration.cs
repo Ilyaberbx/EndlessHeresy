@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Data.Static.Abilities
 {
-    [CreateAssetMenu(menuName = "Configs/Gameplay/NewAbility", fileName = "NewAbilityConfiguration", order = 0)]
+    [CreateAssetMenu(menuName = "Configs/Gameplay/Ability", fileName = "AbilityConfiguration", order = 0)]
     public sealed class AbilityConfiguration : ScriptableObject
     {
         [SerializeField] private AbilityType _identifier;

@@ -11,7 +11,7 @@ namespace EndlessHeresy.Runtime.Facing
         private SpriteRendererComponent _spriteRendererComponent;
         private Type _padlock;
         private SpriteRenderer SpriteRenderer => _spriteRendererComponent.SpriteRenderer;
-        public bool IsLocked => _padlock != null;
+        public bool IsLocked { get; private set; }
 
         protected override Task OnInitializeAsync(CancellationToken cancellationToken)
         {
@@ -21,29 +21,24 @@ namespace EndlessHeresy.Runtime.Facing
 
         public bool IsFacingRight => !SpriteRenderer.flipX;
 
-        public void Lock(Type padlock)
+        public void Lock()
         {
             if (IsLocked)
             {
                 return;
             }
 
-            _padlock = padlock;
+            IsLocked = true;
         }
 
-        public void Unlock(Type padlock)
+        public void Unlock()
         {
             if (!IsLocked)
             {
                 return;
             }
 
-            if (_padlock != padlock)
-            {
-                return;
-            }
-
-            _padlock = null;
+            IsLocked = false;
         }
 
         public void Face(Type padlock, bool faceRight)

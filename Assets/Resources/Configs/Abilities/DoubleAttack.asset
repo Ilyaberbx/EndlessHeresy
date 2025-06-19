@@ -33,6 +33,8 @@ MonoBehaviour:
         - rid: 719119482670809102
         - rid: 719119510298689537
         - rid: 719119482670809099
+        - rid: 719119514522353664
+        - rid: 719119514522353665
     - rid: 719119482670809094
       type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
@@ -73,3 +75,12 @@ MonoBehaviour:
     - rid: 719119510298689537
       type: {class: WaitForAnimationFinishInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data: 
+    - rid: 719119514522353664
+      type: {class: KillInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data: 
+    - rid: 719119514522353665
+      type: {class: AddAttributeModifierInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _data:
+          _identifier: 0
+          _value: 0

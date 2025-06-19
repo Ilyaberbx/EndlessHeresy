@@ -66,19 +66,13 @@ namespace EndlessHeresy.Runtime.Commands.Core
                 }
 
                 var target = healthComponent.Owner;
-
-                var dealExplosionForceCommand = new DealExplosionForceImpulse(attackPosition, _data.ForceMultiplier);
-                await dealExplosionForceCommand.ExecuteAsync(target, cancellationToken);
-
+                
                 if (target.TryGetComponent<CommandsComponent>(out var commands))
                 {
                     var targetCommand = _targetCommandInstaller.GetCommand(_resolver);
                     commands.ExecuteAsParallel(targetCommand).Forget();
                 }
             }
-
-            var facingDirectionForceCommand = new DealFacingDirectionForceImpulse(_data.DragForceMultiplier);
-            await facingDirectionForceCommand.ExecuteAsync(actor, cancellationToken);
         }
     }
 }

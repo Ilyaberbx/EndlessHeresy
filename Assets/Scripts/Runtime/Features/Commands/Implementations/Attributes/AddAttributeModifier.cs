@@ -5,7 +5,7 @@ using EndlessHeresy.Runtime.Data.Static.Components;
 
 namespace EndlessHeresy.Runtime.Commands.Attributes
 {
-    public sealed class AddAttributeModifier : ICommand, IUndoableCommand
+    public sealed class AddAttributeModifier : IUndoableCommand
     {
         private readonly AttributeModifierData _data;
 

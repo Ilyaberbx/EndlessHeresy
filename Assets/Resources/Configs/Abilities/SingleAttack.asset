@@ -26,11 +26,17 @@ MonoBehaviour:
       type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
         _commandInstallers:
+        - rid: 719119528507998217
+        - rid: 719119528507998215
         - rid: 719119482670809094
         - rid: 719119482670809095
         - rid: 719119482670809102
-        - rid: 719119482670809096
+        - rid: 719119528507998211
+        - rid: 719119528507998213
+        - rid: 719119528507998218
         - rid: 719119482670809099
+        - rid: 719119528507998216
+        - rid: 719119528507998214
     - rid: 719119482670809094
       type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
@@ -39,9 +45,6 @@ MonoBehaviour:
       type: {class: WaitForAnimationEventInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
         _eventName: OnHit
-    - rid: 719119482670809096
-      type: {class: WaitForAnimationFinishInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data: 
     - rid: 719119482670809099
       type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
@@ -50,8 +53,6 @@ MonoBehaviour:
       type: {class: DealMeleeAttackInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
         _data:
-          _forceMultiplier: 15
-          _dragForceMultiplier: 93.9
           _overlapData:
             center: {x: 0, y: 0}
             size: {x: 5, y: 2.2}
@@ -62,8 +63,47 @@ MonoBehaviour:
             _value: 10
             _identifier: 1
         _targetCommandInstaller:
-          rid: 719119482670809103
-    - rid: 719119482670809103
+          rid: 719119528507998208
+    - rid: 719119528507998208
+      type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _commandInstallers:
+        - rid: 719119528507998212
+    - rid: 719119528507998211
+      type: {class: DealExplosionForceInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _offSet: {x: 3, y: 0}
+        _overlapData:
+          center: {x: 0, y: 0}
+          size: {x: 5, y: 2.2}
+          direction: 1
+          angle: 0
+        _multiplier: 50
+    - rid: 719119528507998212
       type: {class: ApplyStatusEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
         _identifier: 0
+    - rid: 719119528507998213
+      type: {class: DealFacingDirectionForceInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _multiplier: 50
+    - rid: 719119528507998214
+      type: {class: ToggleFacingLockInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _isLocked: 0
+    - rid: 719119528507998215
+      type: {class: ToggleFacingLockInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _isLocked: 1
+    - rid: 719119528507998216
+      type: {class: ToggleMovementLockInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _isLocked: 0
+    - rid: 719119528507998217
+      type: {class: ToggleMovementLockInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _isLocked: 1
+    - rid: 719119528507998218
+      type: {class: WaitForSecondsInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _seconds: 0.4
