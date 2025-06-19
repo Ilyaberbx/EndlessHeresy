@@ -11,7 +11,7 @@ namespace EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementat
     [Serializable]
     public sealed class CommandEffectInstaller : StatusEffectComponentInstaller
     {
-        [SerializeReference, Select] private CommandInstaller _commandInstaller;
+        [SerializeReference, Select] private ICommandInstaller _commandInstaller;
 
         public override void Install(StatusEffectsBuilder builder)
         {

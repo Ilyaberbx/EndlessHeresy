@@ -6,9 +6,9 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class KillInstaller : CommandInstaller
+    public sealed class KillInstaller : ICommandInstaller
     {
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new Kill();
         }

@@ -16,9 +16,9 @@ namespace EndlessHeresy.Runtime.Commands.Core
     {
         private readonly IObjectResolver _resolver;
         private readonly MeleeAttackData _data;
-        private readonly CommandInstaller _targetCommandInstaller;
+        private readonly ICommandInstaller _targetCommandInstaller;
 
-        public DealMeleeAttack(IObjectResolver resolver, MeleeAttackData data, CommandInstaller targetCommandInstaller)
+        public DealMeleeAttack(IObjectResolver resolver, MeleeAttackData data, ICommandInstaller targetCommandInstaller)
         {
             _resolver = resolver;
             _data = data;

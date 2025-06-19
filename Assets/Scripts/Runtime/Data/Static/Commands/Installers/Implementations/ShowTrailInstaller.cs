@@ -7,12 +7,12 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class ShowTrailInstaller : CommandInstaller
+    public sealed class ShowTrailInstaller : ICommandInstaller
     {
         [SerializeField] private Color _color;
         [SerializeField] private float _lifeTime;
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new ShowTrail(_color, _lifeTime);
         }

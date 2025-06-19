@@ -11,9 +11,9 @@ namespace EndlessHeresy.Runtime.StatusEffects
         IApplyStatusEffect
     {
         private readonly IObjectResolver _resolver;
-        private readonly CommandInstaller _commandInstaller;
+        private readonly ICommandInstaller _commandInstaller;
 
-        public CommandEffectComponent(IObjectResolver resolver, CommandInstaller commandInstaller)
+        public CommandEffectComponent(IObjectResolver resolver, ICommandInstaller commandInstaller)
         {
             _resolver = resolver;
             _commandInstaller = commandInstaller;

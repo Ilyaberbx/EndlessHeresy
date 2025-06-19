@@ -8,13 +8,13 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class DealExplosionForceInstaller : CommandInstaller
+    public sealed class DealExplosionForceInstaller : ICommandInstaller
     {
         [SerializeField] private Vector2 _offSet;
         [SerializeField] private CapsuleOverlapData _overlapData;
         [SerializeField] private float _multiplier;
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new DealExplosionForceImpulse(_offSet, _overlapData, _multiplier);
         }

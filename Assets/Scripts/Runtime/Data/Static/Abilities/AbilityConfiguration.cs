@@ -14,7 +14,7 @@ namespace EndlessHeresy.Runtime.Data.Static.Abilities
         [SerializeField] private string _description;
         [SerializeField] private string _name;
         [SerializeField] private float _cooldown;
-        [SerializeReference, Select] private CommandInstaller _commandInstaller;
+        [SerializeReference, Select] private ICommandInstaller _commandInstaller;
         public AbilityType Identifier => _identifier;
         public Sprite Icon => _icon;
         public string Description => _description;

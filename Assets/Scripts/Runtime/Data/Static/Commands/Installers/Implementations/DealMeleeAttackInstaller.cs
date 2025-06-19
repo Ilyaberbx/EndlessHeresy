@@ -9,12 +9,12 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class DealMeleeAttackInstaller : CommandInstaller
+    public sealed class DealMeleeAttackInstaller : ICommandInstaller
     {
         [SerializeField] private MeleeAttackData _data;
-        [SerializeReference, Select] private CommandInstaller _targetCommandInstaller;
+        [SerializeReference, Select] private ICommandInstaller _targetCommandInstaller;
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new DealMeleeAttack(resolver, _data, _targetCommandInstaller);
         }

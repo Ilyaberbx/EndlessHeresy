@@ -9,12 +9,12 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class ForLoopInstaller : CommandInstaller
+    public sealed class ForLoopInstaller : ICommandInstaller
     {
         [SerializeField] private int _count;
         [SerializeReference, Select] private IteractionCommandInstaller[] _iteractionInstallers;
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new ForLoop(_iteractionInstallers.Select(temp => temp.GetIterationCommand()).ToArray(), _count);
         }

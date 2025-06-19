@@ -9,11 +9,11 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class SequenceCollectionInstaller : CommandInstaller
+    public sealed class SequenceCollectionInstaller : ICommandInstaller
     {
-        [SerializeReference, Select] private CommandInstaller[] _commandInstallers;
+        [SerializeReference, Select] private ICommandInstaller[] _commandInstallers;
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new SequenceCollection(_commandInstallers.Select(temp => temp.GetCommand(resolver)).ToArray());
         }

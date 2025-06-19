@@ -8,11 +8,11 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class DealTakingDamageInstaller : CommandInstaller
+    public sealed class DealTakingDamageInstaller : ICommandInstaller
     {
         [SerializeField] private DamageData _data;
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new DealTakingDamage(_data);
         }

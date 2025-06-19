@@ -11,7 +11,7 @@ namespace EndlessHeresy.Runtime.Data.Static.Inventory.Installers
     [Serializable]
     public sealed class UsableItemInstaller : ItemComponentInstaller
     {
-        [SerializeReference, Select] private CommandInstaller _commandInstaller;
+        [SerializeReference, Select] private ICommandInstaller _commandInstaller;
 
         public override IItemComponent GetComponent(IObjectResolver resolver)
         {

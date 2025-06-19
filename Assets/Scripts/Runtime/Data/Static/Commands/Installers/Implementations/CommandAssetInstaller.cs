@@ -1,19 +1,18 @@
 ﻿using System;
 using EndlessHeresy.Runtime.Commands;
-using EndlessHeresy.Runtime.Commands.Animations;
 using UnityEngine;
 using VContainer;
 
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class WaitForAnimationEventInstaller : ICommandInstaller
+    public sealed class CommandAssetInstaller : ICommandInstaller
     {
-        [SerializeField] private string _eventName;
+        [SerializeField] private CommandAsset _asset;
 
         public ICommand GetCommand(IObjectResolver resolver)
         {
-            return new WaitForAnimationEvent(_eventName);
+            return _asset.GetCommand(resolver);
         }
     }
 }

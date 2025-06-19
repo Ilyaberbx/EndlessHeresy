@@ -8,11 +8,11 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class CastAbilityInstaller : CommandInstaller
+    public sealed class CastAbilityInstaller : ICommandInstaller
     {
         [SerializeField] private AbilityType _identifier;
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new CastAbility(_identifier);
         }

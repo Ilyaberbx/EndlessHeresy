@@ -7,11 +7,11 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class DealFacingDirectionForceInstaller : CommandInstaller
+    public sealed class DealFacingDirectionForceInstaller : ICommandInstaller
     {
         [SerializeField] private float _multiplier;
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new DealFacingDirectionForceImpulse(_multiplier);
         }

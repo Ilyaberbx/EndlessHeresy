@@ -7,11 +7,11 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class ToggleMovementLockInstaller : CommandInstaller
+    public sealed class ToggleMovementLockInstaller : ICommandInstaller
     {
         [SerializeField] private bool _isLocked;
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new ToggleMovementLock(_isLocked);
         }

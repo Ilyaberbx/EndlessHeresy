@@ -7,11 +7,11 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class DealHealingInstaller : CommandInstaller
+    public sealed class DealHealingInstaller : ICommandInstaller
     {
         [SerializeField] private float _value;
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new DealHealing(_value);
         }

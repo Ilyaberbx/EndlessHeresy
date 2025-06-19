@@ -7,11 +7,11 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class PlayAnimationInstaller : CommandInstaller
+    public sealed class PlayAnimationInstaller : ICommandInstaller
     {
         [SerializeField] private string _animationName;
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new PlayAnimation(_animationName);
         }

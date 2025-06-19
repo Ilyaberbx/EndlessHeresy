@@ -9,13 +9,13 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class ForkInstaller : CommandInstaller
+    public sealed class ForkInstaller : ICommandInstaller
     {
         [SerializeReference, Select] private Condition _condition;
-        [SerializeReference, Select] private CommandInstaller _true;
-        [SerializeReference, Select] private CommandInstaller _false;
+        [SerializeReference, Select] private ICommandInstaller _true;
+        [SerializeReference, Select] private ICommandInstaller _false;
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new Fork(_condition, _true.GetCommand(resolver), _false.GetCommand(resolver));
         }

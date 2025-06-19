@@ -26,8 +26,10 @@ MonoBehaviour:
       type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
         _commandInstallers:
+        - rid: 719119528507998234
         - rid: 719119511784259587
         - rid: 719119511784259588
+        - rid: 719119528507998235
     - rid: 719119511784259587
       type: {class: DealFacingDirectionForceInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
@@ -52,16 +54,34 @@ MonoBehaviour:
         _true:
           rid: 719119511784259592
         _false:
-          rid: 719119511784259593
+          rid: 719119528507998236
     - rid: 719119511784259592
       type: {class: ShowTrailInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
         _color: {r: 1, g: 0, b: 0, a: 1}
         _lifeTime: 3
-    - rid: 719119511784259593
-      type: {class: KillInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data: 
     - rid: 719119511784259599
       type: {class: IsMovingCondition, ns: EndlessHeresy.Runtime.Conditions, asm: Assembly-CSharp}
       data:
         _minMagnitude: 15
+    - rid: 719119528507998234
+      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _asset: {fileID: 11400000, guid: e6a70a2ff552ff6408f1b318d8931179, type: 2}
+    - rid: 719119528507998235
+      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _asset: {fileID: 11400000, guid: 0eb8077fadc5ad5478da12c22857c69a, type: 2}
+    - rid: 719119528507998236
+      type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _commandInstallers:
+        - rid: 719119528507998237
+        - rid: 719119528507998238
+    - rid: 719119528507998237
+      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _asset: {fileID: 11400000, guid: 0eb8077fadc5ad5478da12c22857c69a, type: 2}
+    - rid: 719119528507998238
+      type: {class: KillInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data: 

@@ -26,8 +26,7 @@ MonoBehaviour:
       type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
         _commandInstallers:
-        - rid: 719119528507998217
-        - rid: 719119528507998215
+        - rid: 719119528507998230
         - rid: 719119482670809094
         - rid: 719119482670809095
         - rid: 719119482670809102
@@ -35,8 +34,8 @@ MonoBehaviour:
         - rid: 719119528507998213
         - rid: 719119528507998218
         - rid: 719119482670809099
-        - rid: 719119528507998216
-        - rid: 719119528507998214
+        - rid: 719119528507998240
+        - rid: 719119528507998231
     - rid: 719119482670809094
       type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
@@ -48,7 +47,7 @@ MonoBehaviour:
     - rid: 719119482670809099
       type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
-        _animationName: Idle
+        _animationName: RunToIdle
     - rid: 719119482670809102
       type: {class: DealMeleeAttackInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
@@ -63,12 +62,7 @@ MonoBehaviour:
             _value: 10
             _identifier: 1
         _targetCommandInstaller:
-          rid: 719119528507998208
-    - rid: 719119528507998208
-      type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _commandInstallers:
-        - rid: 719119528507998212
+          rid: 719119528507998223
     - rid: 719119528507998211
       type: {class: DealExplosionForceInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
@@ -79,31 +73,27 @@ MonoBehaviour:
           direction: 1
           angle: 0
         _multiplier: 50
-    - rid: 719119528507998212
-      type: {class: ApplyStatusEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _identifier: 0
     - rid: 719119528507998213
       type: {class: DealFacingDirectionForceInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
         _multiplier: 50
-    - rid: 719119528507998214
-      type: {class: ToggleFacingLockInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _isLocked: 0
-    - rid: 719119528507998215
-      type: {class: ToggleFacingLockInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _isLocked: 1
-    - rid: 719119528507998216
-      type: {class: ToggleMovementLockInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _isLocked: 0
-    - rid: 719119528507998217
-      type: {class: ToggleMovementLockInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _isLocked: 1
     - rid: 719119528507998218
       type: {class: WaitForSecondsInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
-        _seconds: 0.4
+        _seconds: 0.3
+    - rid: 719119528507998223
+      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _asset: {fileID: 11400000, guid: 39394876872d8824abd8a580a00ea385, type: 2}
+    - rid: 719119528507998230
+      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _asset: {fileID: 11400000, guid: e6a70a2ff552ff6408f1b318d8931179, type: 2}
+    - rid: 719119528507998231
+      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _asset: {fileID: 11400000, guid: 0eb8077fadc5ad5478da12c22857c69a, type: 2}
+    - rid: 719119528507998240
+      type: {class: WaitForSecondsInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _seconds: 0.12

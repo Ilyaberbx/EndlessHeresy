@@ -11,7 +11,7 @@ namespace EndlessHeresy.Runtime.Abilities
         private ReactiveProperty<AbilityState> _state;
         private float _cooldown;
         private float _elapsedTime;
-        private CommandInstaller _rootCommandInstaller;
+        private ICommandInstaller _rootCommandInstaller;
         public AbilityType Identifier { get; private set; }
         public IReadOnlyReactiveProperty<AbilityState> State { get; private set; }
         public bool HasCooldown => _cooldown != 0;
@@ -32,7 +32,7 @@ namespace EndlessHeresy.Runtime.Abilities
             _cooldown = cooldown;
         }
 
-        public void WithCommandInstaller(CommandInstaller rootCommandInstaller)
+        public void WithCommandInstaller(ICommandInstaller rootCommandInstaller)
         {
             _rootCommandInstaller = rootCommandInstaller;
         }

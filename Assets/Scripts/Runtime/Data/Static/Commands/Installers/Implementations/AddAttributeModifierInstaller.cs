@@ -8,11 +8,11 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class AddAttributeModifierInstaller : CommandInstaller
+    public sealed class AddAttributeModifierInstaller : ICommandInstaller
     {
         [SerializeField] private AttributeModifierData _data;
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new AddAttributeModifier(_data);
         }

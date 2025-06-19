@@ -7,11 +7,11 @@ using VContainer;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class DebugCommandInstaller : CommandInstaller
+    public sealed class DebugInstaller : ICommandInstaller
     {
         [SerializeField] private string _message;
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand(IObjectResolver resolver)
         {
             return new DebugCommand(_message);
         }
