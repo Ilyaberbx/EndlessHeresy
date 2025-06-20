@@ -3,13 +3,17 @@ using EndlessHeresy.Runtime.Actors.Hero;
 using EndlessHeresy.Runtime.Data.Persistant;
 using EndlessHeresy.Runtime.Data.Static.Abilities;
 using EndlessHeresy.Runtime.Data.Static.Components;
+using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace EndlessHeresy.Runtime.Data.Static
 {
     [CreateAssetMenu(menuName = "Configs/Actors/Hero", fileName = "HeroConfiguration", order = 0)]
     public sealed class HeroConfiguration : ScriptableObject
     {
+        [SerializeField] private InputActionReference _movementInputData;
+        [SerializeField] private AbilityInputData[] _abilitiesInputData;
         [SerializeField] private AbilityConfiguration[] _abilityConfigurations;
         [SerializeField] private StatData[] _defaultStats;
         [SerializeField] private AttributeData[] _defaultAttributes;
@@ -23,5 +27,7 @@ namespace EndlessHeresy.Runtime.Data.Static
         public IReadOnlyList<StatData> DefaultStats => _defaultStats;
         public IReadOnlyList<AttributeData> DefaultAttributes => _defaultAttributes;
         public IReadOnlyList<AbilityConfiguration> AbilityConfigurations => _abilityConfigurations;
+        public IReadOnlyList<AbilityInputData> AbilitiesInputData => _abilitiesInputData;
+        public InputAction MovementInputData => _movementInputData.action;
     }
 }

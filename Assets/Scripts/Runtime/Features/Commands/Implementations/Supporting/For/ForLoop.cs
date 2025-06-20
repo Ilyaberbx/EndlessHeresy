@@ -5,12 +5,12 @@ namespace EndlessHeresy.Runtime.Commands.Supporting.For
 {
     public sealed class ForLoop : ICommand
     {
-        private readonly IIterationCommand[] _iterationCommands;
+        private readonly ICommand[] _commands;
         private readonly int _count;
 
-        public ForLoop(IIterationCommand[] iterationCommands, int count)
+        public ForLoop(ICommand[] commands, int count)
         {
-            _iterationCommands = iterationCommands;
+            _commands = commands;
             _count = count;
         }
 
@@ -18,9 +18,15 @@ namespace EndlessHeresy.Runtime.Commands.Supporting.For
         {
             for (var i = 0; i < _count; i++)
             {
-                var command = _iterationCommands[i];
-                command.SetIndex(i);
-                await command.ExecuteAsync(actor, cancellationToken);
+                foreach (var command in _commands)
+                {
+                    if (command is IIterationCommand iterationCommand)
+                    {
+                        iterationCommand.SetIndex(i);
+                    }
+
+                    await command.ExecuteAsync(actor, cancellationToken);
+                }
             }
         }
     }

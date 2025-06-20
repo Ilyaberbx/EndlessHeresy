@@ -3,6 +3,7 @@ using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Commands.Supporting;
 using UnityEngine;
 using VContainer;
+using Debug = EndlessHeresy.Runtime.Commands.Supporting.Debug;
 
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
@@ -13,7 +14,7 @@ namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 
         public ICommand GetCommand(IObjectResolver resolver)
         {
-            return new DebugCommand(_message);
+            return new Debug(_message);
         }
     }
 }

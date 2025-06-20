@@ -6,7 +6,7 @@ using EndlessHeresy.Runtime.Stats.Modifiers;
 
 namespace EndlessHeresy.Runtime.Commands.Stats
 {
-    public sealed class RemoveStatModifier : ICommand, IUndoableCommand
+    public sealed class RemoveStatModifier : IUndoableCommand
     {
         private readonly IStatModifierSource _source;
         private readonly StatModifierData _data;

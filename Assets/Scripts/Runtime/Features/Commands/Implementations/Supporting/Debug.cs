@@ -4,18 +4,18 @@ using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Commands.Supporting
 {
-    public sealed class DebugCommand : ICommand
+    public sealed class Debug : ICommand
     {
         private readonly string _message;
 
-        public DebugCommand(string message)
+        public Debug(string message)
         {
             _message = message;
         }
 
         public Task ExecuteAsync(IActor actor, CancellationToken cancellationToken)
         {
-            Debug.Log(_message);
+            UnityEngine.Debug.Log(_message);
             return Task.CompletedTask;
         }
     }

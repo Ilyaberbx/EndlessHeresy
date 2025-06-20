@@ -41,7 +41,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
                 .WithComponent<MovementComponent>()
-                .WithComponent<MovementInputController>()
+                .WithComponent<MovementInputController>(configuration.MovementInputData)
                 .WithComponent<HealthComponent>()
                 .WithComponent<FacingComponent>()
                 .WithComponent<CommandsComponent>()
@@ -58,7 +58,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<InventoryComponent>(configuration.MaxInventorySize)
                 .WithComponent<AbilitiesStorageComponent>(configuration.AbilityConfigurations)
                 .WithComponent<AbilitiesCastComponent>()
-                .WithComponent<AbilitiesInputController>()
+                .WithComponent<AbilitiesInputController>(configuration.AbilitiesInputData)
                 .Build();
         }
 

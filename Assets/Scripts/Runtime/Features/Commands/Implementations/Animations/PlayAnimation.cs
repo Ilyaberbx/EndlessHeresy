@@ -18,7 +18,7 @@ namespace EndlessHeresy.Runtime.Commands.Animations
             var animator = actor.GetComponent<AnimatorStorageComponent>().Animator;
             animator.enabled = true;
             animator.StopPlayback();
-            animator.Play(_animationName);
+            animator.Play(_animationName, -1, 0f);
             return Task.CompletedTask;
         }
     }

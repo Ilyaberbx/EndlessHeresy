@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37894e045c174eaf8fa706757e4b59d5, type: 3}
+  m_Name: CrescentStrike
+  m_EditorClassIdentifier: 
+  _identifier: 3
+  _icon: {fileID: 21300000, guid: de2cc86fdcd2f69439c8b98ebc3efcc4, type: 3}
+  _description: 
+  _name: 
+  _cooldown: 0
+  _commandInstaller:
+    rid: 719119550085070851
+  references:
+    version: 2
+    RefIds:
+    - rid: 719119550085070851
+      type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _commandInstallers:
+        - rid: 719119550085070874
+        - rid: 719119550085070852
+        - rid: 719119550085070853
+        - rid: 719119550085070854
+        - rid: 719119550085070855
+    - rid: 719119550085070852
+      type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _animationName: StrikeStart
+    - rid: 719119550085070853
+      type: {class: WaitForAnimationFinishInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data: 
+    - rid: 719119550085070854
+      type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _animationName: StrikeCharging
+    - rid: 719119550085070855
+      type: {class: ChargeToIterationsInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _minChargeDuration: 2
+        _maxChargeDuration: 4
+        _iterationsPerSecond: 2
+        _condition:
+          rid: 719119550085070856
+        _overchargedCommandInstaller:
+          rid: 719119550085070863
+        _underchargedCommandInstaller:
+          rid: 719119550085070862
+        _reachedMinimumChargeCommandInstaller:
+          rid: 719119550085070868
+        _preIterationCommandInstaller:
+          rid: 719119550085070875
+        _chargedCommandsInstallers:
+        - rid: 719119550085070871
+        _postIterationCommandInstaller:
+          rid: 719119550085070876
+    - rid: 719119550085070856
+      type: {class: IsHoldingCondition, ns: EndlessHeresy.Runtime.Conditions, asm: Assembly-CSharp}
+      data:
+        _actionReference: {fileID: -5465807931187144322, guid: b80d4ad9ee061074ebc958823adb72df, type: 3}
+    - rid: 719119550085070862
+      type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _commandInstallers:
+        - rid: 719119550085070865
+        - rid: 719119550085070887
+        - rid: 719119550085070881
+    - rid: 719119550085070863
+      type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _commandInstallers:
+        - rid: 719119550085070864
+        - rid: 719119550085070866
+        - rid: 719119550085070880
+    - rid: 719119550085070864
+      type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _animationName: RunToIdle
+    - rid: 719119550085070865
+      type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _animationName: RunToIdle
+    - rid: 719119550085070866
+      type: {class: WaitForAnimationFinishInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data: 
+    - rid: 719119550085070868
+      type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _commandInstallers:
+        - rid: 719119550085070869
+        - rid: 719119550085070870
+        - rid: 719119550085070873
+    - rid: 719119550085070869
+      type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _animationName: StrikeReady
+    - rid: 719119550085070870
+      type: {class: WaitForAnimationFinishInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data: 
+    - rid: 719119550085070871
+      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _asset: {fileID: 11400000, guid: ed91aabb60d5b5a4f9bf33503c4ff155, type: 2}
+    - rid: 719119550085070873
+      type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _animationName: StrikeCharging
+    - rid: 719119550085070874
+      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _asset: {fileID: 11400000, guid: e6a70a2ff552ff6408f1b318d8931179, type: 2}
+    - rid: 719119550085070875
+      type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _commandInstallers:
+        - rid: 719119550085070877
+        - rid: 719119550085070878
+    - rid: 719119550085070876
+      type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _commandInstallers:
+        - rid: 719119550085070885
+        - rid: 719119550085070882
+        - rid: 719119550085070883
+        - rid: 719119550085070884
+        - rid: 719119550085070886
+    - rid: 719119550085070877
+      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _asset: {fileID: 11400000, guid: 0eb8077fadc5ad5478da12c22857c69a, type: 2}
+    - rid: 719119550085070878
+      type: {class: AddStatModifierInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _data:
+          _statIdentifier: 4
+          _identifier: 3
+          _value: 2
+    - rid: 719119550085070880
+      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _asset: {fileID: 11400000, guid: 0eb8077fadc5ad5478da12c22857c69a, type: 2}
+    - rid: 719119550085070881
+      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _asset: {fileID: 11400000, guid: 0eb8077fadc5ad5478da12c22857c69a, type: 2}
+    - rid: 719119550085070882
+      type: {class: PlayAnimationInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _animationName: StrikeFinish
+    - rid: 719119550085070883
+      type: {class: WaitForAnimationFinishInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data: 
+    - rid: 719119550085070884
+      type: {class: AddStatModifierInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _data:
+          _statIdentifier: 4
+          _identifier: 2
+          _value: 2
+    - rid: 719119550085070885
+      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _asset: {fileID: 11400000, guid: e6a70a2ff552ff6408f1b318d8931179, type: 2}
+    - rid: 719119550085070886
+      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _asset: {fileID: 11400000, guid: 0eb8077fadc5ad5478da12c22857c69a, type: 2}
+    - rid: 719119550085070887
+      type: {class: WaitForSecondsInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _seconds: 0.15

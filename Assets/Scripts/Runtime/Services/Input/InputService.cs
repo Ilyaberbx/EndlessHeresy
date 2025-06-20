@@ -1,31 +1,32 @@
 using System;
 using UnityEngine.InputSystem;
-using VContainer.Unity;
 
 namespace EndlessHeresy.Runtime.Services.Input
 {
-    public sealed class InputService : IInputService, IInitializable
+    public sealed class InputService : IInputService
     {
         public event Action<InputActionMap> OnActiveMapChanged;
-        private GameActions _gameActions;
-        public GameActions.GameplayActions GameplayActions => _gameActions.Gameplay;
+        private readonly PlayerInput _input;
 
-        public void Initialize()
+        public InputService(PlayerInput input)
         {
-            _gameActions = new GameActions();
-            SetActiveMap(GameplayActions);
+            _input = input;
         }
 
-        public void SetActiveMap(InputActionMap map)
+        public void SetActiveMap(InputActionMap activeMap)
         {
-            if (map.enabled)
+            if (activeMap.enabled)
             {
                 return;
             }
 
-            _gameActions.Disable();
-            map.Enable();
-            OnActiveMapChanged?.Invoke(map);
+            foreach (var map in _input.actions.actionMaps)
+            {
+                map.Disable();
+            }
+
+            activeMap.Enable();
+            OnActiveMapChanged?.Invoke(activeMap);
         }
     }
 }

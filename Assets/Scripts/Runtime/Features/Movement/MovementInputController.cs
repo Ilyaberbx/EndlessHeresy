@@ -1,7 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Facing;
-using EndlessHeresy.Runtime.Services.Input;
 using EndlessHeresy.Runtime.Services.Tick;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,16 +10,16 @@ namespace EndlessHeresy.Runtime.Movement
     public sealed class MovementInputController : PocoComponent
     {
         private readonly IGameUpdateService _gameUpdateService;
-        private readonly IInputService _inputService;
+        private readonly InputAction _movementAction;
 
         private MovementComponent _movementComponent;
         private FacingComponent _facingComponent;
         private Vector2 _inputValue;
 
-        public MovementInputController(IGameUpdateService gameUpdateService, IInputService inputService)
+        public MovementInputController(IGameUpdateService gameUpdateService, InputAction movementAction)
         {
             _gameUpdateService = gameUpdateService;
-            _inputService = inputService;
+            _movementAction = movementAction;
         }
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
@@ -44,7 +43,7 @@ namespace EndlessHeresy.Runtime.Movement
 
         private void OnUpdate(float deltaTime)
         {
-            _inputValue = _inputService.GameplayActions.Movement.ReadValue<Vector2>();
+            _inputValue = _movementAction.ReadValue<Vector2>();
 
             var isMoving = _inputValue != Vector2.zero;
 

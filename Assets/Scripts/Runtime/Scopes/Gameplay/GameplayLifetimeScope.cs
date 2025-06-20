@@ -8,6 +8,7 @@ using EndlessHeresy.Runtime.Services.Input;
 using EndlessHeresy.Runtime.UI.Core;
 using EndlessHeresy.Runtime.UI.Core.Factory;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using VContainer;
 using VContainer.Unity;
 
@@ -19,12 +20,12 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
         [SerializeField] private CinemachineVirtualCameraBase _followCamera;
         [SerializeField] private Transform _floatingMessageContainer;
 
+
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterEntryPoint<GameplayEntryPoint>();
             builder.RegisterEntryPoint<GameplayStaticDataService>();
             builder.RegisterEntryPoint<GameplayFactoryService>();
-            builder.RegisterEntryPoint<InputService>();
             builder.Register<ICameraService, CameraService>(Lifetime.Singleton)
                 .WithParameter(_camera)
                 .WithParameter(_followCamera);

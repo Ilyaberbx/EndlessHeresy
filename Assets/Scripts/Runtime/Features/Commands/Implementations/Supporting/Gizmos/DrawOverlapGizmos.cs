@@ -25,7 +25,7 @@ namespace EndlessHeresy.Runtime.Commands.Supporting.Gizmos
             var drawGizmosObserver = actor.GetComponent<DrawGizmosObserver>();
             if (drawGizmosObserver == null)
             {
-                Debug.LogWarning("No DrawGizmosObserver component found on actor.");
+                UnityEngine.Debug.LogWarning("No DrawGizmosObserver component found on actor.");
                 return;
             }
 
