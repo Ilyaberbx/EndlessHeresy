@@ -47,7 +47,7 @@ MonoBehaviour:
       data:
         _minChargeDuration: 2
         _maxChargeDuration: 4
-        _iterationsPerSecond: 2
+        _iterationsPerSecond: 4
         _condition:
           rid: 719119550085070856
         _overchargedCommandInstaller:

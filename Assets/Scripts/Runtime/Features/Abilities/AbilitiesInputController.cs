@@ -30,7 +30,7 @@ namespace EndlessHeresy.Runtime.Abilities
 
             foreach (var data in _data)
             {
-                data.Action.performed += OnActionPerformed;
+                SubscribeToInputAction(data);
             }
 
             return Task.CompletedTask;
@@ -40,14 +40,68 @@ namespace EndlessHeresy.Runtime.Abilities
         {
             foreach (var data in _data)
             {
-                data.Action.performed -= OnActionPerformed;
+                UnsubscribeFromInputAction(data);
             }
+        }
+
+        private void SubscribeToInputAction(AbilityInputData data)
+        {
+            switch (data.ActionPhase)
+            {
+                case InputActionPhase.Started:
+                    data.Action.started += OnActionStarted;
+                    break;
+                case InputActionPhase.Performed:
+                    data.Action.performed += OnActionPerformed;
+                    break;
+                case InputActionPhase.Canceled:
+                    data.Action.canceled += OnActionCanceled;
+                    break;
+            }
+        }
+
+        private void UnsubscribeFromInputAction(AbilityInputData data)
+        {
+            switch (data.ActionPhase)
+            {
+                case InputActionPhase.Started:
+                    data.Action.started -= OnActionStarted;
+                    break;
+                case InputActionPhase.Performed:
+                    data.Action.performed -= OnActionPerformed;
+                    break;
+                case InputActionPhase.Canceled:
+                    data.Action.canceled -= OnActionCanceled;
+                    break;
+            }
+        }
+
+        private void OnActionStarted(InputAction.CallbackContext context)
+        {
+            HandleAction(context, InputActionPhase.Started);
         }
 
         private void OnActionPerformed(InputAction.CallbackContext context)
         {
-            var index = Array.IndexOf(_data.Select(temp => temp.Action).ToArray(), context.action);
-            var abilityIdentifier = _data[index].AbilityIdentifier;
+            HandleAction(context, InputActionPhase.Performed);
+        }
+
+        private void OnActionCanceled(InputAction.CallbackContext context)
+        {
+            HandleAction(context, InputActionPhase.Canceled);
+        }
+
+        private void HandleAction(InputAction.CallbackContext context, InputActionPhase phase)
+        {
+            var phaseAbilityData = _data.Where(temp => temp.ActionPhase == phase).ToArray();
+
+            if (!phaseAbilityData.Any())
+            {
+                return;
+            }
+
+            var index = Array.IndexOf(phaseAbilityData.Select(temp => temp.Action).ToArray(), context.action);
+            var abilityIdentifier = phaseAbilityData.ElementAt(index).AbilityIdentifier;
             CheckAndCastAbility(abilityIdentifier);
         }
 

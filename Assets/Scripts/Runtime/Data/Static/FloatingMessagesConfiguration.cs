@@ -10,7 +10,7 @@ namespace EndlessHeresy.Runtime.Data.Static
     {
         [SerializeField] private FloatingMessageView _prefab;
         [SerializeField] private PoolData _poolData;
-
+        
         public FloatingMessageView Prefab => _prefab;
         public PoolData PoolData => _poolData;
     }

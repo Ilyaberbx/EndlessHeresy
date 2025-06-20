@@ -1,9 +1,10 @@
 using System;
 using UnityEngine.InputSystem;
+using VContainer.Unity;
 
 namespace EndlessHeresy.Runtime.Services.Input
 {
-    public sealed class InputService : IInputService
+    public sealed class InputService : IInputService, IInitializable
     {
         public event Action<InputActionMap> OnActiveMapChanged;
         private readonly PlayerInput _input;
@@ -27,6 +28,11 @@ namespace EndlessHeresy.Runtime.Services.Input
 
             activeMap.Enable();
             OnActiveMapChanged?.Invoke(activeMap);
+        }
+
+        public void Initialize()
+        {
+            _input.actions.Enable();
         }
     }
 }
