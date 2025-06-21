@@ -1,4 +1,4 @@
-﻿using Cinemachine;
+﻿using Unity.Cinemachine;
 using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Services.Camera

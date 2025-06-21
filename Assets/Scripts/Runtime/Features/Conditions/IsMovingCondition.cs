@@ -19,7 +19,7 @@ namespace EndlessHeresy.Runtime.Conditions
 
         public override bool Invoke()
         {
-            return _rigidbody.velocity.magnitude > _minMagnitude;
+            return _rigidbody.linearVelocity.magnitude > _minMagnitude;
         }
 
         protected override bool Validate(out Exception exception)

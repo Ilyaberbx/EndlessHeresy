@@ -42,12 +42,12 @@ namespace EndlessHeresy.Runtime.Movement
 
             if (NoMovementInput(input))
             {
-                if (Rigidbody.velocity.magnitude > FullStopMagnitude)
+                if (Rigidbody.linearVelocity.magnitude > FullStopMagnitude)
                 {
                     return;
                 }
 
-                Rigidbody.velocity = Vector2.zero;
+                Rigidbody.linearVelocity = Vector2.zero;
 
                 return;
             }
