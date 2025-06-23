@@ -43,6 +43,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 349087449
+    locked: 0
+  - name: Ground
+    uniqueID: 1393917935
+    locked: 0
+  - name: Walls and Characters
+    uniqueID: 1071614317
+    locked: 0
+  - name: Overlap collision items
+    uniqueID: 237240607
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1
