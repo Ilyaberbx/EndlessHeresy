@@ -53,6 +53,7 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167895875046081740}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -76,9 +77,9 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
   m_Radius: 1
 --- !u!1 &2849309294404116226
 GameObject:
@@ -133,6 +134,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -154,8 +158,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1858190099
-  m_SortingLayer: 3
+  m_SortingLayerID: 1071614317
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -1491606883, guid: dce862d1feb9a9746bb1d7a828374582, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -170,7 +174,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &298133652569171196
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -184,6 +188,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -416,6 +421,7 @@ GameObject:
   - component: {fileID: 6587667895815951998}
   - component: {fileID: 2487715610569911782}
   - component: {fileID: 7680172000249185094}
+  - component: {fileID: 6134905448577698988}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Untagged
@@ -463,7 +469,7 @@ MonoBehaviour:
   - {fileID: 90996565131365134}
 --- !u!50 &6587667895815951998
 Rigidbody2D:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -474,8 +480,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 15
-  m_AngularDrag: 0.05
+  m_LinearDamping: 15
+  m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -496,6 +502,7 @@ CapsuleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5826162769024652586}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -519,7 +526,8 @@ CapsuleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
@@ -535,6 +543,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 203d3a67328e4fd18e9a3a434f8c10da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6134905448577698988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5826162769024652586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Graph: {fileID: -8081779917219211121, guid: c4996914ea4150942a2d28a1f30d5dc1, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 719119617457651803
+  - rid: 719119617457652159
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 719119617457651803
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 5826162769024652586}
+    - rid: 719119617457652159
+      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.MonoActor, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 14061572093836723381
+          m_Value1: 18140856285217518971
+        Name: Owner
+        m_Value: {fileID: 5753913375855388206}
 --- !u!1 &8088969377836918738
 GameObject:
   m_ObjectHideFlags: 0

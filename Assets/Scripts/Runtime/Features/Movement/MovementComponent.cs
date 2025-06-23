@@ -1,11 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Better.Commons.Runtime.DataStructures.Properties;
-using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Generic;
 using EndlessHeresy.Runtime.Stats;
-using EndlessHeresy.Runtime.Stats.Modifiers;
+using UniRx;
 using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Movement
@@ -19,7 +17,7 @@ namespace EndlessHeresy.Runtime.Movement
         private Stat _moveSpeedStat;
         private Transform _transform;
         private bool _isLocked;
-
+        public IReactiveProperty<Vector2> MovementProperty { get; private set; }
         private Rigidbody2D Rigidbody => _rigidbodyStorage.Rigidbody;
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
@@ -27,6 +25,7 @@ namespace EndlessHeresy.Runtime.Movement
             _rigidbodyStorage = Owner.GetComponent<RigidbodyStorageComponent>();
             _statsComponent = Owner.GetComponent<StatsComponent>();
             _moveSpeedStat = _statsComponent.GetStat(StatType.MoveSpeed);
+            MovementProperty = new ReactiveProperty<Vector2>();
             return Task.CompletedTask;
         }
 
@@ -47,12 +46,13 @@ namespace EndlessHeresy.Runtime.Movement
                     return;
                 }
 
+                MovementProperty.Value = Vector2.zero;
                 Rigidbody.linearVelocity = Vector2.zero;
-
                 return;
             }
 
             var movement = CalculateRawMovement(input) * deltaTime;
+            MovementProperty.Value = movement;
             Rigidbody.AddForce(movement, ForceMode2D.Force);
         }
 

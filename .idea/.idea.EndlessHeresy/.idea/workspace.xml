@@ -1,617 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c0d6b742-2ad9-436d-90ca-1c81c590f449" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleRunner/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleRunner/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleRunner/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vsconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/DOTween.XML.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/DOTween.XML.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/DOTween.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/DOTween.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.XML.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.XML.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/DOTweenIcon.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/DOTweenIcon.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/DOTweenMiniIcon.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/DOTweenMiniIcon.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Footer.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Footer.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Footer_dark.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Footer_dark.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Header.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Header.jpg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleAudio.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleAudio.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleEPOOutline.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleEPOOutline.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics2D.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics2D.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleSprite.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleSprite.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUI.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUnityVersion.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUnityVersion.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/readme.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/readme.txt.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/ReadMe.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/ReadMe.txt.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Asynchronous/WebRequestExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Asynchronous/WebRequestExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/BooleanDisposable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/BooleanDisposable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/CancellationDisposable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/CancellationDisposable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/CompositeDisposable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/CompositeDisposable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/DictionaryDisposable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/DictionaryDisposable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/Disposable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/Disposable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/DisposableExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/DisposableExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/ICancelable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/ICancelable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/MultipleAssignmentDisposable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/MultipleAssignmentDisposable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/RefCountDisposable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/RefCountDisposable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/ScheduledDisposable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/ScheduledDisposable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/SerialDisposable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/SerialDisposable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/SingleAssignmentDisposable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/SingleAssignmentDisposable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/StableCompositeDisposable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/StableCompositeDisposable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/EventPattern.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/EventPattern.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/AscynLock.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/AscynLock.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/CancellableTaskCompletionSource.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/CancellableTaskCompletionSource.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/ExceptionExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/ExceptionExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/ImmutableList.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/ImmutableList.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/ListObserver.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/ListObserver.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/MicroCoroutine.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/MicroCoroutine.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/PriorityQueue.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/PriorityQueue.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/PromiseHelper.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/PromiseHelper.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/ScheduledItem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/ScheduledItem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/ThreadSafeQueueWorker.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/ThreadSafeQueueWorker.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/UnityEqualityComparer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/InternalUtil/UnityEqualityComparer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Notification.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Notification.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Notifiers/BooleanNotifier.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Notifiers/BooleanNotifier.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Notifiers/CountNotifier.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Notifiers/CountNotifier.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Notifiers/MessageBroker.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Notifiers/MessageBroker.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Notifiers/ScheduledNotifier.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Notifiers/ScheduledNotifier.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Aggregate.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Aggregate.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Awaiter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Awaiter.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Binding.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Binding.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Blocking.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Blocking.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Concatenate.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Concatenate.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Concurrency.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Concurrency.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Conversions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Conversions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Creation.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Creation.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.ErrorHandling.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.ErrorHandling.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Events.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Events.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.FromAsync.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.FromAsync.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Joins.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Joins.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Paging.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Paging.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Time.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.Time.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Aggregate.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Aggregate.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Amb.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Amb.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/AsObservable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/AsObservable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/AsSingleUnitObservable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/AsSingleUnitObservable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/AsUnitObservable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/AsUnitObservable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Buffer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Buffer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Cast.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Cast.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Catch.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Catch.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/CombineLatest.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/CombineLatest.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Concat.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Concat.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ContinueWith.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ContinueWith.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Create.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Create.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/DefaultIfEmpty.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/DefaultIfEmpty.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Defer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Defer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Delay.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Delay.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/DelaySubscription.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/DelaySubscription.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Dematerialize.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Dematerialize.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Distinct.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Distinct.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/DistinctUntilChanged.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/DistinctUntilChanged.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Do.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Do.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Empty.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Empty.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Finally.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Finally.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/First.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/First.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ForEachAsync.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ForEachAsync.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/FromEvent.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/FromEvent.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/GroupBy.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/GroupBy.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/IgnoreElements.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/IgnoreElements.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Last.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Last.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Materialize.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Materialize.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Merge.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Merge.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Never.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Never.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ObserveOn.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ObserveOn.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/OfType.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/OfType.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/OperatorObservableBase.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/OperatorObservableBase.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/OperatorObserverBase.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/OperatorObserverBase.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/PairWise.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/PairWise.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Range.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Range.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/RefCount.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/RefCount.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Repeat.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Repeat.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/RepeatSafe.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/RepeatSafe.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Return.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Return.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Sample.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Sample.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Scan.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Scan.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Select.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Select.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/SelectMany.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/SelectMany.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/SelectWhere.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/SelectWhere.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Single.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Single.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Skip.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Skip.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/SkipUntil.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/SkipUntil.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/SkipWhile.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/SkipWhile.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Start.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Start.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/StartWith.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/StartWith.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/SubscribeOn.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/SubscribeOn.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Switch.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Switch.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Synchronize.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Synchronize.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/SynchronizedObserver.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/SynchronizedObserver.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Take.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Take.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/TakeLast.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/TakeLast.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/TakeUntil.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/TakeUntil.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/TakeWhile.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/TakeWhile.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Throttle.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Throttle.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ThrottleFirst.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ThrottleFirst.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Throw.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Throw.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/TimeInterval.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/TimeInterval.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Timeout.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Timeout.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Timer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Timer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Timestamp.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Timestamp.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ToArray.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ToArray.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ToList.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ToList.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ToObservable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ToObservable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Wait.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Wait.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/WhenAll.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/WhenAll.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Where.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Where.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/WhereSelect.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/WhereSelect.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/WithLatestFrom.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/WithLatestFrom.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Zip.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/Zip.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ZipLatest.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Operators/ZipLatest.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Pair.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Pair.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Schedulers/CurrentThreadScheduler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Schedulers/CurrentThreadScheduler.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Schedulers/IScheduler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Schedulers/IScheduler.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Schedulers/ImmediateScheduler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Schedulers/ImmediateScheduler.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Schedulers/Scheduler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Schedulers/Scheduler.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Schedulers/ThreadPoolScheduler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Schedulers/ThreadPoolScheduler.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Subjects/AsyncSubject.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Subjects/AsyncSubject.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Subjects/BehaviorSubject.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Subjects/BehaviorSubject.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Subjects/ConnectableObservable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Subjects/ConnectableObservable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Subjects/ISubject.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Subjects/ISubject.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Subjects/ReplaySubject.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Subjects/ReplaySubject.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Subjects/Subject.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Subjects/Subject.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Subjects/SubjectExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Subjects/SubjectExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/System/IObservable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/System/IObservable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/System/IObserver.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/System/IObserver.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/System/IOptimizedObservable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/System/IOptimizedObservable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/System/IProgress.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/System/IProgress.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/System/Tuple.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/System/Tuple.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/System/Unit.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/System/Unit.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Tasks/TaskObservableExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Tasks/TaskObservableExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/TimeInterval.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/TimeInterval.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Timestamped.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Timestamped.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UniRx.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UniRx.asmdef.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/AsyncOperationExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/AsyncOperationExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/CancellationToken.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/CancellationToken.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/CoroutineAsyncBridge.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/CoroutineAsyncBridge.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Diagnostics/LogEntry.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Diagnostics/LogEntry.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Diagnostics/LogEntryExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Diagnostics/LogEntryExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Diagnostics/Logger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Diagnostics/Logger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Diagnostics/ObservableDebugExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Diagnostics/ObservableDebugExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Diagnostics/ObservableLogger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Diagnostics/ObservableLogger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Diagnostics/UnityDebugSink.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Diagnostics/UnityDebugSink.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/FrameInterval.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/FrameInterval.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/InspectableReactiveProperty.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/InspectableReactiveProperty.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/InspectorDisplayDrawer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/InspectorDisplayDrawer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/LifetimeDisposableExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/LifetimeDisposableExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/MainThreadDispatcher.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/MainThreadDispatcher.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/MainThreadScheduler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/MainThreadScheduler.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Observable.Unity.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Observable.Unity.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ObservableWWW.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ObservableWWW.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ObserveExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ObserveExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/BatchFrame.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/BatchFrame.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/DelayFrame.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/DelayFrame.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/DelayFrameSubscription.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/DelayFrameSubscription.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/FrameInterval.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/FrameInterval.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/FrameTimeInterval.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/FrameTimeInterval.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/FromCoroutine.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/FromCoroutine.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/RepeatUntil.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/RepeatUntil.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/SampleFrame.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/SampleFrame.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/SubscribeOnMainThread.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/SubscribeOnMainThread.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/ThrottleFirstFrame.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/ThrottleFirstFrame.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/ThrottleFrame.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/ThrottleFrame.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/TimeoutFrame.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators/TimeoutFrame.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ReactiveCollection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ReactiveCollection.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ReactiveCommand.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ReactiveCommand.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ReactiveDictionary.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ReactiveDictionary.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ReactiveProperty.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ReactiveProperty.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ScenePlaybackDetector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ScenePlaybackDetector.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Toolkit/ObjectPool.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Toolkit/ObjectPool.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableAnimatorTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableAnimatorTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableBeginDragTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableBeginDragTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableCancelTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableCancelTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableCanvasGroupChangedTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableCanvasGroupChangedTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableCollision2DTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableCollision2DTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableCollisionTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableCollisionTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableDeselectTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableDeselectTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableDestroyTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableDestroyTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableDragTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableDragTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableDropTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableDropTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableEnableTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableEnableTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableEndDragTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableEndDragTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableEventTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableEventTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableFixedUpdateTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableFixedUpdateTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableInitializePotentialDragTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableInitializePotentialDragTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableJointTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableJointTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableLateUpdateTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableLateUpdateTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableMouseTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableMouseTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableMoveTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableMoveTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableParticleTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableParticleTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservablePointerClickTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservablePointerClickTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservablePointerDownTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservablePointerDownTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservablePointerEnterTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservablePointerEnterTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservablePointerExitTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservablePointerExitTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservablePointerUpTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservablePointerUpTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableRectTransformTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableRectTransformTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableScrollTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableScrollTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableSelectTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableSelectTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableStateMachineTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableStateMachineTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableSubmitTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableSubmitTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableTransformChangedTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableTransformChangedTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableTrigger2DTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableTrigger2DTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableTriggerBase.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableTriggerBase.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableTriggerExtensions.Component.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableTriggerExtensions.Component.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableTriggerExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableTriggerExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableTriggerTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableTriggerTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableUpdateSelectedTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableUpdateSelectedTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableUpdateTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableUpdateTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableVisibleTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableVisibleTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/UnityEventExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/UnityEventExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/UnityGraphicExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/UnityGraphicExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/UnityUIComponentExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/UnityUIComponentExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/YieldInstructionCache.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/YieldInstructionCache.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityWinRTBridge/Thread.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityWinRTBridge/Thread.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityWinRTBridge/ThreadPoolScheduler_UnityWinRT.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityWinRTBridge/ThreadPoolScheduler_UnityWinRT.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/Diagnostics.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/Diagnostics/SplitterGUILayout.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/Diagnostics/SplitterGUILayout.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/Diagnostics/TypeNameHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/Diagnostics/TypeNameHelper.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/Diagnostics/VContainerDiagnosticsTreeView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/Diagnostics/VContainerDiagnosticsTreeView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/Diagnostics/VContainerDiagnosticsWindow.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/Diagnostics/VContainerDiagnosticsWindow.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/Diagnostics/VContainerInstanceTreeView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/Diagnostics/VContainerInstanceTreeView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/ParentReferencePropertyDrawer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/ParentReferencePropertyDrawer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/ScriptTemplateModifier.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/ScriptTemplateModifier.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/VContainer.Editor.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Editor/VContainer.Editor.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/AwaitableExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/AwaitableExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IAsyncStartable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IAsyncStartable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IFixedTickable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IFixedTickable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IInitializable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IInitializable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/ILateTickable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/ILateTickable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IPostFixedTickable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IPostFixedTickable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IPostInitializable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IPostInitializable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IPostLateTickable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IPostLateTickable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IPostStartable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IPostStartable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IPostTickable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IPostTickable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IStartable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/IStartable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/ITickable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/ITickable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/InjectAttribute.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Annotations/InjectAttribute.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/AssemblyInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Container.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Container.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/ContainerBuilder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/ContainerBuilder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/ContainerBuilderExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/ContainerBuilderExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Diagnostics.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Diagnostics/DiagnosticsCollector.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Diagnostics/DiagnosticsCollector.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Diagnostics/DiagnosticsContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Diagnostics/DiagnosticsContext.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Diagnostics/DiagnosticsInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Diagnostics/DiagnosticsInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Diagnostics/RegisterInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Diagnostics/RegisterInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Diagnostics/ResolveInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Diagnostics/ResolveInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/IInjectParameter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/IInjectParameter.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/IInjector.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/IInjector.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/IInstanceProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/IInstanceProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/IObjectResolverExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/IObjectResolverExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/BuilderCallbackDisposable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/BuilderCallbackDisposable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/CappedArrayPool.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/CappedArrayPool.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/CompositeDisposable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/CompositeDisposable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/ContainerLocal.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/ContainerLocal.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/FixedTypeKeyHashTable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/FixedTypeKeyHashTable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/FreeList.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/FreeList.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/FuncRegistrationBuilder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/FuncRegistrationBuilder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InjectParameter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InjectParameter.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InjectorCache.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InjectorCache.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders/CollectionInstanceProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders/CollectionInstanceProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders/ContainerInstanceProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders/ContainerInstanceProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders/ContainerLocalInstanceProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders/ContainerLocalInstanceProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders/ExistingInstanceProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders/ExistingInstanceProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders/FuncInstanceProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders/FuncInstanceProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders/InstanceProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders/InstanceProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders/OpenGenericInstanceProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceProviders/OpenGenericInstanceProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceRegistrationBuilder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/InstanceRegistrationBuilder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/ListPool.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/ListPool.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/OpenGenericRegistrationBuilder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/OpenGenericRegistrationBuilder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/ReflectionInjector.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/ReflectionInjector.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/RuntimeTypeCache.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/RuntimeTypeCache.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/TypeAnalyzer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/TypeAnalyzer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/TypeKeyHashTable2.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Internal/TypeKeyHashTable2.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Registration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Registration.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/RegistrationBuilder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/RegistrationBuilder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Registry.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Registry.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/ActionInstaller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/ActionInstaller.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/ComponentRegistrationBuilder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/ComponentRegistrationBuilder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/ContainerBuilderUnityExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/ContainerBuilderUnityExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/DisposeLoopItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/DisposeLoopItem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/EntryPointDispatcher.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/EntryPointDispatcher.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/EntryPointExceptionHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/EntryPointExceptionHandler.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/IInstaller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/IInstaller.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders/ExistingComponentProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders/ExistingComponentProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders/FindComponentProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders/FindComponentProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders/NewGameObjectProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders/NewGameObjectProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders/PrefabComponentProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders/PrefabComponentProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders/SystemInstanceProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders/SystemInstanceProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders/UnmanagedSystemInstanceProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders/UnmanagedSystemInstanceProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders/WorldInstanceProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/InstanceProviders/WorldInstanceProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/LifetimeScope.AwakeScheduler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/LifetimeScope.AwakeScheduler.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/LifetimeScope.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/LifetimeScope.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/ObjectResolverUnityExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/ObjectResolverUnityExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/ParentReference.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/ParentReference.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/PlayerLoopHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/PlayerLoopHelper.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/PlayerLoopItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/PlayerLoopItem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/PlayerLoopRunner.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/PlayerLoopRunner.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/SystemRegistrationBuilder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/SystemRegistrationBuilder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/UnmanagedSystemReference.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/UnmanagedSystemReference.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/UnmanagedSystemRegistrationBuilder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/UnmanagedSystemRegistrationBuilder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/VContainerSettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/VContainerSettings.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/WorldConfigurationHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/WorldConfigurationHelper.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/WorldRegistrationBuilder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/Unity/WorldRegistrationBuilder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/VContainer.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/VContainer.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/VContainerException.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/VContainer/Runtime/VContainerException.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Abilities.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Abilities/CrescentStrike.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Abilities/CrescentStrike.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Abilities/Dash.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Abilities/Dash.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Abilities/DoubleAttack.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Abilities/DoubleAttack.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Abilities/SingleAttack.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Abilities/SingleAttack.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Actors.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Actors/HeroConfiguration.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Actors/HeroConfiguration.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Actors/PunchingDummyConfiguration.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Actors/PunchingDummyConfiguration.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Attributes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Attributes/AttributesConfiguration.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Attributes/AttributesConfiguration.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Commands.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Commands/Freeze.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Commands/Freeze.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Commands/PlayerAttackEffectsCommand.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Commands/PlayerAttackEffectsCommand.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Commands/Unfreeze.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Commands/Unfreeze.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Commands/WaitForSpinAndProcessAttack.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Commands/WaitForSpinAndProcessAttack.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/InventoryItems.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/InventoryItems/InventoryItemConfiguration.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/InventoryItems/InventoryItemConfiguration.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/StatusEffects.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/StatusEffects/BurningStatusEffect.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/StatusEffects/BurningStatusEffect.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Vfx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Vfx/DamageColorsConfiguration.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Vfx/DamageColorsConfiguration.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Vfx/FloatingMessagesConfiguration.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Configs/Vfx/FloatingMessagesConfiguration.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Conditions/IsMovingCondition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Conditions/IsMovingCondition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Movement/MovementAnimationSyncronizer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Movement/MovementAnimationSyncronizer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Hero_StateMachine.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Hero_StateMachine.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Movement/MovementComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Movement/MovementComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Scopes/Gameplay/GameplayLifetimeScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Scopes/Gameplay/GameplayLifetimeScope.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Camera/CameraService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Camera/CameraService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/StaticData/GameplayStaticDataKeys.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/StaticData/GameplayStaticDataKeys.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Art/PixelVfx/PixelArtRPGVFXLite.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Art/PixelVfx/PixelArtRPGVFXLite/Scene.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Art/PixelVfx/PixelArtRPGVFXLite/Scene/Demo.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Art/PixelVfx/PixelArtRPGVFXLite/Scene/Demo.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Controls.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Controls/GameActions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Controls/GameActions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Controls/GameActions.inputactions" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Controls/GameActions.inputactions.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Sprite Assets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Style Sheets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/TMP Settings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/TMP Settings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Sprite.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro.cginc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro.cginc.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.json.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/com.kybernetik.animancer/Runtime/Utilities/Animancer Lite/Animancer Lite Editor/Kybernetik.Animancer.Lite.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/com.kybernetik.animancer/Runtime/Utilities/Animancer Lite/Kybernetik.Animancer.Lite.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/XRSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/XRSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Runtime.csproj.DotSettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/Factory/GameplayFactoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/Factory/GameplayFactoryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Prefabs/Hero.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Prefabs/Hero.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/BehaviorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/BehaviorSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -628,6 +39,16 @@
     &quot;accountId&quot;: &quot;6f907cc0-3d19-4a8d-bf64-402f4d5b7242&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c01a2e87500f4b88b40eba7308bfcbe61df600/7e/300edd70/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e19fb1224222436ca0871ff12e7fb29346ae00/2e/2e32ee75/Dictionary`2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ToggleMovementAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Movement/MovementAnimationSyncronizer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.behavior@3afc53ed890a/Runtime/Execution/Components/BehaviorGraphAgent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.behavior@3afc53ed890a/Runtime/Execution/Node.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.behavior@3afc53ed890a/Runtime/Execution/Nodes/Action.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@19ee6e1cc8be/Runtime/Unity/ObjectResolverUnityExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 6
@@ -637,15 +58,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;migration&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\UnityEditor\6000.0.49f1\Editor\Unity.exe" />
@@ -676,13 +102,15 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="19412">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="19412" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -700,6 +128,7 @@
       <updated>1750511948706</updated>
       <workItem from="1750511950473" duration="180000" />
       <workItem from="1750512172230" duration="104000" />
+      <workItem from="1750672218805" duration="5375000" />
     </task>
     <servers />
   </component>
@@ -715,5 +144,24 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Injectors/BlackboardInjector.cs</url>
+          <line>39</line>
+          <properties documentPath="D:\EndlessHeresy\Assets\Scripts\Runtime\Features\Behaviour\Injectors\BlackboardInjector.cs" containingFunctionPresentation="Method 'Awake'">
+            <startOffsets>
+              <option value="1197" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1198" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

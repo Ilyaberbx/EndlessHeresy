@@ -41,6 +41,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
                 .WithComponent<MovementComponent>()
+                .WithComponent<MovementAnimationSyncronizer>()
                 .WithComponent<MovementInputController>(configuration.MovementInputData)
                 .WithComponent<HealthComponent>()
                 .WithComponent<FacingComponent>()
