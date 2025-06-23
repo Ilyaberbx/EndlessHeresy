@@ -2,6 +2,7 @@
 using EndlessHeresy.Runtime.Abilities;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.Commands.Installers;
+using Unity.Behavior;
 using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Data.Static.Abilities
@@ -14,12 +15,13 @@ namespace EndlessHeresy.Runtime.Data.Static.Abilities
         [SerializeField] private string _description;
         [SerializeField] private string _name;
         [SerializeField] private float _cooldown;
-        [SerializeReference, Select] private ICommandInstaller _commandInstaller;
+        [SerializeField] private BehaviorGraph _graph;
         public AbilityType Identifier => _identifier;
         public Sprite Icon => _icon;
         public string Description => _description;
         public string Name => _name;
         public float Cooldown => _cooldown;
+        public BehaviorGraph Graph => _graph;
 
         public Ability GetAbility()
         {
@@ -27,7 +29,6 @@ namespace EndlessHeresy.Runtime.Data.Static.Abilities
             ability.WithCooldown(_cooldown);
             ability.WithIdentifier(_identifier);
             ability.WithInitialState(AbilityState.Ready);
-            ability.WithCommandInstaller(_commandInstaller);
             return ability;
         }
     }

@@ -3,10 +3,12 @@ using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static;
+using EndlessHeresy.Runtime.Data.Static.Abilities;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Data.Static.Inventory;
 using EndlessHeresy.Runtime.Data.Static.StatusEffects;
 using EndlessHeresy.Runtime.Services.AssetsManagement;
+using Unity.Behavior;
 using VContainer.Unity;
 
 namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
@@ -21,6 +23,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
         private InventoryItemConfiguration[] _inventoryItemsConfiguration;
         private AttributesConfiguration _attributesConfiguration;
         private DamageColorsConfiguration _damageColorsConfiguration;
+        private AbilityConfiguration[] _abilitiesConfigurations;
         public HeroConfiguration HeroConfiguration => _heroConfiguration;
         public PunchingDummyConfiguration PunchingDummyConfiguration => _punchingDummyConfiguration;
         public FloatingMessagesConfiguration FloatingMessagesConfiguration => _floatingMessagesConfiguration;
@@ -40,7 +43,8 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
                     LoadAttributesConfigurationAsync(),
                     LoadDamageColorsConfigurationAsync(),
                     LoadAttributesConfigurationAsync(),
-                    LoadInventoryItemsConfigurationAsync())
+                    LoadInventoryItemsConfigurationAsync(),
+                    LoadAbilitiesConfigurationAsync())
                 .Forget();
         }
 
@@ -64,9 +68,21 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
             return _inventoryItemsConfiguration.FirstOrDefault(temp => temp.Identifier == identifier);
         }
 
+        public AbilityConfiguration GetAbilityData(AbilityType identifier)
+        {
+            return _abilitiesConfigurations.FirstOrDefault(temp => temp.Identifier == identifier);
+        }
+
+        private async Task LoadAbilitiesConfigurationAsync()
+        {
+            _abilitiesConfigurations =
+                await _assetsService.LoadAll<AbilityConfiguration>(GameplayStaticDataKeys.Abilities);
+        }
+
         private async Task LoadInventoryItemsConfigurationAsync()
         {
-            _inventoryItemsConfiguration = await _assetsService.LoadAll<InventoryItemConfiguration>(GameplayStaticDataKeys.Items);
+            _inventoryItemsConfiguration =
+                await _assetsService.LoadAll<InventoryItemConfiguration>(GameplayStaticDataKeys.Items);
         }
 
         private async Task LoadAttributesConfigurationAsync()
@@ -98,7 +114,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
             _heroConfiguration = await _assetsService.Load<HeroConfiguration>(GameplayStaticDataKeys.Hero);
         }
 
-        public async Task LoadStatusEffectsConfigurationAsync()
+        private async Task LoadStatusEffectsConfigurationAsync()
         {
             _statusEffectsConfiguration =
                 await _assetsService.LoadAll<StatusEffectConfiguration>(GameplayStaticDataKeys.StatusEffects);

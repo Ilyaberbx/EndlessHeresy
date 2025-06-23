@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Services.Input;
@@ -112,7 +110,7 @@ namespace EndlessHeresy.Runtime.Abilities
                 return;
             }
 
-            _cast.TryCastAsync(identifier).Forget();
+            _cast.TryCast(identifier);
         }
     }
 }

@@ -17,6 +17,7 @@ MonoBehaviour:
   _description: Test
   _name: Test
   _cooldown: 0
+  _graph: {fileID: 42222918440638510, guid: 647b777911e3c5841b1693b7fd201055, type: 2}
   _commandInstaller:
     rid: 719119482670809091
   references:

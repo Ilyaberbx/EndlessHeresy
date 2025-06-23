@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using EndlessHeresy.Runtime.Actors.Hero;
+using EndlessHeresy.Runtime.Behaviour.Events;
 using EndlessHeresy.Runtime.Data.Persistant;
 using EndlessHeresy.Runtime.Data.Static.Abilities;
 using EndlessHeresy.Runtime.Data.Static.Components;
-using JetBrains.Annotations;
+using Unity.Behavior;
+using Unity.Behavior.GraphFramework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +14,10 @@ namespace EndlessHeresy.Runtime.Data.Static
     [CreateAssetMenu(menuName = "Configs/Actors/Hero", fileName = "HeroConfiguration", order = 0)]
     public sealed class HeroConfiguration : ScriptableObject
     {
+        [SerializeField] private BlackboardReference _blackboardReference;
+        [SerializeField] private SerializableGUID _abilityToCastGuid;
+        [SerializeField] private OnHeroStateChanged _statesChangeChannel;
+        [SerializeField] private OnAbilityUsageFinished _abilityUsageFinishedChannel;
         [SerializeField] private InputActionReference _movementInputData;
         [SerializeField] private AbilityInputData[] _abilitiesInputData;
         [SerializeField] private AbilityConfiguration[] _abilityConfigurations;
@@ -29,5 +35,9 @@ namespace EndlessHeresy.Runtime.Data.Static
         public IReadOnlyList<AbilityConfiguration> AbilityConfigurations => _abilityConfigurations;
         public IReadOnlyList<AbilityInputData> AbilitiesInputData => _abilitiesInputData;
         public InputAction MovementInputData => _movementInputData.action;
+        public OnHeroStateChanged StatesChangeChannel => _statesChangeChannel;
+        public BlackboardReference Blackboard => _blackboardReference;
+        public SerializableGUID AbilityToCastGuid => _abilityToCastGuid;
+        public OnAbilityUsageFinished AbilityUsageFinishedChannel => _abilityUsageFinishedChannel;
     }
 }

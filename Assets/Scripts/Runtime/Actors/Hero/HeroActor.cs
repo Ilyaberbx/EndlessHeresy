@@ -5,7 +5,6 @@ using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Inventory;
-using EndlessHeresy.Runtime.States;
 using EndlessHeresy.Runtime.StatusEffects;
 using EndlessHeresy.Runtime.UI.Core;
 using EndlessHeresy.Runtime.UI.Huds.StatusEffects;
@@ -19,7 +18,7 @@ using UnityInput = UnityEngine.Input;
 
 namespace EndlessHeresy.Runtime.Actors.Hero
 {
-    public sealed class HeroActor : MonoActor, IStateMachineContext
+    public sealed class HeroActor : MonoActor
     {
         private IHudsService _hudsService;
         private IModalsService _modalsService;

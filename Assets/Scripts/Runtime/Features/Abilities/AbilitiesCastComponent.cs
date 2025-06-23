@@ -1,40 +1,69 @@
 ﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using EndlessHeresy.Runtime.Commands;
+using EndlessHeresy.Runtime.Behaviour.Events;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Services.Tick;
-using VContainer;
+using Unity.Behavior;
+using Unity.Behavior.GraphFramework;
 
 namespace EndlessHeresy.Runtime.Abilities
 {
     public sealed class AbilitiesCastComponent : PocoComponent
     {
-        private readonly IObjectResolver _resolver;
         private readonly IGameUpdateService _gameUpdateService;
+        private readonly OnHeroStateChanged _heroStatesChannel;
+        private readonly OnAbilityUsageFinished _abilityUsageFinishedChannel;
+        private readonly BlackboardReference _blackboard;
+        private readonly SerializableGUID _abilityToCastGuid;
         private AbilitiesStorageComponent _storage;
-        private CommandsComponent _commands;
 
-        public AbilitiesCastComponent(IObjectResolver resolver, IGameUpdateService gameUpdateService)
+        public AbilitiesCastComponent(IGameUpdateService gameUpdateService,
+            OnHeroStateChanged heroStatesChannel,
+            OnAbilityUsageFinished abilityUsageFinishedChannel,
+            BlackboardReference blackboard,
+            SerializableGUID abilityToCastGuid)
         {
-            _resolver = resolver;
+            _heroStatesChannel = heroStatesChannel;
+            _abilityUsageFinishedChannel = abilityUsageFinishedChannel;
+            _blackboard = blackboard;
+            _abilityToCastGuid = abilityToCastGuid;
             _gameUpdateService = gameUpdateService;
         }
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
             _storage = Owner.GetComponent<AbilitiesStorageComponent>();
-            _commands = Owner.GetComponent<CommandsComponent>();
             _gameUpdateService.OnUpdate += OnUpdate;
+            _abilityUsageFinishedChannel.Event += OnAbilityUsageFinished;
             return Task.CompletedTask;
         }
+
 
         protected override void OnDispose()
         {
             _gameUpdateService.OnUpdate -= OnUpdate;
+            _abilityUsageFinishedChannel.Event -= OnAbilityUsageFinished;
         }
 
-        public async Task<bool> TryCastAsync(AbilityType identifier)
+        private void OnAbilityUsageFinished(AbilityType identifier)
+        {
+            var ability = _storage.Abilities.FirstOrDefault(temp => temp.Identifier == identifier);
+            if (ability == null)
+            {
+                return;
+            }
+
+            if (ability.HasCooldown)
+            {
+                ability.SetState(AbilityState.Cooldown);
+                return;
+            }
+
+            ability.SetState(AbilityState.Ready);
+        }
+
+        public bool TryCast(AbilityType identifier)
         {
             if (HasActiveAbilities())
             {
@@ -53,11 +82,8 @@ namespace EndlessHeresy.Runtime.Abilities
             }
 
             ability.SetState(AbilityState.InUse);
-            await _commands.EnqueueInMainSequenceAsync(ability.GetCommand(_resolver));
-            ability.SetState(ability.HasCooldown
-                ? AbilityState.Cooldown
-                : AbilityState.Ready);
-
+            _blackboard.SetVariableValue(_abilityToCastGuid, ability.Identifier);
+            _heroStatesChannel.SendEventMessage(HeroState.CastingAbility);
             return true;
         }
 

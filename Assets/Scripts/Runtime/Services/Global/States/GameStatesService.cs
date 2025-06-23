@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Better.StateMachine.Runtime;
 using EndlessHeresy.Runtime.Scopes.Global.States;
 using EndlessHeresy.Runtime.Scopes.Global.States.Factory;
-using EndlessHeresy.Runtime.States;
 using VContainer.Unity;
 
 namespace EndlessHeresy.Runtime.Services.Global.States
@@ -21,7 +20,6 @@ namespace EndlessHeresy.Runtime.Services.Global.States
         public void Initialize()
         {
             _stateMachine = new StateMachine<BaseGameState>();
-            _stateMachine.AddModule(new LoggerModule<BaseGameState>());
             _stateMachine.Run();
             _tokenSource = new CancellationTokenSource();
         }

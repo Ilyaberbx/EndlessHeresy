@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32fe745d1674901ba94af5a5a63fe38, type: 3}
   m_Name: HeroConfiguration
   m_EditorClassIdentifier: 
+  _blackboardReference:
+    m_Blackboard:
+      rid: 719119620110549747
+    m_Source: {fileID: 8545843148010428019, guid: c4996914ea4150942a2d28a1f30d5dc1, type: 2}
+  _abilityToCastGuid:
+    m_Value0: 9565097144289640177
+    m_Value1: 3440060213727454051
+  _statesChangeChannel: {fileID: 11400000, guid: 731a6a63cd920684aba1d2cbb5706afe, type: 2}
+  _abilityUsageFinishedChannel: {fileID: 11400000, guid: c99c6bf007ce5dc4ebe5735babb3fe73, type: 2}
   _movementInputData: {fileID: -8330231883765023393, guid: b80d4ad9ee061074ebc958823adb72df, type: 3}
   _abilitiesInputData:
   - _actionReference: {fileID: -6809406479525104559, guid: b80d4ad9ee061074ebc958823adb72df, type: 3}
@@ -60,3 +69,10 @@ MonoBehaviour:
   _trailsPoolData:
     _defaultCapacity: 5
     _maxSize: 10000
+  references:
+    version: 2
+    RefIds:
+    - rid: 719119620110549747
+      type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        m_Variables: []

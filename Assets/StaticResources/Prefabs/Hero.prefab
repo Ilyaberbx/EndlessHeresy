@@ -159,7 +159,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1071614317
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: -1491606883, guid: dce862d1feb9a9746bb1d7a828374582, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -422,6 +422,7 @@ GameObject:
   - component: {fileID: 2487715610569911782}
   - component: {fileID: 7680172000249185094}
   - component: {fileID: 6134905448577698988}
+  - component: {fileID: 3893282797890559957}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Untagged
@@ -559,6 +560,7 @@ MonoBehaviour:
   m_BlackboardVariableOverridesList:
   - rid: 719119617457651803
   - rid: 719119617457652159
+  - rid: 719119620110549657
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -580,6 +582,26 @@ MonoBehaviour:
           m_Value1: 18140856285217518971
         Name: Owner
         m_Value: {fileID: 5753913375855388206}
+    - rid: 719119620110549657
+      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.Behaviour.BehaviourObjectResolver, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 7439580307494905623
+          m_Value1: 11327617073220348036
+        Name: Resolver
+        m_Value: {fileID: 3893282797890559957}
+--- !u!114 &3893282797890559957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5826162769024652586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8c0a61a4de4fa0980a7e37aafddfa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8088969377836918738
 GameObject:
   m_ObjectHideFlags: 0

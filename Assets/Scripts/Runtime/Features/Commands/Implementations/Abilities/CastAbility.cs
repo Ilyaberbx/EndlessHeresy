@@ -16,8 +16,8 @@ namespace EndlessHeresy.Runtime.Commands.Abilities
 
         public Task ExecuteAsync(IActor actor, CancellationToken cancellationToken)
         {
-            var abilitiesCast = actor.GetComponent<AbilitiesCastComponent>();
-            return abilitiesCast.TryCastAsync(_abilityIdentifier);
+            actor.GetComponent<AbilitiesCastComponent>();
+            return Task.CompletedTask;
         }
     }
 }

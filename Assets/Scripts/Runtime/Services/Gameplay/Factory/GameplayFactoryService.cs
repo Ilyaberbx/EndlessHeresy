@@ -11,9 +11,6 @@ using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Inventory;
 using EndlessHeresy.Runtime.Movement;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
-using EndlessHeresy.Runtime.States;
-using EndlessHeresy.Runtime.States.Aggregator;
-using EndlessHeresy.Runtime.States.Aggregator.Plugins;
 using EndlessHeresy.Runtime.Stats;
 using EndlessHeresy.Runtime.StatusEffects;
 using EndlessHeresy.Runtime.Vfx;
@@ -46,10 +43,6 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<HealthComponent>()
                 .WithComponent<FacingComponent>()
                 .WithComponent<CommandsComponent>()
-                .WithComponent<StatesAggregatorComponent<HeroActor>>(GetStatesAggregatorBuilder<HeroActor>()
-                    .WithPlugin<HeroTransitionsPlugin>()
-                    .WithPlugin<LoggerPlugin<HeroActor>>()
-                    .Build())
                 .WithComponent<TrailsSpawnerComponent>(configuration.TrailsPoolData.DefaultCapacity,
                     configuration.TrailsPoolData.MaxSize)
                 .WithComponent<StatsComponent>(configuration.DefaultStats)
@@ -58,7 +51,9 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<AttributesComponent>(configuration.DefaultAttributes)
                 .WithComponent<InventoryComponent>(configuration.MaxInventorySize)
                 .WithComponent<AbilitiesStorageComponent>(configuration.AbilityConfigurations)
-                .WithComponent<AbilitiesCastComponent>()
+                .WithComponent<AbilitiesCastComponent>(configuration.StatesChangeChannel,
+                    configuration.AbilityUsageFinishedChannel, configuration.Blackboard,
+                    configuration.AbilityToCastGuid)
                 .WithComponent<AbilitiesInputController>(configuration.AbilitiesInputData)
                 .Build();
         }
@@ -88,13 +83,6 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
         private MonoActorBuilder<TActor> GetActorBuilder<TActor>() where TActor : MonoActor
         {
             return new MonoActorBuilder<TActor>(_container);
-        }
-
-        private StatesAggregatorBuilder<TContext> GetStatesAggregatorBuilder<TContext>()
-            where TContext : class, IStateMachineContext
-        {
-            var statesAggregatorBuilder = new StatesAggregatorBuilder<TContext>(_container);
-            return statesAggregatorBuilder;
         }
     }
 }
