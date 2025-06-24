@@ -16,8 +16,8 @@ namespace EndlessHeresy.Runtime.Movement
 
         private Stat _moveSpeedStat;
         private Transform _transform;
-        private bool _isLocked;
         public IReactiveProperty<Vector2> MovementProperty { get; private set; }
+        public IReactiveProperty<bool> IsLockedProperty { get; private set; }
         private Rigidbody2D Rigidbody => _rigidbodyStorage.Rigidbody;
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
@@ -26,15 +26,16 @@ namespace EndlessHeresy.Runtime.Movement
             _statsComponent = Owner.GetComponent<StatsComponent>();
             _moveSpeedStat = _statsComponent.GetStat(StatType.MoveSpeed);
             MovementProperty = new ReactiveProperty<Vector2>();
+            IsLockedProperty = new ReactiveProperty<bool>();
             return Task.CompletedTask;
         }
 
-        public void Lock() => _isLocked = true;
-        public void Unlock() => _isLocked = false;
+        public void Lock() => IsLockedProperty.Value = true;
+        public void Unlock() => IsLockedProperty.Value = false;
 
         public void Move(Vector2 input, float deltaTime)
         {
-            if (_isLocked)
+            if (IsLockedProperty.Value)
             {
                 return;
             }

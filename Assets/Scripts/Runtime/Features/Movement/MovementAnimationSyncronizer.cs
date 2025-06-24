@@ -20,7 +20,18 @@ namespace EndlessHeresy.Runtime.Movement
             _movement = Owner.GetComponent<MovementComponent>();
             _animatorStorage = Owner.GetComponent<AnimatorStorageComponent>();
             _movement.MovementProperty.Subscribe(OnMovementChanged).AddTo(CompositeDisposable);
+            _movement.IsLockedProperty.Subscribe(OnIsLockedChanged).AddTo(CompositeDisposable);
             return Task.CompletedTask;
+        }
+
+        private void OnIsLockedChanged(bool value)
+        {
+            if (value)
+            {
+                return;
+            }
+
+            OnMovementChanged(_movement.MovementProperty.Value);
         }
 
         private void OnMovementChanged(Vector2 value)

@@ -11,7 +11,7 @@ namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
     [Serializable]
     public sealed class DealMeleeAttackInstaller : ICommandInstaller
     {
-        [SerializeField] private MeleeAttackData _data;
+        [SerializeField] private MeleeAttackConfiguration _data;
         [SerializeReference, Select] private ICommandInstaller _targetCommandInstaller;
 
         public ICommand GetCommand(IObjectResolver resolver)

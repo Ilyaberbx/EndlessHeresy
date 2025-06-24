@@ -6,14 +6,22 @@ namespace EndlessHeresy.Runtime.Data.Static.Components
     [Serializable]
     public struct CapsuleOverlapData
     {
-        [SerializeField] private Vector2 center;
-        [SerializeField] private Vector2 size;
-        [SerializeField] private CapsuleDirection2D direction;
-        [SerializeField] private float angle;
+        [SerializeField] private Vector2 _center;
+        [SerializeField] private Vector2 _size;
+        [SerializeField] private CapsuleDirection2D _direction;
+        [SerializeField] private float _angle;
 
-        public Vector2 Center => center;
-        public Vector2 Size => size;
-        public CapsuleDirection2D Direction => direction;
-        public float Angle => angle;
+        public Vector2 Center => _center;
+        public Vector2 Size => _size;
+        public CapsuleDirection2D Direction => _direction;
+        public float Angle => _angle;
+
+        public CapsuleOverlapData(Vector2 center, Vector2 size, CapsuleDirection2D direction, float angle)
+        {
+            _center = center;
+            _size = size;
+            _direction = direction;
+            _angle = angle;
+        }
     }
 }

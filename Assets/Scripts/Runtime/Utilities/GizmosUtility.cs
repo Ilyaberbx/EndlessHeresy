@@ -11,7 +11,7 @@ namespace EndlessHeresy.Runtime.Utilities
 
         public static void DrawWireCapsule2D(CapsuleOverlapData data, Vector2 at, Color color)
         {
-            var originalMatrix = UnityEngine.Gizmos.matrix;
+            var originalMatrix = Gizmos.matrix;
 
             var localOffset = data.Center;
             var size = data.Size;
@@ -21,8 +21,8 @@ namespace EndlessHeresy.Runtime.Utilities
             var position = at + localOffset;
             var rotation = Quaternion.Euler(0f, 0f, angle);
 
-            UnityEngine.Gizmos.matrix = Matrix4x4.TRS(position, rotation, DefaultScale);
-            UnityEngine.Gizmos.color = color;
+            Gizmos.matrix = Matrix4x4.TRS(position, rotation, DefaultScale);
+            Gizmos.color = color;
 
             var isVertical = direction == CapsuleDirection2D.Vertical;
             var radius = isVertical ? size.x * Half : size.y * Half;
@@ -36,9 +36,9 @@ namespace EndlessHeresy.Runtime.Utilities
                 var bottomCenter = Vector2.down * (bodyLength * Half);
                 var bodySize = new Vector2(size.x, bodyLength);
 
-                UnityEngine.Gizmos.DrawWireSphere(topCenter, radius);
-                UnityEngine.Gizmos.DrawWireSphere(bottomCenter, radius);
-                UnityEngine.Gizmos.DrawWireCube(Vector2.zero, bodySize);
+                Gizmos.DrawWireSphere(topCenter, radius);
+                Gizmos.DrawWireSphere(bottomCenter, radius);
+                Gizmos.DrawWireCube(Vector2.zero, bodySize);
             }
             else
             {
@@ -46,13 +46,13 @@ namespace EndlessHeresy.Runtime.Utilities
                 var leftCenter = Vector2.left * (bodyLength * Half);
                 var bodySize = new Vector2(bodyLength, size.y);
 
-                UnityEngine.Gizmos.DrawWireSphere(rightCenter, radius);
-                UnityEngine.Gizmos.DrawWireSphere(leftCenter, radius);
-                UnityEngine.Gizmos.DrawWireCube(Vector2.zero, bodySize);
+                Gizmos.DrawWireSphere(rightCenter, radius);
+                Gizmos.DrawWireSphere(leftCenter, radius);
+                Gizmos.DrawWireCube(Vector2.zero, bodySize);
             }
 
-            UnityEngine.Gizmos.matrix = originalMatrix;
-            UnityEngine.Gizmos.color = Color.white;
+            Gizmos.matrix = originalMatrix;
+            Gizmos.color = Color.white;
         }
     }
 }

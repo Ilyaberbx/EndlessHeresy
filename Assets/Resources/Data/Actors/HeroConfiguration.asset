@@ -32,9 +32,6 @@ MonoBehaviour:
   - _actionReference: {fileID: -5465807931187144322, guid: b80d4ad9ee061074ebc958823adb72df, type: 3}
     _actionPhase: 3
     _abilityIdentifier: 3
-  - _actionReference: {fileID: -6809406479525104559, guid: b80d4ad9ee061074ebc958823adb72df, type: 3}
-    _actionPhase: 3
-    _abilityIdentifier: 1
   _abilityConfigurations:
   - {fileID: 11400000, guid: b0ad9868582a4db4baf8c7e4a3648035, type: 2}
   - {fileID: 11400000, guid: 06799f70bdd372143be6117d97ca7533, type: 2}

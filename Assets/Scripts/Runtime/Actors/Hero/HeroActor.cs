@@ -52,31 +52,5 @@ namespace EndlessHeresy.Runtime.Actors.Hero
 
             return _hudsService.ShowAsync<StatusEffectsHudViewModel, StatusEffectsHudModel>(model, ShowType.Additive);
         }
-
-        private void Update()
-        {
-            if (UnityInput.GetKeyDown(KeyCode.O))
-            {
-                _healthComponent.TakeDamage(new DamageData());
-            }
-
-            if (UnityInput.GetKeyDown(KeyCode.M))
-            {
-                _statusEffectsStorage.Add(StatusEffectType.Burning);
-            }
-
-            if (UnityInput.GetKeyDown(KeyCode.K))
-            {
-                _attributesComponent.Increase(AttributeType.Fervor, 5);
-                _attributesComponent.Increase(AttributeType.Insight, 3);
-                _attributesComponent.Increase(AttributeType.Vitality, 2);
-            }
-
-            if (UnityInput.GetKeyDown(KeyCode.I))
-            {
-                var model = new InventoryModalModel(_inventoryComponent, _attributesComponent);
-                _modalsService.ShowAsync<InventoryModalViewModel, InventoryModalModel>(model).Forget();
-            }
-        }
     }
 }

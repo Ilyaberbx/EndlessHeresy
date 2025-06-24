@@ -11,13 +11,16 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
 {
     [Serializable, GeneratePropertyBag]
     [NodeDescription(name: "Update Ability Subgraph based on AbilityToCast ",
-        story: "Update [AbilitySubgraph] based on [AbilityToCast] using [Resolver]", category: "Action/EndlessHeresy",
+        story: "Update [AbilitySubgraph] based on [AbilityToCast] using [Resolver] and [Actor]",
+        category: "Action/EndlessHeresy",
         id: "88f72f335d7bc053da608019f89906e4")]
     public partial class UpdateAbilitySubgraphBasedOnAbilityToCastAction : Action
     {
+        private const string OwnerKey = "Owner";
         [SerializeReference] public BlackboardVariable<BehaviorGraph> AbilitySubgraph;
         [SerializeReference] public BlackboardVariable<AbilityType> AbilityToCast;
         [SerializeReference] public BlackboardVariable<BehaviourObjectResolver> Resolver;
+        [SerializeReference] public BlackboardVariable<MonoActor> Actor;
 
         protected override Status OnStart()
         {
@@ -37,6 +40,7 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
             }
 
             AbilitySubgraph.Value = graph;
+            graph.BlackboardReference.SetVariableValue(OwnerKey, Actor.Value);
             return Status.Success;
         }
     }

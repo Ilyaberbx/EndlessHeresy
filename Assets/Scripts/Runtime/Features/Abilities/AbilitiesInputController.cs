@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Services.Input;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace EndlessHeresy.Runtime.Abilities
@@ -92,7 +93,6 @@ namespace EndlessHeresy.Runtime.Abilities
         private void HandleAction(InputAction.CallbackContext context, InputActionPhase phase)
         {
             var phaseAbilityData = _data.Where(temp => temp.ActionPhase == phase).ToArray();
-
             if (!phaseAbilityData.Any())
             {
                 return;
@@ -109,7 +109,7 @@ namespace EndlessHeresy.Runtime.Abilities
             {
                 return;
             }
-
+            
             _cast.TryCast(identifier);
         }
     }
