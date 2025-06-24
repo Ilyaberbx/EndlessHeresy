@@ -20,9 +20,7 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
         protected override Status OnStart()
         {
             var value = InputAction.Value.action.ReadValue<Vector2>();
-
             Direction.Value = Normalized.Value ? value.normalized : value;
-
             return Status.Running;
         }
     }

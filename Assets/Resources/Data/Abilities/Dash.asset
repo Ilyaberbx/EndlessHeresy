@@ -12,76 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37894e045c174eaf8fa706757e4b59d5, type: 3}
   m_Name: Dash
   m_EditorClassIdentifier: 
-  _identifier: 2
+  _identifier: 1
   _icon: {fileID: 21300000, guid: de2cc86fdcd2f69439c8b98ebc3efcc4, type: 3}
   _description: Test
   _name: Test
   _cooldown: 5
-  _commandInstaller:
-    rid: 719119482670809091
-  references:
-    version: 2
-    RefIds:
-    - rid: 719119482670809091
-      type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _commandInstallers:
-        - rid: 719119528507998234
-        - rid: 719119511784259587
-        - rid: 719119511784259588
-        - rid: 719119528507998235
-    - rid: 719119511784259587
-      type: {class: DealFacingDirectionForceInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _multiplier: 300
-    - rid: 719119511784259588
-      type: {class: PeriodicInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _duration: 2
-        _perSeconds: 0.04
-        _command:
-          rid: 719119511784259590
-    - rid: 719119511784259590
-      type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _commandInstallers:
-        - rid: 719119511784259591
-    - rid: 719119511784259591
-      type: {class: ForkInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _condition:
-          rid: 719119511784259599
-        _true:
-          rid: 719119511784259592
-        _false:
-          rid: 719119528507998236
-    - rid: 719119511784259592
-      type: {class: ShowTrailInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _color: {r: 1, g: 0, b: 0, a: 1}
-        _lifeTime: 3
-    - rid: 719119511784259599
-      type: {class: IsMovingCondition, ns: EndlessHeresy.Runtime.Conditions, asm: Assembly-CSharp}
-      data:
-        _minMagnitude: 15
-    - rid: 719119528507998234
-      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _asset: {fileID: 11400000, guid: e6a70a2ff552ff6408f1b318d8931179, type: 2}
-    - rid: 719119528507998235
-      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _asset: {fileID: 11400000, guid: 0eb8077fadc5ad5478da12c22857c69a, type: 2}
-    - rid: 719119528507998236
-      type: {class: SequenceCollectionInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _commandInstallers:
-        - rid: 719119528507998237
-        - rid: 719119528507998238
-    - rid: 719119528507998237
-      type: {class: CommandAssetInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _asset: {fileID: 11400000, guid: 0eb8077fadc5ad5478da12c22857c69a, type: 2}
-    - rid: 719119528507998238
-      type: {class: KillInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data: 
+  _graph: {fileID: 0}

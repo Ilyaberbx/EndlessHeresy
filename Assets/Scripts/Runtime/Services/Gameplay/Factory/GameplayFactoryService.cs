@@ -6,6 +6,7 @@ using EndlessHeresy.Runtime.Actors.Hero;
 using EndlessHeresy.Runtime.Attributes;
 using EndlessHeresy.Runtime.Builder;
 using EndlessHeresy.Runtime.Commands;
+using EndlessHeresy.Runtime.Controls;
 using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Inventory;
@@ -38,6 +39,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .ForPrefab(configuration.Prefab)
                 .WithPosition(at)
                 .WithComponent<MovementComponent>()
+                .WithComponent<InputActionPhaseRegistry>()
                 .WithComponent<MovementAnimationSyncronizer>()
                 .WithComponent<MovementInputController>(configuration.MovementInputData)
                 .WithComponent<HealthComponent>()

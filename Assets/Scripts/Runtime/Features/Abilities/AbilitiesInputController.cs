@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using EndlessHeresy.Runtime.Controls;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Services.Input;
@@ -16,6 +17,7 @@ namespace EndlessHeresy.Runtime.Abilities
         private readonly IInputService _inputService;
         private AbilitiesStorageComponent _storage;
         private AbilitiesCastComponent _cast;
+        private InputActionPhaseRegistry _inputActionPhaseRegistry;
 
         public AbilitiesInputController(AbilityInputData[] data)
         {
@@ -26,6 +28,7 @@ namespace EndlessHeresy.Runtime.Abilities
         {
             _storage = Owner.GetComponent<AbilitiesStorageComponent>();
             _cast = Owner.GetComponent<AbilitiesCastComponent>();
+            _inputActionPhaseRegistry = Owner.GetComponent<InputActionPhaseRegistry>();
 
             foreach (var data in _data)
             {
@@ -99,7 +102,9 @@ namespace EndlessHeresy.Runtime.Abilities
             }
 
             var index = Array.IndexOf(phaseAbilityData.Select(temp => temp.Action).ToArray(), context.action);
-            var abilityIdentifier = phaseAbilityData.ElementAt(index).AbilityIdentifier;
+            var data = phaseAbilityData.ElementAt(index);
+            var abilityIdentifier = data.AbilityIdentifier;
+            _inputActionPhaseRegistry.Update(data.Action, phase);
             CheckAndCastAbility(abilityIdentifier);
         }
 
@@ -109,7 +114,7 @@ namespace EndlessHeresy.Runtime.Abilities
             {
                 return;
             }
-            
+
             _cast.TryCast(identifier);
         }
     }

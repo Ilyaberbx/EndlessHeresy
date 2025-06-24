@@ -5,8 +5,7 @@ namespace EndlessHeresy.Runtime.Data.Identifiers
     [BlackboardEnum]
     public enum AbilityType
     {
-        SingleAttack,
-        DoubleAttack,
+        Attack,
         Dash,
         CrescentStrike
     }
