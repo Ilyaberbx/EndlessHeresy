@@ -11,7 +11,8 @@ using Action = Unity.Behavior.Action;
 namespace EndlessHeresy.Runtime.Behaviour.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Process Damage On Targets", story: "Process [Damage] [Value] On [Targets] with [SelfActor]",
+    [NodeDescription(name: "Process Damage On Targets",
+        story: "Process [Damage] [Value] On [Targets] with [SelfActor] and assign to [DamagedTargets]",
         category: "Action/EndlessHeresy", id: "91ae0720b7df8e79d4ea430a33fd44ca")]
     public partial class ProcessDamageOnTargetsAction : Action
     {
@@ -19,6 +20,7 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
         [SerializeReference] public BlackboardVariable<int> Value;
         [SerializeReference] public BlackboardVariable<List<GameObject>> Targets;
         [SerializeReference] public BlackboardVariable<MonoActor> SelfActor;
+        [SerializeReference] public BlackboardVariable<List<GameObject>> DamagedTargets;
 
         protected override Status OnStart()
         {
@@ -34,6 +36,11 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
 
             foreach (var targetGameObject in targetsGameObjects)
             {
+                if (DamagedTargets.Value.Contains(targetGameObject))
+                {
+                    continue;
+                }
+
                 if (!targetGameObject.TryGetComponent<IActor>(out var targetActor))
                 {
                     continue;
@@ -51,9 +58,11 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
 
                 if (targetHealth.IsDead())
                 {
+                    Targets.Value.Remove(targetGameObject);
                     continue;
                 }
 
+                DamagedTargets.Value.Add(targetGameObject);
                 var data = new DamageData(value, damageIdentifier);
                 targetHealth.TakeDamage(data);
             }

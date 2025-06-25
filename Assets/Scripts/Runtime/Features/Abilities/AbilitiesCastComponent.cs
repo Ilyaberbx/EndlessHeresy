@@ -14,19 +14,17 @@ namespace EndlessHeresy.Runtime.Abilities
         private readonly IGameUpdateService _gameUpdateService;
         private readonly OnHeroStateChanged _heroStatesChannel;
         private readonly OnAbilityUsageFinished _abilityUsageFinishedChannel;
-        private readonly BlackboardReference _blackboard;
+        private BlackboardReference _blackboard;
         private readonly SerializableGUID _abilityToCastGuid;
         private AbilitiesStorageComponent _storage;
 
         public AbilitiesCastComponent(IGameUpdateService gameUpdateService,
             OnHeroStateChanged heroStatesChannel,
             OnAbilityUsageFinished abilityUsageFinishedChannel,
-            BlackboardReference blackboard,
             SerializableGUID abilityToCastGuid)
         {
             _heroStatesChannel = heroStatesChannel;
             _abilityUsageFinishedChannel = abilityUsageFinishedChannel;
-            _blackboard = blackboard;
             _abilityToCastGuid = abilityToCastGuid;
             _gameUpdateService = gameUpdateService;
         }
@@ -34,6 +32,7 @@ namespace EndlessHeresy.Runtime.Abilities
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
             _storage = Owner.GetComponent<AbilitiesStorageComponent>();
+            _blackboard = Owner.GameObject.GetComponent<BehaviorGraphAgent>().BlackboardReference;
             _gameUpdateService.OnUpdate += OnUpdate;
             _abilityUsageFinishedChannel.Event += OnAbilityUsageFinished;
             return Task.CompletedTask;

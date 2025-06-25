@@ -4,7 +4,6 @@ using EndlessHeresy.Runtime.Behaviour.Events;
 using EndlessHeresy.Runtime.Data.Persistant;
 using EndlessHeresy.Runtime.Data.Static.Abilities;
 using EndlessHeresy.Runtime.Data.Static.Components;
-using Unity.Behavior;
 using Unity.Behavior.GraphFramework;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,7 +13,6 @@ namespace EndlessHeresy.Runtime.Data.Static
     [CreateAssetMenu(menuName = "Configs/Actors/Hero", fileName = "HeroConfiguration", order = 0)]
     public sealed class HeroConfiguration : ScriptableObject
     {
-        [SerializeField] private BlackboardReference _blackboardReference;
         [SerializeField] private SerializableGUID _abilityToCastGuid;
         [SerializeField] private OnHeroStateChanged _statesChangeChannel;
         [SerializeField] private OnAbilityUsageFinished _abilityUsageFinishedChannel;
@@ -36,7 +34,6 @@ namespace EndlessHeresy.Runtime.Data.Static
         public IReadOnlyList<AbilityInputData> AbilitiesInputData => _abilitiesInputData;
         public InputAction MovementInputData => _movementInputData.action;
         public OnHeroStateChanged StatesChangeChannel => _statesChangeChannel;
-        public BlackboardReference Blackboard => _blackboardReference;
         public SerializableGUID AbilityToCastGuid => _abilityToCastGuid;
         public OnAbilityUsageFinished AbilityUsageFinishedChannel => _abilityUsageFinishedChannel;
     }

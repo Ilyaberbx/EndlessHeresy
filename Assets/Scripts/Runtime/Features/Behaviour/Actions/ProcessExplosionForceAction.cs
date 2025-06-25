@@ -12,7 +12,8 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
 {
     [Serializable, GeneratePropertyBag]
     [NodeDescription(name: "Process Explosion Force",
-        story: "Process Explosion with [ForceMultiplier] at [Point] for [Targets] with [Actor]",
+        story:
+        "Process Explosion with [ForceMultiplier] at [Point] for [Targets] with [Actor] and assign to [ExplodedTargets]",
         category: "Action/EndlessHeresy",
         id: "cc92b61ba3016cf1e7ebd9922ff2b868")]
     public partial class ProcessExplosionForceAction : Action
@@ -20,15 +21,11 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
         [SerializeReference] public BlackboardVariable<float> ForceMultiplier;
         [SerializeReference] public BlackboardVariable<Vector2> Point;
         [SerializeReference] public BlackboardVariable<List<GameObject>> Targets;
+        [SerializeReference] public BlackboardVariable<List<GameObject>> ExplodedTargets;
         [SerializeReference] public BlackboardVariable<MonoActor> Actor;
 
         protected override Status OnStart()
         {
-            if (Targets.Value == null || Targets.Value.Count == 0)
-            {
-                return Status.Failure;
-            }
-
             var selfActor = Actor.Value;
             var multiplier = ForceMultiplier.Value;
             var at = Point.Value;
@@ -37,6 +34,11 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
 
             foreach (var targetActor in targetActors)
             {
+                if (ExplodedTargets.Value.Contains(targetActor.GameObject))
+                {
+                    continue;
+                }
+
                 if (!targetActor.TryGetComponent<RigidbodyStorageComponent>(out var rigidbodyStorage))
                 {
                     continue;
@@ -52,6 +54,7 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
                 var forceDirection = at.DirectionTo(actorPosition).normalized;
                 var processedForce = forceDirection * multiplier;
                 rigidbody.AddForce(processedForce, ForceMode2D.Impulse);
+                ExplodedTargets.Value.Add(targetActor.GameObject);
             }
 
             return Status.Success;

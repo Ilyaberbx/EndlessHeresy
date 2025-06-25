@@ -18,7 +18,7 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
         protected override Status OnStart()
         {
             var animator = Actor.Value.GetComponent<AnimatorStorageComponent>().Animator;
-            animator.Play(Animation.Value);
+            animator.Play(Animation.Value, -1, 0f);
             return Status.Success;
         }
     }

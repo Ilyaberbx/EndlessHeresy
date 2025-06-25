@@ -5,23 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0d6b742-2ad9-436d-90ca-1c81c590f449" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Controls.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Controls/InputActionPhaseRegistry.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Controls/InputActionPhaseRegistry.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Abilities/CrescentStrike.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/Abilities/CrescentStrike.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Abilities/Dash.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/Abilities/Dash.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Abilities/DoubleAttack.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Abilities/DoubleAttack.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Abilities/SingleAttack.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Abilities/SingleAttack.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Actors/HeroConfiguration.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/Actors/HeroConfiguration.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Identifiers/AbilityType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Identifiers/AbilityType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Abilities/AbilitiesInputController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Abilities/AbilitiesInputController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/UpdateDirectionBasedOnInputAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/UpdateDirectionBasedOnInputAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/HeroConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/HeroConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Abilities/AbilitiesCastComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Abilities/AbilitiesCastComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/PlayAnimationAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/PlayAnimationAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ProcessDamageOnTargetsAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ProcessDamageOnTargetsAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ProcessExplosionForceAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ProcessExplosionForceAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Facing/FacingComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Facing/FacingComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Movement/MovementAnimationSyncronizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Movement/MovementAnimationSyncronizer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/Factory/GameplayFactoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/Factory/GameplayFactoryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Abilities/SingleAttack_Ability.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Abilities/SingleAttack_Ability.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Art/Animations/Hero/CrescentStrike/StrikeSpinning.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Art/Animations/Hero/CrescentStrike/StrikeSpinning.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Attack.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Attack/SingleAttackConfiguration.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Attack/SingleAttackConfiguration.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Abilities/Attack_Ability.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Abilities/Attack_Ability.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Actors/Hero_StateMachine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Actors/Hero_StateMachine.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/BehaviorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/BehaviorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Prefabs/PunchingDummy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Prefabs/PunchingDummy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,8 +82,13 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/WaitForAnimationEventAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/WaitForAnimationFinishAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/BehaviourObjectResolver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Conditions/AddCounterByValueAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Conditions/IsInputActionHoldingCondition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Conditions/IsInputActionIsPerformedCondition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Conditions/IsMovingCondition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Conditions/ListIsNullOrEmptyCondition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Conditions/SpawnTrailAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Conditions/Vector2ComparisonCondition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Events/OnAbilityUsageFinished.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Events/OnHeroStateChanged.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Abilities/CastAbility.cs" root0="FORCE_HIGHLIGHTING" />
@@ -91,8 +102,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/StaticData/IGameplayStaticDataService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Global/States/GameStatesService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.behavior@3afc53ed890a/Runtime/Execution/Components/BehaviorGraphAgent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.behavior@3afc53ed890a/Runtime/Execution/Conditions/ConditionOperator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.behavior@3afc53ed890a/Runtime/Execution/Conditions/ConditionUtils.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.behavior@3afc53ed890a/Runtime/Execution/Conditions/VariableComparisonCondition.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.behavior@3afc53ed890a/Runtime/Execution/Node.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.behavior@3afc53ed890a/Runtime/Execution/Nodes/Action.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.behavior@3afc53ed890a/Runtime/Execution/Nodes/Composites/BranchingConditionComposite.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.behavior@3afc53ed890a/Runtime/Execution/Nodes/DebugNodes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.behavior@3afc53ed890a/Runtime/Execution/Nodes/Decorators/StartOnEvent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.behavior@3afc53ed890a/Runtime/Execution/Nodes/Events/EventChannel.cs" root0="SKIP_HIGHLIGHTING" />
@@ -153,10 +168,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="13756">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="25220">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="13756" />
+      <option name="pid" value="25220" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
         <list>
@@ -180,7 +195,10 @@
       <workItem from="1750511950473" duration="180000" />
       <workItem from="1750512172230" duration="104000" />
       <workItem from="1750672218805" duration="5375000" />
-      <workItem from="1750759920408" duration="14012000" />
+      <workItem from="1750759920408" duration="21162000" />
+      <workItem from="1750845289245" duration="1044000" />
+      <workItem from="1750848680962" duration="1800000" />
+      <workItem from="1750865756346" duration="1224000" />
     </task>
     <servers />
   </component>

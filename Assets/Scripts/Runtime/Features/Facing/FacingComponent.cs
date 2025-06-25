@@ -11,7 +11,7 @@ namespace EndlessHeresy.Runtime.Facing
         private SpriteRendererComponent _spriteRendererComponent;
         private Type _padlock;
         private SpriteRenderer SpriteRenderer => _spriteRendererComponent.SpriteRenderer;
-        public bool IsLocked { get; private set; }
+        private bool IsLocked { get; set; }
 
         protected override Task OnInitializeAsync(CancellationToken cancellationToken)
         {

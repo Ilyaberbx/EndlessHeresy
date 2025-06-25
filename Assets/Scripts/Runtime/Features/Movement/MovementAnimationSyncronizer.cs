@@ -12,6 +12,7 @@ namespace EndlessHeresy.Runtime.Movement
         private const string RunningKey = "Run";
         private MovementComponent _movement;
         private AnimatorStorageComponent _animatorStorage;
+        private bool _isLocked;
 
         private Animator Animator => _animatorStorage.Animator;
 
@@ -22,6 +23,16 @@ namespace EndlessHeresy.Runtime.Movement
             _movement.MovementProperty.Subscribe(OnMovementChanged).AddTo(CompositeDisposable);
             _movement.IsLockedProperty.Subscribe(OnIsLockedChanged).AddTo(CompositeDisposable);
             return Task.CompletedTask;
+        }
+
+        public void Lock()
+        {
+            _isLocked = true;
+        }
+
+        public void Unlock()
+        {
+            _isLocked = false;
         }
 
         private void OnIsLockedChanged(bool value)
@@ -36,6 +47,11 @@ namespace EndlessHeresy.Runtime.Movement
 
         private void OnMovementChanged(Vector2 value)
         {
+            if (_isLocked)
+            {
+                return;
+            }
+
             if (value == Vector2.zero)
             {
                 if (Animator.GetCurrentAnimatorStateInfo(0).IsName(IdleKey))
