@@ -1,5 +1,4 @@
-﻿using Better.Commons.Runtime.Extensions;
-using EndlessHeresy.Runtime.Commands;
+﻿using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Data.Static.Commands.Installers;
 using EndlessHeresy.Runtime.Stats;
 using VContainer;
@@ -27,14 +26,10 @@ namespace EndlessHeresy.Runtime.StatusEffects
                 return;
             }
 
-            if (!owner.TryGetComponent<CommandsComponent>(out var commands))
+            if (!owner.TryGetComponent<CommandsInvokerComponent>(out var commands))
             {
                 return;
             }
-
-            commands
-                .ExecuteAsParallel(_commandInstaller.GetCommand(_resolver))
-                .Forget();
         }
     }
 }

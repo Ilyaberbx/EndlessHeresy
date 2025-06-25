@@ -25,6 +25,7 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
         public bool TryEquip(IActor actor, EquipmentSlotType slotIdentifier)
         {
             var inventory = actor.GetComponent<InventoryComponent>();
+            var commandsInvoker = actor.GetComponent<CommandsInvokerComponent>();
 
             var activeSlots = actor
                 .GetComponent<StatsComponent>()
@@ -39,13 +40,15 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
             }
 
             var command = _commandBySlot[slotIdentifier];
-            command.ExecuteAsync(actor, CancellationToken.None).Forget();
+            commandsInvoker.Execute(command);
             IsEquipped.Value = true;
             return true;
         }
 
         public void Unequip(IActor actor, EquipmentSlotType slotIdentifier)
         {
+            var commandsInvoker = actor.GetComponent<CommandsInvokerComponent>();
+
             if (IsEquipped.Value == false)
             {
                 return;
@@ -53,10 +56,7 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
 
             var command = _commandBySlot[slotIdentifier];
 
-            command
-                .GetUndoCommand()
-                .ExecuteAsync(actor, CancellationToken.None)
-                .Forget();
+            commandsInvoker.Execute(command.GetUndoCommand());
 
             IsEquipped.Value = false;
         }

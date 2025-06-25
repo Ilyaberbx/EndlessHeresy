@@ -44,7 +44,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<MovementInputController>(configuration.MovementInputData)
                 .WithComponent<HealthComponent>()
                 .WithComponent<FacingComponent>()
-                .WithComponent<CommandsComponent>()
+                .WithComponent<CommandsInvokerComponent>()
                 .WithComponent<TrailsSpawnerComponent>(configuration.TrailsPoolData.DefaultCapacity,
                     configuration.TrailsPoolData.MaxSize)
                 .WithComponent<StatsComponent>(configuration.DefaultStats)
@@ -70,7 +70,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<HealthComponent>()
                 .WithComponent<StatusEffectsComponent>()
                 .WithComponent<HealthChangesMessages>()
-                .WithComponent<CommandsComponent>()
+                .WithComponent<CommandsInvokerComponent>()
                 .WithComponent<StatsComponent>(configuration.StatsData)
                 .Build();
         }

@@ -18,7 +18,8 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
 
         public void Use()
         {
-            _command.ExecuteAsync(_owner, CancellationToken.None);
+            var commandsInvoker = _owner.GetComponent<CommandsInvokerComponent>();
+            commandsInvoker.Execute(_command);
         }
 
         public void Add(IActor actor)
