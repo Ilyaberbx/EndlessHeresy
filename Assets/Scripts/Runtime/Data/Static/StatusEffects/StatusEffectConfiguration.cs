@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using Better.Attributes.Runtime.Select;
-using EndlessHeresy.Runtime.Data.Identifiers;
-using EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Abstractions;
+﻿using EndlessHeresy.Runtime.Data.Identifiers;
+using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.StatusEffects.Builder;
 using UnityEngine;
 
@@ -13,17 +11,17 @@ namespace EndlessHeresy.Runtime.Data.Static.StatusEffects
         [SerializeField] private StatusEffectClassType _classIdentifier;
         [SerializeField] private StatusEffectType _identifier;
         [SerializeField] private Sprite _icon;
-        [SerializeReference, Select] private List<StatusEffectComponentInstaller> _installers;
+        [SerializeField] private StatusEffectBehaviourData _behaviourData;
 
         public StatusEffectType Identifier => _identifier;
         public Sprite Icon => _icon;
 
-        public void ConfigureBuilder(StatusEffectsBuilder builder)
+        public void ConfigureBuilder(StatusEffectBuilder builder)
         {
             builder.WithId(_identifier);
             builder.WithClass(_classIdentifier);
 
-            foreach (var installer in _installers)
+            foreach (var installer in _behaviourData.Installers)
             {
                 installer.Install(builder);
             }

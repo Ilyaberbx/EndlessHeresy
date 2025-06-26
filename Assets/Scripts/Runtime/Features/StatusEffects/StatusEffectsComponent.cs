@@ -59,7 +59,7 @@ namespace EndlessHeresy.Runtime.StatusEffects
 
             if (exisingStatusEffect == null)
             {
-                var builder = new StatusEffectsBuilder(_resolver);
+                var builder = new StatusEffectBuilder(_resolver);
                 data.ConfigureBuilder(builder);
                 var newStatusEffect = builder.Build();
                 newStatusEffect.SetOwner(Owner);
@@ -76,11 +76,6 @@ namespace EndlessHeresy.Runtime.StatusEffects
             if (exisingStatusEffect.TryGet<TemporaryEffectComponent>(out var temporaryStatusEffect))
             {
                 temporaryStatusEffect.Reset();
-            }
-
-            if (exisingStatusEffect.TryGet<CommandEffectComponent>(out var commandEffectComponent))
-            {
-                commandEffectComponent.Apply(_statsComponent);
             }
         }
 

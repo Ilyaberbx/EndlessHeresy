@@ -7,7 +7,7 @@ using VContainer;
 
 namespace EndlessHeresy.Runtime.StatusEffects.Builder
 {
-    public sealed class StatusEffectsBuilder
+    public sealed class StatusEffectBuilder
     {
         private readonly Dictionary<Type, object[]> _componentsParamsMap;
         private readonly IList<IStatusEffectComponent> _forComponents;
@@ -17,7 +17,7 @@ namespace EndlessHeresy.Runtime.StatusEffects.Builder
         private StatusEffectClassType _classIdentifier;
         public IObjectResolver Resolver => _childScope;
 
-        public StatusEffectsBuilder(IObjectResolver resolver)
+        public StatusEffectBuilder(IObjectResolver resolver)
         {
             _childScope = resolver.CreateScope();
             _componentsParamsMap = new Dictionary<Type, object[]>();

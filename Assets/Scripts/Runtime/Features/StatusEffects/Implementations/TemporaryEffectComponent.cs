@@ -1,4 +1,5 @@
-﻿using EndlessHeresy.Runtime.Services.Tick;
+﻿using System;
+using EndlessHeresy.Runtime.Services.Tick;
 using EndlessHeresy.Runtime.Stats;
 using UniRx;
 using UnityEngine;
@@ -10,15 +11,16 @@ namespace EndlessHeresy.Runtime.StatusEffects
         IRemoveStatusEffect,
         IRootHandler
     {
-        private const float MaxProgress = 1;
+        public event Action<TemporaryEffectComponent> OnFinished;
 
+        private const float MaxProgress = 1;
         private readonly IGameUpdateService _gameUpdateService;
         private readonly ReactiveProperty<float> _progress;
         private readonly float _duration;
         private float _elapsedTime;
-        private StatusEffectRoot _root;
 
         public IReadOnlyReactiveProperty<float> ProgressReadOnly => _progress;
+        public StatusEffectRoot Root { get; private set; }
 
         public TemporaryEffectComponent(IGameUpdateService gameUpdateService, float duration)
         {
@@ -29,7 +31,7 @@ namespace EndlessHeresy.Runtime.StatusEffects
 
         public void Initialize(StatusEffectRoot root)
         {
-            _root = root;
+            Root = root;
         }
 
         public void Apply(StatsComponent stats)
@@ -53,7 +55,8 @@ namespace EndlessHeresy.Runtime.StatusEffects
                 return;
             }
 
-            _root.Owner.GetComponent<StatusEffectsComponent>().Remove(_root.Identifier);
+            OnFinished?.Invoke(this);
+            Root.Owner.GetComponent<StatusEffectsComponent>().Remove(Root.Identifier);
         }
 
         public void Reset() => _elapsedTime = 0;

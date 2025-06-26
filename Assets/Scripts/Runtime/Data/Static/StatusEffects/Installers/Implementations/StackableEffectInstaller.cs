@@ -1,29 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Abstractions;
+using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.StatusEffects;
 using EndlessHeresy.Runtime.StatusEffects.Builder;
 using UnityEngine;
 
-namespace EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations
+namespace EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers
 {
     [Serializable]
     public sealed class StackableEffectInstaller : StatusEffectComponentInstaller
     {
-        [SerializeField] private List<StatusEffectConfiguration> _installers;
+        [SerializeField] private StatusEffectBehaviourData[] _behavioursData;
 
-        public override void Install(StatusEffectsBuilder builder)
+        public override void Install(StatusEffectBuilder builder)
         {
-            var builders = new List<StatusEffectsBuilder>();
-
-            foreach (var installer in _installers)
-            {
-                var internalBuilder = new StatusEffectsBuilder(builder.Resolver);
-                installer.ConfigureBuilder(internalBuilder);
-                builders.Add(internalBuilder);
-            }
-
-            builder.WithComponent<StackableEffectComponent>(builders);
+            builder.WithComponent<StackableEffectComponent>(_behavioursData);
         }
     }
 }

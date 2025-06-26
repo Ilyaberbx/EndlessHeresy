@@ -1,11 +1,11 @@
 ﻿using System;
 using EndlessHeresy.Runtime.StatusEffects.Builder;
 
-namespace EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Abstractions
+namespace EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers
 {
     [Serializable]
     public abstract class StatusEffectComponentInstaller
     {
-        public abstract void Install(StatusEffectsBuilder builder);
+        public abstract void Install(StatusEffectBuilder builder);
     }
 }
