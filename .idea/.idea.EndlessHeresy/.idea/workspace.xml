@@ -5,29 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0d6b742-2ad9-436d-90ca-1c81c590f449" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Commands/Installers/Implementations.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Commands/Installers/Implementations/AddStatModifierInstaller.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Commands/Installers/Implementations/AddStatModifierInstaller.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Commands/Installers/Implementations/RemoveStatModifierInstaller.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Commands/Installers/Implementations/RemoveStatModifierInstaller.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Stats.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Stats/StatModifierSourceAsset.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Stats/StatModifierSourceAsset.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Abstractions/IActorCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Abstractions/IActorCommand.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Stats.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Stats/AddStatModifierCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Stats/AddStatModifierCommand.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Stats/RemoveStatModifierCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Stats/RemoveStatModifierCommand.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Components/MeleeAttackConfiguration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Components/MeleeAttackConfiguration.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Components/PeriodDamageData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Components/PeriodDamageData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ProcessDamageOnTargetsAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ProcessDamageOnTargetsAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ProcessExplosionForceAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ProcessExplosionForceAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/CommandsInvokerComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/CommandsInvokerComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Commands/Installers/Implementations/AddAttributeModifierInstaller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Commands/Installers/Implementations/AddAttributeModifierInstaller.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Commands/Installers/Implementations/RemoveAttributeModifierInstaller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Commands/Installers/Implementations/RemoveAttributeModifierInstaller.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Attributes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Attributes/AddAttributeModifierCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Attributes/AddAttributeModifierCommand.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Attributes/RemoveAttributeModifierCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Attributes/RemoveAttributeModifierCommand.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +184,7 @@
       <workItem from="1750848680962" duration="1800000" />
       <workItem from="1750865756346" duration="1224000" />
       <workItem from="1750871815728" duration="1778000" />
-      <workItem from="1750940521937" duration="801000" />
+      <workItem from="1750940521937" duration="1179000" />
     </task>
     <servers />
   </component>
