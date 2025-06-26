@@ -19,7 +19,7 @@ namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
             return new AddStatModifierCommand(_data, _sourceAsset);
         }
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public override ICommand GetCommand()
         {
             return GetUndoableCommand();
         }

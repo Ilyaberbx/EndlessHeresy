@@ -17,7 +17,7 @@ namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
             return new AddAttributeModifierCommand(_data);
         }
 
-        public override ICommand GetCommand(IObjectResolver resolver)
+        public override ICommand GetCommand()
         {
             return GetUndoableCommand();
         }

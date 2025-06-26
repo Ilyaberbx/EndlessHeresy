@@ -15,7 +15,7 @@ namespace EndlessHeresy.Runtime.Data.Static.Inventory.Installers
 
         public override IItemComponent GetComponent(IObjectResolver resolver)
         {
-            return new UsableItemComponent(_commandInstaller.GetCommand(resolver));
+            return new UsableItemComponent(_commandInstaller.GetCommand());
         }
     }
 }

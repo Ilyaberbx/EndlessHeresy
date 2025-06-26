@@ -12,7 +12,7 @@ namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
     {
         [SerializeField] private StatModifierSourceAsset _sourceAsset;
 
-        public ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand()
         {
             return new RemoveStatModifierCommand(_sourceAsset);
         }

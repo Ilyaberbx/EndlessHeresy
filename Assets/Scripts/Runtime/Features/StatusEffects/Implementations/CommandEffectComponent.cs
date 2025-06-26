@@ -9,12 +9,10 @@ namespace EndlessHeresy.Runtime.StatusEffects
         IStatusEffectComponent,
         IApplyStatusEffect
     {
-        private readonly IObjectResolver _resolver;
         private readonly ICommandInstaller _commandInstaller;
 
-        public CommandEffectComponent(IObjectResolver resolver, ICommandInstaller commandInstaller)
+        public CommandEffectComponent(ICommandInstaller commandInstaller)
         {
-            _resolver = resolver;
             _commandInstaller = commandInstaller;
         }
 
@@ -26,10 +24,12 @@ namespace EndlessHeresy.Runtime.StatusEffects
                 return;
             }
 
-            if (!owner.TryGetComponent<CommandsInvokerComponent>(out var commands))
+            if (!owner.TryGetComponent<CommandsInvokerComponent>(out var commandsInvoker))
             {
                 return;
             }
+
+            commandsInvoker.Execute(_commandInstaller.GetCommand());
         }
     }
 }

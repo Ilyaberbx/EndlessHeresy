@@ -8,6 +8,6 @@ namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
     public abstract class UndoableCommandInstaller : ICommandInstaller
     {
         public abstract IUndoableCommand GetUndoableCommand();
-        public abstract ICommand GetCommand(IObjectResolver resolver);
+        public abstract ICommand GetCommand();
     }
 }

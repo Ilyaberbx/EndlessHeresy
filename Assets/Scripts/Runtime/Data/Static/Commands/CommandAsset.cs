@@ -11,9 +11,9 @@ namespace EndlessHeresy.Runtime.Data.Static.Commands
     {
         [SerializeReference, Select] private ICommandInstaller _installer;
 
-        public ICommand GetCommand(IObjectResolver resolver)
+        public ICommand GetCommand()
         {
-            return _installer.GetCommand(resolver);
+            return _installer.GetCommand();
         }
     }
 }
