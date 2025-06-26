@@ -15,7 +15,6 @@ namespace EndlessHeresy.Runtime.StatusEffects.Builder
 
         private StatusEffectType _identifier;
         private StatusEffectClassType _classIdentifier;
-        public IObjectResolver Resolver => _childScope;
 
         public StatusEffectBuilder(IObjectResolver resolver)
         {

@@ -2,6 +2,7 @@
 {
     public enum StatusEffectClassType
     {
+        None,
         Buff,
         Debuff,
         Unique,

@@ -5,39 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0d6b742-2ad9-436d-90ca-1c81c590f449" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Commands/Installers/Implementations/DebugInstaller.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Commands/Installers/Implementations/DebugInstaller.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Commands/Installers/Implementations/ReceiveDamageInstaller.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Commands/Installers/Implementations/ReceiveDamageInstaller.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Components/PeriodicEffectData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Components/PeriodicEffectData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Components/StatusEffectBehaviourData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Components/StatusEffectBehaviourData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/Installers/Implementations/PeriodicEffectInstaller.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/Installers/Implementations/PeriodicEffectInstaller.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Damage.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Damage/ReceiveDamageCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Damage/ReceiveDamageCommand.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Supporting.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Supporting/DebugCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/Implementations/Supporting/DebugCommand.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/PeriodicEffectComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/PeriodicEffectComponent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/UndoableEffectComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/Installers/Abstractions/StatusEffectComponentInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/Installers/Abstractions/StatusEffectComponentInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/Installers/Implementations/CommandEffectInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/Installers/Implementations/UndoableEffectInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/Installers/Implementations/CommandEffectInstaller.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/Installers/Implementations/UndoableEffectInstaller.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/Installers/Implementations/StackableEffectInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/Installers/Implementations/StackableEffectInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/Installers/Implementations/TemporaryEffectInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/Installers/Implementations/TemporaryEffectInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/StatusEffectConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/StatusEffectConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Builder/StatusEffectsBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Builder/StatusEffectBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Builder/StatusEffectsBuilder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Builder/StatusEffectBuilder.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/CommandEffectComponent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/CommandEffectComponent.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/UndoableEffectComponent.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/StatusEffects/BurningStatusEffect.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/StatusEffects/BurningStatusEffect.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Identifiers/StatusEffectClassType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Identifiers/StatusEffectClassType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Identifiers/StatusEffectType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Identifiers/StatusEffectType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/CommandsInvokerComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/CommandsInvokerComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Builder/StatusEffectBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Builder/StatusEffectBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/PeriodicEffectComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/PeriodicEffectComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/StackableEffectComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/StackableEffectComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/TemporaryEffectComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/TemporaryEffectComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/StatusEffectsComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/StatusEffectsComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Abilities/Attack_Ability.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Abilities/Attack_Ability.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Actors/Hero_StateMachine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Actors/Hero_StateMachine.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,13 +51,14 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Components/DamageData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/Components/EquipmentSlotCommandData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/HeroConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/Installers/Implementations/CommandsWithUndoOnRemoveEffectInstaller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/StatusEffects/Installers/Implementations/UndoableEffectInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Abilities/AbilitiesCastComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Abilities/AbilitiesInputController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Abilities/Ability.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/ActorComponent/Actors/Builder/MonoActorBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/DetectTargetsWithFacingDirectionAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ExecuteCommandAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ExecuteCommandOnTargetsAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/PlayAnimationAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ProcessDamageOnTargetsAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ProcessExplosionForceAction.cs" root0="FORCE_HIGHLIGHTING" />
@@ -174,13 +152,15 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="7668">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="7668" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -204,7 +184,7 @@
       <workItem from="1750848680962" duration="1800000" />
       <workItem from="1750865756346" duration="1224000" />
       <workItem from="1750871815728" duration="1778000" />
-      <workItem from="1750940521937" duration="4333000" />
+      <workItem from="1750940521937" duration="5897000" />
     </task>
     <servers />
   </component>

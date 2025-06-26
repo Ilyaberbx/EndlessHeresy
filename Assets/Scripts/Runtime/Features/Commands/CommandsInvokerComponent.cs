@@ -16,5 +16,10 @@ namespace EndlessHeresy.Runtime.Commands
             _commands.Push(command);
             command.Execute();
         }
+
+        protected override void OnDispose()
+        {
+            _commands.Clear();
+        }
     }
 }

@@ -29,7 +29,6 @@ namespace EndlessHeresy.Runtime.StatusEffects
 
         public void Initialize(StatusEffectRoot root) => _root = root;
         public void Apply(StatsComponent stats) => AddStack(stats);
-
         public void Remove(StatsComponent stats)
         {
             foreach (var effect in _activeEffects)

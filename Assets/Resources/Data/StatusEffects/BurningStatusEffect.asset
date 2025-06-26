@@ -12,41 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8049780506344ab1b1f44774ccfc9f01, type: 3}
   m_Name: BurningStatusEffect
   m_EditorClassIdentifier: 
-  _classIdentifier: 1
-  _identifier: 0
+  _classIdentifier: 2
+  _identifier: 1
   _icon: {fileID: 21300000, guid: de2cc86fdcd2f69439c8b98ebc3efcc4, type: 3}
-  _installers:
-  - rid: 719119470955331584
-  - rid: 719119482670809088
+  _behaviourData:
+    _installers:
+    - rid: 719119689330983410
+    - rid: 719119689330983415
   references:
     version: 2
     RefIds:
-    - rid: 719119470955331584
-      type: {class: CommandEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
+    - rid: 719119689330983410
+      type: {class: StackableEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers, asm: Assembly-CSharp}
       data:
-        _commandInstaller:
-          rid: 719119470955331585
-    - rid: 719119470955331585
-      type: {class: PeriodicInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _duration: 5
-        _perSeconds: 1
-        _command:
-          rid: 719119470955331586
-    - rid: 719119470955331586
-      type: {class: DealTakingDamageInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+        _behavioursData:
+        - _installers:
+          - rid: 719119689330983411
+        - _installers:
+          - rid: 719119689330983411
+    - rid: 719119689330983411
+      type: {class: PeriodicEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers, asm: Assembly-CSharp}
       data:
         _data:
-          _value: 5
-          _identifier: 4
-          _bonusDamagesData:
-          - _value: 2
-            _bonusModifier: 2
-            _forStat: 5
-          - _value: 5
-            _bonusModifier: 2
-            _forStat: 6
-    - rid: 719119482670809088
-      type: {class: TemporaryEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers.Implementations, asm: Assembly-CSharp}
+        - _commandInstaller:
+            rid: 719119689330983416
+          _cooldown: 1
+    - rid: 719119689330983415
+      type: {class: TemporaryEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers, asm: Assembly-CSharp}
       data:
         _duration: 5
+    - rid: 719119689330983416
+      type: {class: ReceiveDamageInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+      data:
+        _data:
+          _value: 10
+          _identifier: 5
