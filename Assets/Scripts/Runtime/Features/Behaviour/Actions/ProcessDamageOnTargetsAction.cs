@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Health;
@@ -27,21 +28,19 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
             var selfActor = SelfActor.Value;
             var damageIdentifier = Damage.Value;
             var value = Value.Value;
-            var targetsGameObjects = Targets.Value;
+
+            var targetActors = Targets.Value
+                .Where(temp => temp != null)
+                .Select(temp => temp.GetComponent<IActor>());
 
             if (!selfActor.TryGetComponent<HealthComponent>(out var selfHealth))
             {
                 return Status.Failure;
             }
 
-            foreach (var targetGameObject in targetsGameObjects)
+            foreach (var targetActor in targetActors)
             {
-                if (DamagedTargets.Value.Contains(targetGameObject))
-                {
-                    continue;
-                }
-
-                if (!targetGameObject.TryGetComponent<IActor>(out var targetActor))
+                if (DamagedTargets.Value.Contains(targetActor.GameObject))
                 {
                     continue;
                 }
@@ -58,11 +57,11 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
 
                 if (targetHealth.IsDead())
                 {
-                    Targets.Value.Remove(targetGameObject);
+                    Targets.Value.Remove(targetActor.GameObject);
                     continue;
                 }
 
-                DamagedTargets.Value.Add(targetGameObject);
+                DamagedTargets.Value.Add(targetActor.GameObject);
                 var data = new DamageData(value, damageIdentifier);
                 targetHealth.TakeDamage(data);
             }

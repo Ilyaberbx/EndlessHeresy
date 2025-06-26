@@ -29,7 +29,9 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
             var selfActor = Actor.Value;
             var multiplier = ForceMultiplier.Value;
             var at = Point.Value;
-            var targetActors = Targets.Value.Select(temp => temp.GetComponent<IActor>());
+            var targetActors = Targets.Value
+                .Where(temp => temp != null)
+                .Select(temp => temp.GetComponent<IActor>());
             var selfRigidbody = selfActor.GetComponent<RigidbodyStorageComponent>().Rigidbody;
 
             foreach (var targetActor in targetActors)

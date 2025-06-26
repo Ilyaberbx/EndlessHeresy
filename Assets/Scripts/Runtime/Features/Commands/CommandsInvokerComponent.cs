@@ -8,6 +8,11 @@ namespace EndlessHeresy.Runtime.Commands
 
         public void Execute(ICommand command)
         {
+            if (command is IActorCommand actorCommand)
+            {
+                actorCommand.Setup(Owner);
+            }
+
             _commands.Push(command);
             command.Execute();
         }
