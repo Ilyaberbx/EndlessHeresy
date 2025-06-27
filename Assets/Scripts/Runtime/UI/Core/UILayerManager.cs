@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace EndlessHeresy.Runtime.UI.Core
 {
-    public class UIControllerManager
+    public class UILayerManager
     {
         private readonly IAssetsService _assetsService;
         private readonly Transform _root;
@@ -16,7 +16,7 @@ namespace EndlessHeresy.Runtime.UI.Core
 
         private IViewModelFactory _factory;
 
-        public UIControllerManager(Transform root, IAssetsService assetsService)
+        public UILayerManager(Transform root, IAssetsService assetsService)
         {
             _root = root;
             _assetsService = assetsService;
@@ -27,7 +27,7 @@ namespace EndlessHeresy.Runtime.UI.Core
         {
             _factory = factory;
         }
-
+        
         public async Task<TViewModel> ShowAsync<TViewModel, TModel>(TModel model, string viewPath,
             ShowType showType)
             where TViewModel : BaseViewModel<TModel>

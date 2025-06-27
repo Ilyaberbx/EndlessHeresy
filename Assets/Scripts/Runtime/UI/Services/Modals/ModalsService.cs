@@ -12,11 +12,11 @@ namespace EndlessHeresy.Runtime.UI.Services.Modals
         private const string ViewModelPostfix = "ViewModel";
         private const string ViewPathFormat = "Modals/{0}";
 
-        private readonly UIControllerManager _manager;
+        private readonly UILayerManager _manager;
 
         public ModalsService(Transform root, IAssetsService assetsService)
         {
-            _manager = new UIControllerManager(root, assetsService);
+            _manager = new UILayerManager(root, assetsService);
         }
 
         public Task<TViewModel> ShowAsync<TViewModel, TModel>(TModel model)

@@ -28,8 +28,6 @@ MonoBehaviour:
         _behavioursData:
         - _installers:
           - rid: 719119689330983411
-        - _installers:
-          - rid: 719119689330983411
     - rid: 719119689330983411
       type: {class: PeriodicEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers, asm: Assembly-CSharp}
       data:
@@ -45,5 +43,5 @@ MonoBehaviour:
       type: {class: ReceiveDamageInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
         _data:
-          _value: 10
-          _identifier: 5
+          _value: 4
+          _identifier: 3

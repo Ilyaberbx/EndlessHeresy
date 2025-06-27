@@ -5,16 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0d6b742-2ad9-436d-90ca-1c81c590f449" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Cheats.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Cheats/CheatsHudToggler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Cheats/CheatsHudToggler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats/CheatsHudModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats/CheatsHudModel.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats/CheatsHudView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats/CheatsHudView.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats/CheatsHudViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats/CheatsHudViewModel.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Cheats.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Cheats/CheatsService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Cheats/CheatsService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Cheats/ICheatsService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Cheats/ICheatsService.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/StatusEffects/BurningStatusEffect.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/StatusEffects/BurningStatusEffect.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Identifiers/StatusEffectClassType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Identifiers/StatusEffectClassType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Identifiers/StatusEffectType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Identifiers/StatusEffectType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/CommandsInvokerComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Commands/CommandsInvokerComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Builder/StatusEffectBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Builder/StatusEffectBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/PeriodicEffectComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/PeriodicEffectComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/StackableEffectComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/StatusEffects/Implementations/StackableEffectComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Abilities/Attack_Ability.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Abilities/Attack_Ability.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Actors/Hero_StateMachine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Actors/Hero_StateMachine.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Actors/Hero/HeroActor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Actors/Hero/HeroActor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/HeroConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/HeroConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/Factory/GameplayFactoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/Factory/GameplayFactoryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Core/UIControllerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Core/UILayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Core/UIControllerManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Core/UILayerManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Core/UpdateViewModelsFactoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Core/UpdateViewModelsFactoryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Huds/HudsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Huds/HudsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Modals/ModalsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Modals/ModalsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/UILifetimeScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/UILifetimeScope.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,15 +168,13 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="7668">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="7668" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list>
-          <MonoRuntime />
-        </list>
+        <list />
       </option>
       <option name="selectedOptions">
         <list />
@@ -185,6 +199,9 @@
       <workItem from="1750865756346" duration="1224000" />
       <workItem from="1750871815728" duration="1778000" />
       <workItem from="1750940521937" duration="5897000" />
+      <workItem from="1751022824763" duration="615000" />
+      <workItem from="1751032691341" duration="1889000" />
+      <workItem from="1751049791935" duration="1062000" />
     </task>
     <servers />
   </component>

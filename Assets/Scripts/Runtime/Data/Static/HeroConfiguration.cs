@@ -17,6 +17,7 @@ namespace EndlessHeresy.Runtime.Data.Static
         [SerializeField] private OnHeroStateChanged _statesChangeChannel;
         [SerializeField] private OnAbilityUsageFinished _abilityUsageFinishedChannel;
         [SerializeField] private InputActionReference _movementInputData;
+        [SerializeField] private InputActionReference _toggleCheatsInputData;
         [SerializeField] private AbilityInputData[] _abilitiesInputData;
         [SerializeField] private AbilityConfiguration[] _abilityConfigurations;
         [SerializeField] private StatData[] _defaultStats;
@@ -33,6 +34,7 @@ namespace EndlessHeresy.Runtime.Data.Static
         public IReadOnlyList<AbilityConfiguration> AbilityConfigurations => _abilityConfigurations;
         public IReadOnlyList<AbilityInputData> AbilitiesInputData => _abilitiesInputData;
         public InputAction MovementInputData => _movementInputData.action;
+        public InputAction ToggleCheatsInputData => _toggleCheatsInputData.action;
         public OnHeroStateChanged StatesChangeChannel => _statesChangeChannel;
         public SerializableGUID AbilityToCastGuid => _abilityToCastGuid;
         public OnAbilityUsageFinished AbilityUsageFinishedChannel => _abilityUsageFinishedChannel;

@@ -1,0 +1,46 @@
+﻿using System.Threading;
+using System.Threading.Tasks;
+using EndlessHeresy.Runtime.UI.Services.Cheats;
+using UnityEngine.InputSystem;
+
+namespace EndlessHeresy.Runtime.Cheats
+{
+    public sealed class CheatsHudToggler : PocoComponent
+    {
+        private readonly ICheatsService _cheatsService;
+        private readonly InputAction _inputAction;
+        private bool _isCheatsEnabled;
+
+        public CheatsHudToggler(ICheatsService cheatsService, InputAction inputAction)
+        {
+            _cheatsService = cheatsService;
+            _inputAction = inputAction;
+        }
+
+        protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
+        {
+            _inputAction.performed += OnActionPerformed;
+            return Task.CompletedTask;
+        }
+
+        protected override void OnDispose()
+        {
+            base.OnDispose();
+            _inputAction.performed -= OnActionPerformed;
+        }
+
+        private void OnActionPerformed(InputAction.CallbackContext context)
+        {
+            _isCheatsEnabled = !_isCheatsEnabled;
+
+            if (_isCheatsEnabled)
+            {
+                _cheatsService.Show();
+            }
+            else
+            {
+                _cheatsService.Hide();
+            }
+        }
+    }
+}

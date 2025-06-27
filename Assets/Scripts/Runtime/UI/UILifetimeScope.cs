@@ -1,4 +1,5 @@
-﻿using EndlessHeresy.Runtime.UI.Services.Huds;
+﻿using EndlessHeresy.Runtime.UI.Services.Cheats;
+using EndlessHeresy.Runtime.UI.Services.Huds;
 using EndlessHeresy.Runtime.UI.Services.Modals;
 using UnityEngine;
 using VContainer;
@@ -10,11 +11,13 @@ namespace EndlessHeresy.Runtime.UI
     {
         [SerializeField] private Transform _hudsRoot;
         [SerializeField] private Transform _modalsRoot;
+        [SerializeField] private Transform _cheatsRoot;
 
         protected override void Configure(IContainerBuilder builder)
         {
             builder.Register<IHudsService, HudsService>(Lifetime.Singleton).WithParameter(_hudsRoot);
             builder.Register<IModalsService, ModalsService>(Lifetime.Singleton).WithParameter(_modalsRoot);
+            builder.Register<ICheatsService, CheatsService>(Lifetime.Singleton).WithParameter(_cheatsRoot);
         }
     }
 }

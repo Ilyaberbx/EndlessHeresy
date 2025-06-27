@@ -5,6 +5,7 @@ using EndlessHeresy.Runtime.Actors.Enemies;
 using EndlessHeresy.Runtime.Actors.Hero;
 using EndlessHeresy.Runtime.Attributes;
 using EndlessHeresy.Runtime.Builder;
+using EndlessHeresy.Runtime.Cheats;
 using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Controls;
 using EndlessHeresy.Runtime.Facing;
@@ -43,6 +44,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<MovementAnimationSyncronizer>()
                 .WithComponent<MovementInputController>(configuration.MovementInputData)
                 .WithComponent<HealthComponent>()
+                .WithComponent<CheatsHudToggler>(configuration.ToggleCheatsInputData)
                 .WithComponent<FacingComponent>()
                 .WithComponent<CommandsInvokerComponent>()
                 .WithComponent<TrailsSpawnerComponent>(configuration.TrailsPoolData.DefaultCapacity,

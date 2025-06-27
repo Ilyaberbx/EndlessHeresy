@@ -12,11 +12,11 @@ namespace EndlessHeresy.Runtime.UI.Services.Huds
         private const string ViewModelPostfix = "ViewModel";
         private const string ViewPathFormat = "Huds/{0}";
 
-        private readonly UIControllerManager _manager;
+        private readonly UILayerManager _manager;
 
         public HudsService(Transform root, IAssetsService assetsService)
         {
-            _manager = new UIControllerManager(root, assetsService);
+            _manager = new UILayerManager(root, assetsService);
         }
 
         public Task<TViewModel> ShowAsync<TViewModel, TModel>(TModel model, ShowType showType)
