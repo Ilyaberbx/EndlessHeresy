@@ -126,6 +126,15 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleCheats"",
+                    ""type"": ""Button"",
+                    ""id"": ""d5c65e97-a41f-469d-8380-b72ff78fbc23"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -302,6 +311,17 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ThirdAbilityCast"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77d3930c-63dd-4bf8-bf75-246cf741e03b"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleCheats"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -832,6 +852,7 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
         m_Gameplay_FirstAbilityCast = m_Gameplay.FindAction("FirstAbilityCast", throwIfNotFound: true);
         m_Gameplay_SecondAbilityCast = m_Gameplay.FindAction("SecondAbilityCast", throwIfNotFound: true);
         m_Gameplay_ThirdAbilityCast = m_Gameplay.FindAction("ThirdAbilityCast", throwIfNotFound: true);
+        m_Gameplay_ToggleCheats = m_Gameplay.FindAction("ToggleCheats", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -929,6 +950,7 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_FirstAbilityCast;
     private readonly InputAction m_Gameplay_SecondAbilityCast;
     private readonly InputAction m_Gameplay_ThirdAbilityCast;
+    private readonly InputAction m_Gameplay_ToggleCheats;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -956,6 +978,10 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/ThirdAbilityCast".
         /// </summary>
         public InputAction @ThirdAbilityCast => m_Wrapper.m_Gameplay_ThirdAbilityCast;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/ToggleCheats".
+        /// </summary>
+        public InputAction @ToggleCheats => m_Wrapper.m_Gameplay_ToggleCheats;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -994,6 +1020,9 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
             @ThirdAbilityCast.started += instance.OnThirdAbilityCast;
             @ThirdAbilityCast.performed += instance.OnThirdAbilityCast;
             @ThirdAbilityCast.canceled += instance.OnThirdAbilityCast;
+            @ToggleCheats.started += instance.OnToggleCheats;
+            @ToggleCheats.performed += instance.OnToggleCheats;
+            @ToggleCheats.canceled += instance.OnToggleCheats;
         }
 
         /// <summary>
@@ -1017,6 +1046,9 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
             @ThirdAbilityCast.started -= instance.OnThirdAbilityCast;
             @ThirdAbilityCast.performed -= instance.OnThirdAbilityCast;
             @ThirdAbilityCast.canceled -= instance.OnThirdAbilityCast;
+            @ToggleCheats.started -= instance.OnToggleCheats;
+            @ToggleCheats.performed -= instance.OnToggleCheats;
+            @ToggleCheats.canceled -= instance.OnToggleCheats;
         }
 
         /// <summary>
@@ -1280,6 +1312,13 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnThirdAbilityCast(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleCheats" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleCheats(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

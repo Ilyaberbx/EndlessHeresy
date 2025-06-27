@@ -176,7 +176,7 @@ MonoBehaviour:
           rid: 719119689330983348
         m_EndedNodes:
           rid: 719119689330983349
-        m_VersionTimestamp: 638865540710116404
+        m_VersionTimestamp: 638866595223409372
     - rid: 719119689330983346
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -647,7 +647,7 @@ MonoBehaviour:
   - rid: 719119668765524125
   - rid: 719119668765524329
   - rid: 719119668765524540
-  m_VersionTimestamp: 638865540710196386
+  m_VersionTimestamp: 638866595223409372
   m_DebugInfo: {fileID: -58868138146096160}
   m_RuntimeGraph: {fileID: -8081779917219211121}
   AssetID:
