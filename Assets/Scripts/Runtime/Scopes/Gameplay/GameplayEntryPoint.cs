@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Actors.Hero;
-using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.Services.Camera;
 using EndlessHeresy.Runtime.Services.Gameplay.Factory;
 using UnityEngine;
@@ -14,12 +13,16 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
     {
         private readonly IGameplayFactoryService _gameplayFactoryService;
         private readonly ICameraService _cameraService;
+        private readonly Transform _dummiesSpawnPoint;
         private readonly List<MonoActor> _activeActors;
 
-        public GameplayEntryPoint(IGameplayFactoryService gameplayFactoryService, ICameraService cameraService)
+        public GameplayEntryPoint(IGameplayFactoryService gameplayFactoryService,
+            ICameraService cameraService,
+            Transform dummiesSpawnPoint)
         {
             _gameplayFactoryService = gameplayFactoryService;
             _cameraService = cameraService;
+            _dummiesSpawnPoint = dummiesSpawnPoint;
             _activeActors = new List<MonoActor>();
         }
 
@@ -27,7 +30,7 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
         {
             try
             {
-                await CreatDummiesAsync();
+                await CreatDummiesAsync(_dummiesSpawnPoint.position);
                 var hero = await CreateHero();
                 _activeActors.Add(hero);
                 _cameraService.SetTarget(hero.transform);
@@ -52,19 +55,21 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
             return _gameplayFactoryService.CreateHeroAsync(Vector2.zero);
         }
 
-        private async Task CreatDummiesAsync()
+        private async Task CreatDummiesAsync(Vector2 at)
         {
-            await _gameplayFactoryService.CreateDummyAsync(Vector2.zero);
+            const int numberOfDummies = 25;
+            const float radius = 5f;
+            const float angleStep = 360f / numberOfDummies;
 
-            for (var i = 0; i < 25; i++)
+            for (var i = 0; i < numberOfDummies; i++)
             {
-                var isEven = i % 2 == 0;
-                var multiplier = isEven ? 1f : -1f;
-                var posOffset = i * multiplier * 2;
-                var dummy = await _gameplayFactoryService.CreateDummyAsync(Vector2
-                    .zero
-                    .AddX(posOffset)
-                    .AddY(posOffset));
+                var angle = i * angleStep * Mathf.Deg2Rad;
+                var xOffset = Mathf.Cos(angle) * radius;
+                var yOffset = Mathf.Sin(angle) * radius;
+
+                var dummyPosition = at + new Vector2(xOffset, yOffset);
+
+                var dummy = await _gameplayFactoryService.CreateDummyAsync(dummyPosition);
                 _activeActors.Add(dummy);
             }
         }
