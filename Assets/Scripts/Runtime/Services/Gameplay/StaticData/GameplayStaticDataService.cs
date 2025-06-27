@@ -106,7 +106,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
         private async Task LoadDummyConfigurationAsync()
         {
             _punchingDummyConfiguration =
-                await _assetsService.Load<PunchingDummyConfiguration>(GameplayStaticDataKeys.PunchingDummy);
+                await _assetsService.Load<PunchingDummyConfiguration>(GameplayStaticDataKeys.Dummy);
         }
 
         private async Task LoadHeroConfigurationAsync()

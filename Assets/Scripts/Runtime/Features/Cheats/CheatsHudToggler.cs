@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Inventory;
+using EndlessHeresy.Runtime.StatusEffects;
 using EndlessHeresy.Runtime.UI.Huds.Cheats;
 using EndlessHeresy.Runtime.UI.Services.Cheats;
 using UnityEngine.InputSystem;
@@ -10,9 +11,10 @@ namespace EndlessHeresy.Runtime.Cheats
     public sealed class CheatsHudToggler : PocoComponent
     {
         private readonly ICheatsService _cheatsService;
+        private InventoryComponent _inventory;
+        private StatusEffectsComponent _statusEffects;
         private readonly InputAction _inputAction;
         private bool _isCheatsEnabled;
-        private InventoryComponent _inventory;
 
         public CheatsHudToggler(ICheatsService cheatsService, InputAction inputAction)
         {
@@ -23,6 +25,7 @@ namespace EndlessHeresy.Runtime.Cheats
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
             _inventory = Owner.GetComponent<InventoryComponent>();
+            _statusEffects = Owner.GetComponent<StatusEffectsComponent>();
             _inputAction.performed += OnActionPerformed;
             return Task.CompletedTask;
         }
@@ -39,7 +42,7 @@ namespace EndlessHeresy.Runtime.Cheats
 
             if (_isCheatsEnabled)
             {
-                _cheatsService.Show(new CheatsHudModel(_inventory));
+                _cheatsService.Show(new CheatsHudModel(_inventory, _statusEffects));
             }
             else
             {

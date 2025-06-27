@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace EndlessHeresy.Runtime.Vfx
+namespace EndlessHeresy.Runtime.Trails
 {
     public sealed class TrailsSpawnerComponent : PocoComponent
     {

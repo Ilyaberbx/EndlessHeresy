@@ -12,14 +12,21 @@ namespace EndlessHeresy.Runtime.UI.Huds.Cheats
     {
         [SerializeField] private TMP_Dropdown _itemsDropdown;
         [SerializeField] private Button _addItemButton;
+        [SerializeField] private TMP_Dropdown _statusEffectsDropdown;
+        [SerializeField] private Button _addStatusEffectButton;
         private int _selectedItemOptionIndex;
-
+        private int _selectedStatusEffectIndex;
 
         protected override void Initialize(CheatsHudViewModel viewModel)
         {
             viewModel.AvailableItemsProperty
                 .ObserveAddWithInitial()
                 .Subscribe(OnAvailableItemAdded)
+                .AddTo(CompositeDisposable);
+
+            viewModel.AvailableStatusEffectsProperty
+                .ObserveAddWithInitial()
+                .Subscribe(OnAvailableStatusEffectAdded)
                 .AddTo(CompositeDisposable);
 
             _addItemButton.onClick
@@ -31,6 +38,16 @@ namespace EndlessHeresy.Runtime.UI.Huds.Cheats
                 .AsObservable()
                 .Subscribe(OnItemOptionSelected)
                 .AddTo(CompositeDisposable);
+
+            _addStatusEffectButton.onClick
+                .AsObservable()
+                .Subscribe(OnAddStatusEffectButtonClicked)
+                .AddTo(CompositeDisposable);
+
+            _statusEffectsDropdown.onValueChanged
+                .AsObservable()
+                .Subscribe(OnStatusEffectOptionSelected)
+                .AddTo(CompositeDisposable);
         }
 
         private void OnAvailableItemAdded(CollectionAddEvent<ItemType> addEvent)
@@ -41,14 +58,32 @@ namespace EndlessHeresy.Runtime.UI.Huds.Cheats
             });
         }
 
+        private void OnAvailableStatusEffectAdded(CollectionAddEvent<StatusEffectType> addEvent)
+        {
+            _statusEffectsDropdown.options.Add(new TMP_Dropdown.OptionData()
+            {
+                text = addEvent.Value.ToString()
+            });
+        }
+
         private void OnAddItemButtonClicked(Unit unit)
         {
             ViewModel.AddItem(_selectedItemOptionIndex);
         }
 
+        private void OnAddStatusEffectButtonClicked(Unit unit)
+        {
+            ViewModel.AddStatusEffect(_selectedStatusEffectIndex);
+        }
+
         private void OnItemOptionSelected(int index)
         {
             _selectedItemOptionIndex = index;
+        }
+
+        private void OnStatusEffectOptionSelected(int index)
+        {
+            _selectedStatusEffectIndex = index;
         }
     }
 }

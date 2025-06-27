@@ -2,7 +2,7 @@ using System;
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Data.Operational;
 using EndlessHeresy.Runtime.Generic;
-using EndlessHeresy.Runtime.Vfx;
+using EndlessHeresy.Runtime.Trails;
 using Unity.Behavior;
 using Unity.Properties;
 using UnityEngine;

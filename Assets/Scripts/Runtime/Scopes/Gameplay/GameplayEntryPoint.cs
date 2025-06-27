@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Better.Commons.Runtime.Extensions;
-using EndlessHeresy.Runtime.Actors;
 using EndlessHeresy.Runtime.Actors.Hero;
-using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Extensions;
 using EndlessHeresy.Runtime.Services.Camera;
 using EndlessHeresy.Runtime.Services.Gameplay.Factory;
@@ -17,8 +14,7 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
     {
         private readonly IGameplayFactoryService _gameplayFactoryService;
         private readonly ICameraService _cameraService;
-        private HeroActor _hero;
-        private List<MonoActor> _activeActors;
+        private readonly List<MonoActor> _activeActors;
 
         public GameplayEntryPoint(IGameplayFactoryService gameplayFactoryService, ICameraService cameraService)
         {
@@ -32,9 +28,9 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
             try
             {
                 await CreatDummiesAsync();
-                _hero = await CreateHero();
-                _activeActors.Add(_hero);
-                _cameraService.SetTarget(_hero.transform);
+                var hero = await CreateHero();
+                _activeActors.Add(hero);
+                _cameraService.SetTarget(hero.transform);
             }
             catch (Exception e)
             {

@@ -15,7 +15,7 @@ using EndlessHeresy.Runtime.Movement;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using EndlessHeresy.Runtime.Stats;
 using EndlessHeresy.Runtime.StatusEffects;
-using EndlessHeresy.Runtime.Vfx;
+using EndlessHeresy.Runtime.Trails;
 using UnityEngine;
 using VContainer;
 

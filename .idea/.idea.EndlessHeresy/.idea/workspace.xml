@@ -6,17 +6,32 @@
   <component name="ChangeListManager">
     <list default="true" id="c0d6b742-2ad9-436d-90ca-1c81c590f449" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Actors/HeroConfiguration.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/Actors/HeroConfiguration.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Actors/HeroConfiguration.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Actors/HeroConfiguration.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Actors/PunchingDummyConfiguration.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Actors/PunchingDummyConfiguration.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/InventoryItems/InventoryItemConfiguration.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/InventoryItems/InventoryItemConfiguration.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/StatusEffects/BurningStatusEffect.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/StatusEffects/BurningStatusEffect.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Huds/CheatsHud.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Huds/CheatsHud.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Identifiers/ItemType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Identifiers/ItemType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/SpawnTrailAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/SpawnTrailAction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Cheats/CheatsHudToggler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Cheats/CheatsHudToggler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Health/HealthComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Health/HealthComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Vfx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Trails.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Vfx/HealthChangesMessages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Health/HealthChangesMessages.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Vfx/HealthChangesMessages.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Health/HealthChangesMessages.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Vfx/TrailsSpawnerComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Trails/TrailsSpawnerComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Vfx/TrailsSpawnerComponent.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Trails/TrailsSpawnerComponent.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Scopes/Gameplay/GameplayEntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Scopes/Gameplay/GameplayEntryPoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/Factory/GameplayFactoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/Factory/GameplayFactoryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/StaticData/GameplayStaticDataKeys.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/StaticData/GameplayStaticDataKeys.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/StaticData/GameplayStaticDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/StaticData/GameplayStaticDataService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats/CheatsHudModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats/CheatsHudModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats/CheatsHudView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats/CheatsHudView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats/CheatsHudViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats/CheatsHudViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Cheats/CheatsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Cheats/CheatsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Cheats/ICheatsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Cheats/ICheatsService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Actors/Hero_StateMachine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Actors/Hero_StateMachine.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Controls/GameActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Controls/GameActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Controls/GameActions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Controls/GameActions.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Scenes/Core.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Scenes/Core.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Prefabs/PunchingDummy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Prefabs/PunchingDummy.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,13 +170,15 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="18520">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="18520" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -213,6 +230,19 @@
           <line>39</line>
           <properties documentPath="D:\EndlessHeresy\Assets\Scripts\Runtime\Features\Behaviour\Injectors\BlackboardInjector.cs" containingFunctionPresentation="Method 'Awake'" />
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Stats/Stat.cs</url>
+          <line>70</line>
+          <properties documentPath="D:\EndlessHeresy\Assets\Scripts\Runtime\Features\Stats\Stat.cs" containingFunctionPresentation="Method 'GetProcessedValue'">
+            <startOffsets>
+              <option value="2088" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2117" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

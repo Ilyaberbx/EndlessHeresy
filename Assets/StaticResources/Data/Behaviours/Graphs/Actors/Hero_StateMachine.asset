@@ -176,7 +176,7 @@ MonoBehaviour:
           rid: 719119689330983348
         m_EndedNodes:
           rid: 719119689330983349
-        m_VersionTimestamp: 638866595223409372
+        m_VersionTimestamp: 638866651709780412
     - rid: 719119689330983346
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -647,7 +647,7 @@ MonoBehaviour:
   - rid: 719119668765524125
   - rid: 719119668765524329
   - rid: 719119668765524540
-  m_VersionTimestamp: 638866595223409372
+  m_VersionTimestamp: 638866651709890418
   m_DebugInfo: {fileID: -58868138146096160}
   m_RuntimeGraph: {fileID: -8081779917219211121}
   AssetID:
@@ -1606,8 +1606,8 @@ MonoBehaviour:
         - rid: 719119620110549857
         - rid: 719119620110549858
         NodeType:
-          m_SerializableType: Unity.Behavior.RunSubgraphDynamic, Unity.Behavior,
-            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          m_SerializableType: Unity.Behavior.RunSubgraph, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
         NodeTypeID:
           m_Value0: 9965463903622711961
           m_Value1: 5344335246744595133

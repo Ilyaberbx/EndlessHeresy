@@ -6,7 +6,6 @@ using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Stats;
 using EndlessHeresy.Runtime.Stats.Modifiers;
 using UniRx;
-using Unity.VisualScripting;
 
 namespace EndlessHeresy.Runtime.Health
 {
@@ -49,16 +48,6 @@ namespace EndlessHeresy.Runtime.Health
         private void OnHealthReachedZero(float value)
         {
             OnHealthDepleted?.Invoke();
-        }
-
-        public void Heal(float value)
-        {
-            if (IsDead())
-            {
-                return;
-            }
-
-            _healthStat.AddModifier(new StatModifier(value, ModifierType.Flat));
         }
     }
 }

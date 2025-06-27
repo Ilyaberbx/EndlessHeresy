@@ -3,13 +3,12 @@ using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Data.Operational;
 using EndlessHeresy.Runtime.Data.Static.Components;
-using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Services.FloatingMessages;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using UniRx;
 using UnityEngine;
 
-namespace EndlessHeresy.Runtime.Vfx
+namespace EndlessHeresy.Runtime.Health
 {
     public sealed class HealthChangesMessages : PocoComponent
     {
