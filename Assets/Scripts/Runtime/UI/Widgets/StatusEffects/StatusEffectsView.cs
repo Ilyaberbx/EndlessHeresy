@@ -9,7 +9,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.StatusEffects
 {
     public sealed class StatusEffectsView : BaseView<StatusEffectsViewModel>
     {
-        [SerializeField] private CollectionView<StatusEffectItemView> _itemsView;
+        [SerializeField] private DynamicCollectionView<StatusEffectItemView> _itemsView;
 
         protected override void Initialize(StatusEffectsViewModel viewModel)
         {

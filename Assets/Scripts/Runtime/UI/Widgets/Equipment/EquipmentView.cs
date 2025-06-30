@@ -10,7 +10,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Equipment
 {
     public sealed class EquipmentView : BaseView<EquipmentViewModel>
     {
-        [SerializeField] private CollectionView<EquipmentItemSlotView> _slotsView;
+        [SerializeField] private DynamicCollectionView<EquipmentItemSlotView> _slotsView;
         [SerializeField] private ViewFactory<EquipmentItemView> _itemsFactory;
 
         protected override void Initialize(EquipmentViewModel viewModel)

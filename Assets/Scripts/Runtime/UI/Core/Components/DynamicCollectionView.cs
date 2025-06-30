@@ -7,7 +7,7 @@ using UnityEngine;
 namespace EndlessHeresy.Runtime.UI.Core.Components
 {
     [Serializable]
-    public sealed class CollectionView<TView> : IEnumerable<TView> where TView : BaseView
+    public sealed class DynamicCollectionView<TView> : IEnumerable<TView> where TView : BaseView
     {
         [SerializeField] private ViewFactory<TView> _factory;
         [SerializeField] private Transform _container;

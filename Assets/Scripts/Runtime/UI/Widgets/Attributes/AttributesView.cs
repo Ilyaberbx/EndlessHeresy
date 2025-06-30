@@ -9,7 +9,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Attributes
 {
     public sealed class AttributesView : BaseView<AttributesViewModel>
     {
-        [SerializeField] private CollectionView<AttributeItemView> _itemsView;
+        [SerializeField] private DynamicCollectionView<AttributeItemView> _itemsView;
 
         protected override void Initialize(AttributesViewModel viewModel)
         {

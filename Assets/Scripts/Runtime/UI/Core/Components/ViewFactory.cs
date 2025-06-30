@@ -5,8 +5,14 @@ using Object = UnityEngine.Object;
 
 namespace EndlessHeresy.Runtime.UI.Core.Components
 {
+    public interface IViewFactory<TView> where TView : BaseView
+    {
+        TView CreateView(Transform container);
+        void DestroyView(TView view);
+    }
+
     [Serializable]
-    public class ViewFactory<TView> where TView : BaseView
+    public class ViewFactory<TView> : IViewFactory<TView> where TView : BaseView
     {
         [SerializeField] private TView _itemPrefab;
 
