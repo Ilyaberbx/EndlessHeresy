@@ -7,13 +7,18 @@ using UnityEngine;
 namespace EndlessHeresy.Runtime.Data.Static.Commands.Installers
 {
     [Serializable]
-    public sealed class ReceiveDamageInstaller : ICommandInstaller
+    public sealed class ReceiveDamageInstaller : UndoableCommandInstaller
     {
         [SerializeField] private DamageData _data;
 
-        public ICommand GetCommand()
+        public override IUndoableCommand GetUndoableCommand()
         {
             return new ReceiveDamageCommand(_data);
+        }
+
+        public override ICommand GetCommand()
+        {
+            return GetUndoableCommand();
         }
     }
 }

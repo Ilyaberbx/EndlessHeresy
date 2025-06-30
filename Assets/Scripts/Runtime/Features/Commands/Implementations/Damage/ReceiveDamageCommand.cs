@@ -1,9 +1,10 @@
-﻿using EndlessHeresy.Runtime.Data.Static.Components;
+﻿using EndlessHeresy.Runtime.Commands.Healing;
+using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Health;
 
 namespace EndlessHeresy.Runtime.Commands.Damage
 {
-    public sealed class ReceiveDamageCommand : IActorCommand
+    public sealed class ReceiveDamageCommand : IActorCommand, IUndoableCommand
     {
         private readonly DamageData _data;
         private IActor _actor;
@@ -26,6 +27,12 @@ namespace EndlessHeresy.Runtime.Commands.Damage
             }
 
             health.TakeDamage(_data);
+        }
+
+        public ICommand GetUndoCommand()
+        {
+            var value = _data.Value;
+            return new HealCommand(value);
         }
 
         public void Setup(IActor actor)

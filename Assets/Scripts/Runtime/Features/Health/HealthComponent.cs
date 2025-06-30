@@ -49,5 +49,15 @@ namespace EndlessHeresy.Runtime.Health
         {
             OnHealthDepleted?.Invoke();
         }
+
+        public void Heal(float value)
+        {
+            if (IsDead())
+            {
+                return;
+            }
+
+            _healthStat.AddModifier(new StatModifier(value, ModifierType.Flat));
+        }
     }
 }
