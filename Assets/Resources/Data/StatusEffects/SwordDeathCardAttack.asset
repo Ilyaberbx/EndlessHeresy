@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8049780506344ab1b1f44774ccfc9f01, type: 3}
   m_Name: SwordDeathCardAttack
   m_EditorClassIdentifier: 
-  _classIdentifier: 0
+  _classIdentifier: 1
   _identifier: 0
   _icon: {fileID: 0}
   _behaviourData:
