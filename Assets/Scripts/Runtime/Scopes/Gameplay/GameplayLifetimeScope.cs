@@ -17,11 +17,12 @@ namespace EndlessHeresy.Runtime.Scopes.Gameplay
         [SerializeField] private Camera _camera;
         [SerializeField] private CinemachineVirtualCameraBase _followCamera;
         [SerializeField] private Transform _floatingMessageContainer;
-
+        [SerializeField] private Transform _dummiesSpawnPoint;
 
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.RegisterEntryPoint<GameplayEntryPoint>();
+            builder.RegisterEntryPoint<GameplayEntryPoint>()
+                .WithParameter(_dummiesSpawnPoint);
             builder.RegisterEntryPoint<GameplayStaticDataService>();
             builder.RegisterEntryPoint<GameplayFactoryService>();
             builder.Register<ICameraService, CameraService>(Lifetime.Singleton)
