@@ -2,6 +2,7 @@
 using EndlessHeresy.Runtime.Commands.Healing;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Health;
+using Unity.VisualScripting;
 
 namespace EndlessHeresy.Runtime.Commands.Damage
 {
@@ -17,7 +18,7 @@ namespace EndlessHeresy.Runtime.Commands.Damage
 
         public void Execute()
         {
-            if (_actor.IsNullable())
+            if (_actor.IsUnityNull())
             {
                 return;
             }
