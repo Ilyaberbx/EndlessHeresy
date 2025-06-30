@@ -17,18 +17,16 @@ MonoBehaviour:
   _name: Witchers Dagger
   _description: Increases Vitality
   _installers:
-  - rid: 719119751504199788
+  - rid: 719119777427357906
   references:
     version: 2
     RefIds:
-    - rid: 719119751504199788
-      type: {class: UsableItemInstaller, ns: EndlessHeresy.Runtime.Data.Static.Inventory.Installers, asm: Assembly-CSharp}
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 719119777427357906
+      type: {class: EquipableItemInstaller, ns: EndlessHeresy.Runtime.Data.Static.Inventory.Installers, asm: Assembly-CSharp}
       data:
-        _commandInstaller:
-          rid: 719119751504199789
-    - rid: 719119751504199789
-      type: {class: AddAttributeModifierInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
-      data:
-        _data:
-          _identifier: 1
-          _value: 5
+        _slotsMutations:
+        - _identifier: 0
+          _undoableCommandInstaller:
+            rid: -2

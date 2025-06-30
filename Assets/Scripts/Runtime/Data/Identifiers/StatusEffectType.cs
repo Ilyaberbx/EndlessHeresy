@@ -3,8 +3,5 @@
     public enum StatusEffectType
     {
         None,
-        Burning,
-        Healing,
-        PermanentDeceleration
     }
 }

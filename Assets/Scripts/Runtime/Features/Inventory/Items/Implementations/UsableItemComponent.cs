@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using EndlessHeresy.Runtime.Commands;
+﻿using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Inventory.Items.Abstractions;
 
 namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
