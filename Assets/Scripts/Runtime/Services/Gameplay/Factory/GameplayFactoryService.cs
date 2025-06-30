@@ -55,6 +55,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<HealthChangesMessages>()
                 .WithComponent<AttributesComponent>(configuration.DefaultAttributes)
                 .WithComponent<InventoryComponent>(configuration.MaxInventorySize)
+                .WithComponent<AbilitiesHudActivator>()
                 .WithComponent<AbilitiesStorageComponent>(configuration.AbilityConfigurations)
                 .WithComponent<AbilitiesCastComponent>(configuration.StatesChangeChannel,
                     configuration.AbilityUsageFinishedChannel,

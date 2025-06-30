@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CrescentStrike
   m_EditorClassIdentifier: 
   _identifier: 2
-  _icon: {fileID: 21300000, guid: de2cc86fdcd2f69439c8b98ebc3efcc4, type: 3}
+  _icon: {fileID: 21300000, guid: f9b14d4a69b248747ab074ad54014146, type: 3}
   _description: 
   _name: 
-  _cooldown: 0
+  _cooldown: 4
   _graph: {fileID: 2705378556292740696, guid: d3be218282211d34480f084bc77d84cb, type: 2}

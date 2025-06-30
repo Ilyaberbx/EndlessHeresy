@@ -1,19 +1,23 @@
-﻿using EndlessHeresy.Runtime.Commands;
-using EndlessHeresy.Runtime.Data.Identifiers;
-using EndlessHeresy.Runtime.Data.Static.Commands.Installers;
+﻿using EndlessHeresy.Runtime.Data.Identifiers;
 using UniRx;
-using VContainer;
 
 namespace EndlessHeresy.Runtime.Abilities
 {
     public sealed class Ability
     {
         private ReactiveProperty<AbilityState> _state;
-        private float _cooldown;
-        private float _elapsedTime;
+        private readonly ReactiveProperty<float> _elapsedCooldownTime;
         public AbilityType Identifier { get; private set; }
         public IReadOnlyReactiveProperty<AbilityState> State { get; private set; }
-        public bool HasCooldown => _cooldown != 0;
+        public IReadOnlyReactiveProperty<float> ElapsedCooldownTime { get; private set; }
+        public float Cooldown { get; private set; }
+        public bool HasCooldown => Cooldown != 0;
+
+        public Ability()
+        {
+            _elapsedCooldownTime = new ReactiveProperty<float>();
+            ElapsedCooldownTime = _elapsedCooldownTime.ToReadOnlyReactiveProperty();
+        }
 
         public void WithIdentifier(AbilityType identifier)
         {
@@ -28,7 +32,7 @@ namespace EndlessHeresy.Runtime.Abilities
 
         public void WithCooldown(float cooldown)
         {
-            _cooldown = cooldown;
+            Cooldown = cooldown;
         }
 
         public void SetState(AbilityState state)
@@ -37,18 +41,18 @@ namespace EndlessHeresy.Runtime.Abilities
 
             if (state == AbilityState.Cooldown)
             {
-                _elapsedTime = 0;
+                _elapsedCooldownTime.Value = 0;
             }
         }
 
         public void TickCooldown(float deltaTime)
         {
-            _elapsedTime += deltaTime;
+            _elapsedCooldownTime.Value += deltaTime;
 
-            if (_elapsedTime >= _cooldown)
+            if (_elapsedCooldownTime.Value >= Cooldown)
             {
                 SetState(AbilityState.Ready);
-                _elapsedTime = 0;
+                _elapsedCooldownTime.Value = 0;
             }
         }
 
