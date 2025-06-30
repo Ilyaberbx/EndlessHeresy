@@ -2,6 +2,7 @@
 {
     public enum EquipmentSlotType
     {
+        None,
         Attack,
         Special,
         Dash,

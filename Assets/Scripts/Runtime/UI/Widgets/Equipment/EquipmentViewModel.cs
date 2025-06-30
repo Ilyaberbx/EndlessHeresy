@@ -40,7 +40,7 @@ namespace EndlessHeresy.Runtime.UI.Widgets.Equipment
         private void UpdateActiveSlotsSizeProperty(EquipmentModel model)
         {
             var stats = model.Owner.GetComponent<StatsComponent>();
-            var activeEquipmentSlotsStat = stats.GetStat(StatType.ActiveEquipmentSlots);
+            var activeEquipmentSlotsStat = new Stat(0f, StatType.Evasion);
             ActiveSlotsSizeProperty = activeEquipmentSlotsStat.ProcessedValueProperty;
         }
 

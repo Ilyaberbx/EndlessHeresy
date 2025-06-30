@@ -3,7 +3,6 @@ using System.Linq;
 using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Inventory.Items.Abstractions;
-using EndlessHeresy.Runtime.Stats;
 using UniRx;
 
 namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
@@ -16,55 +15,34 @@ namespace EndlessHeresy.Runtime.Inventory.Items.Implementations
         {
             _commandBySlot = commandBySlot;
             IsEquipped = new ReactiveProperty<bool>(false);
+            OccupiedSlot = new ReactiveProperty<EquipmentSlotType>(EquipmentSlotType.None);
         }
 
         public IReactiveProperty<bool> IsEquipped { get; }
+        public IReactiveProperty<EquipmentSlotType> OccupiedSlot { get; }
 
         public bool TryEquip(IActor actor, EquipmentSlotType slotIdentifier)
         {
-            var inventory = actor.GetComponent<InventoryComponent>();
-            var commandsInvoker = actor.GetComponent<CommandsInvokerComponent>();
-
-            var activeSlots = actor
-                .GetComponent<StatsComponent>()
-                .GetStat(StatType.ActiveEquipmentSlots)
-                .ProcessedValueProperty
-                .Value;
-
-            var occupiedSlots = GetOccupiedSlots(inventory);
-            if (occupiedSlots >= activeSlots)
+            if (!actor.TryGetComponent<InventoryComponent>(out var inventory))
             {
                 return false;
             }
 
-            var command = _commandBySlot[slotIdentifier];
-            commandsInvoker.Execute(command);
-            IsEquipped.Value = true;
+            var items = inventory.Items;
+            var isOccupied = IsOccupied(slotIdentifier, items);
+
             return true;
         }
 
         public void Unequip(IActor actor, EquipmentSlotType slotIdentifier)
         {
-            var commandsInvoker = actor.GetComponent<CommandsInvokerComponent>();
-
-            if (IsEquipped.Value == false)
-            {
-                return;
-            }
-
-            var command = _commandBySlot[slotIdentifier];
-
-            commandsInvoker.Execute(command.GetUndoCommand());
-
-            IsEquipped.Value = false;
         }
 
-        private static int GetOccupiedSlots(InventoryComponent inventory)
+        private static bool IsOccupied(EquipmentSlotType slotIdentifier, IReadOnlyReactiveCollection<ItemRoot> items)
         {
-            return inventory
-                .Items
-                .Count(temp =>
-                    temp.Components.OfType<EquipableItemComponent>().Any(equipable => equipable.IsEquipped.Value));
+            return items
+                .Count(root => root.Components.OfType<EquipableItemComponent>()
+                    .Any(x => x.OccupiedSlot.Value == slotIdentifier)) == 0;
         }
     }
 }

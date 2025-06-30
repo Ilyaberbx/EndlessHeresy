@@ -14,14 +14,18 @@ namespace EndlessHeresy.Runtime.StatusEffects
         IRootHandler
     {
         private readonly IObjectResolver _resolver;
+        private readonly int _maxStacks;
         private readonly StatusEffectBehaviourData[] _behavioursData;
         private readonly IList<StatusEffectRoot> _activeEffects;
         private StatusEffectRoot _root;
         public IReactiveProperty<int> StackCountProperty { get; }
 
-        public StackableEffectComponent(IObjectResolver resolver, StatusEffectBehaviourData[] behavioursData)
+        public StackableEffectComponent(IObjectResolver resolver,
+            int maxStacks,
+            StatusEffectBehaviourData[] behavioursData)
         {
             _resolver = resolver;
+            _maxStacks = maxStacks;
             _behavioursData = behavioursData;
             _activeEffects = new List<StatusEffectRoot>();
             StackCountProperty = new ReactiveProperty<int>(0);
@@ -29,6 +33,7 @@ namespace EndlessHeresy.Runtime.StatusEffects
 
         public void Initialize(StatusEffectRoot root) => _root = root;
         public void Apply(StatsComponent stats) => AddStack(stats);
+
         public void Remove(StatsComponent stats)
         {
             foreach (var effect in _activeEffects)
@@ -42,14 +47,15 @@ namespace EndlessHeresy.Runtime.StatusEffects
 
         private void AddStack(StatsComponent stats)
         {
-            var newStackIndex = _activeEffects.Count;
-
-            if (newStackIndex >= _behavioursData.Length)
+            var newStack = _activeEffects.Count;
+            if (newStack >= _maxStacks)
             {
                 return;
             }
 
-            var data = _behavioursData[newStackIndex];
+            var behavioursLength = _behavioursData.Length;
+            var behaviourIndex = newStack % behavioursLength;
+            var data = _behavioursData[behaviourIndex];
             var builder = new StatusEffectBuilder(_resolver);
 
             foreach (var installer in data.Installers)

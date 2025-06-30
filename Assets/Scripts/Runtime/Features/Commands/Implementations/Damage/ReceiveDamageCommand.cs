@@ -1,4 +1,5 @@
-﻿using EndlessHeresy.Runtime.Commands.Healing;
+﻿using Better.Commons.Runtime.Extensions;
+using EndlessHeresy.Runtime.Commands.Healing;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Health;
 
@@ -16,7 +17,7 @@ namespace EndlessHeresy.Runtime.Commands.Damage
 
         public void Execute()
         {
-            if (_actor == null)
+            if (_actor.IsNullable())
             {
                 return;
             }

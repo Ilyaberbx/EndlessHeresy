@@ -25,6 +25,7 @@ MonoBehaviour:
     - rid: 719119689330983410
       type: {class: StackableEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers, asm: Assembly-CSharp}
       data:
+        _maxStacks: 10
         _behavioursData:
         - _installers:
           - rid: 719119689330983411

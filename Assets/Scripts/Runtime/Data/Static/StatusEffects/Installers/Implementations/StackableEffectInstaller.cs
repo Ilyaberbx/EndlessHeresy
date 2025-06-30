@@ -9,11 +9,12 @@ namespace EndlessHeresy.Runtime.Data.Static.StatusEffects.Installers
     [Serializable]
     public sealed class StackableEffectInstaller : StatusEffectComponentInstaller
     {
+        [SerializeField] private int _maxStacks;
         [SerializeField] private StatusEffectBehaviourData[] _behavioursData;
 
         public override void Install(StatusEffectBuilder builder)
         {
-            builder.WithComponent<StackableEffectComponent>(_behavioursData);
+            builder.WithComponent<StackableEffectComponent>(_maxStacks, _behavioursData);
         }
     }
 }
