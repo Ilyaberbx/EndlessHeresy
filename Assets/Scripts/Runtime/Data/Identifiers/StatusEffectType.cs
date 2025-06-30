@@ -3,5 +3,31 @@
     public enum StatusEffectType
     {
         None,
+        DyingCreature,
+        Break,
+        Ill,
+        Bash,
+        WitchersDagger,
+        DanzigBrew,
+        SwornDeathAttack,
+        SwordDeathDash,
+        SwordDeathSpecial,
+        SwordDeathPassive,
+        SwordDeathUsable,
+        CurseAmplificationAttack,
+        CurseAmplificationSpecial,
+        ClownsPurseCursed,
+        ClownsPurseExorcism,
+        ClownsPurseWitchcraft,
+        ClownsPurseMalaise,
+        ClownsPursePhysical,
+        ClownsPursePure,
+        HoarderNickelBackAttack,
+        HoarderNickelBackDash,
+        HoarderNickelBackSpecial,
+        HoarderNickelBackPassive,
+        HoarderNickelBackUsable,
+        RegenerationPotion,
+        FinalBlessing
     }
 }
