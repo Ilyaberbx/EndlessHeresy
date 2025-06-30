@@ -4,9 +4,9 @@ using Unity.Behavior;
 using Unity.Properties;
 using UnityEngine;
 
-#if UNITY_EDITOR
 namespace EndlessHeresy.Runtime.Behaviour.Events
 {
+#if UNITY_EDITOR
     [CreateAssetMenu(menuName = "Behavior/Event Channels/OnAbilityUsageFinished")]
 #endif
     [Serializable, GeneratePropertyBag]

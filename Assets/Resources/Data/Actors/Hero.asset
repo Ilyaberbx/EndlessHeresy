@@ -19,6 +19,7 @@ MonoBehaviour:
   _abilityUsageFinishedChannel: {fileID: 11400000, guid: c99c6bf007ce5dc4ebe5735babb3fe73, type: 2}
   _movementInputData: {fileID: -8330231883765023393, guid: b80d4ad9ee061074ebc958823adb72df, type: 3}
   _toggleCheatsInputData: {fileID: 6938906929425221498, guid: b80d4ad9ee061074ebc958823adb72df, type: 3}
+  _toggleInventoryInputData: {fileID: 7078977810520106688, guid: b80d4ad9ee061074ebc958823adb72df, type: 3}
   _abilitiesInputData:
   - _actionReference: {fileID: -6809406479525104559, guid: b80d4ad9ee061074ebc958823adb72df, type: 3}
     _actionPhase: 4

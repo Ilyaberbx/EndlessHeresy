@@ -38,5 +38,10 @@ namespace EndlessHeresy.Runtime.UI.Services.Modals
         {
             _manager.HideAll();
         }
+
+        public void HideAllOfType<TViewModel>() where TViewModel : BaseViewModel
+        {
+            _manager.HideAllOfType<TViewModel>();
+        }
     }
 }

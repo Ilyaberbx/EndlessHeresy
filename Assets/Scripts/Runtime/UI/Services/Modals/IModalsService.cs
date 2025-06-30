@@ -12,5 +12,6 @@ namespace EndlessHeresy.Runtime.UI.Services.Modals
 
         void UpdateFactory(IViewModelFactory factory);
         void HideAll();
+        public void HideAllOfType<TViewModel>() where TViewModel : BaseViewModel;
     }
 }

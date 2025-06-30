@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0d6b742-2ad9-436d-90ca-1c81c590f449" name="Changes" comment="">
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Actors/HeroConfiguration.asset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Actors/HeroConfiguration.asset.meta" beforeDir="false" />
@@ -32,6 +34,34 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats/CheatsHudViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Huds/Cheats/CheatsHudViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Actors/Hero_StateMachine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Actors/Hero_StateMachine.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Prefabs/PunchingDummy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Prefabs/PunchingDummy.prefab" afterDir="false" />
+=======
+=======
+>>>>>>> Stashed changes
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Inventory/InventoryModalToggler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Inventory/InventoryModalToggler.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessHeresy/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Actors/Hero.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/Actors/Hero.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/InventoryItems/InventoryItemConfiguration.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/InventoryItems/InventoryItemConfiguration.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/StatusEffects/Burning.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/StatusEffects/Burning.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/HeroConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Static/HeroConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ExecuteCommandOnTargetsAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Actions/ExecuteCommandOnTargetsAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Events/OnAbilityUsageFinished.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Events/OnAbilityUsageFinished.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Events/OnHeroStateChanged.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Behaviour/Events/OnHeroStateChanged.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/Factory/GameplayFactoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Services/Gameplay/Factory/GameplayFactoryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Core/UILayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Core/UILayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Modals/IModalsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Modals/IModalsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Modals/ModalsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Services/Modals/ModalsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Actors/Hero_StateMachine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Behaviours/Graphs/Actors/Hero_StateMachine.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Controls/GameActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Controls/GameActions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/Controls/GameActions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/Controls/GameActions.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StaticResources/Data/RenderPipeline/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StaticResources/Data/RenderPipeline/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +90,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/596c076cf64746c4b5da79f10d7623fb2f200/bb/86b0a277/CapsuleDirection2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c01a2e87500f4b88b40eba7308bfcbe61df600/7e/300edd70/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e19fb1224222436ca0871ff12e7fb29346ae00/2e/2e32ee75/Dictionary`2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Actors/Hero/HeroActor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Data/Identifiers/AbilityType.cs" root0="FORCE_HIGHLIGHTING" />
@@ -130,7 +161,15 @@
     &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+=======
+    &quot;git-widget-placeholder&quot;: &quot;gamedesign&quot;,
+>>>>>>> Stashed changes
+=======
+    &quot;git-widget-placeholder&quot;: &quot;gamedesign&quot;,
+>>>>>>> Stashed changes
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -141,6 +180,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds\EndlessHeressySuda.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\EndlessHeresy\Builds" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\UnityEditor\6000.0.49f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath D:\EndlessHeresy -debugCodeOptimization" />
@@ -170,10 +217,24 @@
       </option>
       <method v="2" />
     </configuration>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="18520">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" value="18520" />
+=======
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="11440">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="11440" />
+>>>>>>> Stashed changes
+=======
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="11440">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="11440" />
+>>>>>>> Stashed changes
       <option name="projectPathOnTarget" />
       <option name="runtimes">
         <list>
@@ -206,6 +267,8 @@
       <workItem from="1751022824763" duration="615000" />
       <workItem from="1751032691341" duration="1889000" />
       <workItem from="1751049791935" duration="3179000" />
+      <workItem from="1751141904875" duration="221000" />
+      <workItem from="1751182595348" duration="1313000" />
     </task>
     <servers />
   </component>
@@ -230,19 +293,6 @@
           <line>39</line>
           <properties documentPath="D:\EndlessHeresy\Assets\Scripts\Runtime\Features\Behaviour\Injectors\BlackboardInjector.cs" containingFunctionPresentation="Method 'Awake'" />
           <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Features/Stats/Stat.cs</url>
-          <line>70</line>
-          <properties documentPath="D:\EndlessHeresy\Assets\Scripts\Runtime\Features\Stats\Stat.cs" containingFunctionPresentation="Method 'GetProcessedValue'">
-            <startOffsets>
-              <option value="2088" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2117" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

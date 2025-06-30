@@ -29,13 +29,12 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
             {
                 if (!actor.TryGetComponent<CommandsInvokerComponent>(out var commandsInvoker))
                 {
-                    return Status.Failure;
+                    continue;
                 }
 
                 var commandAsset = Command.Value;
                 var command = commandAsset.GetCommand();
                 commandsInvoker.Execute(command);
-                return Status.Success;
             }
 
             return Status.Success;

@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d424d9631a1f49a7a7606e05717aac88, type: 3}
-  m_Name: InventoryItemConfiguration
+  m_Name: Sword Death Card
   m_EditorClassIdentifier: 
-  _identifier: 1
-  _icon: {fileID: 21300000, guid: 64200391029fe2448bce304173b44dbe, type: 3}
-  _name: Witchers Dagger
-  _description: Increases Vitality
+  _identifier: 2
+  _icon: {fileID: 21300000, guid: 93d756ddfa4dd2b448ee04a4c2eaf250, type: 3}
+  _name: Sword Death Card
+  _description: Applying healing status effect
   _installers:
   - rid: 719119751504199788
+  - rid: 719119751504199791
   references:
     version: 2
     RefIds:
@@ -25,10 +26,12 @@ MonoBehaviour:
       type: {class: UsableItemInstaller, ns: EndlessHeresy.Runtime.Data.Static.Inventory.Installers, asm: Assembly-CSharp}
       data:
         _commandInstaller:
-          rid: 719119751504199789
-    - rid: 719119751504199789
-      type: {class: AddAttributeModifierInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
+          rid: 719119751504199790
+    - rid: 719119751504199790
+      type: {class: ApplyStatusEffectInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
-        _data:
-          _identifier: 1
-          _value: 5
+        _identifier: 2
+    - rid: 719119751504199791
+      type: {class: StackableItemInstaller, ns: EndlessHeresy.Runtime.Data.Static.Inventory.Installers, asm: Assembly-CSharp}
+      data:
+        _stackSize: 3

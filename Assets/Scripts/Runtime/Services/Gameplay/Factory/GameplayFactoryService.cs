@@ -45,6 +45,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<MovementInputController>(configuration.MovementInputData)
                 .WithComponent<HealthComponent>()
                 .WithComponent<CheatsHudToggler>(configuration.ToggleCheatsInputData)
+                .WithComponent<InventoryModalToggler>(configuration.ToggleInventoryInputData)
                 .WithComponent<FacingComponent>()
                 .WithComponent<CommandsInvokerComponent>()
                 .WithComponent<TrailsSpawnerComponent>(configuration.TrailsPoolData.DefaultCapacity,
