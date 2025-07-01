@@ -15,7 +15,7 @@ namespace EndlessHeresy.Runtime.Health
     public sealed class HealthComponent : PocoComponent
     {
         public event Action OnHealthDepleted;
-        public event Action<DamageData> OnTookDamage;
+        public event Action<float, DamageType, bool> OnTookDamage;
 
         private Stat _healthStat;
         private EvasionComponent _evasion;
@@ -48,7 +48,14 @@ namespace EndlessHeresy.Runtime.Health
                 return;
             }
 
-            damageToReceive = FightingUtility.ProcessDamage(attacker, damageToReceive, data.BonusMultiplier);
+
+            var isCritical = false;
+            if (attacker != Owner)
+            {
+                damageToReceive = FightingUtility.ProcessDamage(attacker, damageToReceive, data.BonusMultiplier,
+                    out isCritical);
+            }
+
             damageToReceive = _damageDefense.ApplyDefense(data.Identifier, damageToReceive, out var isAbsorbed);
 
             if (damageToReceive <= 0)
@@ -56,14 +63,18 @@ namespace EndlessHeresy.Runtime.Health
                 return;
             }
 
-            ApplyDamage(damageToReceive, isAbsorbed);
-            OnTookDamage?.Invoke(data);
+            ApplyDamage(damageToReceive, data.Identifier, isAbsorbed, isCritical);
         }
 
-        private void ApplyDamage(float damageToReceive, bool isAbsorbed)
+        private void ApplyDamage(float damageToReceive, DamageType damageIdentifier, bool isAbsorbed, bool isCritical)
         {
             var modifier = new StatModifier(isAbsorbed ? damageToReceive : -damageToReceive, ModifierType.Flat);
             _healthStat.AddModifier(modifier);
+
+            if (!isAbsorbed)
+            {
+                OnTookDamage?.Invoke(damageToReceive, damageIdentifier, isCritical);
+            }
         }
 
         public bool IsDead() => _healthStat.ProcessedValueProperty.Value <= 0;

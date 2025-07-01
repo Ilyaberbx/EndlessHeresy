@@ -40,7 +40,7 @@ namespace EndlessHeresy.Runtime.Defense
 
         private void OnDefendedByImmune()
         {
-            ShowFloatingMessage("Immune!", Color.yellow);
+            ShowFloatingMessage("Immune!", Color.white);
         }
 
         private void ShowFloatingMessage(string message, Color color)

@@ -3,10 +3,13 @@ using DG.Tweening;
 using EndlessHeresy.Runtime.Abilities;
 using EndlessHeresy.Runtime.Actors.Enemies;
 using EndlessHeresy.Runtime.Actors.Hero;
+using EndlessHeresy.Runtime.Affinity;
 using EndlessHeresy.Runtime.Builder;
 using EndlessHeresy.Runtime.Cheats;
 using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Controls;
+using EndlessHeresy.Runtime.Defense;
+using EndlessHeresy.Runtime.Evasion;
 using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Inventory;
@@ -52,6 +55,11 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<StatsComponent>(configuration.DefaultStats)
                 .WithComponent<StatusEffectsComponent>()
                 .WithComponent<HealthChangesMessages>()
+                .WithComponent<DamageDefenseComponent>()
+                .WithComponent<DamageDefenseMessages>()
+                .WithComponent<EvasionComponent>()
+                .WithComponent<EvasionMessages>()
+                .WithComponent<AffinityComponent>()
                 .WithComponent<InventoryComponent>(configuration.MaxInventorySize)
                 .WithComponent<AbilitiesHudActivator>()
                 .WithComponent<AbilitiesStorageComponent>(configuration.AbilityConfigurations)
@@ -71,6 +79,11 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithPosition(at)
                 .WithComponent<HealthComponent>()
                 .WithComponent<StatusEffectsComponent>()
+                .WithComponent<DamageDefenseComponent>()
+                .WithComponent<DamageDefenseMessages>()
+                .WithComponent<EvasionComponent>()
+                .WithComponent<EvasionMessages>()
+                .WithComponent<AffinityComponent>()
                 .WithComponent<HealthChangesMessages>()
                 .WithComponent<CommandsInvokerComponent>()
                 .WithComponent<StatsComponent>(configuration.StatsData)

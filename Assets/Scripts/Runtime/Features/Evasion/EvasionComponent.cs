@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace EndlessHeresy.Runtime.Evasion
 {
-    public sealed class EvasionComponent : MonoComponent
+    public sealed class EvasionComponent : PocoComponent
     {
         public event Action OnDodged;
 
@@ -24,7 +24,7 @@ namespace EndlessHeresy.Runtime.Evasion
         public bool TryDodge()
         {
             var evasionValue = Mathf.Clamp(_evasionStat.ProcessedValueProperty.Value, 0f, 1f);
-            var randomValue = Random.Range(0f, evasionValue);
+            var randomValue = Random.Range(0f, 1f);
             if (evasionValue >= randomValue)
             {
                 OnDodged?.Invoke();

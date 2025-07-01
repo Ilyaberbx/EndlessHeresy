@@ -6,7 +6,7 @@ using EndlessHeresy.Runtime.Data.Identifiers;
 
 namespace EndlessHeresy.Runtime.Defense
 {
-    public sealed class DamageDefenseComponent : MonoComponent
+    public sealed class DamageDefenseComponent : PocoComponent
     {
         public event Action OnDefendedByImmune;
         public event Action OnAbsorbed;

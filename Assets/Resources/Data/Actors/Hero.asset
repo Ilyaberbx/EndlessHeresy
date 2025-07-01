@@ -38,29 +38,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ef791a144caec0b40b914af65ac703c7, type: 2}
   - {fileID: 11400000, guid: f6736ca430f901e489bda67b28626a33, type: 2}
   _defaultStats:
-  - _baseValue: 1000
+  - _baseValue: 1500
     _identifier: 0
-  - _baseValue: 10
+  - _baseValue: 8000
     _identifier: 1
-  - _baseValue: 10
+  - _baseValue: 100
     _identifier: 2
-  - _baseValue: 10
+  - _baseValue: 0.5
     _identifier: 3
-  - _baseValue: 6500
+  - _baseValue: 2
     _identifier: 4
-  - _baseValue: 6
-    _identifier: 18
-  _defaultAttributes:
-  - Identifier: 0
-    Value: 2
-  - Identifier: 1
-    Value: 2
-  - Identifier: 2
-    Value: 2
-  - Identifier: 3
-    Value: 2
-  - Identifier: 4
-    Value: 2
+  - _baseValue: 0.5
+    _identifier: 5
   _prefab: {fileID: 5753913375855388206, guid: 8e2cf937bc869244caf19c5c4dae8fdc, type: 3}
   _maxInventorySize: 30
   _trailsPoolData:
