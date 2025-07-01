@@ -3,8 +3,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.Components;
+using EndlessHeresy.Runtime.Defense;
+using EndlessHeresy.Runtime.Evasion;
 using EndlessHeresy.Runtime.Stats;
 using EndlessHeresy.Runtime.Stats.Modifiers;
+using EndlessHeresy.Runtime.Utilities;
 using UniRx;
 
 namespace EndlessHeresy.Runtime.Health
@@ -15,14 +18,17 @@ namespace EndlessHeresy.Runtime.Health
         public event Action<DamageData> OnTookDamage;
 
         private Stat _healthStat;
-        private StatsComponent _statsComponent;
+        private EvasionComponent _evasion;
+        private DamageDefenseComponent _damageDefense;
 
         public IReadOnlyReactiveProperty<float> CurrentHealthProperty => _healthStat.ProcessedValueProperty;
 
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
-            _statsComponent = Owner.GetComponent<StatsComponent>();
-            _healthStat = _statsComponent.GetStat(StatType.CurrentHealth);
+            _evasion = Owner.GetComponent<EvasionComponent>();
+            _damageDefense = Owner.GetComponent<DamageDefenseComponent>();
+            _healthStat = Owner.GetComponent<StatsComponent>().GetStat(StatType.CurrentHealth);
+
             _healthStat.ProcessedValueProperty.Where(value => value <= 0)
                 .Take(1)
                 .Subscribe(OnHealthReachedZero)
@@ -31,17 +37,33 @@ namespace EndlessHeresy.Runtime.Health
             return Task.CompletedTask;
         }
 
-        public void TakeDamage(DamageData data)
+        public void TakeDamage(DamageData data, IActor attacker)
         {
-            if (IsDead())
+            if (IsDead()) return;
+
+            var damageToReceive = data.Value;
+
+            if (_evasion.TryDodge())
             {
                 return;
             }
 
+            damageToReceive = FightingUtility.ProcessDamage(attacker, damageToReceive, data.BonusMultiplier);
+            damageToReceive = _damageDefense.ApplyDefense(data.Identifier, damageToReceive, out var isAbsorbed);
 
-            var modifier = new StatModifier(-data.Value, ModifierType.Flat);
-            _healthStat.AddModifier(modifier);
+            if (damageToReceive <= 0)
+            {
+                return;
+            }
+
+            ApplyDamage(damageToReceive, isAbsorbed);
             OnTookDamage?.Invoke(data);
+        }
+
+        private void ApplyDamage(float damageToReceive, bool isAbsorbed)
+        {
+            var modifier = new StatModifier(isAbsorbed ? damageToReceive : -damageToReceive, ModifierType.Flat);
+            _healthStat.AddModifier(modifier);
         }
 
         public bool IsDead() => _healthStat.ProcessedValueProperty.Value <= 0;

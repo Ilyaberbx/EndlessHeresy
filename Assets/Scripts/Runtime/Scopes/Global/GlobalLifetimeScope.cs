@@ -2,6 +2,7 @@ using EndlessHeresy.Runtime.Scopes.Global.States.Factory;
 using EndlessHeresy.Runtime.Services.AssetsManagement;
 using EndlessHeresy.Runtime.Services.Global.States;
 using EndlessHeresy.Runtime.Services.Input;
+using EndlessHeresy.Runtime.Services.Randomization;
 using EndlessHeresy.Runtime.Services.Tick;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,6 +24,7 @@ namespace EndlessHeresy.Runtime.Scopes.Global
             builder.Register<GameStatesService>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<GameUpdateService>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<IAssetsService, ResourcesService>(Lifetime.Singleton);
+            builder.RegisterEntryPoint<RandomizationService>();
         }
     }
 }

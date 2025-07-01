@@ -13,12 +13,14 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
 {
     [Serializable, GeneratePropertyBag]
     [NodeDescription(name: "Process Damage On Targets",
-        story: "Process [Damage] [Value] On [Targets] with [SelfActor] and assign to [DamagedTargets]",
+        story:
+        "Process [Damage] [Value] with [BonusMultiplier] On [Targets] On [SelfActor] and assign to [DamagedTargets]",
         category: "Action/EndlessHeresy", id: "91ae0720b7df8e79d4ea430a33fd44ca")]
     public partial class ProcessDamageOnTargetsAction : Action
     {
         [SerializeReference] public BlackboardVariable<DamageType> Damage;
-        [SerializeReference] public BlackboardVariable<int> Value;
+        [SerializeReference] public BlackboardVariable<float> Value;
+        [SerializeReference] public BlackboardVariable<float> BonusMultiplier;
         [SerializeReference] public BlackboardVariable<List<GameObject>> Targets;
         [SerializeReference] public BlackboardVariable<MonoActor> SelfActor;
         [SerializeReference] public BlackboardVariable<List<GameObject>> DamagedTargets;
@@ -28,6 +30,7 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
             var selfActor = SelfActor.Value;
             var damageIdentifier = Damage.Value;
             var value = Value.Value;
+            var bonusMultiplier = BonusMultiplier.Value;
 
             var targetActors = Targets.Value
                 .Where(temp => temp != null)
@@ -62,8 +65,8 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
                 }
 
                 DamagedTargets.Value.Add(targetActor.GameObject);
-                var data = new DamageData(value, damageIdentifier);
-                targetHealth.TakeDamage(data);
+                var data = new DamageData(value, damageIdentifier, bonusMultiplier);
+                targetHealth.TakeDamage(data, selfActor);
             }
 
             return Status.Running;

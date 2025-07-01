@@ -8,6 +8,7 @@
         MaxMana,
         MoveSpeed,
         PhysicalAffinity,
+        Power,
         WitchcraftAffinity,
         ExorcismAffinity,
         MalaiseAffinity,

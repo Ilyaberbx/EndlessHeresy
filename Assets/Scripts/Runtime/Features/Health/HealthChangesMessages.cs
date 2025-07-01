@@ -14,7 +14,7 @@ namespace EndlessHeresy.Runtime.Health
     {
         private const float MessageDuration = 1f;
         private static readonly Color HealColor = Color.green;
-        private static readonly Vector2 MessageOffset = Vector2.up;
+        private static readonly Vector2 MessageFlyDirection = Vector2.up;
 
         private readonly IFloatingMessagesService _floatingMessagesService;
         private readonly IGameplayStaticDataService _staticDataService;
@@ -69,7 +69,7 @@ namespace EndlessHeresy.Runtime.Health
             var query = new ShowFloatingMessageQuery(Owner.Transform.position,
                 message,
                 MessageDuration,
-                color, MessageOffset
+                color, MessageFlyDirection
             );
 
             _floatingMessagesService.ShowAsync(query).Forget();

@@ -6,6 +6,7 @@
         Neutral,
         Strong,
         Immune,
-        Reflect
+        Reflect,
+        Absorb,
     }
 }

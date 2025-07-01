@@ -1,5 +1,4 @@
-﻿using Better.Commons.Runtime.Extensions;
-using EndlessHeresy.Runtime.Commands.Healing;
+﻿using EndlessHeresy.Runtime.Commands.Healing;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Health;
 using Unity.VisualScripting;
@@ -28,7 +27,7 @@ namespace EndlessHeresy.Runtime.Commands.Damage
                 return;
             }
 
-            health.TakeDamage(_data);
+            health.TakeDamage(_data, _actor);
         }
 
         public ICommand GetUndoCommand()
