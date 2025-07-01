@@ -14,7 +14,6 @@ namespace EndlessHeresy.Runtime.Abilities
     public sealed class AbilitiesInputController : PocoComponent
     {
         private readonly AbilityInputData[] _data;
-        private readonly IInputService _inputService;
         private AbilitiesStorageComponent _storage;
         private AbilitiesCastComponent _cast;
         private InputActionPhaseRegistry _inputActionPhaseRegistry;
