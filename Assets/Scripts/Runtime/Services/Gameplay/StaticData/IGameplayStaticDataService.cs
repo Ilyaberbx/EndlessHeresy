@@ -12,7 +12,6 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
         HeroConfiguration HeroConfiguration { get; }
         PunchingDummyConfiguration PunchingDummyConfiguration { get; }
         FloatingMessagesConfiguration FloatingMessagesConfiguration { get; }
-        AttributeItemData GetAttributeData(AttributeType identifier);
         StatusEffectConfiguration GetStatusEffectConfiguration(StatusEffectType identifier);
         DamageColorData GetDamageColorData(DamageType identifier);
         InventoryItemConfiguration GetItemData(ItemType identifier);

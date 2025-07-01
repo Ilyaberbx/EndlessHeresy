@@ -38,6 +38,7 @@ namespace EndlessHeresy.Runtime.Health
                 return;
             }
 
+
             var modifier = new StatModifier(-data.Value, ModifierType.Flat);
             _healthStat.AddModifier(modifier);
             OnTookDamage?.Invoke(data);

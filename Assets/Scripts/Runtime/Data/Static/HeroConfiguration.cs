@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using EndlessHeresy.Runtime.Actors.Hero;
 using EndlessHeresy.Runtime.Behaviour.Events;
-using EndlessHeresy.Runtime.Data.Persistant;
 using EndlessHeresy.Runtime.Data.Static.Abilities;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using Unity.Behavior.GraphFramework;
@@ -22,7 +21,6 @@ namespace EndlessHeresy.Runtime.Data.Static
         [SerializeField] private AbilityInputData[] _abilitiesInputData;
         [SerializeField] private AbilityConfiguration[] _abilityConfigurations;
         [SerializeField] private StatData[] _defaultStats;
-        [SerializeField] private AttributeData[] _defaultAttributes;
         [SerializeField] private HeroActor _prefab;
         [SerializeField, Range(0, 50)] private int _maxInventorySize;
         [SerializeField] private PoolData _trailsPoolData;
@@ -31,7 +29,6 @@ namespace EndlessHeresy.Runtime.Data.Static
         public PoolData TrailsPoolData => _trailsPoolData;
         public int MaxInventorySize => _maxInventorySize;
         public IReadOnlyList<StatData> DefaultStats => _defaultStats;
-        public IReadOnlyList<AttributeData> DefaultAttributes => _defaultAttributes;
         public IReadOnlyList<AbilityConfiguration> AbilityConfigurations => _abilityConfigurations;
         public IReadOnlyList<AbilityInputData> AbilitiesInputData => _abilitiesInputData;
         public InputAction MovementInputData => _movementInputData.action;

@@ -8,7 +8,6 @@ using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Data.Static.Inventory;
 using EndlessHeresy.Runtime.Data.Static.StatusEffects;
 using EndlessHeresy.Runtime.Services.AssetsManagement;
-using Unity.Behavior;
 using VContainer.Unity;
 
 namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
@@ -21,7 +20,6 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
         private FloatingMessagesConfiguration _floatingMessagesConfiguration;
         private StatusEffectConfiguration[] _statusEffectsConfiguration;
         private InventoryItemConfiguration[] _inventoryItemsConfiguration;
-        private AttributesConfiguration _attributesConfiguration;
         private DamageColorsConfiguration _damageColorsConfiguration;
         private AbilityConfiguration[] _abilitiesConfigurations;
         public HeroConfiguration HeroConfiguration => _heroConfiguration;
@@ -40,19 +38,12 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
                     LoadDummyConfigurationAsync(),
                     LoadMessagesConfigurationAsync(),
                     LoadStatusEffectsConfigurationAsync(),
-                    LoadAttributesConfigurationAsync(),
                     LoadDamageColorsConfigurationAsync(),
-                    LoadAttributesConfigurationAsync(),
                     LoadInventoryItemsConfigurationAsync(),
                     LoadAbilitiesConfigurationAsync())
                 .Forget();
         }
-
-        public AttributeItemData GetAttributeData(AttributeType identifier)
-        {
-            return _attributesConfiguration.Data.FirstOrDefault(temp => temp.Identifier == identifier);
-        }
-
+        
         public StatusEffectConfiguration GetStatusEffectConfiguration(StatusEffectType identifier)
         {
             return _statusEffectsConfiguration.FirstOrDefault(temp => temp.Identifier == identifier);
@@ -83,12 +74,6 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.StaticData
         {
             _inventoryItemsConfiguration =
                 await _assetsService.LoadAll<InventoryItemConfiguration>(GameplayStaticDataKeys.Items);
-        }
-
-        private async Task LoadAttributesConfigurationAsync()
-        {
-            _attributesConfiguration =
-                await _assetsService.Load<AttributesConfiguration>(GameplayStaticDataKeys.Attributes);
         }
 
         private async Task LoadDamageColorsConfigurationAsync()

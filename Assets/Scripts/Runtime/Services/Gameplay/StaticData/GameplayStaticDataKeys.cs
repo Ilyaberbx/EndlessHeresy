@@ -10,7 +10,6 @@
         public const string FloatingMessages = Data + Vfx + "FloatingMessagesConfiguration";
         public const string Items = Data + "InventoryItems";
         public const string StatusEffects = Data + "StatusEffects";
-        public const string Attributes = Data + "Attributes/AttributesConfiguration";
         public const string DamageColors = Data + Vfx + "DamageColorsConfiguration";
         public const string Abilities = Data + "Abilities/";
     }

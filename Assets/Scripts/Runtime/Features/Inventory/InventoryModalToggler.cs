@@ -1,7 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
-using EndlessHeresy.Runtime.Attributes;
 using EndlessHeresy.Runtime.UI.Modals.Inventory;
 using EndlessHeresy.Runtime.UI.Services.Modals;
 using UnityEngine.InputSystem;
@@ -14,7 +13,6 @@ namespace EndlessHeresy.Runtime.Inventory
         private readonly InputAction _inputAction;
         private bool _isOpen;
         private InventoryComponent _inventory;
-        private AttributesComponent _attributes;
 
         public InventoryModalToggler(IModalsService modalsService, InputAction inputAction)
         {
@@ -25,7 +23,6 @@ namespace EndlessHeresy.Runtime.Inventory
         protected override Task OnPostInitializeAsync(CancellationToken cancellationToken)
         {
             _inventory = Owner.GetComponent<InventoryComponent>();
-            _attributes = Owner.GetComponent<AttributesComponent>();
             _inputAction.performed += OnActionPerformed;
             return Task.CompletedTask;
         }
@@ -45,7 +42,7 @@ namespace EndlessHeresy.Runtime.Inventory
                 return;
             }
 
-            var model = new InventoryModalModel(_inventory, _attributes);
+            var model = new InventoryModalModel(_inventory);
             _modalsService.ShowAsync<InventoryModalViewModel, InventoryModalModel>(model).Forget();
         }
     }

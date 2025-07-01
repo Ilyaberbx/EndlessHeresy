@@ -46,6 +46,8 @@ namespace EndlessHeresy.Runtime.StatusEffects
             {
                 activeEffect.Remove(_statsComponent);
             }
+            
+            _activeStatusEffects.Clear();
         }
 
         public void Add(StatusEffectType identifier)

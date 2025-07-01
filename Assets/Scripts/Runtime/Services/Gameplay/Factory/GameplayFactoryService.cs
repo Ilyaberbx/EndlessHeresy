@@ -3,7 +3,6 @@ using DG.Tweening;
 using EndlessHeresy.Runtime.Abilities;
 using EndlessHeresy.Runtime.Actors.Enemies;
 using EndlessHeresy.Runtime.Actors.Hero;
-using EndlessHeresy.Runtime.Attributes;
 using EndlessHeresy.Runtime.Builder;
 using EndlessHeresy.Runtime.Cheats;
 using EndlessHeresy.Runtime.Commands;
@@ -53,7 +52,6 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<StatsComponent>(configuration.DefaultStats)
                 .WithComponent<StatusEffectsComponent>()
                 .WithComponent<HealthChangesMessages>()
-                .WithComponent<AttributesComponent>(configuration.DefaultAttributes)
                 .WithComponent<InventoryComponent>(configuration.MaxInventorySize)
                 .WithComponent<AbilitiesHudActivator>()
                 .WithComponent<AbilitiesStorageComponent>(configuration.AbilityConfigurations)
