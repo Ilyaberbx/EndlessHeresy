@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Operational;
+using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Services.FloatingMessages;
 using EndlessHeresy.Runtime.Services.Gameplay.StaticData;
 using UniRx;
@@ -58,10 +59,10 @@ namespace EndlessHeresy.Runtime.Health
             }
         }
 
-        private void OnTookDamage(float value, DamageType identifier, bool isCritical)
+        private void OnTookDamage(DamageData data, bool isCritical)
         {
-            var color = _staticDataService.GetDamageColorData(identifier).Color;
-            ShowFloatingMessage($"- {value}", color);
+            var color = _staticDataService.GetDamageColorData(data.Identifier).Color;
+            ShowFloatingMessage($"- {data.Value}", color);
 
             if (isCritical)
             {

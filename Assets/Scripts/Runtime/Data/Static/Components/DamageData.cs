@@ -9,17 +9,14 @@ namespace EndlessHeresy.Runtime.Data.Static.Components
     {
         [SerializeField] private float _value;
         [SerializeField] private DamageType _identifier;
-        [SerializeField] private float _bonusMultiplier;
 
         public DamageType Identifier => _identifier;
         public float Value => _value;
-        public float BonusMultiplier => _bonusMultiplier;
 
-        public DamageData(float value, DamageType identifier, float bonusMultiplier)
+        public DamageData(float value, DamageType identifier)
         {
             _value = value;
             _identifier = identifier;
-            _bonusMultiplier = bonusMultiplier;
         }
     }
 }

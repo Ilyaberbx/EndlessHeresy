@@ -4,6 +4,8 @@ using System.Linq;
 using EndlessHeresy.Runtime.Data.Identifiers;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Health;
+using EndlessHeresy.Runtime.Stats;
+using EndlessHeresy.Runtime.Utilities;
 using Unity.Behavior;
 using Unity.Properties;
 using UnityEngine;
@@ -29,7 +31,7 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
         {
             var selfActor = SelfActor.Value;
             var damageIdentifier = Damage.Value;
-            var value = Value.Value;
+            var baseDamage = Value.Value;
             var bonusMultiplier = BonusMultiplier.Value;
 
             var targetActors = Targets.Value
@@ -64,9 +66,10 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
                     continue;
                 }
 
+                var finalDamage = FightingUtility.ProcessDamage(selfActor, baseDamage, bonusMultiplier, out var isCritical);
                 DamagedTargets.Value.Add(targetActor.GameObject);
-                var data = new DamageData(value, damageIdentifier, bonusMultiplier);
-                targetHealth.TakeDamage(data, selfActor);
+                var data = new DamageData(finalDamage, damageIdentifier);
+                targetHealth.TakeDamage(data, isCritical);
             }
 
             return Status.Running;

@@ -7,7 +7,6 @@ using EndlessHeresy.Runtime.Defense;
 using EndlessHeresy.Runtime.Evasion;
 using EndlessHeresy.Runtime.Stats;
 using EndlessHeresy.Runtime.Stats.Modifiers;
-using EndlessHeresy.Runtime.Utilities;
 using UniRx;
 
 namespace EndlessHeresy.Runtime.Health
@@ -15,7 +14,7 @@ namespace EndlessHeresy.Runtime.Health
     public sealed class HealthComponent : PocoComponent
     {
         public event Action OnHealthDepleted;
-        public event Action<float, DamageType, bool> OnTookDamage;
+        public event Action<DamageData, bool> OnTookDamage;
 
         private Stat _healthStat;
         private EvasionComponent _evasion;
@@ -37,7 +36,7 @@ namespace EndlessHeresy.Runtime.Health
             return Task.CompletedTask;
         }
 
-        public void TakeDamage(DamageData data, IActor attacker)
+        public void TakeDamage(DamageData data, bool isCritical)
         {
             if (IsDead()) return;
 
@@ -48,14 +47,6 @@ namespace EndlessHeresy.Runtime.Health
                 return;
             }
 
-
-            var isCritical = false;
-            if (attacker != Owner)
-            {
-                damageToReceive = FightingUtility.ProcessDamage(attacker, damageToReceive, data.BonusMultiplier,
-                    out isCritical);
-            }
-
             damageToReceive = _damageDefense.ApplyDefense(data.Identifier, damageToReceive, out var isAbsorbed);
 
             if (damageToReceive <= 0)
@@ -63,17 +54,17 @@ namespace EndlessHeresy.Runtime.Health
                 return;
             }
 
-            ApplyDamage(damageToReceive, data.Identifier, isAbsorbed, isCritical);
+            ApplyDamage(data, isAbsorbed, isCritical);
         }
 
-        private void ApplyDamage(float damageToReceive, DamageType damageIdentifier, bool isAbsorbed, bool isCritical)
+        private void ApplyDamage(DamageData data, bool isAbsorbed, bool isCritical)
         {
-            var modifier = new StatModifier(isAbsorbed ? damageToReceive : -damageToReceive, ModifierType.Flat);
+            var modifier = new StatModifier(isAbsorbed ? data.Value : -data.Value, ModifierType.Flat);
             _healthStat.AddModifier(modifier);
 
             if (!isAbsorbed)
             {
-                OnTookDamage?.Invoke(damageToReceive, damageIdentifier, isCritical);
+                OnTookDamage?.Invoke(data, isCritical);
             }
         }
 

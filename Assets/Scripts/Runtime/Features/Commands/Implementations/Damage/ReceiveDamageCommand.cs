@@ -27,7 +27,7 @@ namespace EndlessHeresy.Runtime.Commands.Damage
                 return;
             }
 
-            health.TakeDamage(_data, _actor);
+            health.TakeDamage(_data, false);
         }
 
         public ICommand GetUndoCommand()

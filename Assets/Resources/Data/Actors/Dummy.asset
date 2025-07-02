@@ -17,8 +17,4 @@ MonoBehaviour:
     _identifier: 0
   - _baseValue: 0.3
     _identifier: 3
-  - _baseValue: 0
-    _identifier: 4
-  - _baseValue: 0
-    _identifier: 5
   _prefab: {fileID: 3388299202898542199, guid: 463f84a98422b4f4586fc643fc1dca7d, type: 3}
