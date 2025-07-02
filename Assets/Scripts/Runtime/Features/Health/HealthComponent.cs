@@ -54,7 +54,8 @@ namespace EndlessHeresy.Runtime.Health
                 return;
             }
 
-            ApplyDamage(data, isAbsorbed, isCritical);
+            var processedData = new DamageData(damageToReceive, data.Identifier);
+            ApplyDamage(processedData, isAbsorbed, isCritical);
         }
 
         private void ApplyDamage(DamageData data, bool isAbsorbed, bool isCritical)

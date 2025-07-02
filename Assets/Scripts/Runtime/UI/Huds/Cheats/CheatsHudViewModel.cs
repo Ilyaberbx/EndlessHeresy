@@ -7,16 +7,27 @@ namespace EndlessHeresy.Runtime.UI.Huds.Cheats
 {
     public sealed class CheatsHudViewModel : BaseViewModel<CheatsHudModel>
     {
-        public IReactiveCollection<ItemType> AvailableItemsProperty { get; } = new ReactiveCollection<ItemType>();
-        public IReactiveCollection<StatusEffectType> AvailableStatusEffectsProperty { get; } = new ReactiveCollection<StatusEffectType>();
+        public IReactiveCollection<ItemType> AvailableItemsProperty { get; } =
+            new ReactiveCollection<ItemType>();
+
+        public IReactiveCollection<StatusEffectType> AvailableStatusEffectsProperty { get; } =
+            new ReactiveCollection<StatusEffectType>();
+
+        public IReactiveCollection<DefenseLevelType> AffinityDefenseItemsProperty { get; } =
+            new ReactiveCollection<DefenseLevelType>();
+
+        public IReactiveCollection<DamageType> DamageTypesProperty { get; } =
+            new ReactiveCollection<DamageType>();
 
         protected override void Initialize(CheatsHudModel model)
         {
             CollectAllItems();
             CollectAllStatusEffects();
+            CollectAllAffinityDefenseItems();
+            CollectAllDamageTypes();
         }
 
-        public void AddItem(int index)
+        public void AddInventoryItem(int index)
         {
             var itemToAdd = AvailableItemsProperty[index];
 
@@ -28,6 +39,14 @@ namespace EndlessHeresy.Runtime.UI.Huds.Cheats
             Model.Inventory.Add(itemToAdd);
         }
 
+        public void SetAffinityDefenseLevel(int affinityIndex, int damageTypeIndex)
+        {
+            var affinity = AffinityDefenseItemsProperty[affinityIndex];
+            var damageType = DamageTypesProperty[damageTypeIndex];
+            Model.Affinity.SetDefenseLevel(damageType, affinity);
+        }
+
+
         public void AddStatusEffect(int index)
         {
             var statusEffectToAdd = AvailableStatusEffectsProperty[index];
@@ -38,6 +57,24 @@ namespace EndlessHeresy.Runtime.UI.Huds.Cheats
             }
 
             Model.StatusEffects.Add(statusEffectToAdd);
+        }
+
+        private void CollectAllDamageTypes()
+        {
+            var enumValues = Enum.GetValues(typeof(DamageType));
+            foreach (DamageType value in enumValues)
+            {
+                DamageTypesProperty.Add(value);
+            }
+        }
+
+        private void CollectAllAffinityDefenseItems()
+        {
+            var enumValues = Enum.GetValues(typeof(DefenseLevelType));
+            foreach (DefenseLevelType value in enumValues)
+            {
+                AffinityDefenseItemsProperty.Add(value);
+            }
         }
 
         private void CollectAllItems()

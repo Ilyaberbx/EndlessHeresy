@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using EndlessHeresy.Runtime.Data.Identifiers;
+using UnityEngine;
 
 namespace EndlessHeresy.Runtime.Affinity
 {
@@ -28,6 +29,7 @@ namespace EndlessHeresy.Runtime.Affinity
         public void SetDefenseLevel(DamageType damageType, DefenseLevelType defenseLevel)
         {
             _damageToDefenseMap[damageType] = defenseLevel;
+            Debug.Log("UPD: " + defenseLevel + " for " + damageType);
         }
     }
 }

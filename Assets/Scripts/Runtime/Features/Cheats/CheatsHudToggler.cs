@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using EndlessHeresy.Runtime.Affinity;
 using EndlessHeresy.Runtime.Inventory;
 using EndlessHeresy.Runtime.StatusEffects;
 using EndlessHeresy.Runtime.UI.Huds.Cheats;
@@ -13,6 +14,8 @@ namespace EndlessHeresy.Runtime.Cheats
         private readonly ICheatsService _cheatsService;
         private InventoryComponent _inventory;
         private StatusEffectsComponent _statusEffects;
+        private AffinityComponent _affinity;
+
         private readonly InputAction _inputAction;
         private bool _isCheatsEnabled;
 
@@ -26,6 +29,7 @@ namespace EndlessHeresy.Runtime.Cheats
         {
             _inventory = Owner.GetComponent<InventoryComponent>();
             _statusEffects = Owner.GetComponent<StatusEffectsComponent>();
+            _affinity = Owner.GetComponent<AffinityComponent>();
             _inputAction.performed += OnActionPerformed;
             return Task.CompletedTask;
         }
@@ -42,7 +46,7 @@ namespace EndlessHeresy.Runtime.Cheats
 
             if (_isCheatsEnabled)
             {
-                _cheatsService.Show(new CheatsHudModel(_inventory, _statusEffects));
+                _cheatsService.Show(new CheatsHudModel(_inventory, _statusEffects, _affinity));
             }
             else
             {
