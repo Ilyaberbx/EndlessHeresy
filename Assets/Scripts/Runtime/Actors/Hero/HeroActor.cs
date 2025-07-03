@@ -4,16 +4,12 @@ using EndlessHeresy.Runtime.UI.Core;
 using EndlessHeresy.Runtime.UI.Huds.StatusEffects;
 using EndlessHeresy.Runtime.UI.Services.Huds;
 using EndlessHeresy.Runtime.UI.Widgets.StatusEffects;
-using UnityEngine;
-using UnityEngine.InputSystem;
 using VContainer;
 
 namespace EndlessHeresy.Runtime.Actors.Hero
 {
     public sealed class HeroActor : MonoActor
     {
-        [SerializeField] private InputActionReference _cheatsAction;
-
         private IHudsService _hudsService;
         private StatusEffectsComponent _statusEffectsStorage;
 

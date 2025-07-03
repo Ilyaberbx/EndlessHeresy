@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using EndlessHeresy.Runtime.Data.Identifiers;
+using EndlessHeresy.Runtime.Data.Operational;
+using EndlessHeresy.Runtime.Data.Static;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using EndlessHeresy.Runtime.Health;
 using EndlessHeresy.Runtime.Stats;
 using EndlessHeresy.Runtime.Utilities;
 using Unity.Behavior;
 using Unity.Properties;
+using Unity.VisualScripting;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 
@@ -16,29 +19,29 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
     [Serializable, GeneratePropertyBag]
     [NodeDescription(name: "Process Damage On Targets",
         story:
-        "Process [Damage] [Value] with [BonusMultiplier] On [Targets] On [SelfActor] and assign to [DamagedTargets]",
+        "Process [Damage] of [Value] with [BonusDamage] on [Targets] with [Attacker] and assign to [DamagedTargets]",
         category: "Action/EndlessHeresy", id: "91ae0720b7df8e79d4ea430a33fd44ca")]
     public partial class ProcessDamageOnTargetsAction : Action
     {
         [SerializeReference] public BlackboardVariable<DamageType> Damage;
         [SerializeReference] public BlackboardVariable<float> Value;
-        [SerializeReference] public BlackboardVariable<float> BonusMultiplier;
         [SerializeReference] public BlackboardVariable<List<GameObject>> Targets;
-        [SerializeReference] public BlackboardVariable<MonoActor> SelfActor;
+        [SerializeReference] public BlackboardVariable<MonoActor> Attacker;
         [SerializeReference] public BlackboardVariable<List<GameObject>> DamagedTargets;
+        [SerializeReference] public BlackboardVariable<BonusDamageConfiguration> BonusDamage;
 
         protected override Status OnStart()
         {
-            var selfActor = SelfActor.Value;
+            var attacker = Attacker.Value;
             var damageIdentifier = Damage.Value;
             var baseDamage = Value.Value;
-            var bonusMultiplier = BonusMultiplier.Value;
+            var bonusDamageConfiguration = BonusDamage.Value;
 
             var targetActors = Targets.Value
-                .Where(temp => temp != null)
+                .Where(temp => !temp.IsUnityNull())
                 .Select(temp => temp.GetComponent<IActor>());
 
-            if (!selfActor.TryGetComponent<HealthComponent>(out var selfHealth))
+            if (!attacker.TryGetComponent<HealthComponent>(out var attackerHealth))
             {
                 return Status.Failure;
             }
@@ -55,7 +58,7 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
                     continue;
                 }
 
-                if (targetHealth == selfHealth)
+                if (targetHealth == attackerHealth)
                 {
                     continue;
                 }
@@ -66,13 +69,28 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
                     continue;
                 }
 
-                var finalDamage = FightingUtility.ProcessDamage(selfActor, baseDamage, bonusMultiplier, out var isCritical);
+                var query = new DamageProcessingQuery
+                (
+                    baseDamage: new DamageData(baseDamage, damageIdentifier),
+                    bonusDamageData: bonusDamageConfiguration.Data,
+                    attackerStats: Attacker.Value.GetComponent<StatsComponent>()
+                );
+
+                var processedDamageData = FightingUtility.ProcessDamage(query, out var isCritical);
                 DamagedTargets.Value.Add(targetActor.GameObject);
-                var data = new DamageData(finalDamage, damageIdentifier);
-                targetHealth.TakeDamage(data, isCritical);
+
+                foreach (var damageData in processedDamageData)
+                {
+                    targetHealth.TakeDamage(damageData, isCritical);
+
+                    if (attackerHealth.IsDead())
+                    {
+                        return Status.Success;
+                    }
+                }
             }
 
-            return Status.Running;
+            return Status.Success;
         }
     }
 }

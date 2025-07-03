@@ -1,0 +1,991 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8833792312211342822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db920e62f70f420bb33c771449926fa4, type: 3}
+  m_Name: CrescentStrikeSpinTick
+  m_EditorClassIdentifier: 
+  Graphs:
+  - rid: 8080077935718433065
+  - rid: 8080077935718433066
+  RootGraph:
+    rid: 8080077935718433065
+  m_DebugInfo: {fileID: 4799367113290355120}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8080077935693005171
+      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: OnSpinTick
+    - rid: 8080077935693005172
+      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.Data.Identifiers.DamageType, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 5
+    - rid: 8080077935693005173
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 5
+    - rid: 8080077935693005174
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector2, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {x: 0, y: 0}
+    - rid: 8080077935693005175
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector2, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {x: 4, y: 4}
+    - rid: 8080077935693005176
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector2, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {x: 0, y: 0}
+    - rid: 8080077935693005177
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 40
+    - rid: 8080077935718433065
+      type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        AuthoringAssetID:
+          m_Value0: 11843453508558838559
+          m_Value1: 9749176543197599368
+        m_DebugInfo: {fileID: 0}
+        BlackboardReference:
+          rid: 8080077935718433067
+        BlackboardGroupReferences: []
+        Root:
+          rid: 8080077935718433068
+        m_ActiveNodes: []
+        m_NodesToTick: []
+        m_NodesToEnd:
+          rid: 8080077935718433069
+        m_EndedNodes:
+          rid: 8080077935718433070
+        m_VersionTimestamp: 638871531244840092
+    - rid: 8080077935718433066
+      type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        AuthoringAssetID:
+          m_Value0: 297667366917197695
+          m_Value1: 7546079794527331050
+        m_DebugInfo: {fileID: 0}
+        BlackboardReference:
+          rid: 8080077935718433071
+        BlackboardGroupReferences: []
+        Root:
+          rid: 8080077935718433072
+        m_ActiveNodes: []
+        m_NodesToTick: []
+        m_NodesToEnd:
+          rid: 8080077935718433073
+        m_EndedNodes:
+          rid: 8080077935718433074
+        m_VersionTimestamp: 638871531243610045
+    - rid: 8080077935718433067
+      type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        m_Blackboard:
+          rid: 8080077935718433075
+        m_Source: {fileID: 8970187792927396818}
+    - rid: 8080077935718433068
+      type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 2673564644198090581
+          m_Value1: 505966554596817909
+        Graph:
+          rid: 8080077935718433065
+        m_Parent:
+          rid: -2
+        m_Child:
+          rid: 8080077935718433076
+        Repeat: 0
+        AllowMultipleRepeatsPerTick: 0
+    - rid: 8080077935718433069
+      type: {class: 'Stack`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: mscorlib}
+      data: 
+    - rid: 8080077935718433070
+      type: {class: 'HashSet`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: System.Core}
+      data: 
+    - rid: 8080077935718433071
+      type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        m_Blackboard:
+          rid: 8080077935718433077
+        m_Source: {fileID: 8970187792927396818, guid: 7f4f53a2e4862104eae28d9f970fb968, type: 2}
+    - rid: 8080077935718433072
+      type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 2673564644198090581
+          m_Value1: 505966554596817909
+        Graph:
+          rid: 8080077935718433066
+        m_Parent:
+          rid: -2
+        m_Child:
+          rid: 8080077935718433078
+        Repeat: 0
+        AllowMultipleRepeatsPerTick: 0
+    - rid: 8080077935718433073
+      type: {class: 'Stack`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: mscorlib}
+      data: 
+    - rid: 8080077935718433074
+      type: {class: 'HashSet`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: System.Core}
+      data: 
+    - rid: 8080077935718433075
+      type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        m_Variables:
+        - rid: 8080077935718433079
+        - rid: 8080077935718433080
+        - rid: 8080077935718433081
+    - rid: 8080077935718433076
+      type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 14311342929545870012
+          m_Value1: 7241699485200934337
+        Graph:
+          rid: 8080077935718433065
+        m_Parent:
+          rid: 8080077935718433068
+        m_Children:
+        - rid: 8080077935718433082
+        - rid: 8080077935718433083
+    - rid: 8080077935718433077
+      type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        m_Variables:
+        - rid: 8080077935718433084
+        - rid: 8080077935718433085
+        - rid: 8080077935718433086
+        - rid: 8080077935718433087
+        - rid: 8080077935718433088
+        - rid: 8080077935718433080
+        - rid: 8080077935718433081
+    - rid: 8080077935718433078
+      type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 18055751424998450352
+          m_Value1: 10759537978832514334
+        Graph:
+          rid: 8080077935718433066
+        m_Parent:
+          rid: 8080077935718433072
+        m_Children:
+        - rid: 8080077935718433089
+        - rid: 8080077935718433090
+        - rid: 8080077935718433091
+    - rid: 8080077935718433079
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 0}
+    - rid: 8080077935718433080
+      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.Data.Static.BonusDamageConfiguration, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1753065638145912388
+          m_Value1: 3110734333140762985
+        Name: BonusDamageConfiguration
+        m_Value: {fileID: 0}
+    - rid: 8080077935718433081
+      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.MonoActor, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 11881643740897616353
+          m_Value1: 1099009004996749440
+        Name: Owner
+        m_Value: {fileID: 0}
+    - rid: 8080077935718433082
+      type: {class: WaitForAnimationEventAction, ns: EndlessHeresy.Runtime.Behaviour.Actions, asm: Assembly-CSharp}
+      data:
+        ID:
+          m_Value0: 13869268605176827344
+          m_Value1: 13946836912905795257
+        Graph:
+          rid: 8080077935718433065
+        m_Parent:
+          rid: 8080077935718433076
+        AnimationEvent:
+          rid: 8080077935693005171
+        Actor:
+          rid: 8080077935718433081
+    - rid: 8080077935718433083
+      type: {class: RunSubgraph, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 8012734253164535207
+          m_Value1: 888741202299719491
+        Graph:
+          rid: 8080077935718433065
+        m_Parent:
+          rid: 8080077935718433076
+        Subgraph:
+          rid: 8080077935718433066
+    - rid: 8080077935718433084
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 0}
+    - rid: 8080077935718433085
+      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 129849105461908349
+          m_Value1: 1395037983856648281
+        Name: Targets
+        m_Value: []
+    - rid: 8080077935718433086
+      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 11254221207648258198
+          m_Value1: 17993891841259174440
+        Name: Damaged Targets
+        m_Value: []
+    - rid: 8080077935718433087
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector2, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 3332913676151848892
+          m_Value1: 5729242831478854905
+        Name: AttackPosition
+        m_Value: {x: 0, y: 0}
+    - rid: 8080077935718433088
+      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 15223101791836881017
+          m_Value1: 17214973386352119558
+        Name: Exploded Targets
+        m_Value: []
+    - rid: 8080077935718433089
+      type: {class: DetectTargetsWithFacingDirectionAction, ns: EndlessHeresy.Runtime.Behaviour.Actions, asm: Assembly-CSharp}
+      data:
+        ID:
+          m_Value0: 7762146223448082541
+          m_Value1: 13077244605203461723
+        Graph:
+          rid: 8080077935718433066
+        m_Parent:
+          rid: 8080077935718433078
+        CapsuleCenter:
+          rid: 8080077935693005174
+        CapsuleSize:
+          rid: 8080077935693005175
+        OffSet:
+          rid: 8080077935693005176
+        Actor:
+          rid: 8080077935718433081
+        Targets:
+          rid: 8080077935718433085
+        Point:
+          rid: 8080077935718433087
+    - rid: 8080077935718433090
+      type: {class: ProcessDamageOnTargetsAction, ns: EndlessHeresy.Runtime.Behaviour.Actions, asm: Assembly-CSharp}
+      data:
+        ID:
+          m_Value0: 13197574125326358534
+          m_Value1: 11442558773030514013
+        Graph:
+          rid: 8080077935718433066
+        m_Parent:
+          rid: 8080077935718433078
+        Damage:
+          rid: 8080077935693005172
+        Value:
+          rid: 8080077935693005173
+        Targets:
+          rid: 8080077935718433085
+        Attacker:
+          rid: 8080077935718433081
+        DamagedTargets:
+          rid: 8080077935718433086
+        BonusDamage:
+          rid: 8080077935718433080
+    - rid: 8080077935718433091
+      type: {class: ProcessExplosionForceAction, ns: EndlessHeresy.Runtime.Behaviour.Actions, asm: Assembly-CSharp}
+      data:
+        ID:
+          m_Value0: 8873571174031157811
+          m_Value1: 13103933305994111381
+        Graph:
+          rid: 8080077935718433066
+        m_Parent:
+          rid: 8080077935718433078
+        ForceMultiplier:
+          rid: 8080077935693005177
+        Point:
+          rid: 8080077935718433087
+        Targets:
+          rid: 8080077935718433085
+        ExplodedTargets:
+          rid: 8080077935718433088
+        Actor:
+          rid: 8080077935718433081
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad8f2220607dac4db5082ff333fafb8, type: 3}
+  m_Name: CrescentStrikeSpinTick
+  m_EditorClassIdentifier: 
+  Blackboard: {fileID: 6179205245267426346}
+  m_Description: 
+  m_Nodes:
+  - rid: 8080077935215116356
+  - rid: 8080077935215116899
+  - rid: 8080077935215116950
+  - rid: 8080077935215116975
+  m_VersionTimestamp: 638871531244840092
+  m_DebugInfo: {fileID: 4799367113290355120}
+  m_RuntimeGraph: {fileID: -8833792312211342822}
+  AssetID:
+    m_Value0: 11843453508558838559
+    m_Value1: 9749176543197599368
+  Story:
+    Story: 
+    StoryVariableNames: []
+    Variables: []
+  m_NodeModelsInfo:
+  - Name: On Start
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 3335272451348827663
+      m_Value1: 11549843281177505721
+    Variables: []
+    NamedChildren: []
+  - Name: Wait For Animation Event
+    Story: 'Wait for [AnimationEvent] on [Actor]'
+    RuntimeTypeID:
+      m_Value0: 13672497432714246995
+      m_Value1: 14245224675058098678
+    Variables:
+    - Name: AnimationEvent
+      Type:
+        m_SerializableType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    - Name: Actor
+      Type:
+        m_SerializableType: EndlessHeresy.Runtime.MonoActor, Assembly-CSharp, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    NamedChildren: []
+  - Name: Run Subgraph
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 9965463903622711961
+      m_Value1: 5344335246744595133
+    Variables: []
+    NamedChildren: []
+  - Name: Process Damage On Targets
+    Story: 'Process [Damage] of [Value] with [BonusDamage] on [Targets] with [Attacker]
+      and assign to [DamagedTargets]'
+    RuntimeTypeID:
+      m_Value0: 8759184302891576977
+      m_Value1: 14575052689735150292
+    Variables:
+    - Name: Damage
+      Type:
+        m_SerializableType: EndlessHeresy.Runtime.Data.Identifiers.DamageType, Assembly-CSharp,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: Value
+      Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    - Name: Targets
+      Type:
+        m_SerializableType: System.Collections.Generic.List`1[[UnityEngine.GameObject,
+          UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+          mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    - Name: Attacker
+      Type:
+        m_SerializableType: EndlessHeresy.Runtime.MonoActor, Assembly-CSharp, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: DamagedTargets
+      Type:
+        m_SerializableType: System.Collections.Generic.List`1[[UnityEngine.GameObject,
+          UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+          mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    - Name: BonusDamage
+      Type:
+        m_SerializableType: EndlessHeresy.Runtime.Data.Static.BonusDamageConfiguration,
+          Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    NamedChildren: []
+  - Name: Detect Targets With Facing Direction
+    Story: 'Detect [Targets] with facing direction using [CapsuleCenter] and [CapsuleSize]
+      with [OffSet] on [Actor] and assign [Point]'
+    RuntimeTypeID:
+      m_Value0: 13149197305977510028
+      m_Value1: 12837129555717793694
+    Variables:
+    - Name: CapsuleCenter
+      Type:
+        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: CapsuleSize
+      Type:
+        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: OffSet
+      Type:
+        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: Actor
+      Type:
+        m_SerializableType: EndlessHeresy.Runtime.MonoActor, Assembly-CSharp, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: Targets
+      Type:
+        m_SerializableType: System.Collections.Generic.List`1[[UnityEngine.GameObject,
+          UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+          mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    - Name: Point
+      Type:
+        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    NamedChildren: []
+  - Name: Process Explosion Force
+    Story: 'Process Explosion with [ForceMultiplier] at [Point] for [Targets] with
+      [Actor] and assign to [ExplodedTargets]'
+    RuntimeTypeID:
+      m_Value0: 17396281260681630412
+      m_Value1: 7546047461800405991
+    Variables:
+    - Name: ForceMultiplier
+      Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    - Name: Point
+      Type:
+        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: Targets
+      Type:
+        m_SerializableType: System.Collections.Generic.List`1[[UnityEngine.GameObject,
+          UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+          mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    - Name: ExplodedTargets
+      Type:
+        m_SerializableType: System.Collections.Generic.List`1[[UnityEngine.GameObject,
+          UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+          mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    - Name: Actor
+      Type:
+        m_SerializableType: EndlessHeresy.Runtime.MonoActor, Assembly-CSharp, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    NamedChildren: []
+  - Name: Assign Actor Position
+    Story: 'Assign [Actor] position to [Position]'
+    RuntimeTypeID:
+      m_Value0: 13213850893950233271
+      m_Value1: 3779887500436463014
+    Variables:
+    - Name: Actor
+      Type:
+        m_SerializableType: EndlessHeresy.Runtime.MonoActor, Assembly-CSharp, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: Position
+      Type:
+        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    NamedChildren: []
+  m_Blackboards: []
+  m_MainBlackboardAuthoringAsset: {fileID: 6179205245267426346}
+  m_CommandBuffer:
+    m_Commands: []
+  m_SubgraphsInfo:
+  - AssetID:
+      m_Value0: 297667366917197695
+      m_Value1: 7546079794527331050
+    Timestamp: 638871531243610045
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8080077935215116356
+      type: {class: StartNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -16.010134, y: -85.492035}
+        ID:
+          m_Value0: 2673564644198090581
+          m_Value1: 505966554596817909
+        Parents: []
+        PortModels:
+        - rid: 8080077935215116357
+        NodeType:
+          m_SerializableType: Unity.Behavior.Start, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 3335272451348827663
+          m_Value1: 11549843281177505721
+        m_FieldValues: []
+        Repeat: 0
+        AllowMultipleRepeatsPerTick: 0
+    - rid: 8080077935215116357
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 8080077935215116356
+        m_Connections:
+        - rid: 8080077935215116976
+    - rid: 8080077935215116899
+      type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -12.536495, y: 59.201843}
+        ID:
+          m_Value0: 13869268605176827344
+          m_Value1: 13946836912905795257
+        Parents:
+        - rid: 8080077935215116975
+        PortModels:
+        - rid: 8080077935215116900
+        - rid: 8080077935215116901
+        NodeType:
+          m_SerializableType: EndlessHeresy.Runtime.Behaviour.Actions.WaitForAnimationEventAction,
+            Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 13672497432714246995
+          m_Value1: 14245224675058098678
+        m_FieldValues:
+        - rid: 8080077935215116902
+        - rid: 8080077935215116903
+    - rid: 8080077935215116900
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 8080077935215116899
+        m_Connections: []
+    - rid: 8080077935215116901
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 8080077935215116899
+        m_Connections: []
+    - rid: 8080077935215116902
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: AnimationEvent
+        Type:
+          m_SerializableType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 8080077935215116904
+        LinkedVariable:
+          rid: -2
+    - rid: 8080077935215116903
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Actor
+        Type:
+          m_SerializableType: EndlessHeresy.Runtime.MonoActor, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 8080077935215116905
+        LinkedVariable:
+          rid: 8080077935215116935
+    - rid: 8080077935215116904
+      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: OnSpinTick
+    - rid: 8080077935215116905
+      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.MonoActor, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 8080077935215116935
+      type: {class: 'TypedVariableModel`1[[EndlessHeresy.Runtime.MonoActor, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 11881643740897616353
+          m_Value1: 1099009004996749440
+        Name: Owner
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 8080077935215116950
+      type: {class: SubgraphNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -54.936504, y: 69.601845}
+        ID:
+          m_Value0: 8012734253164535207
+          m_Value1: 888741202299719491
+        Parents:
+        - rid: 8080077935215116975
+        PortModels:
+        - rid: 8080077935215116951
+        - rid: 8080077935215116952
+        NodeType:
+          m_SerializableType: Unity.Behavior.RunSubgraph, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 9965463903622711961
+          m_Value1: 5344335246744595133
+        m_FieldValues:
+        - rid: 8080077935215116994
+        - rid: 8080077935215116995
+        - rid: 8080077935215117071
+        - rid: 8080077935215117072
+        m_OveriddenblackboardVariableGuids:
+        - m_Value0: 1753065638145912388
+          m_Value1: 3110734333140762985
+        - m_Value0: 11881643740897616353
+          m_Value1: 1099009004996749440
+        m_SubgraphAssetId:
+          m_Value0: 297667366917197695
+          m_Value1: 7546079794527331050
+        m_IsDynamic: 0
+        m_ShowStaticSubgraphRepresentation: 0
+        m_StoryFields: []
+    - rid: 8080077935215116951
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 8080077935215116950
+        m_Connections: []
+    - rid: 8080077935215116952
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 8080077935215116950
+        m_Connections: []
+    - rid: 8080077935215116975
+      type: {class: SequenceNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        Position: {x: -16.010132, y: 19.507965}
+        ID:
+          m_Value0: 14311342929545870012
+          m_Value1: 7241699485200934337
+        Parents: []
+        PortModels:
+        - rid: 8080077935215116976
+        - rid: 8080077935215116977
+        Nodes:
+        - rid: 8080077935215116899
+        - rid: 8080077935215116950
+    - rid: 8080077935215116976
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 8080077935215116975
+        m_Connections:
+        - rid: 8080077935215116357
+    - rid: 8080077935215116977
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 8080077935215116975
+        m_Connections: []
+    - rid: 8080077935215116994
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Subgraph
+        Type:
+          m_SerializableType: Unity.Behavior.BehaviorGraph, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 8080077935215116996
+        LinkedVariable:
+          rid: 8080077935215116998
+    - rid: 8080077935215116995
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Blackboard
+        Type:
+          m_SerializableType: Unity.Behavior.BehaviorBlackboardAuthoringAsset, Unity.Behavior.Authoring,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 8080077935215116997
+        LinkedVariable:
+          rid: -2
+    - rid: 8080077935215116996
+      type: {class: 'BlackboardVariable`1[[Unity.Behavior.BehaviorGraph, Unity.Behavior]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 8080077935215116997
+      type: {class: 'BlackboardVariable`1[[Unity.Behavior.BehaviorBlackboardAuthoringAsset, Unity.Behavior.Authoring]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 8080077935215116998
+      type: {class: 'TypedVariableModel`1[[Unity.Behavior.BehaviorGraph, Unity.Behavior]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 2954119541029574162
+          m_Value1: 16917281895407884552
+        Name: CrescentStrikeAttack
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: -8833792312211342822, guid: 7f4f53a2e4862104eae28d9f970fb968, type: 2}
+    - rid: 8080077935215117071
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: BonusDamageConfiguration
+        Type:
+          m_SerializableType: EndlessHeresy.Runtime.Data.Static.BonusDamageConfiguration,
+            Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 8080077935215117073
+        LinkedVariable:
+          rid: 8080077935215117075
+    - rid: 8080077935215117072
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Owner
+        Type:
+          m_SerializableType: EndlessHeresy.Runtime.MonoActor, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 8080077935215117074
+        LinkedVariable:
+          rid: 8080077935215116935
+    - rid: 8080077935215117073
+      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.Data.Static.BonusDamageConfiguration, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 8080077935215117074
+      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.MonoActor, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1953125460507567078
+          m_Value1: 14657334299742059563
+        Name: Owner
+        m_Value: {fileID: 0}
+    - rid: 8080077935215117075
+      type: {class: 'TypedVariableModel`1[[EndlessHeresy.Runtime.Data.Static.BonusDamageConfiguration, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 1753065638145912388
+          m_Value1: 3110734333140762985
+        Name: BonusDamageConfiguration
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+--- !u!114 &4799367113290355120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b27bb6d9a2c8d540a10dff10acc543e, type: 3}
+  m_Name: CrescentStrikeSpinTick Debug Info
+  m_EditorClassIdentifier: 
+  m_CodeBreakPointsList: []
+--- !u!114 &6179205245267426346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd922ae02c94c87a66e46a10a7319b9, type: 3}
+  m_Name: CrescentStrikeSpinTick Blackboard
+  m_EditorClassIdentifier: 
+  AssetID:
+    m_Value0: 11843453508558838559
+    m_Value1: 9749176543197599368
+  m_Variables:
+  - rid: 8080077935215116358
+  - rid: 8080077935215116466
+  - rid: 8080077935215116522
+  m_VersionTimestamp: 638871522925717696
+  m_CommandBuffer:
+    m_Commands: []
+  m_RuntimeBlackboardAsset: {fileID: 8970187792927396818}
+  references:
+    version: 2
+    RefIds:
+    - rid: 8080077935215116358
+      type: {class: 'TypedVariableModel`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        IsExposed: 0
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 8080077935215116466
+      type: {class: 'TypedVariableModel`1[[EndlessHeresy.Runtime.Data.Static.BonusDamageConfiguration, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 1753065638145912388
+          m_Value1: 3110734333140762985
+        Name: BonusDamageConfiguration
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 8080077935215116522
+      type: {class: 'TypedVariableModel`1[[EndlessHeresy.Runtime.MonoActor, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 11881643740897616353
+          m_Value1: 1099009004996749440
+        Name: Owner
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+--- !u!114 &8970187792927396818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
+  m_Name: CrescentStrikeSpinTick Blackboard
+  m_EditorClassIdentifier: 
+  VersionTimestamp: 638871522925717696
+  AssetID:
+    m_Value0: 11843453508558838559
+    m_Value1: 9749176543197599368
+  m_Blackboard:
+    m_Variables:
+    - rid: 8080077935215116366
+    - rid: 8080077935215116479
+    - rid: 8080077935215116537
+  m_SharedBlackboardVariableGuids: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8080077935215116366
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 0}
+    - rid: 8080077935215116479
+      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.Data.Static.BonusDamageConfiguration, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1753065638145912388
+          m_Value1: 3110734333140762985
+        Name: BonusDamageConfiguration
+        m_Value: {fileID: 0}
+    - rid: 8080077935215116537
+      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.MonoActor, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 11881643740897616353
+          m_Value1: 1099009004996749440
+        Name: Owner
+        m_Value: {fileID: 0}

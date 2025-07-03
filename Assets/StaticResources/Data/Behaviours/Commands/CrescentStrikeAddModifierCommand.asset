@@ -21,7 +21,7 @@ MonoBehaviour:
       type: {class: AddStatModifierInstaller, ns: EndlessHeresy.Runtime.Data.Static.Commands.Installers, asm: Assembly-CSharp}
       data:
         _data:
-          _statIdentifier: 4
+          _statIdentifier: 1
           _identifier: 3
           _value: 2
         _sourceAsset: {fileID: 11400000, guid: b3be37d5f9e86ef49a8cb728594d87a1, type: 2}

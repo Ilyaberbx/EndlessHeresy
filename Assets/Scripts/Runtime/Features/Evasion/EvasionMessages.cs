@@ -33,7 +33,7 @@ namespace EndlessHeresy.Runtime.Evasion
 
         private void OnDodged()
         {
-            ShowFloatingMessage($"Dodged!", Color.white);
+            ShowFloatingMessage("Dodged!", Color.white);
         }
 
         private void ShowFloatingMessage(string message, Color color)

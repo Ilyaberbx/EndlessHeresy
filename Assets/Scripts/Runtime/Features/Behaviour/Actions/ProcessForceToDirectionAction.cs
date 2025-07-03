@@ -2,6 +2,7 @@ using System;
 using EndlessHeresy.Runtime.Generic;
 using Unity.Behavior;
 using Unity.Properties;
+using Unity.VisualScripting;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 
@@ -20,6 +21,12 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
         protected override Status OnStart()
         {
             var actor = Actor.Value;
+
+            if (actor.IsUnityNull())
+            {
+                return Status.Failure;
+            }
+
             if (!actor.TryGetComponent<RigidbodyStorageComponent>(out var rigidbodyStorageComponent))
             {
                 return Status.Failure;

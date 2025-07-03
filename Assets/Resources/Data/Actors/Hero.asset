@@ -50,6 +50,10 @@ MonoBehaviour:
     _identifier: 4
   - _baseValue: 0.5
     _identifier: 5
+  - _baseValue: 0
+    _identifier: 6
+  - _baseValue: 0
+    _identifier: 7
   _prefab: {fileID: 5753913375855388206, guid: 8e2cf937bc869244caf19c5c4dae8fdc, type: 3}
   _maxInventorySize: 30
   _trailsPoolData:

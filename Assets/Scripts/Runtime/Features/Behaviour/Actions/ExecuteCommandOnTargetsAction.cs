@@ -5,6 +5,7 @@ using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Data.Static.Commands;
 using Unity.Behavior;
 using Unity.Properties;
+using Unity.VisualScripting;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 
@@ -22,7 +23,7 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
         {
             var targetActors = Targets
                 .Value
-                .Where(temp => temp != null).Select(temp => temp.GetComponent<IActor>())
+                .Where(temp => !temp.IsUnityNull()).Select(temp => temp.GetComponent<IActor>())
                 .ToArray();
 
             foreach (var actor in targetActors)

@@ -8,5 +8,10 @@
         Evasion,
         CriticalMultiplier,
         CriticalChance,
+        AttackBonus,
+        SpecialBonus,
+        DashBonus,
+        UsableBonus,
+        PassiveBonus,
     }
 }

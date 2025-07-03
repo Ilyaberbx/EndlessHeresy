@@ -5,6 +5,7 @@ using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Generic;
 using Unity.Behavior;
 using Unity.Properties;
+using Unity.VisualScripting;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 
@@ -30,7 +31,7 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
             var multiplier = ForceMultiplier.Value;
             var at = Point.Value;
             var targetActors = Targets.Value
-                .Where(temp => temp != null)
+                .Where(temp => !temp.IsUnityNull())
                 .Select(temp => temp.GetComponent<IActor>());
             var selfRigidbody = selfActor.GetComponent<RigidbodyStorageComponent>().Rigidbody;
 
