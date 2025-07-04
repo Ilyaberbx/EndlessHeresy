@@ -19,7 +19,6 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
         protected override Status OnStart()
         {
             var actor = Actor.Value;
-
             if (actor == null)
             {
                 return Status.Failure;

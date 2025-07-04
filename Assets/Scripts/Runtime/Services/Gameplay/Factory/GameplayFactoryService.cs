@@ -43,7 +43,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithPosition(at)
                 .WithComponent<MovementComponent>()
                 .WithComponent<InputActionPhaseRegistry>()
-                .WithComponent<MovementAnimationSyncronizer>()
+                .WithComponent<MovementAnimationSyncronizer>(configuration.MovementLayersSelectorAsset)
                 .WithComponent<MovementInputController>(configuration.MovementInputData)
                 .WithComponent<HealthComponent>()
                 .WithComponent<CheatsHudToggler>(configuration.ToggleCheatsInputData)

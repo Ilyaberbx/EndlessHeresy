@@ -59,3 +59,4 @@ MonoBehaviour:
   _trailsPoolData:
     _defaultCapacity: 5
     _maxSize: 10000
+  _movementLayersSelectorAsset: {fileID: 11400000, guid: dbbca84d2a91e1041880246568ac53c5, type: 2}

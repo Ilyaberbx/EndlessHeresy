@@ -13,73 +13,17 @@ MonoBehaviour:
   m_Name: CrescentStrikeSpinTick
   m_EditorClassIdentifier: 
   Graphs:
-  - rid: 8080077935718433065
-  - rid: 8080077935718433066
+  - rid: 8080077958689587200
+  - rid: 8080077958689587201
   RootGraph:
-    rid: 8080077935718433065
+    rid: 8080077958689587200
   m_DebugInfo: {fileID: 4799367113290355120}
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 8080077935693005171
-      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: OnSpinTick
-    - rid: 8080077935693005172
-      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.Data.Identifiers.DamageType, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 5
-    - rid: 8080077935693005173
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 5
-    - rid: 8080077935693005174
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector2, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: {x: 0, y: 0}
-    - rid: 8080077935693005175
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector2, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: {x: 4, y: 4}
-    - rid: 8080077935693005176
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector2, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: {x: 0, y: 0}
-    - rid: 8080077935693005177
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 40
-    - rid: 8080077935718433065
+    - rid: 8080077958689587200
       type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         AuthoringAssetID:
@@ -87,18 +31,18 @@ MonoBehaviour:
           m_Value1: 9749176543197599368
         m_DebugInfo: {fileID: 0}
         BlackboardReference:
-          rid: 8080077935718433067
+          rid: 8080077958689587202
         BlackboardGroupReferences: []
         Root:
-          rid: 8080077935718433068
+          rid: 8080077958689587203
         m_ActiveNodes: []
         m_NodesToTick: []
         m_NodesToEnd:
-          rid: 8080077935718433069
+          rid: 8080077958689587204
         m_EndedNodes:
-          rid: 8080077935718433070
-        m_VersionTimestamp: 638871531244840092
-    - rid: 8080077935718433066
+          rid: 8080077958689587205
+        m_VersionTimestamp: 638872406985747951
+    - rid: 8080077958689587201
       type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         AuthoringAssetID:
@@ -106,115 +50,116 @@ MonoBehaviour:
           m_Value1: 7546079794527331050
         m_DebugInfo: {fileID: 0}
         BlackboardReference:
-          rid: 8080077935718433071
+          rid: 8080077958689587206
         BlackboardGroupReferences: []
         Root:
-          rid: 8080077935718433072
+          rid: 8080077958689587207
         m_ActiveNodes: []
         m_NodesToTick: []
         m_NodesToEnd:
-          rid: 8080077935718433073
+          rid: 8080077958689587208
         m_EndedNodes:
-          rid: 8080077935718433074
+          rid: 8080077958689587209
         m_VersionTimestamp: 638871531243610045
-    - rid: 8080077935718433067
+    - rid: 8080077958689587202
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Blackboard:
-          rid: 8080077935718433075
+          rid: 8080077958689587210
         m_Source: {fileID: 8970187792927396818}
-    - rid: 8080077935718433068
+    - rid: 8080077958689587203
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 2673564644198090581
           m_Value1: 505966554596817909
         Graph:
-          rid: 8080077935718433065
+          rid: 8080077958689587200
         m_Parent:
           rid: -2
         m_Child:
-          rid: 8080077935718433076
+          rid: 8080077958689587211
         Repeat: 0
         AllowMultipleRepeatsPerTick: 0
-    - rid: 8080077935718433069
+    - rid: 8080077958689587204
       type: {class: 'Stack`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: mscorlib}
       data: 
-    - rid: 8080077935718433070
+    - rid: 8080077958689587205
       type: {class: 'HashSet`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: System.Core}
       data: 
-    - rid: 8080077935718433071
+    - rid: 8080077958689587206
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Blackboard:
-          rid: 8080077935718433077
+          rid: 8080077958689587212
         m_Source: {fileID: 8970187792927396818, guid: 7f4f53a2e4862104eae28d9f970fb968, type: 2}
-    - rid: 8080077935718433072
+    - rid: 8080077958689587207
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 2673564644198090581
           m_Value1: 505966554596817909
         Graph:
-          rid: 8080077935718433066
+          rid: 8080077958689587201
         m_Parent:
           rid: -2
         m_Child:
-          rid: 8080077935718433078
+          rid: 8080077958689587213
         Repeat: 0
         AllowMultipleRepeatsPerTick: 0
-    - rid: 8080077935718433073
+    - rid: 8080077958689587208
       type: {class: 'Stack`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: mscorlib}
       data: 
-    - rid: 8080077935718433074
+    - rid: 8080077958689587209
       type: {class: 'HashSet`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: System.Core}
       data: 
-    - rid: 8080077935718433075
+    - rid: 8080077958689587210
       type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Variables:
-        - rid: 8080077935718433079
-        - rid: 8080077935718433080
-        - rid: 8080077935718433081
-    - rid: 8080077935718433076
+        - rid: 8080077958689587214
+        - rid: 8080077958689587215
+        - rid: 8080077958689587216
+        - rid: 8080077958689587217
+    - rid: 8080077958689587211
       type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 14311342929545870012
           m_Value1: 7241699485200934337
         Graph:
-          rid: 8080077935718433065
+          rid: 8080077958689587200
         m_Parent:
-          rid: 8080077935718433068
+          rid: 8080077958689587203
         m_Children:
-        - rid: 8080077935718433082
-        - rid: 8080077935718433083
-    - rid: 8080077935718433077
+        - rid: 8080077958689587218
+        - rid: 8080077958689587219
+    - rid: 8080077958689587212
       type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Variables:
-        - rid: 8080077935718433084
-        - rid: 8080077935718433085
-        - rid: 8080077935718433086
-        - rid: 8080077935718433087
-        - rid: 8080077935718433088
-        - rid: 8080077935718433080
-        - rid: 8080077935718433081
-    - rid: 8080077935718433078
+        - rid: 8080077958689587220
+        - rid: 8080077958689587221
+        - rid: 8080077958689587222
+        - rid: 8080077958689587223
+        - rid: 8080077958689587224
+        - rid: 8080077958689587215
+        - rid: 8080077958689587216
+    - rid: 8080077958689587213
       type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 18055751424998450352
           m_Value1: 10759537978832514334
         Graph:
-          rid: 8080077935718433066
+          rid: 8080077958689587201
         m_Parent:
-          rid: 8080077935718433072
+          rid: 8080077958689587207
         m_Children:
-        - rid: 8080077935718433089
-        - rid: 8080077935718433090
-        - rid: 8080077935718433091
-    - rid: 8080077935718433079
+        - rid: 8080077958689587225
+        - rid: 8080077958689587226
+        - rid: 8080077958689587227
+    - rid: 8080077958689587214
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -222,7 +167,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 0}
-    - rid: 8080077935718433080
+    - rid: 8080077958689587215
       type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.Data.Static.BonusDamageConfiguration, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -230,7 +175,7 @@ MonoBehaviour:
           m_Value1: 3110734333140762985
         Name: BonusDamageConfiguration
         m_Value: {fileID: 0}
-    - rid: 8080077935718433081
+    - rid: 8080077958689587216
       type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.MonoActor, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -238,33 +183,43 @@ MonoBehaviour:
           m_Value1: 1099009004996749440
         Name: Owner
         m_Value: {fileID: 0}
-    - rid: 8080077935718433082
+    - rid: 8080077958689587217
+      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.Data.Static.AnimationLayers.AnimationLayerSelectorAsset, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 5113563267544367888
+          m_Value1: 15288916771219262510
+        Name: Animation Layers Selector
+        m_Value: {fileID: 0}
+    - rid: 8080077958689587218
       type: {class: WaitForAnimationEventAction, ns: EndlessHeresy.Runtime.Behaviour.Actions, asm: Assembly-CSharp}
       data:
         ID:
           m_Value0: 13869268605176827344
           m_Value1: 13946836912905795257
         Graph:
-          rid: 8080077935718433065
+          rid: 8080077958689587200
         m_Parent:
-          rid: 8080077935718433076
+          rid: 8080077958689587211
         AnimationEvent:
-          rid: 8080077935693005171
+          rid: 8080077958689587228
         Actor:
-          rid: 8080077935718433081
-    - rid: 8080077935718433083
+          rid: 8080077958689587216
+        LayersSelector:
+          rid: 8080077958689587217
+    - rid: 8080077958689587219
       type: {class: RunSubgraph, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 8012734253164535207
           m_Value1: 888741202299719491
         Graph:
-          rid: 8080077935718433065
+          rid: 8080077958689587200
         m_Parent:
-          rid: 8080077935718433076
+          rid: 8080077958689587211
         Subgraph:
-          rid: 8080077935718433066
-    - rid: 8080077935718433084
+          rid: 8080077958689587201
+    - rid: 8080077958689587220
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -272,7 +227,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 0}
-    - rid: 8080077935718433085
+    - rid: 8080077958689587221
       type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -280,7 +235,7 @@ MonoBehaviour:
           m_Value1: 1395037983856648281
         Name: Targets
         m_Value: []
-    - rid: 8080077935718433086
+    - rid: 8080077958689587222
       type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -288,7 +243,7 @@ MonoBehaviour:
           m_Value1: 17993891841259174440
         Name: Damaged Targets
         m_Value: []
-    - rid: 8080077935718433087
+    - rid: 8080077958689587223
       type: {class: 'BlackboardVariable`1[[UnityEngine.Vector2, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -296,7 +251,7 @@ MonoBehaviour:
           m_Value1: 5729242831478854905
         Name: AttackPosition
         m_Value: {x: 0, y: 0}
-    - rid: 8080077935718433088
+    - rid: 8080077958689587224
       type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -304,70 +259,126 @@ MonoBehaviour:
           m_Value1: 17214973386352119558
         Name: Exploded Targets
         m_Value: []
-    - rid: 8080077935718433089
+    - rid: 8080077958689587225
       type: {class: DetectTargetsWithFacingDirectionAction, ns: EndlessHeresy.Runtime.Behaviour.Actions, asm: Assembly-CSharp}
       data:
         ID:
           m_Value0: 7762146223448082541
           m_Value1: 13077244605203461723
         Graph:
-          rid: 8080077935718433066
+          rid: 8080077958689587201
         m_Parent:
-          rid: 8080077935718433078
+          rid: 8080077958689587213
         CapsuleCenter:
-          rid: 8080077935693005174
+          rid: 8080077958689587229
         CapsuleSize:
-          rid: 8080077935693005175
+          rid: 8080077958689587230
         OffSet:
-          rid: 8080077935693005176
+          rid: 8080077958689587231
         Actor:
-          rid: 8080077935718433081
+          rid: 8080077958689587216
         Targets:
-          rid: 8080077935718433085
+          rid: 8080077958689587221
         Point:
-          rid: 8080077935718433087
-    - rid: 8080077935718433090
+          rid: 8080077958689587223
+    - rid: 8080077958689587226
       type: {class: ProcessDamageOnTargetsAction, ns: EndlessHeresy.Runtime.Behaviour.Actions, asm: Assembly-CSharp}
       data:
         ID:
           m_Value0: 13197574125326358534
           m_Value1: 11442558773030514013
         Graph:
-          rid: 8080077935718433066
+          rid: 8080077958689587201
         m_Parent:
-          rid: 8080077935718433078
+          rid: 8080077958689587213
         Damage:
-          rid: 8080077935693005172
+          rid: 8080077958689587232
         Value:
-          rid: 8080077935693005173
+          rid: 8080077958689587233
         Targets:
-          rid: 8080077935718433085
+          rid: 8080077958689587221
         Attacker:
-          rid: 8080077935718433081
+          rid: 8080077958689587216
         DamagedTargets:
-          rid: 8080077935718433086
+          rid: 8080077958689587222
         BonusDamage:
-          rid: 8080077935718433080
-    - rid: 8080077935718433091
+          rid: 8080077958689587215
+    - rid: 8080077958689587227
       type: {class: ProcessExplosionForceAction, ns: EndlessHeresy.Runtime.Behaviour.Actions, asm: Assembly-CSharp}
       data:
         ID:
           m_Value0: 8873571174031157811
           m_Value1: 13103933305994111381
         Graph:
-          rid: 8080077935718433066
+          rid: 8080077958689587201
         m_Parent:
-          rid: 8080077935718433078
+          rid: 8080077958689587213
         ForceMultiplier:
-          rid: 8080077935693005177
+          rid: 8080077958689587234
         Point:
-          rid: 8080077935718433087
+          rid: 8080077958689587223
         Targets:
-          rid: 8080077935718433085
+          rid: 8080077958689587221
         ExplodedTargets:
-          rid: 8080077935718433088
+          rid: 8080077958689587224
         Actor:
-          rid: 8080077935718433081
+          rid: 8080077958689587216
+    - rid: 8080077958689587228
+      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: OnSpinTick
+    - rid: 8080077958689587229
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector2, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {x: 0, y: 0}
+    - rid: 8080077958689587230
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector2, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {x: 4, y: 4}
+    - rid: 8080077958689587231
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector2, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {x: 0, y: 0}
+    - rid: 8080077958689587232
+      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.Data.Identifiers.DamageType, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 5
+    - rid: 8080077958689587233
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 5
+    - rid: 8080077958689587234
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 40
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,7 +398,7 @@ MonoBehaviour:
   - rid: 8080077935215116899
   - rid: 8080077935215116950
   - rid: 8080077935215116975
-  m_VersionTimestamp: 638871531244840092
+  m_VersionTimestamp: 638872406985747951
   m_DebugInfo: {fileID: 4799367113290355120}
   m_RuntimeGraph: {fileID: -8833792312211342822}
   AssetID:
@@ -406,7 +417,7 @@ MonoBehaviour:
     Variables: []
     NamedChildren: []
   - Name: Wait For Animation Event
-    Story: 'Wait for [AnimationEvent] on [Actor]'
+    Story: 'Wait for [AnimationEvent] on [Actor] with [LayersSelector]'
     RuntimeTypeID:
       m_Value0: 13672497432714246995
       m_Value1: 14245224675058098678
@@ -421,6 +432,11 @@ MonoBehaviour:
         m_SerializableType: EndlessHeresy.Runtime.MonoActor, Assembly-CSharp, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
       Tooltip: 
+    - Name: LayersSelector
+      Type:
+        m_SerializableType: EndlessHeresy.Runtime.Data.Static.AnimationLayers.AnimationLayerSelectorAsset,
+          Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Tooltip: 
     NamedChildren: []
   - Name: Run Subgraph
     Story: 
@@ -428,6 +444,40 @@ MonoBehaviour:
       m_Value0: 9965463903622711961
       m_Value1: 5344335246744595133
     Variables: []
+    NamedChildren: []
+  - Name: Log Message
+    Story: Log [message] to the console
+    RuntimeTypeID:
+      m_Value0: 14362779694071371193
+      m_Value1: 7851297057022692581
+    Variables:
+    - Name: Message
+      Type:
+        m_SerializableType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    - Name: LogLevel
+      Type:
+        m_SerializableType: Unity.Behavior.LogMessageToConsoleAction+LogType, Unity.Behavior,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    NamedChildren: []
+  - Name: Wait For Animation Finish
+    Story: 'Wait for animation finished on [Actor] with [LayerSelector]'
+    RuntimeTypeID:
+      m_Value0: 7569322675887529052
+      m_Value1: 5865649564973362753
+    Variables:
+    - Name: Actor
+      Type:
+        m_SerializableType: EndlessHeresy.Runtime.MonoActor, Assembly-CSharp, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: LayerSelector
+      Type:
+        m_SerializableType: EndlessHeresy.Runtime.Data.Static.AnimationLayers.AnimationLayerSelectorAsset,
+          Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Tooltip: 
     NamedChildren: []
   - Name: Process Damage On Targets
     Story: 'Process [Damage] of [Value] with [BonusDamage] on [Targets] with [Attacker]
@@ -624,6 +674,7 @@ MonoBehaviour:
         m_FieldValues:
         - rid: 8080077935215116902
         - rid: 8080077935215116903
+        - rid: 8080077943473439073
     - rid: 8080077935215116900
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -693,7 +744,7 @@ MonoBehaviour:
     - rid: 8080077935215116950
       type: {class: SubgraphNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: -54.936504, y: 69.601845}
+        Position: {x: -54.936504, y: 70.40185}
         ID:
           m_Value0: 8012734253164535207
           m_Value1: 888741202299719491
@@ -871,6 +922,35 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
+    - rid: 8080077943473439073
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: LayersSelector
+        Type:
+          m_SerializableType: EndlessHeresy.Runtime.Data.Static.AnimationLayers.AnimationLayerSelectorAsset,
+            Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 8080077943473439074
+        LinkedVariable:
+          rid: 8080077943473439614
+    - rid: 8080077943473439074
+      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.Data.Static.AnimationLayers.AnimationLayerSelectorAsset, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 8080077943473439614
+      type: {class: 'TypedVariableModel`1[[EndlessHeresy.Runtime.Data.Static.AnimationLayers.AnimationLayerSelectorAsset, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 5113563267544367888
+          m_Value1: 15288916771219262510
+        Name: Animation Layers Selector
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
 --- !u!114 &4799367113290355120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,7 +983,8 @@ MonoBehaviour:
   - rid: 8080077935215116358
   - rid: 8080077935215116466
   - rid: 8080077935215116522
-  m_VersionTimestamp: 638871522925717696
+  - rid: 8080077943473439075
+  m_VersionTimestamp: 638871832500856280
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: 8970187792927396818}
@@ -940,6 +1021,16 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
+    - rid: 8080077943473439075
+      type: {class: 'TypedVariableModel`1[[EndlessHeresy.Runtime.Data.Static.AnimationLayers.AnimationLayerSelectorAsset, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 5113563267544367888
+          m_Value1: 15288916771219262510
+        Name: Animation Layers Selector
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
 --- !u!114 &8970187792927396818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,7 +1043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
   m_Name: CrescentStrikeSpinTick Blackboard
   m_EditorClassIdentifier: 
-  VersionTimestamp: 638871522925717696
+  VersionTimestamp: 638871832500856280
   AssetID:
     m_Value0: 11843453508558838559
     m_Value1: 9749176543197599368
@@ -961,6 +1052,7 @@ MonoBehaviour:
     - rid: 8080077935215116366
     - rid: 8080077935215116479
     - rid: 8080077935215116537
+    - rid: 8080077943473439112
   m_SharedBlackboardVariableGuids: []
   references:
     version: 2
@@ -988,4 +1080,12 @@ MonoBehaviour:
           m_Value0: 11881643740897616353
           m_Value1: 1099009004996749440
         Name: Owner
+        m_Value: {fileID: 0}
+    - rid: 8080077943473439112
+      type: {class: 'BlackboardVariable`1[[EndlessHeresy.Runtime.Data.Static.AnimationLayers.AnimationLayerSelectorAsset, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 5113563267544367888
+          m_Value1: 15288916771219262510
+        Name: Animation Layers Selector
         m_Value: {fileID: 0}

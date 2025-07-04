@@ -1,7 +1,6 @@
 using System;
-using System.Threading.Tasks;
-using Better.Commons.Runtime.Extensions;
 using EndlessHeresy.Runtime.Animations;
+using EndlessHeresy.Runtime.Data.Static.AnimationLayers;
 using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
@@ -10,18 +9,23 @@ using Unity.Properties;
 namespace EndlessHeresy.Runtime.Behaviour.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Wait For Animation Event", story: "Wait for [AnimationEvent] on [Actor]",
+    [NodeDescription(name: "Wait For Animation Event",
+        story: "Wait for [AnimationEvent] on [Actor] with [LayersSelector]",
         category: "Action/EndlessHeresy", id: "537b5f9df977bebdf6a177165e34b1c5")]
     public partial class WaitForAnimationEventAction : Action
     {
         [SerializeReference] public BlackboardVariable<string> AnimationEvent;
         [SerializeReference] public BlackboardVariable<MonoActor> Actor;
+        [SerializeReference] public BlackboardVariable<AnimationLayerSelectorAsset> LayersSelector;
+
         private AnimationsEventListener _eventsListener;
-        private TaskCompletionSource<bool> _tcs;
-        private const float MaxWaitTime = 10f;
+        private int _countToWait;
+        private int _currentCount;
 
         protected override Status OnStart()
         {
+            _currentCount = 0;
+            _countToWait = LayersSelector.Value.LayerIdentifiers.Length;
             _eventsListener = Actor.Value.GetComponent<AnimationsEventListener>();
 
             if (_eventsListener == null)
@@ -29,39 +33,24 @@ namespace EndlessHeresy.Runtime.Behaviour.Actions
                 return Status.Failure;
             }
 
-            _tcs = new TaskCompletionSource<bool>();
-
             _eventsListener.Register(AnimationEvent.Value, OnAnimationEventTriggered);
-
-            var timeoutTask = Task.Delay(TimeSpan.FromSeconds(MaxWaitTime));
-            var completionTask = Task.WhenAny(_tcs.Task, timeoutTask);
-
-            completionTask.ContinueWith(_ =>
-            {
-                _eventsListener.Unregister(AnimationEvent.Value, OnAnimationEventTriggered);
-            }).Forget();
-
             return Status.Running;
         }
 
         protected override Status OnUpdate()
         {
-            if (_tcs.Task.IsCompleted)
+            if (_currentCount < _countToWait)
             {
-                return _tcs.Task.IsCanceled ? Status.Failure : Status.Success;
+                return Status.Running;
             }
 
-            return Status.Running;
-        }
-
-        protected override void OnEnd()
-        {
             _eventsListener?.Unregister(AnimationEvent.Value, OnAnimationEventTriggered);
+            return Status.Success;
         }
 
         private void OnAnimationEventTriggered()
         {
-            _tcs.TrySetResult(true);
+            _currentCount++;
         }
     }
 }

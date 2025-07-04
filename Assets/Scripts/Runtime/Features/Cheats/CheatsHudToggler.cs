@@ -12,11 +12,11 @@ namespace EndlessHeresy.Runtime.Cheats
     public sealed class CheatsHudToggler : PocoComponent
     {
         private readonly ICheatsService _cheatsService;
+        private readonly InputAction _inputAction;
+
         private InventoryComponent _inventory;
         private StatusEffectsComponent _statusEffects;
         private AffinityComponent _affinity;
-
-        private readonly InputAction _inputAction;
         private bool _isCheatsEnabled;
 
         public CheatsHudToggler(ICheatsService cheatsService, InputAction inputAction)

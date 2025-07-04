@@ -16,5 +16,5 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 79177028f3a218e4381cb2b9cc6f6a0e, type: 3}
   _description: Test
   _name: Test
-  _cooldown: 2
+  _cooldown: 0.5
   _graph: {fileID: 42222918440638510, guid: 647b777911e3c5841b1693b7fd201055, type: 2}

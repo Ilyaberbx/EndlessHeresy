@@ -2,6 +2,7 @@
 using EndlessHeresy.Runtime.Actors.Hero;
 using EndlessHeresy.Runtime.Behaviour.Events;
 using EndlessHeresy.Runtime.Data.Static.Abilities;
+using EndlessHeresy.Runtime.Data.Static.AnimationLayers;
 using EndlessHeresy.Runtime.Data.Static.Components;
 using Unity.Behavior.GraphFramework;
 using UnityEngine;
@@ -24,6 +25,7 @@ namespace EndlessHeresy.Runtime.Data.Static
         [SerializeField] private HeroActor _prefab;
         [SerializeField, Range(0, 50)] private int _maxInventorySize;
         [SerializeField] private PoolData _trailsPoolData;
+        [SerializeField] private AnimationLayerSelectorAsset _movementLayersSelectorAsset;
 
         public HeroActor Prefab => _prefab;
         public PoolData TrailsPoolData => _trailsPoolData;
@@ -37,5 +39,6 @@ namespace EndlessHeresy.Runtime.Data.Static
         public SerializableGUID AbilityToCastGuid => _abilityToCastGuid;
         public OnAbilityUsageFinished AbilityUsageFinishedChannel => _abilityUsageFinishedChannel;
         public InputAction ToggleInventoryInputData => _toggleInventoryInputData.action;
+        public AnimationLayerSelectorAsset MovementLayersSelectorAsset => _movementLayersSelectorAsset;
     }
 }
