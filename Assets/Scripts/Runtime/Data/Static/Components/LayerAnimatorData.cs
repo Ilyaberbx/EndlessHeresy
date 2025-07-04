@@ -5,7 +5,7 @@ using UnityEngine;
 namespace EndlessHeresy.Runtime.Data.Static.Components
 {
     [Serializable]
-    public class LayerAnimatorData
+    public sealed class LayerAnimatorData
     {
         [SerializeField] private AnimatorLayerType _layerIdentifier;
         [SerializeField] private Animator _animator;

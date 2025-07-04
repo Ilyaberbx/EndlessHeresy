@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c669a2b76a064b058a38b0c54cb19904, type: 3}
   m_Name: GeneralLayerSelector
   m_EditorClassIdentifier: 
-  _layerIdentifiers: 02000000
+  _layerIdentifiers: 03000000

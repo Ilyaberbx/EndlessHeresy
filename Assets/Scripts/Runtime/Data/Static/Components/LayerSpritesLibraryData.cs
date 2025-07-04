@@ -6,7 +6,7 @@ using UnityEngine.U2D.Animation;
 namespace EndlessHeresy.Runtime.Data.Static.Components
 {
     [Serializable]
-    public class LayerSpritesLibraryData
+    public sealed class LayerSpritesLibraryData
     {
         [SerializeField] private AnimatorLayerType _layerIdentifier;
         [SerializeField] private SpriteLibrary _library;

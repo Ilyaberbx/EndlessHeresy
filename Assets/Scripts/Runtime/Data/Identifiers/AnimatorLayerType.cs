@@ -4,6 +4,7 @@
     {
         Body,
         Sword,
+        UsedItem,
         General,
     }
 }

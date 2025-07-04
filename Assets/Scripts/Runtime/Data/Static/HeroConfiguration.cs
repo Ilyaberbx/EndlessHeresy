@@ -16,6 +16,8 @@ namespace EndlessHeresy.Runtime.Data.Static
         [SerializeField] private SerializableGUID _abilityToCastGuid;
         [SerializeField] private OnHeroStateChanged _statesChangeChannel;
         [SerializeField] private OnAbilityUsageFinished _abilityUsageFinishedChannel;
+        [SerializeField] private AnimationLayerSelectorAsset _movementLayersSelectorAsset;
+        [SerializeField] private EquipmentSwordData[] _equipmentSwordDefaultData;
         [SerializeField] private InputActionReference _movementInputData;
         [SerializeField] private InputActionReference _toggleCheatsInputData;
         [SerializeField] private InputActionReference _toggleInventoryInputData;
@@ -25,7 +27,6 @@ namespace EndlessHeresy.Runtime.Data.Static
         [SerializeField] private HeroActor _prefab;
         [SerializeField, Range(0, 50)] private int _maxInventorySize;
         [SerializeField] private PoolData _trailsPoolData;
-        [SerializeField] private AnimationLayerSelectorAsset _movementLayersSelectorAsset;
 
         public HeroActor Prefab => _prefab;
         public PoolData TrailsPoolData => _trailsPoolData;
@@ -40,5 +41,6 @@ namespace EndlessHeresy.Runtime.Data.Static
         public OnAbilityUsageFinished AbilityUsageFinishedChannel => _abilityUsageFinishedChannel;
         public InputAction ToggleInventoryInputData => _toggleInventoryInputData.action;
         public AnimationLayerSelectorAsset MovementLayersSelectorAsset => _movementLayersSelectorAsset;
+        public IReadOnlyList<EquipmentSwordData> EquipmentSwordDefaultData => _equipmentSwordDefaultData;
     }
 }

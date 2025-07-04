@@ -1,5 +1,8 @@
-﻿namespace EndlessHeresy.Runtime.Data.Identifiers
+﻿using Unity.Behavior;
+
+namespace EndlessHeresy.Runtime.Data.Identifiers
 {
+    [BlackboardEnum]
     public enum EquipmentSlotType
     {
         None,
@@ -8,6 +11,5 @@
         Dash,
         Passive,
         Usable,
-        General,
     }
 }

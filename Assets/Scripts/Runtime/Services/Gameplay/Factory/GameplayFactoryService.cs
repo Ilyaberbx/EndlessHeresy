@@ -9,6 +9,7 @@ using EndlessHeresy.Runtime.Cheats;
 using EndlessHeresy.Runtime.Commands;
 using EndlessHeresy.Runtime.Controls;
 using EndlessHeresy.Runtime.Defense;
+using EndlessHeresy.Runtime.EquipmentSword;
 using EndlessHeresy.Runtime.Evasion;
 using EndlessHeresy.Runtime.Facing;
 using EndlessHeresy.Runtime.Health;
@@ -56,6 +57,7 @@ namespace EndlessHeresy.Runtime.Services.Gameplay.Factory
                 .WithComponent<StatusEffectsComponent>()
                 .WithComponent<HealthChangesMessages>()
                 .WithComponent<DamageDefenseComponent>()
+                .WithComponent<EquipmentSwordStorage>(configuration.EquipmentSwordDefaultData)
                 .WithComponent<DamageDefenseMessages>()
                 .WithComponent<EvasionComponent>()
                 .WithComponent<EvasionMessages>()
